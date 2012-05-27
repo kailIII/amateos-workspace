@@ -1,0 +1,56 @@
+****************************************************************************
+* INSTRUCCIONES EJEMPLO LAYOUTS, VIEWS & ESTILOS                           *
+****************************************************************************
+
++ LAYOUTS
+----------------------------------------------------------------------------
+
+1. TABS
+
+	- Cambiar extensión de EjemploActivity a TabActivity
+	- Copiar en onCreate de EjemploActivity el código del archivo tabs.txt
+	- Copiar tabs.xml a /res/layout/
+	
+	
+2. LINEAR LAYOUT
+
+	- Crear linear.xml en /res/layout/
+	- Cambiar el layout a linear.xml en LinearLayoutActivity.java
+	
+3. RELATIVE LAYOUT	
+
+	- Crear relative.xml en /res/layout/
+	- Cambiar el tipo de layout a RelativeLayout
+	- Cambiar el layout a relative.xml en RelativeLayoutActivity.java
+
+
+
++ LISTENERS
+----------------------------------------------------------------------------
+
+	- Agregar onClickListener a un botón
+	
+	Button boton = (Button) findViewById(R.id.button1);
+	        boton.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					Toast.makeText(getApplicationContext(), "Botón pulsado", Toast.LENGTH_LONG).show();
+				}
+			});
+	
+
+
++ LISTVIEW
+----------------------------------------------------------------------------
+
+	- Copiar código en ListViewActivity
+	- Copiar clase Estudiante.java
+	- Copiar clase EjemploArrayAdapter.java
+	- Copiar listview.xml en /res/layout/
+	- Copiar row_ejemplo.xml en /res/layout/
+	
+	
++ ESTILOS
+----------------------------------------------------------------------------
+
+	- Copiar styles.xml y themes.xml en /res/values/
+	- Aplicar los estilos/temas

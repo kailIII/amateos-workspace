@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, EjemploActivity!</string>
+    <string name="app_name">Ejemplo</string>
+    <string name="Linear">Linear</string>
+    <string name="Relative">Relative</string>
+    <string name="ListView">ListView</string>
+
+</resources>
