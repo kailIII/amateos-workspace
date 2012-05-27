@@ -1,0 +1,9 @@
+= Taller diseño UI Android (28/05/2012)=
+
+http://i48.tinypic.com/2dwcj5v.png
+
+  * *Presentación:*  [http://amateos-workspace.googlecode.com/svn/trunk/TallerUIAndroid/Presentacion/index.html#1 Ver Online]
+
+  * *Ejemplos:* [http://code.google.com/p/amateos-workspace/downloads/detail?name=TallerUIAndroid_Ejemplos.zip Descarga]
+
+  * *Repositorio:* [http://code.google.com/p/amateos-workspace/source/browse/#svn%2Ftrunk%2FTallerUIAndroid Ver código]
