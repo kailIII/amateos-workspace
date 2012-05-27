@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diseño UI Android</title>
+
+	<meta charset='utf-8'>
+	<script
+	src='files/slides.js'></script>
+	<link type="text/css" rel="stylesheet" href="files/styles.css">
+</head>
+
+<body style='display: none'>
+
+	<section class='slides layout-regular template-io2011'>
+
+		<article class='biglogo'>
+		</article>
+
+		<article>
+			<h1>
+				Diseño de interfaces de usuario en Android
+			</h1>
+			<p>
+				Alberto Mateos Checa
+				<br>
+				28 Mayo 2012, Granada
+			</p>
+		</article>
+
+		<article>
+			<h3>SEGUIMIENTO Y CONTACTO</h3>
+			<br><br>
+			<p><b><span class="green">Presentación:</span></b> http://....</p>
+			<p><b><span class="green">Descarga ejemplos:</span></b> http://....</p>
+			<br>
+			<img src="images/twitter.png" alt="twitter: @empollica #androidUIgranada"/>
+			<br>
+			<img src="images/gmail.png" style='width:90px;margin-left:10px;' /><span style='margin-left:20px; position: relative; top: -20px;'><b>rolimat@gmail.com</b></span>
+		</article>
+
+		<article>
+			<h3>ÍNDICE</h3>
+			<ol>
+				<li>Introducción</li>
+				<li>Buenas prácticas</li>
+				<li>Layouts y componentes</li>
+
+				<li>Estilos</li>
+				<li>Patrones de diseño</li>
+			</ol>
+		</article>
+
+
+		<article class='fill'>
+			<h3>
+				1. Introducción
+			</h3>
+			<p>
+				<img src='images/seccion1.png'>
+			</p>
+		</article>
+
+
+		<article>
+			<h3>1.1 Evolución de Android: hardware</h3>
+			<img src="images/comparativaDispositivos.png" alt="evolución dispositivos Android" />
+			<p><b>Dispositivos heterogéneos:</b> pantallas, teclados ...</p>
+			<p><b>Tendencia:</b> 
+				<li>pantallas más grandes y más resolución.</li>
+				<li>mayor potencial</li>
+			</p>
+		</article>
+
+		<article>
+			<h3>1.1 Evolución de Android: UI</h3>
+			<img src="images/comparativaDispositivos.png" alt="evolución aspecto visual Android" />
+			<p><b>Grandes mejoras a partir de versiones 3 y 4</b> </p>
+			<p><b>Tendencia:</b> 
+				<li>diseño más claro y simple</li>
+				<li>mayor usabilidad</li>
+			</p>
+		</article>
+
+		<article class='smaller'>
+			<h3>1.2 Directorios</h3>
+			<img class='centered' src="images/directorios.png" alt="evolución dispositivos Android"/>
+			<b>RES:</b> contiene los recursos y definiciones en XML
+			<ul>
+				<li>Imágenes</li>
+				<li>Iconos</li>
+				<li>Cadenas de texto</li>
+				<li>Estilos/Temas</li>
+				<li>Colores</li>
+				<li>...</li>
+			</ul>
+		</article>
+
+		<article>
+			<h3>1.3 Definiciones XML</h3>
+			<br>
+			<p class='green'><b>&rarr; permiten definir recursos y layouts</b></p>
+			<br>
+			<b>Características:</b>
+			<ul>
+				<li>Alternativa a la programación en Java para UI</li>
+				<li>Facilitan el diseño de la UI</li>
+				<li>Visualización más agradable y "humana"</li>
+				<li>Mejoran la organización de los recursos del proyecto</li>
+				<li>NO proporcionan arquitectura MVC</li>
+			</ul>
+			<br>
+			Acceso a XML desde clases Java &rarr; <b>R</b> y <b>android.R</b>
+		</article>
+
+		<article class='fill'>
+			<h3>
+				2. Buenas prácticas
+			</h3>
+			<p>
+				<img src='images/seccion2.png'>
+			</p>
+		</article>
+
+		<article>
+			<h3>
+				2.1 Pantallas y resoluciones
+			</h3>
+			<br>
+			<img src='images/pantallasyresoluciones.png' alt='Diferentes pantallas y resoluciones Android' width='400' /><img src='images/estadisticas_pantallas.png' width='300' style='padding-bottom: 25px;' />
+			<br><br>
+			<ul>
+				<li><b>Múltiples tamaños, resoluciones y densidades</b></li>
+				<li><span class='red'><b>Problema:</b> diferentes configuraciones, una sola aplicación</span></li>
+			</ul>	
+		</article>	
+		
+		<article class='smaller'>
+			<h3>
+				2.1 Pantallas y resoluciones
+			</h3>
+			<br>
+			<p class='green'><b>Solución diferentes TAMAÑOS:</b></p>
+			<img class='centered' src='images/tam_pantallas.png'/>
+			<br>
+			<ul>
+				<li>Declarar en el <b>AndroidManifest</b> los tamaños de pantalla soportados por la app</li>
+				<section>
+					<pre>
+&lt;supports-screens android:resizeable=["true"| "false"]
+		  android:smallScreens=["true" | "false"]
+		  android:normalScreens=["true" | "false"]
+		  android:largeScreens=["true" | "false"]
+		  android:xlargeScreens=["true" | "false"]/&gt;</pre>
+				</section>
+				</li>
+				<br>
+				<li>Diseño de layouts adaptados al tamaño: <i>layout-xlarge, layout-large, layout-normal ...</i></li>
+			</ul>	
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				2.1 Pantallas y resoluciones
+			</h3>
+			<br>
+			<p class='green'><b>Solución diferentes DENSIDADES:</b></p>
+			<img class='centered' src='images/dens_pantallas.png'/>
+			<br>
+			<ul>
+				<li>Declarar en el <b>AndroidManifest</b> las densidades soportadas por la app</li>
+				<section>
+					<pre>
+&lt;supports-screens android: android:anyDensity=["true" | "false"]
+		  android:requiresSmallestWidthDp="integer"
+		  android:compatibleWidthLimitDp="integer"
+		  android:largestWidthLimitDp="integer"/&gt;</pre>
+						</section>
+						</li>
+						<br>
+					<li><b>USO DE DP (Density-independent Pixel):</b> unidad de medida independiente de la densidad. Equivalente a 1px en una pantalla de 160 dpi (dots per inch) </li>
+					
+					
+				</ul>
+
+			</article>
+		
+		<article class='smaller'>
+			<h3>
+				2.1 Pantallas y resoluciones
+			</h3>
+			<br>
+			<p class='green'><b>Solución diferentes DENSIDADES:</b></p>
+			<ul>
+				<li>Comenzar el diseño para una pantalla tipo <b>mdpi</b></li>
+				<li>Adaptar los recursos a otras densidades: <i>drawable-xhdpi, drawable-hdpi, drawable-ldpi ...</i></li>
+			</ul>
+			<img style='margin-left: 20px; margin-right: 20px; padding-bottom: 20px;' src='images/conversion_densidades.png'/><img src='images/comparacionDP.png'/>
+
+			<ul>
+				<br>
+				<li>Uso de imágenes tipo <b>Nine-Patch</b></li>
+			</ul>
+
+		</article>
+
+		<article class='smaller'>
+			<h3>
+				2.2 Imágenes Nine-Patch
+			</h3>
+			<p class='green'>&rarr; imágenes extensibles que se 'autoadaptan' a la forma de la vista <b>SIN pixelarse</b></p>
+			<p><b>Características</b></p>
+			<ul>
+				<li>Definición de la forma:</b> borde 1px</li>
+				<li>Definición de área extensible: línea negra 1px arriba e izquierda</li>
+				<li>Definición de área padding (opcional): línea negra 1px abajo y derecha</li>
+				<li>Se guardan en formato <b>9.png</b></li>
+				<li><b>Herramienta Android: </b>/tools/draw9patch</li>
+			</ul>
+			<img src='images/draw9.png' style='margin-right: 20px; margin-left: 100px;' /><img src='images/comparacionNine.png' style='padding-bottom: 50px;' />	
+			
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				2.3 Tamaño de elementos
+			</h3>
+			<img src='images/metrics.png' style='width:300px;margin-right:20px; margin-bottom:70px;'/><img src='images/metrics_forms.png' style='height:300px; margin-top: 20px;' />
+			<p><span class='green'><b>ALTURA = 48dp ~ 9mm: </b></span> rango confortable para pantallas táctiles &rarr; [7mm,10mm]</p>
+			<ul>
+				<li>Independientemente de la pantalla nos aseguramos que un elemento de la pantalla NO será NUNCA &lt; 7mm</li>
+				<li>Compromiso entre densidad de información y facilidad para tocar elementos</li>
+			</ul>	
+			<p><span class='green'><b>DISTANCIA ENTRE ELEMENTOS = 8dp</b></span></p>
+			
+		</article>
+
+		<article>
+			<h3>
+				2.3 Tamaño de elementos
+			</h3>
+			<br>
+			<li>Definir tamaños en <b>res/values/dimens.xml</b></li>
+			<section>
+				<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+	&lt;dimen name="altura"&gt;48dp&lt;/dimen&gt;
+	&lt;dimen name="margen_lateral"&gt;16dp&lt;/dimen&gt;
+	&lt;dimen name="distancia_elementos"&gt;8dp&lt;/dimen&gt;
+&lt;/resources&gt;</pre>
+					</section>
+			
+		</article>
+
+		<article class='smaller'>
+			<h3>
+				2.4 Iconos
+			</h3>
+			<br>
+			<div style='float:right;width:200px;'>
+				<img src='images/iconos_launcher.png' />
+				<img src='images/iconos_actionBar.png' />
+				<img src='images/iconos_contextuales.png' style='margin-top: 10px;'/>
+				<img src='images/iconos_notificaciones.png' />				
+			</div>
+			
+			<div style='width:550px;'>
+				<p class='green'><b>&rarr; LAUNCHER: </b>48x48 dp</p>
+				<ul>
+					<li><b>Características:</b> Silueta 3D y visible en cualquier tipo de fondo</li>
+				</ul>	
+				<p class='green'><b>&rarr; ACTION BAR:</b> 32x32 dp (24x24 interior)</p>
+				<ul>
+					<li><b>Características:</b> Planos y sin detalles. Curvas suaves. Rotar icono si es alargado</li>
+					<li><b>Color (tema Holo): </b>#333 ó #FFF (según fondo) y opacidades según habilitado o no (60% ó 80% - 30%)</li>
+				</ul>
+				<p class='green'><b>&rarr; CONTEXTUALES: </b>16x16 dp (12x12 interior)</p>
+				<ul>
+					<li><b>Características:</b> Planos y simples. Descriptivos. Mejor formas rellenas que líneas delgadas. Uso de colores</li>
+				</ul>
+				<p class='green'><b>&rarr; NOTIFICACIONES: </b>24x24 dp (22x22 interior)</p>	
+				<ul><li><b>Características:</b> Misma forma que para 'launcher' pero plano. Color BLANCO</li></ul>
+			</div>	
+			<p><span class='red'><b>UTILIDAD:</b> <a href='http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html' target='blank'>Asset Studio</a></span></p>
+
+			<p><b>Consejo:</b> utilizar compresores PNG</p>
+		</article>	
+
+		<article class='smaller'>
+			<h3>
+				2.5 Colores
+			</h3>
+			<br>
+			<img src='images/paleta_colores.png' />
+			<ul>
+				<li><b>Colores primarios </b>&rarr; facilitan el énfasis</li>
+				<li>Elegir colores que contrasten visualmente</li>
+				<li>Cuidado con usuarios con problemas de visión &rarr; <b>Color Oracle</b></li>
+			</ul>
+			
+			<li>Definir colores en <b>res/values/colors.xml</b></li>
+			<section>
+				<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+	&lt;color name="blanco"&gt;#FFFFFF&lt;/color&gt;
+	&lt;color name="azul"&gt;#0000FF&lt;/color&gt;
+	&lt;color name="verde"&gt;#00FF00&lt;/color&gt;
+	&lt;color name="rojo"&gt;#FF0000&lt;/color&gt;
+&lt;/resources&gt;</pre>
+					</section>
+		</article>
+
+		<article class='fill'>
+			<h3>
+				3. Layouts y Views
+			</h3>
+			<p>
+				<img src='images/seccion3.png'>
+			</p>
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				3.1. Layouts
+			</h3>
+			<br>
+			<span class='green'><b>&rarr; Establecen la forma de posicionamiento de los elementos de la pantalla</b></span>
+			<li>Se definen mediante Java y XML (res/layout/milayout.xml)</li>
+			<section>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" &gt;
+&lt;/LinearLayout&gt;
+</pre>					
+			</section>	
+			<li>En la Activity se establece el layout a utilizar:</li>
+			<section>
+<pre>setContentView(R.layout.milayout);
+</pre>				
+			</section>
+		</article>
+		
+		<article>
+			<h3>
+				3.1. Layouts
+			</h3>
+			<br>			
+			<p class='green'><b>&rarr; Tipos más comunes:</b></p>
+			<img src='images/layouts.png' width='800px'/>
+			<p class='red'><b>CUIDADO:</b> no utilizar NUNCA AbsolutLayout</p>
+			
+		</article>
+		
+		<article>
+			<h3>
+				3.2. Views
+			</h3>
+			<p class='green'><b>&rarr; Tipos más comunes:</b></p>
+			<img src='images/views.png' class='centered' height='450px'/>
+						
+		</article>
+		
+		<article>
+			<h3>
+				3.3. Listeners
+			</h3>
+			<br>
+			<p class='green'><b>&rarr; Comportamiento similar a Java</b></p>
+			<br>
+			<p><b>Tipos:</b></p>
+			<ul>
+				<li>onClick</li>
+				<li>onLongClick</li>
+				<li>onFocusChange</li>
+				<li>onDrag</li>
+				<li>onMenuItem</li>
+				<li>...</li>
+			</ul>				
+		</article>
+		
+		<article>
+			<h3>
+				3.4. Adapters
+			</h3>
+			<br>
+			<p class='green'><b>&rarr; Establecen una relación entre una fuente de datos externa y los elementos de una vista</b></p>	
+			<br>
+			<p class='blue'><b>Tipos:</b></p>
+			<ul>		
+				<li><b>CursorAdapter:</b> lectura de una base de datos</li>
+				<li><b>ArrayAdapter:</b> lectura de una array</li>
+			</ul>
+			<br>	
+			<li>Necesario en algunas vistas como <b>ListView</b> o <b>Spinner</b></li>
+			<li>Existen adapters <b>predefinidos</b> muy básicos</li>
+		</article>
+		
+		<article class='fill'>
+			<h3>
+				4. Temas y estilos
+			</h3>
+			<p>
+				<img src='images/seccion4.png'>
+			</p>
+		</article>	
+		
+		<article class='smaller'>
+			<h3>
+				4.1 Estilos
+			</h3>
+			<span class='green'><b>&rarr; Colección de propiedades que especifican el aspecto y formato de una VISTA</b></span>	
+			<li>Concepto similar a los estilos en diseño web</li>
+			<li>Se definen en <b>res/values/styles.xml</b></li>	
+						
+			<section>
+<pre>&lt;style name="estiloTitulo"&gt;
+    &lt;item name="android:textStyle"&gt;bold&lt;/item&gt;
+    &lt;item name="android:layout_width"&gt;match_parent&lt;/item&gt;
+    &lt;item name="android:layout_height"&gt;wrap_content&lt;/item&gt;
+&lt;/style&gt;</pre>
+			</section>
+			
+			<li><b>Uso:</b></li>
+			
+			<div style='width:360px; float: right;'>
+				<section>			
+<pre>&lt;TextView
+style="@style/estiloTitulo"
+android:text="@string/textoTitulo" /&gt;</pre>			
+				</section>
+				</div>
+			
+			<div style='width:360px;'>
+				<section>			
+<pre>&lt;TextView								
+android:layout_width="match_parent"		
+android:layout_height="wrap_content"
+android:textStyle="bold"
+android:text="@string/textoTitulo" /&gt;</pre>			
+			</section>
+			</div>
+			
+		</article>	
+
+		<article class='smaller'>
+			<h3>
+				4.2 Temas
+			</h3>
+			<br>
+			<span class='green'><b>&rarr; Estilo aplicado a una ACTIVITY o APLICACIÓN</b></span>	
+			<li>Al aplicar un tema todas las vistas harán uso de las propiedades de estilo que soporten</li>
+			<li>Se definen en <b>res/values/themes.xml</b></li>	
+			<section>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+    &lt;style name="TemaNegrita"&gt;
+        &lt;item name="android:textColor"&gt;@color/negro&lt;/item&gt;
+        &lt;item name="android:textStyle"&gt;bold&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;</pre>				
+			</section>	
+			<li><b>Uso: </b> mediante atributos en AndroidManifest o Java</li>
+			<div style='width:320px; float: right; margin-top: -15px;'>
+			<section>
+<pre>setTheme(R.style.miTema);
+setContentView(R.layout.miLayout);</pre>				
+			</section>	
+			</div>
+			<div style='width:430px;'>
+			<section>
+<pre>&lt;application android:theme="@style/temaApp"&gt;
+&lt;activity android:theme="@style/temaActivity"&gt;</pre>				
+			</section>	
+			</div>
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				4.3 Herencia
+			</h3>
+			<br>
+			<li>Pueden definirse estilos/temas heredando las propiedades de un padre</li>
+			<li>Muy útil para crear estilos/temas basados en los predefinidos en Android</li>
+			<p class='green'><br><b>&rarr; Estilos:</b></p>
+			<section>
+<pre>&lt;style name="estiloTituloRojo" parent="@style/estiloTitulo"&gt;
+    &lt;item name="android:textColor"&gt;@color/rojo&lt;/item&gt;
+&lt;/style&gt;</pre>				
+			</section>
+
+			<p class='green'><b>&rarr; Temas:</b></p>			
+			<section>
+<pre>&lt;style name="MiTema" parent="@android:style/Theme.Light"&gt;
+    &lt;item name="android:colorBackground"&gt;@color/verde&lt;/item&gt;
+&lt;/style&gt;</pre>				
+			</section>	
+		</article>
+
+		<article class='fill'>
+			<h3>
+				5. Patrones de diseño
+			</h3>
+			<p>
+				<img src='images/seccion5.png'>
+			</p>
+		</article>
+		
+		<article>
+			<h3>
+				5. Patrones de diseño
+			</h3>
+			<br>
+			<span class='green'><b>&rarr; Describen una solución general a problemas para problemas típidos de diseño</b></span>	
+			<ul>
+			<li>Consejos, no restricciones ni imposiciones</li>
+			<li>Soportados a partir de la versión 3 de Android *</li>
+			</ul>
+			<br>
+			<span class='red'><b>&rarr; Compatibilidad versiones anteriores (2.x):</b></span>
+			<ul>
+				<li><a href='http://developer.android.com/sdk/compatibility-library.html' target='blank'>Android support package:</a> fragments</li>
+				<li><a href='http://actionbarsherlock.com/' target='blank'>ActionBarSherlock:</a> tema Holo y ActionBar</li>
+			</ul>
+			<br>
+			<br>
+			<p style='font-size:15px; float:right;'>* ActionBar y Multipanel</p>
+		</article>
+		
+		<article>
+			<h3>
+				5.1. ActionBar
+			</h3>
+			<br>
+			<span class='green'><b>&rarr; Barra que facilita la navegación y el acceso rápido a acciones frecuentes</b></span>
+			<p></p>
+			<img src='images/actionBar.png' />
+			<p></p>
+			<li>Espacio propio y fijo en la parte superior de la pantalla</li>
+			<li>Suele estar presente en toda la aplicación</li>
+			<li>Se autoadapta al tamaño disponible</li>
+			<li>Sustituye al menú 'tradicional'</li>
+			
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				5.1. ActionBar
+			</h3>
+			<span class='green'><b>&rarr; Uso:</b></span>
+			<ul>
+			<li>Establecer <b>targetSdkVersion = '11'</b> en AndroidManifest</li>
+			<li>Utilizar tema compatible con ActionBar: <span style='text-decoration:line-through;'>Theme.Holo.NoActionBar</span></li>
+			</ul>
+			<section>
+<pre>ActionBar actionBar = getActionBar();</pre>			
+			</section>
+			
+			<span class='green'><b>&rarr; ActionItems:</b></span>
+			<div style='float:right;'>
+				<img src='images/actionItems.png' width='280'/>
+			</div>	
+			<section>
+<pre>@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.main_activity, menu);
+    return true;
+}</pre>				
+			</section>
+			
+			<section>
+<pre>&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+    &lt;item android:id="@+id/menu_save"
+        android:icon="@drawable/ic_menu_save"
+        android:title="@string/menu_save"
+        android:showAsAction="ifRoom|withText" /&gt;
+&lt;/menu&gt;</pre>				
+			</section>		
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				5.1. ActionBar
+			</h3>
+			<br>
+			<span class='green'><b>&rarr; Navegación: Up vs Back</b></span>
+			<div style='float:right; margin-top:-10px;'>
+				<img src='images/actionbarUp.png'/>
+			</div>
+			<ul>
+				<li>Los usuarios tienen mejor memoria <b>estructural</b> que <b>temporal</b></li>
+				<li><span class='red'>back: </span>navega hacia la pantalla anterior</li>
+				<li><span class='red'>up: </span>navega hacia arriba en la jerarquía de la aplicación</li>
+			</ul>
+			<img src='images/actionbarNavegacion.png' class='centered' />
+			<section>
+<pre>actionBar.setDisplayHomeAsUpEnabled(true);</pre>				
+			</section>	
+				
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				5.1. ActionBar
+			</h3>
+			<br>
+			<span class='green' ><b>&rarr; Tabs</b></span>
+			<br>
+			<img src='images/actionbarTabs.png' style='margin-left:40px;' />
+			<br><p></p>
+			<span class='green' ><b>&rarr; Action View</b></span>
+			<br>
+			<img src='images/actionbarView.png' style='margin-left:40px;' />
+			<br><p></p>
+			<span class='green' ><b>&rarr; Action Provider (ShareActionProvider)</b></span>
+			<br>
+			<img src='images/actionbarActionProvider.png' style='margin-left:40px;' />
+			
+			
+		</article>	
+		
+		<article>
+			<h3>
+				5.2. Dashboard
+			</h3>
+			<br>
+			<span class='green' ><b>&rarr; Pantalla entrada a la app: muestra las funciones y resalta el contenido nuevo</b></span>
+			<br><br>
+			<li>Pantalla completa</li>
+			<li>Sólo funciones importantes</li>
+			<li>Organización por categorías</li>
+			<img src='images/dashboard.png' class='centered' style='float:right; margin-top: -200px; margin-right: 50px; height: 400px;'/>
+		</article>
+		
+		<article class='smaller'>
+			<h3>
+				5.3. Multipanel
+			</h3>
+			<br>
+			<span class='green' ><b>&rarr; Objetivo: </b>aprovechar las pantallas más grandes</span>
+			<p></p>
+			<img src='images/fragments.png' class='centered' />
+			<p></p>
+			<ul>
+				<li>Agrupa múltiples pantallas relacionadas en una única vista compuesta</li>
+				<li>Evita las filas demasiado largas</li>
+			</ul>
+			
+		</article>
+
+		<article>
+			<h3>
+				5.3. Multipanel
+			</h3>
+			<div style='float:right;'>
+				<img src='images/multipanel.png' style:'height:550px;' />
+			</div>
+			<br><br>
+			<span class='green' ><b>&rarr; Posibles configuraciones:</b></span>
+			<br>
+				
+			<br>
+			<div style='width:600px;'>
+				<li>Una activity puede inflar layouts con <b>diferentes configuraciones</b> de fragments</li>
+				<li><b>Consejo: </b>los paneles de la parte derecha deben tener el contenido o los detalles para los items que se seleccionan en los paneles de la izquierda</li>
+			</div>
+			
+		</article>
+		<article class='smaller'>
+			<h3>
+				5.3. Multipanel
+			</h3>
+			<br>
+			<span class='green' ><b>&rarr; Fragments</b></span>
+			<br><br>
+			<b>Representan una porción de interfaz de usuario en una Activity</b>
+			<br><br>
+				<li>Se diseñan de igual forma que las Activities</li>
+				<li>Un mismo Fragment puede reusarse en diferentes Activities</li>
+				<li>Tienen ciclo de vida</li>
+		</article>
+		
+		<article class='fill'>
+			<h3>
+				6. Referencias
+			</h3>
+			<p>
+				<img src='images/seccion6.png'>
+			</p>
+		</article>
+		
+		<article>
+			<h3>
+				6. Referencias
+			</h3>
+			<br>
+			<li><a target='blank'>http://developer.android.com</a></li>
+			<li><a target='blank'>http://developer.android.com/design/</a></li>
+			<li><a target='blank' href='http://dl.google.com/googleio/2010/android-android-ui-design-patterns.pdf'>Google I/O 2010: Android UI design patterns</a></li>
+			<li><a target='blank' href='http://static.googleusercontent.com/external_content/untrusted_dlcp/www.google.com/en//events/io/2011/static/presofiles/designing_and_implementing_android_uis_for_phones_and_tablets.pdf'>Google I/O 2011: designing and implementing Android UIs for phones and tablets</a></li>
+			<li><a target='blank'>http://actionbarsherlock.com</a></li>
+			
+		</article>
+</section>
+
+</body>
+</html>
