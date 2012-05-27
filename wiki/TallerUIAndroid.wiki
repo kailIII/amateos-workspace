@@ -1,4 +1,5 @@
-= Taller diseño UI Android (28/05/2012)=
+#labels Featured
+= <font color="green">Taller diseño UI Android (28/05/2012)</font> =
 
 http://i48.tinypic.com/2dwcj5v.png
 
