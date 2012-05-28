@@ -508,14 +508,12 @@ public class ActionMenuPresenter extends BaseMenuPresenter
         super.onCloseMenu(menu, allMenusAreClosing);
     }
 
-    @Override
     public Parcelable onSaveInstanceState() {
         SavedState state = new SavedState();
         state.openSubMenuId = mOpenSubMenuId;
         return state;
     }
 
-    @Override
     public void onRestoreInstanceState(Parcelable state) {
         SavedState saved = (SavedState) state;
         if (saved.openSubMenuId > 0) {
@@ -527,7 +525,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
         }
     }
 
-    @Override
     public void onSubUiVisibilityChanged(boolean isVisible) {
         if (isVisible) {
             // Not a submenu, but treat it like one.
@@ -547,12 +544,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             openSubMenuId = in.readInt();
         }
 
-        @Override
         public int describeContents() {
             return 0;
         }
 
-        @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeInt(openSubMenuId);
         }
@@ -617,12 +612,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             }
         }
 
-        @Override
         public void addOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
             mListeners.add(listener);
         }
 
-        @Override
         public void removeOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
             mListeners.remove(listener);
         }
@@ -635,7 +628,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             setCallback(mPopupPresenterCallback);
         }
 
-        @Override
         public void onDismiss() {
             super.onDismiss();
             mMenu.close();
@@ -680,7 +672,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
 
     private class PopupPresenterCallback implements MenuPresenter.Callback {
 
-        @Override
         public boolean onOpenSubMenu(MenuBuilder subMenu) {
             if (subMenu == null) return false;
 
@@ -688,7 +679,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             return false;
         }
 
-        @Override
         public void onCloseMenu(MenuBuilder menu, boolean allMenusAreClosing) {
             if (menu instanceof SubMenuBuilder) {
                 ((SubMenuBuilder) menu).getRootMenu().close(false);

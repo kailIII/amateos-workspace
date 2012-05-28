@@ -234,43 +234,35 @@ public class ActionMenuItem implements MenuItem {
         return null;
     }
 
-    @Override
     public MenuItem setActionView(int resId) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
     public ActionProvider getActionProvider() {
         return null;
     }
 
-    @Override
     public MenuItem setActionProvider(ActionProvider actionProvider) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
     public MenuItem setShowAsActionFlags(int actionEnum) {
         setShowAsAction(actionEnum);
         return this;
     }
 
-    @Override
     public boolean expandActionView() {
         return false;
     }
 
-    @Override
     public boolean collapseActionView() {
         return false;
     }
 
-    @Override
     public boolean isActionViewExpanded() {
         return false;
     }
 
-    @Override
     public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
         // No need to save the listener; ActionMenuItem does not support collapsing items.
         return this;

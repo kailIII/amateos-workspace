@@ -478,11 +478,9 @@ public class ActionBarContextView extends AbsActionBarView implements AnimatorLi
         }
     }
 
-    @Override
     public void onAnimationStart(Animator animation) {
     }
 
-    @Override
     public void onAnimationEnd(Animator animation) {
         if (mAnimationMode == ANIMATE_OUT) {
             killMode();
@@ -490,15 +488,12 @@ public class ActionBarContextView extends AbsActionBarView implements AnimatorLi
         mAnimationMode = ANIMATE_IDLE;
     }
 
-    @Override
     public void onAnimationCancel(Animator animation) {
     }
 
-    @Override
     public void onAnimationRepeat(Animator animation) {
     }
 
-    @Override
     public boolean shouldDelayChildPressedState() {
         return false;
     }

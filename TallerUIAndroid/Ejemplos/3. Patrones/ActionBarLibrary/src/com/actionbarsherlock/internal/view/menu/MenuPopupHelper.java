@@ -152,7 +152,6 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         return mPopup != null && mPopup.isShowing();
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         MenuAdapter adapter = mAdapter;
         adapter.mAdapterMenu.performItemAction(adapter.getItem(position), 0);
@@ -192,7 +191,7 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         return width;
     }
 
-    @Override
+    
     public void onGlobalLayout() {
         if (isShowing()) {
             final View anchor = mAnchorView;
@@ -205,11 +204,11 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         }
     }
 
-    @Override
+    
     public void onViewAttachedToWindow(View v) {
     }
 
-    @Override
+    
     public void onViewDetachedFromWindow(View v) {
         if (mTreeObserver != null) {
             if (!mTreeObserver.isAlive()) mTreeObserver = v.getViewTreeObserver();
@@ -218,27 +217,27 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         ((View_HasStateListenerSupport)v).removeOnAttachStateChangeListener(this);
     }
 
-    @Override
+    
     public void initForMenu(Context context, MenuBuilder menu) {
         // Don't need to do anything; we added as a presenter in the constructor.
     }
 
-    @Override
+    
     public MenuView getMenuView(ViewGroup root) {
         throw new UnsupportedOperationException("MenuPopupHelpers manage their own views");
     }
 
-    @Override
+    
     public void updateMenuView(boolean cleared) {
         if (mAdapter != null) mAdapter.notifyDataSetChanged();
     }
 
-    @Override
+    
     public void setCallback(Callback cb) {
         mPresenterCallback = cb;
     }
 
-    @Override
+    
     public boolean onSubMenuSelected(SubMenuBuilder subMenu) {
         if (subMenu.hasVisibleItems()) {
             MenuPopupHelper subPopup = new MenuPopupHelper(mContext, subMenu, mAnchorView, false);
@@ -265,7 +264,7 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         return false;
     }
 
-    @Override
+    
     public void onCloseMenu(MenuBuilder menu, boolean allMenusAreClosing) {
         // Only care about the (sub)menu we're presenting.
         if (menu != mMenu) return;
@@ -276,7 +275,7 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         }
     }
 
-    @Override
+    
     public boolean flagActionItems() {
         return false;
     }
@@ -289,17 +288,17 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
         return false;
     }
 
-    @Override
+    
     public int getId() {
         return 0;
     }
 
-    @Override
+    
     public Parcelable onSaveInstanceState() {
         return null;
     }
 
-    @Override
+    
     public void onRestoreInstanceState(Parcelable state) {
     }
 
@@ -368,7 +367,7 @@ public class MenuPopupHelper implements AdapterView.OnItemClickListener, View.On
     }
 
     private class ExpandedIndexObserver extends DataSetObserver {
-        @Override
+        
         public void onChanged() {
             mAdapter.findExpandedIndex();
         }

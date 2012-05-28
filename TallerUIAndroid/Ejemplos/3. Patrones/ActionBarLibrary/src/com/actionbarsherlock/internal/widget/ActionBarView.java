@@ -153,7 +153,6 @@ public class ActionBarView extends AbsActionBarView {
     };
 
     private final OnClickListener mExpandedActionViewUpListener = new OnClickListener() {
-        @Override
         public void onClick(View v) {
             final MenuItemImpl item = mExpandedMenuPresenter.mCurrentExpandedItem;
             if (item != null) {
@@ -1411,7 +1410,6 @@ public class ActionBarView extends AbsActionBarView {
         MenuBuilder mMenu;
         MenuItemImpl mCurrentExpandedItem;
 
-        @Override
         public void initForMenu(Context context, MenuBuilder menu) {
             // Clear the expanded action view when menus change.
             if (mMenu != null && mCurrentExpandedItem != null) {
@@ -1420,12 +1418,10 @@ public class ActionBarView extends AbsActionBarView {
             mMenu = menu;
         }
 
-        @Override
         public MenuView getMenuView(ViewGroup root) {
             return null;
         }
 
-        @Override
         public void updateMenuView(boolean cleared) {
             // Make sure the expanded item we have is still there.
             if (mCurrentExpandedItem != null) {
@@ -1449,25 +1445,20 @@ public class ActionBarView extends AbsActionBarView {
             }
         }
 
-        @Override
         public void setCallback(Callback cb) {
         }
 
-        @Override
         public boolean onSubMenuSelected(SubMenuBuilder subMenu) {
             return false;
         }
 
-        @Override
         public void onCloseMenu(MenuBuilder menu, boolean allMenusAreClosing) {
         }
 
-        @Override
         public boolean flagActionItems() {
             return false;
         }
 
-        @Override
         public boolean expandItemActionView(MenuBuilder menu, MenuItemImpl item) {
             mExpandedActionView = item.getActionView();
             mExpandedHomeLayout.setIcon(mIcon.getConstantState().newDrawable(/* TODO getResources() */));
@@ -1493,7 +1484,6 @@ public class ActionBarView extends AbsActionBarView {
             return true;
         }
 
-        @Override
         public boolean collapseItemActionView(MenuBuilder menu, MenuItemImpl item) {
             // Do this before detaching the actionview from the hierarchy, in case
             // it needs to dismiss the soft keyboard, etc.
@@ -1531,17 +1521,14 @@ public class ActionBarView extends AbsActionBarView {
             return true;
         }
 
-        @Override
         public int getId() {
             return 0;
         }
 
-        @Override
         public Parcelable onSaveInstanceState() {
             return null;
         }
 
-        @Override
         public void onRestoreInstanceState(Parcelable state) {
         }
     }
