@@ -26,28 +26,24 @@ public abstract class AnimatorListenerAdapter implements Animator.AnimatorListen
     /**
      * {@inheritDoc}
      */
-    @Override
     public void onAnimationCancel(Animator animation) {
     }
 
     /**
      * {@inheritDoc}
      */
-    @Override
     public void onAnimationEnd(Animator animation) {
     }
 
     /**
      * {@inheritDoc}
      */
-    @Override
     public void onAnimationRepeat(Animator animation) {
     }
 
     /**
      * {@inheritDoc}
      */
-    @Override
     public void onAnimationStart(Animator animation) {
     }
 

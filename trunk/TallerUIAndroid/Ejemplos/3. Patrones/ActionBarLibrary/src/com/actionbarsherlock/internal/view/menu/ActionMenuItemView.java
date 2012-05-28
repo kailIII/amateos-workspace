@@ -80,12 +80,10 @@ public class ActionMenuItemView extends LinearLayout
         a.recycle();
     }
 
-    @Override
     public void addOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
         mListeners.add(listener);
     }
 
-    @Override
     public void removeOnAttachStateChangeListener(View_OnAttachStateChangeListener listener) {
         mListeners.remove(listener);
     }
@@ -245,7 +243,6 @@ public class ActionMenuItemView extends LinearLayout
         return hasText();
     }
 
-    @Override
     public boolean onLongClick(View v) {
         if (hasText()) {
             // Don't show the cheat sheet for items that already show text.

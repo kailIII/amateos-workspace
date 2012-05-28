@@ -350,13 +350,11 @@ public class ScrollingTabContainerView extends HorizontalScrollView
         }
     }
 
-    @Override
     public void onItemSelected(IcsAdapterView<?> parent, View view, int position, long id) {
         TabView tabView = (TabView) view;
         tabView.getTab().select();
     }
 
-    @Override
     public void onNothingSelected(IcsAdapterView<?> parent) {
     }
 
@@ -471,22 +469,18 @@ public class ScrollingTabContainerView extends HorizontalScrollView
     }
 
     private class TabAdapter extends BaseAdapter {
-        @Override
         public int getCount() {
             return mTabLayout.getChildCount();
         }
 
-        @Override
         public Object getItem(int position) {
             return ((TabView) mTabLayout.getChildAt(position)).getTab();
         }
 
-        @Override
         public long getItemId(int position) {
             return position;
         }
 
-        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = createTabView((ActionBar.Tab) getItem(position), true);
@@ -518,14 +512,12 @@ public class ScrollingTabContainerView extends HorizontalScrollView
             return this;
         }
 
-        @Override
         public void onAnimationStart(Animator animation) {
             setVisibility(VISIBLE);
             mVisibilityAnim = animation;
             mCanceled = false;
         }
 
-        @Override
         public void onAnimationEnd(Animator animation) {
             if (mCanceled) return;
 
@@ -533,12 +525,10 @@ public class ScrollingTabContainerView extends HorizontalScrollView
             setVisibility(mFinalVisibility);
         }
 
-        @Override
         public void onAnimationCancel(Animator animation) {
             mCanceled = true;
         }
 
-        @Override
         public void onAnimationRepeat(Animator animation) {
         }
     }

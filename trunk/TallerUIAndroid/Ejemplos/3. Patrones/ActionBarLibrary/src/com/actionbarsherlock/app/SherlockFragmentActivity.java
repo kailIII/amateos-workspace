@@ -52,10 +52,8 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
         return getSherlock().startActionMode(callback);
     }
 
-    @Override
     public void onActionModeStarted(ActionMode mode) {}
 
-    @Override
     public void onActionModeFinished(ActionMode mode) {}
 
 
@@ -223,7 +221,6 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
     // Sherlock menu handling
     ///////////////////////////////////////////////////////////////////////////
 
-    @Override
     public boolean onCreatePanelMenu(int featureId, Menu menu) {
         if (DEBUG) Log.d(TAG, "[onCreatePanelMenu] featureId: " + featureId + ", menu: " + menu);
 
@@ -251,7 +248,6 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
         return true;
     }
 
-    @Override
     public boolean onPreparePanel(int featureId, View view, Menu menu) {
         if (DEBUG) Log.d(TAG, "[onPreparePanel] featureId: " + featureId + ", view: " + view + " menu: " + menu);
 
@@ -271,7 +267,6 @@ public abstract class SherlockFragmentActivity extends FragmentActivity implemen
         return true;
     }
 
-    @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         if (DEBUG) Log.d(TAG, "[onMenuItemSelected] featureId: " + featureId + ", item: " + item);
 
