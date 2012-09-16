@@ -18,17 +18,13 @@
 
 	<slides class="layout-widescreen">
 
-		<slide class="logoslide nobackground">
-			<article class="flexbox vcenter">
-				<span><img src="images/logo.png"></span>
-			</article>
-		</slide>
-
-		<slide class="title-slide segue nobackground">
-			<aside class="gdbar"><img src="images/logo_128.png"></aside>
+		<slide class="title-slide portada nobackground">
+			
+			<img src="images/logo.png" style='margin-top:160px;margin-left:230px;'>
 			<!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
 			<hgroup class="auto-fadein">
 				<h1 data-config-title><!-- populated from slide_config.json --></h1>
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>				
 				<h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
 				<p data-config-presenter><!-- populated from slide_config.json --></p>
 			</hgroup>
@@ -47,7 +43,7 @@
 							<li>1.3 Objetivos</li>
 						</ul>
 					</li>
-					<li><h4><b>2. An&aacute;lisis</b></h4></li><br/>
+					<li><h4><b>2. An&aacute;lisis</b></h4></li>
 					<li><h4><b>3. Dise&ntilde;o</b></h4>
 						<ul>
 							<li>3.1 Arquitectura</li>
@@ -56,24 +52,21 @@
 					</li>
 
 				</ol>
-				<ol class="build" style="float:right;margin-top:-460px;">	
-					<li><h4><b>4. Implementaci&oacute;n</b></h4></li><br/>	
-					
-					<li><h4><b>5. Test</b></h4></li><br/>	
-					
-					<li><h4><b>6. Planificaci&oacute;n y presupuesto</b></h4>
-						<ul>
-							<li>6.1 Fases del proyecto</li>
-							<li>6.2 Evoluci&oacute;n del proyecto</li>
-							<li>6.3 Presupuesto</li>
-						</ul>	
-					</li>	
+				<ol class="build" style="float:right;margin-top:-435px;">	
+
+					<li><h4><b>4. Implementaci&oacute;n</b></h4></li>
+
+					<li><h4><b>5. Testing</b></h4></li>
+
+					<li><h4><b>6. Planificaci&oacute;n y presupuesto</b></h4></li>	
 					<li><h4><b>7. Conclusiones y trabajos futuros</b></h4>
 						<ul>
 							<li>7.1 Trabajos futuros</li>
 							<li>7.2 Conclusiones</li>
 						</ul>	
-					</li>	
+					</li>
+					<li><h4><b>8. Demostraci&oacute;n</b></h4></li>	
+
 				</ol>
 			</article>
 		</slide>
@@ -121,11 +114,11 @@
 				<h3 class='green2'>1.2 Motivaci&oacute;n</h3>
 			</hgroup>
 			<article class='smaller'>
-
+				<div class='build'>
 				<img src="images/1_2_1 motivacion.png" style="margin-left:60px;">
 				<p></p>
 				<img src="images/penetracion.png" style="margin-left:50px;">
-
+				</div>
 
 			</article>
 		</slide>
@@ -155,7 +148,7 @@
 			<article>
 				<br/>
 				<span class='red'><b>&rArr; AHORRAR EN LA COMPRA: smartphone</b></span>
-				<div style='margin-left:30px;margin-top:40px;'>
+				<div style='margin-left:30px;margin-top:40px;' class='build'>
 					<ul>
 						<li>Creaci&oacute;n de listas de productos</li>
 						<li>B&uacute;squeda de productos</li>
@@ -178,19 +171,29 @@
 				<h2 class='blue'>2. An&aacute;lisis</h2>	
 				<h3 class='green2'>2.1 Alcance</h3>
 			</hgroup>
-			<article>	
+			<article>
+				<div class='build'>
+				<div>	
 				<li><span class='gray4'><b>DATOS:</b></span></li>
 				<img src="images/2_1_1 carritus.png" style='float:right;margin-top:-60px;margin-right:600px;'>
-
+				</div>
+				<div>
 				<br/><br/><br/>
 				<li><span class='gray4'><b>SUPERMERCADOS:</b></span></li>
 				<img src="images/2_1_2 supermercados.png" style='float:right;margin-top:-60px;margin-right:-50px;'>
-
+				</div>
+				<div>
 				<br/><br/><br/>
-				<li><span class='gray4'><b>PLATAFORMAS:</b></span></li>
+				<div class='build'>
+				<div><li><span class='gray4'><b>PLATAFORMAS:</b></span></li>
 				<img src="images/2_1_4 plataformas_pc.png" style='margin-top:3px;margin-left:330px;margin-top:-35px;'>
+				</div>
+				<div>
 				<img src="images/2_1_3 plataformas_moviles.png" style='margin-top:25px;'>
-
+				</div>
+				</div>
+				</div>
+				</div>
 			</ul>	
 		</article>
 	</slide>
@@ -244,7 +247,6 @@
 	<article>	
 		<img src="images/3_2_1 gui_scraper.png" style='float:right;margin-top:-50px;margin-right:100px;'>
 		<img src="images/3_2_1 capas_scraper.png" style='margin-left:20px;margin-top:50px;'>
-	</ul>	
 </article>
 </slide>
 
@@ -256,7 +258,6 @@
 	<article>	
 		<img src="images/3_2_2 gui_cliente.png" style='float:right;'>
 		<img src="images/3_2_2 capas_cliente.png" style='margin-left:20px;margin-top:50px;'>
-	</ul>	
 </article>
 </slide>
 
@@ -266,11 +267,16 @@
 		<h3 class='green2'>3.2 Sistemas: Servidor</h3>
 	</hgroup>
 	<article>	
-		<li class='gray3'>Alternativa 1: Servidor web</li>
+		<div class='build'>
+			
+		<div><li class='gray3'>Alternativa 1: Servidor web</li>
 		<img src="images/3_2_3 capas_web.png" style='margin-left: 75px;'>
+		</div>
+		<div>
 		<li class='gray3'>Alternativa 2: Servicio web RESTful</li>
 		<img src="images/3_2_3 capas_rest.png" style='margin-left: 75px;'>
-	</ul>	
+		</div>
+		</div>
 </article>
 </slide>
 
@@ -280,12 +286,14 @@
 		<h3 class='green2'>3.3 Comunicaciones</h3>
 	</hgroup>
 	<article  class='smaller'>	
+		<div class='build'>
+		<div>	
 		<li class='red2'><b>HTTP: GET | POST</b></li><br/>
 		<ul>	
 			<li><span class='gray3'><b>1. Servidor web &rarr; </b></span><span style='font-size:.8em;'>GET: http://server/guardarCategoria?nombre=X&posicion=Y</span></li>
 			<li> <span class='gray3'><b>2. Servicio web RESTful &rarr; </b></span><span style='font-size:.8em;'>POST: http://server/categorias/ </span></li>
 		</ul>
-	</ul>
+		</div>
 	<div>
 		<pre class="prettyprint" data-lang="xml">
 			<b>&lt;producto&gt; </b>
@@ -303,6 +311,7 @@
 			<b>&lt;/producto&gt;</b>
 		</pre>	
 	</div>
+	</div>
 </article>
 </slide>
 
@@ -315,56 +324,56 @@
 </slide>
 
 
-	<slide>
-		<aside class="note">
-			<section>
-				<ul>
-					<li>BUEN RENDIMIENTO Y FIABILIDAD</li>
-					<li>ALTA DISPONIBILIDAD</li>
-					<li>FACIL DE ADMINISTRAR</li>
-					<li>RECONOCIDO PRESTIGIO</li>
-					<li>INSTALADA POR DEFECTO MAC Y MAMP</li>
-				</ul>
-			</section>
-		</aside>
-		<hgroup>
-			<h2 class='blue'>4. Implementaci&oacute;n</h2>	
-			<h3 class='green2'>4.1. BBDD</h3>
-		</hgroup>
-		<article>
-			<img src="images/4_1 mysql.png">
-			<div class="build" style='float:right'>		
-				<img src="images/4_1 phpmyadmin.png" style='margin-right: 200px;'><br/>
-				<img src="images/4_1 workbench.png" style='position: relative;right:-25px;'><br/>
-				<img src="images/4_1 opensource.png" style='position: relative;right:-10px;'><br/>	
-				<img src="images/4_1 mamp.gif" style='position: relative;right:-15px;'><br/>			
-			</div>	
+<slide>
+	<aside class="note">
+		<section>
+			<ul>
+				<li>BUEN RENDIMIENTO Y FIABILIDAD</li>
+				<li>ALTA DISPONIBILIDAD</li>
+				<li>FACIL DE ADMINISTRAR</li>
+				<li>RECONOCIDO PRESTIGIO</li>
+				<li>INSTALADA POR DEFECTO MAC Y MAMP</li>
+			</ul>
+		</section>
+	</aside>
+	<hgroup>
+		<h2 class='blue'>4. Implementaci&oacute;n</h2>	
+		<h3 class='green2'>4.1. BBDD</h3>
+	</hgroup>
+	<article>
+		<img src="images/4_1 mysql.png">
+		<div class="build" style='float:right'>		
+			<img src="images/4_1 phpmyadmin.png" style='margin-right: 200px;'><br/>
+			<img src="images/4_1 workbench.png" style='position: relative;right:-25px;'><br/>
+			<img src="images/4_1 opensource.png" style='position: relative;right:-10px;'><br/>	
+			<img src="images/4_1 mamp.gif" style='position: relative;right:-15px;'><br/>			
+		</div>	
 	</article>
 </slide>
 
 <slide>
-		<aside class="note">
-			<section>
-				
-				<li><b>SCRIPTING ORIENTADO A OBJETOS</b></li><br/>
-				<li><b>LENGUAJE AGIL -> RAPIDO de programar!!!</b></li>
-				
-				<li><b>PROBLEMA NAVEGADOR</b>: Cookies + sesion</li>
-				<li><b>PAGINA COMPLEJA</b></li>
-				<li><b>FACIL PETICIONES HTTP</b></li>
-				<li><b>FACIL MANEJO XML</b></li>
-				<li><b>MULTIPLATAFORMA</b></li>
+	<aside class="note">
+		<section>
 
-			</section>
-		</aside>
+			<li><b>SCRIPTING ORIENTADO A OBJETOS</b></li><br/>
+			<li><b>LENGUAJE AGIL -> RAPIDO de programar!!!</b></li>
+
+			<li><b>PROBLEMA NAVEGADOR</b>: Cookies + sesion</li>
+			<li><b>PAGINA COMPLEJA</b></li>
+			<li><b>FACIL PETICIONES HTTP</b></li>
+			<li><b>FACIL MANEJO XML</b></li>
+			<li><b>MULTIPLATAFORMA</b></li>
+
+		</section>
+	</aside>
 	<hgroup>
 		<h2 class='blue'>4. Implementaci&oacute;n</h2>	
 		<h3 class='green2'>4.2. Scraper</h3>
 	</hgroup>
 	<article>
 		<div class="build">	
-		<img src="images/4_2 scraper1.png" style='margin-left: 125px;'><br/>
-		<img src="images/4_2 scraper2.png">			
+			<img src="images/4_2 scraper1.png" style='margin-left: 125px;'><br/>
+			<img src="images/4_2 scraper2.png">			
 		</div>
 
 		<div class="build" style='float:right;margin-right: 100px;margin-top: -350px;'>		
@@ -377,9 +386,9 @@
 			</ul>
 			<br/>
 			<img src="images/4_2 so_scraper.png">
-				
+
 		</div>
-</article>
+	</article>
 </slide>
 
 <slide>
@@ -389,8 +398,8 @@
 	</hgroup>
 	<article>
 		<div class="build">	
-		<img src="images/4_3 so_movil.png">
-		<img src="images/4_3 cliente.png">
+			<img src="images/4_3 so_movil.png">
+			<img src="images/4_3 cliente.png">
 		</div>
 		<div class="build" style='float:right;margin-right: 100px;margin-top: -400px;'>		
 			<p><b>LIBRER&Iacute;AS:</b></p>
@@ -400,7 +409,7 @@
 				<li>RGraph</li>
 			</ul>
 		</div>
-</article>
+	</article>
 </slide>
 
 <slide>
@@ -414,20 +423,71 @@
 			<img src="images/4_4 apache.png">
 			<img src="images/4_4 php.png">
 		</div>
-		
+
 		<div class="build" style='float:right; margin-right:-20px; margin-top: -170px;'>
 			<p class='red3'><b>SERVICIO RESTful</b></p>
 			<img src="images/4_4 glassfish.png">
 			<img src="images/4_4 java.png">
 		</div>	
-		
+
 		<div class="build" style='margin-left: 100px;margin-top: 50px;'>	
 			<img src="images/4_4 vps.png">
 		</div>
-		
+
 		<div class="build" style='float:right; margin-right:70px; margin-top: -200px;'>
 			<img src="images/4_4 paas.png">
 		</div>
+
+	</article>
+</slide>
+
+
+<slide class="segue nobackground" style="background: url(images/sky.jpg) no-repeat">
+	<aside class="gdbar"><img src="images/logo_128.png"></aside>
+	<hgroup class="auto-fadein">
+		<h2>5. Testing</h2>
+	</hgroup>
+</slide>
+
+<slide>
+	<hgroup>
+		<h2 class='blue'>5. Testing</h2>	
+	</hgroup>
+	<article>
+		<p class='red3'><b>CLIENTE M&Oacute;VIL &rarr;</b> QUnit</p>	
+		<div class='build' style='margin-left: 100px;'>
+			<img src='images/5_1_1 tests_cliente.png' height='400' style='margin-left:30px;'>
+			<img src='images/5_1_2 test_phonegap.png' height='400' style='margin-left:30px;'>
+			<img src='images/5_1_3 test_comprarador.png' height='400' style='margin-left:30px;'>
+		</div>	
+	</article>
+</slide>
+
+<slide>
+	<hgroup>
+		<h2 class='blue'>5. Testing</h2>	
+	</hgroup>
+	<article class='smaller'>
+		<p class='red3'><b>SCRAPER &rarr;</b> Test interactivo</p>	
+		<div class='build' >
+			<img src='images/5_2 test_scraper.png' height='300' style='margin-left: 200px;'>
+
+			<div>
+			<pre class="prettyprint" data-lang="log">
+# Logfile created on Thu Aug 30 18:29:05 +0200 2012 by logger.rb/99999
+D, [2012-08-30T18:29:05.638000 #1401] DEBUG -- : ********************** INICIO DEL TEST **********************
+D, [2012-08-30T18:29:39.610000 #1401] DEBUG -- : <b>Test: 1. INICIALIZACI&Oacute;N DEL SCRAPER - OK</b>
+D, [2012-08-30T18:29:56.069000 #1401] DEBUG -- : <b>Test: 4. CAMBIO DE SUPERMERCADO - OK</b>
+D, [2012-08-30T18:30:33.765000 #1401] DEBUG -- : <b>Test: 3. P&Aacute;GINA DE PRODUCTOS - OK</b>
+D, [2012-08-30T18:30:55.269000 #1401] DEBUG -- : <b>Test: 4. CAMBIO DE SUPERMERCADO - OK</b>
+D, [2012-08-30T18:31:34.900000 #1401] DEBUG -- : <b>Test: 5. P&Aacute;GINA SIGUIENTE - OK</b>
+D, [2012-08-30T18:31:56.189000 #1401] DEBUG -- : <b>Test: 6. INDEXADO DE PRODUCTOS - OK</b>
+			</pre>
+			</div>
+		</div>
+	</article>			
+
+
 
 </article>
 </slide>
@@ -436,365 +496,94 @@
 <slide class="segue nobackground" style="background: url(images/sky.jpg) no-repeat">
 	<aside class="gdbar"><img src="images/logo_128.png"></aside>
 	<hgroup class="auto-fadein">
-		<h2>5. Test</h2>
+		<h2>6. Planificaci&oacute;n y presupuesto</h2>
+	</hgroup>
+</slide>		
+
+<slide>
+	<hgroup>
+		<h2 class='blue'>6. Planificaci&oacute;n y presupuesto</h2>	
+	</hgroup>
+	<article class='smaller'>
+		<div class='build'>
+			<div>
+				<img src='images/6_1 flecha.png' style='float:left;' height='380px;'><br/>
+				<img src='images/6_1 fases_1.png' style='margin-top:-20px;'><br/>
+			</div>
+			<img src='images/6_1 fases_2.png' style='margin-top:0px;'><br/>
+			<img src='images/6_1 fases_3.png' style='margin-top:0px;'>
+
+
+			<img src='images/6_1 porcentajes.png' height='300px;' style='float:right;margin-top: -250px;'>
+
+			<p style='margin-left:80px;margin-top:40px;'>An&aacute;lisis (80h) + Dise&ntilde;o (240h) + Desarrollo (400h) + Pruebas (24h) + PaP (16h) &rarr; <span class='red3'><b>12919,60 &#8364;</b></span></p>
+		</div>	
+	</article>
+</slide>
+
+
+<slide class="segue nobackground" style="background: url(images/sky.jpg) no-repeat">
+	<aside class="gdbar"><img src="images/logo_128.png"></aside>
+	<hgroup class="auto-fadein">
+		<h2>7. Conclusiones</h2>
 	</hgroup>
 </slide>
 
 <slide>
 	<hgroup>
-		<h2 class='blue'>5. Test</h2>	
+		<h2 class='blue'>7. Conclusiones y trabajos futuros</h2>	
 	</hgroup>
-	<article>
+	<article class='smaller'>
+		<div class='build'>
+		<p class='red3'><b>TRABAJOS FUTUROS:</b></p>	
+		<ul class='build'>
+			<li>Aumentar n&uacute;mero de supermercados</li>
+			<li>Fuente oficial de datos</li>
+			<li>Mejora rendimiento scraper</li>
+			<li>Cacheado im&aacute;genes cliente</li>
+			<li>Lazy loading cliente</li>
+			<li>C&oacute;digo de barras para todas plataformas</li>
+		</ul>	
 		
+		<p class='green3'><b>CONCLUSIONES:</b></p>	
+		<ul class='build'>
+			<li>Proyecto de gran envergadura y aplicaci&oacute;n real</li>
+			<li>Continuo cambio de alcance y requisitos</li>
+			<li>Aprendizaje programaci&oacute;n m&oacute;viles</li>
+			<li>Mejora en el nivel de programaci&oacute;n</li>
+			<li>Contacto con librer&iacute;as y software libre</li>
+		</ul>
 	</article>
-	</slide>
+</slide>
 
-
-		
+<slide class="segue nobackground" style="background: url(images/sky.jpg) no-repeat">
+	<aside class="gdbar"><img src="images/logo_128.png"></aside>
+	<hgroup class="auto-fadein">
+		<h2>8. Demostraci&oacute;n</h2>
+	</hgroup>
+</slide>
 
 <slide>
 	<hgroup>
-		<h2 class='blue'>8. Demo</h2>	
+		<h2 class='blue'>8. Demostraci&oacute;n</h2>	
 	</hgroup>
 	<article>	
 		<!--[if IE]>
-		  <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 		<![endif]-->
 		<video id="player" width="800" height="400" controls="controls">
-		  <source src="video/prueba.mov" />
-		  To view this video you need the latest version of <a href="http://www.apple.com/safari/">Safari</a>, <a href="http://www.mozilla.com/firefox/">Firefox</a> or <a href="http://www.google.com/chrome">Chrome</a>. Alterantively download the videos and watch them offline. <a href="path/to/your/movie.mov">Windows / Mac (mp4)</a>, <a href="path/to/your/movie.ogv">Linux (ogv)</a>
+			<source src="video/prueba.mov" />
+			To view this video you need the latest version of <a href="http://www.apple.com/safari/">Safari</a>, <a href="http://www.mozilla.com/firefox/">Firefox</a> or <a href="http://www.google.com/chrome">Chrome</a>. Alterantively download the videos and watch them offline. <a href="path/to/your/movie.mov">Windows / Mac (mp4)</a>, <a href="path/to/your/movie.ogv">Linux (ogv)</a>
 		</video>
 
-</article>
-</slide>
-
-
-
-
-
-
-
-
-
-<slide>
-	<hgroup>
-		<h2>Slide with Bullets that Build</h2>
-		<h3>Subtitle Placeholder</h3>
-	</hgroup>
-	<article>
-		<p>A list where items build:</p>
-		<ul class="build">
-			<li>Pressing 'h' highlights code snippets</li>
-			<li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-			<li>Pressing 'f' toggles fullscreen viewing</li>
-			<li>Pressing 'w' toggles widescreen</li>
-			<li>Pressing 'o' toggles overview mode</li>
-			<li>Pressing 'ESC' toggles off these goodies</li>
-		</ul>
-		<p>Another list, but items fade as they build:</p>
-		<ul class="build fade">
-			<li>Hover over me!</li>
-			<li>Hover over me!</li>
-			<li>Hover over me!</li>
-		</ul>
 	</article>
 </slide>
 
-<slide>
-	<hgroup>
-		<h2>Slide with (Smaller Font)</h2>
-	</hgroup>
-	<article class="smaller">
-		<ul>
-			<li>All <a href="http://google.com">links</a> open in new tabs.</li>
-			<li>To change that this, add <code>target="_self"</code> to the link.</li>
-		</ul>
-	</article>
-</slide>
-
-<slide hidden>
-	Hidden slides are left out of the presentation.
-</slide>
-
-<slide>
-	<hgroup>
-		<h2>Code Slide (with Subtitle Placeholder)</h2>
-		<h3>Subtitle Placeholder</h3>
-	</hgroup>
-	<article>
-		<p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
-		<pre class="prettyprint" data-lang="javascript">
-			&lt;script type='text/javascript'&gt;
-			// Say hello world until the user starts questioning
-			// the meaningfulness of their existence.
-			function helloWorld(world) {
-				<b>for (var i = 42; --i &gt;= 0;) {
-					alert('Hello ' + String(world));
-				}</b>
-			}
-			&lt;/script&gt;
-		</pre>
-	</article>
-</slide>
-
-<slide>
-	<hgroup>
-		<h2>Code Slide (Smaller Font)</h2>
-	</hgroup>
-	<article class="smaller">
-		<pre class="prettyprint" data-lang="javascript">
-			// Say hello world until the user starts questioning
-			// the meaningfulness of their existence.
-			function helloWorld(world) {
-				for (var i = 42; --i &gt;= 0;) {
-					alert('Hello ' + String(world));
-				}
-			}
-		</pre>
-		<pre class="prettyprint" data-lang="css">
-			&lt;style&gt;
-			p { color: pink }
-			b { color: blue }
-			&lt;/style&gt;
-		</pre>
-		<pre class="prettyprint" data-lang="html">
-			&lt;!DOCTYPE html>
-			&lt;html>
-			&lt;head>
-			&lt;title>My Awesome Page&lt;/title>
-			&lt;/head>
-			&lt;body>
-			&lt;p&gt;Hello world&lt;/p&gt;
-			&lt;body>
-			&lt;/html>
-		</pre>
-	</article>
-</slide>
-
-<slide>
-	<aside class="note">
-		<section>
-			<ul>
-				<li>Point I wanted to make #1</li>
-				<li>Point I wanted to make #2</li>
-				<li>Point I wanted to make #3</li>
-				<li>Example <a href="#">link</a> in notes.</li>
-			</ul>
-			<p><b>Remember to say this tag line!</b></p>
-		</section>
-	</aside>
-	<hgroup>
-		<h2>Slide with Speaker Notes</h2>
-	</hgroup>
-	<article>
-		<p>Press 'p' to toggle speaker notes.</p>
-	</article>
-</slide>
-
-<slide>
-	<aside class="note">
-		<section>
-			<ul>
-				<li>See this amazing link: <a href="http://www.google.com">link</a>.</li>
-			</ul>
-			<p><b>Remember to say this tag line!</b></p>
-		</section>
-	</aside>
-	<hgroup>
-		<h2>Presenter Mode</h2>
-	</hgroup>
-	<article>
-		<p>Add <code><a href="?presentme=true" target="_self">?presentme=true</a></code> to the URL to enabled presenter mode.
-			This setting is sticky, meaning refreshing the page will persist presenter
-			mode.</p>
-			<p>Hit <code><a href="?presentme=false" target="_self">?presentme=false</a></code> to disable presenter mode.</p>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Slide with Image</h2>
-		</hgroup>
-		<article>
-			<img src="images/chart.png" class="reflect" alt="Description" title="Description">
-			<footer class="source">source: place source info here</footer>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Slide with Image (Centered horz/vert)</h2>
-		</hgroup>
-		<article class="flexbox vcenter">
-			<img src="images/barchart.png" alt="Description" title="Description">
-			<footer class="source">source: place source info here</footer>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Table Option A</h2>
-			<h3>Subtitle Placeholder</h3>
-		</hgroup>
-		<article>
-			<table>
-				<tr>
-					<th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-				</tr>
-				<tr>
-					<td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-			</table>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Table Option A (Smaller Text)</h2>
-			<h3>Subtitle Placeholder</h3>
-		</hgroup>
-		<article class="smaller">
-			<table>
-				<tr>
-					<th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-				</tr>
-				<tr>
-					<td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-			</table>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Table Option B</h2>
-			<h3>Subtitle Placeholder</h3>
-		</hgroup>
-		<article>
-			<table class="rows">
-				<tr>
-					<th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-				<tr>
-					<th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-				</tr>
-			</table>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Slide Styles</h2>
-		</hgroup>
-		<article class="smaller">
-			<div class="columns-2">
-				<ul>
-					<li class="red">class="red"</li>
-					<li class="red2">class="red2"</li>
-					<li class="red3">class="red3"</li>
-					<li class="blue">class="blue"</li>
-					<li class="blue2">class="blue2"</li>
-					<li class="blue3">class="blue3"</li>
-					<li class="green">class="green"</li>
-					<li class="green2">class="green2"</li>
-				</ul>
-				<ul>
-					<li class="green3">class="green3"</li>
-					<li class="yellow">class="yellow"</li>
-					<li class="yellow2">class="yellow2"</li>
-					<li class="yellow3">class="yellow3"</li>
-					<li class="gray">class="gray"</li>
-					<li class="gray2">class="gray2"</li>
-					<li class="gray3">class="gray3"</li>
-					<li class="gray4">class="gray4"</li>
-				</ul>
-			</div>
-			<div class="centered" style="margin-top:2em">
-				I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-			</div>
-		</article>
-	</slide>
-
-	<slide class="segue dark nobackground">
-		<aside class="gdbar"><img src="images/logo_128.png"></aside>
-		<hgroup class="auto-fadein">
-			<h2>Segue Slide</h2>
-			<h3>Subtitle Placeholder</h3>
-		</hgroup>
-	</slide>
-
-	<slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
-		<hgroup>
-			<h2 class="white">Full Image (with Optional Header)</h2>
-		</hgroup>
-		<footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
-	</slide>
-
-	<slide class="segue dark quote nobackground">
-		<aside class="gdbar right bottom"><img src="images/logo_128.png"></aside>
-		<article class="flexbox vleft auto-fadein">
-			<q>
-				This is an example of quote text.
-			</q>
-			<div class="author">
-				Name<br>
-				Company
-			</div>
-		</article>
-	</slide>
-
-	<slide>
-		<hgroup>
-			<h2>Slide with Iframe</h2>
-		</hgroup>
-		<article>
-			<iframe data-src="http://www.google.com/doodle4google/history.html"></iframe>
-		</article>
-	</slide>
-
-	<slide>
-		<article>
-			<iframe data-src="http://www.google.com/doodle4google/history.html"></iframe>
-		</article>
-	</slide>
 
 	<slide class="thank-you-slide segue nobackground">
 		<aside class="gdbar right"><img src="images/logo_128.png"></aside>
 		<article class="flexbox vleft auto-fadein">
-			<h2>&lt;Thank You!&gt;</h2>
+			<h2>&ltGRACIAS!&gt;</h2>
 			<p>Important contact information goes here.</p>
 		</article>
 		<p class="auto-fadein" data-config-contact>
