@@ -1,0 +1,33 @@
+TILDES
+
+HTML
+&aacute;
+&eacute;
+&iacute;
+&oacute;
+&uacute;
+
+&Aacute;
+&Eacute;
+&Iacute;
+&Oacute;
+&Uacute;
+
+
+&ntilde;
+&Ntilde;
+
+
+
+JAVASCRIPT
+Á -> \xC1
+É -> \xC9
+Í -> \xCD
+Ó -> \xD3
+Ú -> \xDA
+
+á -> \xE1
+é -> \xE9
+í -> \xED
+ó -> \xF3
+ú -> \xFA

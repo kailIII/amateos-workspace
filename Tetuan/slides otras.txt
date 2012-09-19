@@ -1,0 +1,28 @@
+<slide>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>Crecimiento en España m-commerce es del 141% desde mayo 2011</li>
+          <li>33 millones de usurios con 3G a final 2011</li>
+          <li>1/6 usuarios de smartphones accedieron a aplicaciones y páginas de venta online desde sus dispositivos.</li>
+          <li>1/8 usuarios de smartphones en EU5 (12,4%) compró bienes o servicios desde su dispositivo en mayo de 2012</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+     <h2 class='blue'>1. Introducci&oacute;n</h2>
+	 <h3 class='green2'>1.1 Contexto</h3>
+    </hgroup>
+    <article class='smaller'>
+		<ul>
+		<li class='red3'>El 96% de los espa&ntilde;oles posee un tel&eacute;fono m&oacute;vil<span class='gray3'> (fuente: Pew Research Centers)</span></li>
+		<li class='red3'>El espa&ntilde;ol medio est&aacute; junto a su tel&eacute;fono el 80% del tiempo<span class='gray3'> (fuente: mobithinking)</span></li>
+		<li class='red3'>Espa&ntilde;a es el pa&iacute;s con mayor crecimiento de m-commerce de Europa<span class='gray3'> (fuente: comScore)</span></li>
+		</ul>
+		<br>
+		
+		<img src="images/penetracion.png" class="reflect">
+		
+		
+    </article>
+  </slide>
