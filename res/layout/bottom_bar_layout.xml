@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FriskyPlayerActivity_bottom_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color_bottom_bar"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/bottom_bar_play_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/button_margin"
+    	android:background="@drawable/ic_action_button_behaviour"
+        android:src="@drawable/ic_action_play" />
+
+    <TextView
+        android:id="@+id/bottom_bar_stream_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/light_grey"
+        android:scrollHorizontally="true"
+        android:scrollbars="horizontal"
+        android:ellipsize="marquee"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:layout_margin="@dimen/element_margin" />
+
+</LinearLayout>
