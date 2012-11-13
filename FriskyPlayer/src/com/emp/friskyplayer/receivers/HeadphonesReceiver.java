@@ -24,6 +24,7 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.emp.friskyplayer.R;
 import com.emp.friskyplayer.services.FriskyService;
 
 /**
@@ -37,7 +38,7 @@ public class HeadphonesReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(android.media.AudioManager.ACTION_AUDIO_BECOMING_NOISY)) {
-            Toast.makeText(context, "Headphones disconnected.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getResources().getString(R.string.headphones_disconnected), Toast.LENGTH_SHORT).show();
 
             // send an intent to our MusicService to telling it to pause the audio
             context.startService(new Intent(FriskyService.ACTION_STOP));

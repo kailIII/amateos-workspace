@@ -17,9 +17,18 @@ public class FriskyPlayerCallback implements PlayerCallback {
 	private Context context;
 	private FriskyService service;
 
+	// Integer buffer to store buffer values
+	private int[] bufferProgressValues;
+	private int bufferProgressValueIndex;
+	private int bufferProgressSize = 5;
+
+	
 	public FriskyPlayerCallback(Context context, FriskyService service) {
 		this.context = context;
 		this.service = service;
+		
+		this.bufferProgressValues = new int[bufferProgressSize];
+		this.bufferProgressValueIndex = 0;
 	}
 
 	/**
@@ -33,8 +42,6 @@ public class FriskyPlayerCallback implements PlayerCallback {
 
 		//TODO: descargar el m3u e intentar reproducir de nuevo
 		//TODO: mostrar mensaje de error
-		//TODO: borra la linea de debajo
-		//service.changeState(PlayerUtils.STATE_STOPPED);
 		service.relaxResources(true);
 		service.giveUpAudioFocus();
 	}
@@ -82,20 +89,48 @@ public class FriskyPlayerCallback implements PlayerCallback {
 	public void playerPCMFeedBuffer(boolean isPlaying, int audioBufferSizeMs,
 			int audioBufferCapacityMs) {
 		
+		Log.d(TAG, "data received");
+		
 		if(!isPlaying){
 			
 			((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_LOADING);
 			
-			//TODO: borrar la linea de debajo
-			//service.changeState(PlayerUtils.STATE_LOADING);
-			
 			// TODO: implementar el estado loading!
 			service.updateNotification(context.getResources().getString(R.string.loading));
+			
+			Log.d(TAG,"Loading state");
+			
 		}else{
 			((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_PLAYING);
 
-			//TODO: borrar la linea de debajo
-			//service.changeState(PlayerUtils.STATE_PLAYING);
+			int bufferValue = (audioBufferSizeMs*100)/audioBufferCapacityMs;
+			
+			bufferProgressValues[bufferProgressValueIndex] = bufferValue;
+			bufferProgressValueIndex ++;
+			
+			if(bufferProgressValueIndex == bufferProgressSize-1){ //buffer is filled
+				
+				// calculate ponderate mean of buffer progress values
+				int a = 0;
+				int b = 0;
+				for(int v = 1; v < bufferProgressSize; v++){
+					a += v*bufferProgressValues[v-1];
+					b += v;
+				}
+				
+				int bufferProgress = a/b;
+				
+				// Broadcast bufferProgress
+				Intent i = new Intent();
+				i.setAction(FriskyService.BUFFER_PROGRESS);
+				i.putExtra("buffer", bufferProgress);
+				context.sendBroadcast(i);
+				
+				
+				bufferProgressValueIndex = 0;
+				
+			}
+			
 		}
 
 	}
@@ -106,10 +141,6 @@ public class FriskyPlayerCallback implements PlayerCallback {
 	public void playerStarted() {
 
 		((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_PLAYING);
-
-		//TODO: borrar la linea de debajo
-		//service.changeState(PlayerUtils.STATE_PLAYING);
-
 	}
 
 	/**
@@ -119,11 +150,13 @@ public class FriskyPlayerCallback implements PlayerCallback {
 	public void playerStopped(int perf) {
 
 		((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_STOPPED);
-
-		//TODO: borrar la linea de debajo	
-		//service.changeState(PlayerUtils.STATE_STOPPED);
 		service.relaxResources(true);
 		service.giveUpAudioFocus();
+		
+		Intent i = new Intent();
+		i.setAction(FriskyService.BUFFER_PROGRESS);
+		i.putExtra("buffer", 0);
+		context.sendBroadcast(i);
 	}
 
 }
