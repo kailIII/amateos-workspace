@@ -1,6 +1,7 @@
 package com.emp.friskyplayer.application;
 
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -14,7 +15,6 @@ public class FriskyPlayerApplication extends Application {
 	private SharedPreferences mPrefs;
 	private int playerState;
 	private String streamTitle;
-	
 	
 	@Override
 	public void onCreate() {
@@ -31,14 +31,14 @@ public class FriskyPlayerApplication extends Application {
 		
 		// Sets streamTitle to "" by default
 		streamTitle = "";
+		
 	}
 
 	
 	public FriskyPlayerApplication getInstance() {
 		return application;
 	}
-	
-	
+
 	public int getPlayerState() {
 		return playerState;
 	}

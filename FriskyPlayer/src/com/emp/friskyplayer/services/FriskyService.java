@@ -55,6 +55,7 @@ public class FriskyService extends Service implements MusicFocusable {
 	public static final String STREAM_TITLE = "com.emp.friskyplayer.services.communication.STREAM_TITLE";
 	public static final String STATE = "com.emp.friskyplayer.services.communication.STATE";
 	public static final String BUFFER_PROGRESS = "com.emp.friskyplayer.services.communication.BUFFER_PROGRESS";
+	public static final String LOADING = "com.emp.friskyplayer.services.communication.LOADING";
 
 	// The volume we set the media player to when we lose audio focus, but are
 	// allowed to reduce

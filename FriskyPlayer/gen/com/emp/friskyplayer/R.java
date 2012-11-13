@@ -1123,6 +1123,9 @@ containing a value of this type.
     public static final class style {
         public static final int DialogWindowTitle_Sherlock=0x7f0a0036;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0a0037;
+        /**  Custom indeterminate progress  
+         */
+        public static final int IndeterminateProgress=0x7f0a0062;
         public static final int Sherlock___TextAppearance_Small=0x7f0a004a;
         public static final int Sherlock___Theme=0x7f0a004e;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0a0050;

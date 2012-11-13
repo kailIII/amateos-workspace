@@ -1,12 +1,6 @@
 package com.emp.friskyplayer.activities;
 
-import java.util.List;
-
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Html;
@@ -14,6 +8,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,7 +18,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.ShareActionProvider;
+import com.actionbarsherlock.view.Window;
 import com.emp.friskyplayer.R;
 import com.emp.friskyplayer.activities.listeners.PlayButtonOnClickListener;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
@@ -46,6 +42,9 @@ public class FriskyPlayerActivity extends SherlockActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		setSupportProgressBarIndeterminateVisibility(false);
+		
         Log.d("App","onCreate ACTIVITY");
     }
     
@@ -60,8 +59,8 @@ public class FriskyPlayerActivity extends SherlockActivity {
         
         initActionBar();
         initGuiElements();
-        
-        serviceToGuiReceiver = new ServiceToGuiCommunicationReceiver(this);
+        setSupportProgressBarIndeterminateVisibility(false);
+		serviceToGuiReceiver = new ServiceToGuiCommunicationReceiver(this);
 	}
 
 

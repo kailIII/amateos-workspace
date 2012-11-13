@@ -38,6 +38,10 @@ public class ServiceToGuiCommunicationReceiver extends BroadcastReceiver {
         filter2.addAction(FriskyService.BUFFER_PROGRESS);
         activity.registerReceiver(this, filter2);
         
+        IntentFilter filter3 = new IntentFilter();
+        filter3.addAction(FriskyService.LOADING);
+        activity.registerReceiver(this, filter3);
+        
         titleTextView = (TextView) activity.findViewById(R.id.bottom_bar_stream_title_textview);
         bufferProgressBar = (ProgressBar) activity.findViewById(R.id.bottom_bar_buffer_progressbar);
 	}
@@ -63,6 +67,9 @@ public class ServiceToGuiCommunicationReceiver extends BroadcastReceiver {
 			
 			Log.d(TAG,"bufferProgress: "+bufferProgress);
 			
+		}else if (intent.getAction().equals(FriskyService.LOADING)) {
+			Boolean loading = intent.getExtras().getBoolean("loading");
+			activity.setSupportProgressBarIndeterminateVisibility(loading);
 		}
 		
 	}
