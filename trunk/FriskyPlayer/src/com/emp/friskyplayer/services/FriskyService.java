@@ -52,11 +52,9 @@ public class FriskyService extends Service implements MusicFocusable {
 	public static final String ACTION_TOGGLE_PLAYBACK = "com.emp.friskyplayer.services.action.TOGGLE_PLAYBACK";
 	public static final String ACTION_PLAY = "com.emp.friskyplayer.services.action.PLAY";
 	public static final String ACTION_STOP = "com.emp.friskyplayer.services.action.STOP";
-	public static final String STREAM_TITLE = "com.emp.friskyplayer.services.action.STREAM_TITLE";
-	public static final String GET_STREAM_TITLE = "com.emp.friskyplayer.services.action.GET_STREAM_TITLE";
-	public static final String STATE = "com.emp.friskyplayer.services.action.STATE";
-	public static final String GET_STATE = "com.emp.friskyplayer.services.action.GET_STATE";
-
+	public static final String STREAM_TITLE = "com.emp.friskyplayer.services.communication.STREAM_TITLE";
+	public static final String STATE = "com.emp.friskyplayer.services.communication.STATE";
+	public static final String BUFFER_PROGRESS = "com.emp.friskyplayer.services.communication.BUFFER_PROGRESS";
 
 	// The volume we set the media player to when we lose audio focus, but are
 	// allowed to reduce
@@ -107,8 +105,9 @@ public class FriskyService extends Service implements MusicFocusable {
 	public void onCreate() {
 
 		// Gets state from Application object
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
-		
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
+
 		// Create the Wifi lock (this does not acquire the lock, this just
 		// creates it)
 		mWifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE))
@@ -125,7 +124,7 @@ public class FriskyService extends Service implements MusicFocusable {
 		else
 			mAudioFocus = PlayerUtils.FOCUSED; // no focus feature, so we always
 												// "have" audio focus
-		
+
 	}
 
 	/**
@@ -136,9 +135,8 @@ public class FriskyService extends Service implements MusicFocusable {
 	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		
+
 		String action = intent.getAction();
-		Log.d("button", "Recibido Intent en Service -> "+action);		
 		if (action.equals(ACTION_TOGGLE_PLAYBACK))
 			processTogglePlaybackRequest();
 		else if (action.equals(ACTION_PLAY))
@@ -152,8 +150,9 @@ public class FriskyService extends Service implements MusicFocusable {
 	}
 
 	void processTogglePlaybackRequest() {
-		
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
+
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
 
 		if (mState == PlayerUtils.STATE_STOPPED) {
 			processPlayRequest();
@@ -167,7 +166,8 @@ public class FriskyService extends Service implements MusicFocusable {
 		tryToGetAudioFocus();
 
 		// actually play the song
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
 
 		if (mState == PlayerUtils.STATE_STOPPED) {
 			// If player has stoped state, play streaming
@@ -180,17 +180,16 @@ public class FriskyService extends Service implements MusicFocusable {
 	}
 
 	void processStopRequest(boolean force) {
-		
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
-		
+
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
+
 		if (mState == PlayerUtils.STATE_PLAYING
 				|| mState == PlayerUtils.STATE_LOADING || force) {
-			
+
 			// Sets state of player to STOPPED
-			((FriskyPlayerApplication) getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_STOPPED);
-			
-			//TODO: borrar la linea de debajo
-			//mState = PlayerUtils.STATE_STOPPED;
+			((FriskyPlayerApplication) getApplication()).getInstance()
+					.setPlayerState(PlayerUtils.STATE_STOPPED);
 
 			// let go of all resources...
 			relaxResources(true);
@@ -234,19 +233,19 @@ public class FriskyService extends Service implements MusicFocusable {
 	}
 
 	/**
-	 * Reconfigures Player according to audio focus settings and
-	 * starts it. This method starts/restarts the MediaPlayer
-	 * respecting the current audio focus state. So if we have focus, it will
-	 * play normally; if we don't have focus, it will either leave the
-	 * Player paused or set it to a low volume, depending on what is
-	 * allowed by the current focus settings. This method assumes mPlayer !=
-	 * null
+	 * Reconfigures Player according to audio focus settings and starts it. This
+	 * method starts/restarts the MediaPlayer respecting the current audio focus
+	 * state. So if we have focus, it will play normally; if we don't have
+	 * focus, it will either leave the Player paused or set it to a low volume,
+	 * depending on what is allowed by the current focus settings. This method
+	 * assumes mPlayer != null
 	 */
 	// TODO: configurar con las preferencias!
 	void configAndStartPlayer() {
-		
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
-		
+
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
+
 		if (mState != PlayerUtils.STATE_PLAYING)
 			mPlayer.playAsync("http://205.188.215.229:8024");
 
@@ -262,22 +261,24 @@ public class FriskyService extends Service implements MusicFocusable {
 	 * Starts playing
 	 */
 	void playStreaming() {
-		//mState = PlayerUtils.STATE_STOPPED;
-		((FriskyPlayerApplication) getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_STOPPED);
+		// mState = PlayerUtils.STATE_STOPPED;
+		((FriskyPlayerApplication) getApplication()).getInstance()
+				.setPlayerState(PlayerUtils.STATE_STOPPED);
 
 		relaxResources(false); // release everything except Player
 
 		createPlayer();
 
 		// change state to loading
-		
-		((FriskyPlayerApplication) getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_STOPPED);
 
-		//mState = PlayerUtils.STATE_LOADING;
+		((FriskyPlayerApplication) getApplication()).getInstance()
+				.setPlayerState(PlayerUtils.STATE_STOPPED);
+
+		// mState = PlayerUtils.STATE_LOADING;
 
 		setUpAsForeground(getResources().getString(R.string.loading));
 
-		//TODO: aqu’ habr’a que llamar al configAndStart
+		// TODO: aqu’ habr’a que llamar al configAndStart
 		mPlayer.playAsync("http://205.188.215.229:8024");
 
 		// Hold a Wifi lock,
@@ -287,17 +288,18 @@ public class FriskyService extends Service implements MusicFocusable {
 
 	}
 
-
-	/** 
-	 * Updates the notification. 
+	/**
+	 * Updates the notification.
 	 */
 	public void updateNotification(String text) {
 		PendingIntent pi = PendingIntent.getActivity(getApplicationContext(),
 				0, new Intent(getApplicationContext(),
 						FriskyPlayerActivity.class),
 				PendingIntent.FLAG_UPDATE_CURRENT);
-		mNotification.setLatestEventInfo(getApplicationContext(),
-				"friskyPlayer", text, pi);
+		mNotification.setLatestEventInfo(
+				getApplicationContext(),
+				getApplicationContext().getResources().getString(
+						R.string.app_name), text, pi);
 		mNotificationManager.notify(NOTIFICATION_ID, mNotification);
 	}
 
@@ -314,25 +316,30 @@ public class FriskyService extends Service implements MusicFocusable {
 		mNotification.tickerText = text;
 		mNotification.icon = R.drawable.ic_stat_notification;
 		mNotification.flags |= Notification.FLAG_ONGOING_EVENT;
-		mNotification.setLatestEventInfo(getApplicationContext(),
-				"friskyPlayer", text, pi);
+		mNotification.setLatestEventInfo(
+				getApplicationContext(),
+				getApplicationContext().getResources().getString(
+						R.string.app_name), text, pi);
 		startForeground(NOTIFICATION_ID, mNotification);
 	}
 
-	
 	public void onGainedAudioFocus() {
-		
-		Log.d(TAG,"Gained audio focus");
+
+		Log.d(TAG, "Gained audio focus");
 		mAudioFocus = PlayerUtils.FOCUSED;
 
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
-		
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
+
 		// restart media player with new focus settings
 		if (mState == PlayerUtils.STATE_PLAYING)
 			configAndStartPlayer();
 	}
 
 	public void onLostAudioFocus(boolean canDuck) {
+
+		// TODO: AUDIO FOCUS - DETENER PLAYER? MEJORAR!!!
+
 		Toast.makeText(getApplicationContext(),
 				"lost audio focus." + (canDuck ? "can duck" : "no duck"),
 				Toast.LENGTH_SHORT).show();
@@ -341,21 +348,20 @@ public class FriskyService extends Service implements MusicFocusable {
 
 		// start/restart/pause media player with new focus settings
 		// if (mPlayer != null && mPlayer.isPlaying())
-		
-		mState = ((FriskyPlayerApplication) getApplication()).getInstance().getPlayerState();
-		
+
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
 		if (mPlayer != null && mState == PlayerUtils.STATE_PLAYING)
-			configAndStartPlayer();
+			processStopRequest();
 	}
 
 	@Override
 	public void onDestroy() {
 		// Service is being killed, so make sure we release our resources
-		
-		((FriskyPlayerApplication) getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_STOPPED);
 
-		//TODO: borrar la linea de debajo
-		//mState = PlayerUtils.STATE_STOPPED;
+		((FriskyPlayerApplication) getApplication()).getInstance()
+				.setPlayerState(PlayerUtils.STATE_STOPPED);
+
 		relaxResources(true);
 		giveUpAudioFocus();
 	}

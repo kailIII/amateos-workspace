@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +16,15 @@ import com.emp.friskyplayer.services.FriskyService;
 
 public class ServiceToGuiCommunicationReceiver extends BroadcastReceiver {
 	
+	final static String TAG = "ServiceToGuiCommunicationReceiver";
+	
 	private FriskyPlayerActivity activity;
 	private TextView titleTextView;
+	private ProgressBar bufferProgressBar;
+	
+	public ServiceToGuiCommunicationReceiver() {
+		super();
+	}
 	
 	public ServiceToGuiCommunicationReceiver(FriskyPlayerActivity activity) {
 		super();
@@ -26,7 +34,12 @@ public class ServiceToGuiCommunicationReceiver extends BroadcastReceiver {
         filter.addAction(FriskyService.STREAM_TITLE);
         activity.registerReceiver(this, filter);
         
+        IntentFilter filter2 = new IntentFilter();
+        filter2.addAction(FriskyService.BUFFER_PROGRESS);
+        activity.registerReceiver(this, filter2);
+        
         titleTextView = (TextView) activity.findViewById(R.id.bottom_bar_stream_title_textview);
+        bufferProgressBar = (ProgressBar) activity.findViewById(R.id.bottom_bar_buffer_progressbar);
 	}
 
 	@Override
@@ -43,6 +56,13 @@ public class ServiceToGuiCommunicationReceiver extends BroadcastReceiver {
             
             // Sets title on Application object
             ((FriskyPlayerApplication) activity.getApplication()).getInstance().setStreamTitle(title);
+		}else if (intent.getAction().equals(FriskyService.BUFFER_PROGRESS)) {
+
+			int bufferProgress = intent.getExtras().getInt("buffer");
+			bufferProgressBar.setProgress(bufferProgress);
+			
+			Log.d(TAG,"bufferProgress: "+bufferProgress);
+			
 		}
 		
 	}

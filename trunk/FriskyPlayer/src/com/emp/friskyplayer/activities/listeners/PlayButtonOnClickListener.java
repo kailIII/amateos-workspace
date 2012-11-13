@@ -3,6 +3,7 @@ package com.emp.friskyplayer.activities.listeners;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.emp.friskyplayer.R;
@@ -41,6 +42,7 @@ public class PlayButtonOnClickListener extends ButtonOnClickListener{
 			playPauseButton.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_play));
 			((TextView) activity.findViewById(R.id.bottom_bar_stream_title_textview)).setText("");
 			((FriskyPlayerApplication) activity.getApplication()).getInstance().setStreamTitle("");
+			((ProgressBar) activity.findViewById(R.id.bottom_bar_buffer_progressbar)).setProgress(0);
 		}
 		
 	}

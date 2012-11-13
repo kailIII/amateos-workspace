@@ -812,6 +812,7 @@ containing a value of this type.
          */
         public static final int action_button_min_width=0x7f070010;
         public static final int button_margin=0x7f070012;
+        public static final int button_size=0x7f070013;
         public static final int element_margin=0x7f070011;
     }
     public static final class drawable {
@@ -969,8 +970,8 @@ containing a value of this type.
     }
     public static final class id {
         public static final int FriskyPlayerActivity_bottom_bar_layout=0x7f040033;
-        public static final int FriskyPlayerActivity_bottom_bar_layout_ref=0x7f040037;
-        public static final int FriskyPlayerActivity_main_layout=0x7f040036;
+        public static final int FriskyPlayerActivity_bottom_bar_layout_ref=0x7f040039;
+        public static final int FriskyPlayerActivity_main_layout=0x7f040038;
         public static final int abs__action_bar=0x7f040022;
         public static final int abs__action_bar_container=0x7f040021;
         public static final int abs__action_bar_subtitle=0x7f040011;
@@ -1011,14 +1012,16 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
+        public static final int bottom_bar_buffer_progressbar=0x7f040036;
         public static final int bottom_bar_play_button=0x7f040034;
+        public static final int bottom_bar_share_button=0x7f040037;
         public static final int bottom_bar_stream_title_textview=0x7f040035;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f040027;
-        public static final int friskyLogo_imageView=0x7f040038;
+        public static final int friskyLogo_imageView=0x7f04003a;
         public static final int homeAsUp=0x7f040006;
         public static final int listMode=0x7f040002;
-        public static final int menu_share=0x7f040039;
+        public static final int menu_share=0x7f04003b;
         public static final int normal=0x7f040001;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
@@ -1109,8 +1112,13 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090009;
         public static final int app_name=0x7f09000f;
+        public static final int headphones_disconnected=0x7f090016;
         public static final int loading=0x7f090011;
         public static final int share=0x7f090010;
+        public static final int share_question=0x7f090012;
+        public static final int share_subject=0x7f090015;
+        public static final int share_text_end=0x7f090014;
+        public static final int share_text_start=0x7f090013;
     }
     public static final class style {
         public static final int DialogWindowTitle_Sherlock=0x7f0a0036;

@@ -3,5 +3,10 @@
     <string name="app_name">friskyPlayer</string>
     <string name="share">Share</string>
     <string name="loading">loading...</string>
+    <string name="share_question">Share Frisky streaming</string>
+    <string name="share_text_start">Listening </string>
+    <string name="share_text_end"> using FriskyPlayer for Android. \n http://www.friskyradio.com</string>
+    <string name="share_subject">Listening FriskyRadio using FriskyPlayer for Android</string>
+    <string name="headphones_disconnected">Headphones disconnected</string>
 
 </resources>
