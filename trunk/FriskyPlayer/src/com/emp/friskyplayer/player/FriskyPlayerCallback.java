@@ -97,10 +97,20 @@ public class FriskyPlayerCallback implements PlayerCallback {
 			
 			// TODO: implementar el estado loading!
 			service.updateNotification(context.getResources().getString(R.string.loading));
+			Intent i = new Intent();
+			i.setAction(FriskyService.LOADING);
+			i.putExtra("loading", true);
+			context.sendBroadcast(i);
 			
 			Log.d(TAG,"Loading state");
 			
 		}else{
+			
+			Intent i = new Intent();
+			i.setAction(FriskyService.LOADING);
+			i.putExtra("loading", false);
+			context.sendBroadcast(i);
+			
 			((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_PLAYING);
 
 			int bufferValue = (audioBufferSizeMs*100)/audioBufferCapacityMs;
@@ -121,10 +131,10 @@ public class FriskyPlayerCallback implements PlayerCallback {
 				int bufferProgress = a/b;
 				
 				// Broadcast bufferProgress
-				Intent i = new Intent();
-				i.setAction(FriskyService.BUFFER_PROGRESS);
-				i.putExtra("buffer", bufferProgress);
-				context.sendBroadcast(i);
+				Intent i2 = new Intent();
+				i2.setAction(FriskyService.BUFFER_PROGRESS);
+				i2.putExtra("buffer", bufferProgress);
+				context.sendBroadcast(i2);
 				
 				
 				bufferProgressValueIndex = 0;
@@ -141,6 +151,10 @@ public class FriskyPlayerCallback implements PlayerCallback {
 	public void playerStarted() {
 
 		((FriskyPlayerApplication) service.getApplication()).getInstance().setPlayerState(PlayerUtils.STATE_PLAYING);
+		Intent i = new Intent();
+		i.setAction(FriskyService.LOADING);
+		i.putExtra("loading", false);
+		context.sendBroadcast(i);
 	}
 
 	/**
@@ -157,6 +171,11 @@ public class FriskyPlayerCallback implements PlayerCallback {
 		i.setAction(FriskyService.BUFFER_PROGRESS);
 		i.putExtra("buffer", 0);
 		context.sendBroadcast(i);
+		
+		Intent i2 = new Intent();
+		i2.setAction(FriskyService.LOADING);
+		i2.putExtra("loading", false);
+		context.sendBroadcast(i2);
 	}
 
 }

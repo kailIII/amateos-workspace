@@ -38,6 +38,8 @@
         <item name="actionBarWidgetTheme">@style/Theme.frisky.widget</item>
         <item name="android:actionBarWidgetTheme">@style/Theme.frisky.widget</item>
         
+        
+        
     </style>
     
     <style name="frisky_solid_ActionBar" parent="@style/Widget.Sherlock.Light.ActionBar.Solid.Inverse">
@@ -46,6 +48,11 @@
         <item name="backgroundSplit">@drawable/ab_bottom_solid_frisky</item>
         <item name="progressBarStyle">@style/frisky_ProgressBar</item>
         
+        <!-- Custom indeterminate progress  -->
+        <item name="android:indeterminateProgressStyle">@style/IndeterminateProgress</item> 
+        <item name="indeterminateProgressStyle">@style/IndeterminateProgress</item>
+         
+         
         <item name="android:background">@drawable/ab_solid_frisky</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_frisky</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_frisky</item>
@@ -95,4 +102,9 @@
         <item name="android:dropDownListViewStyle">@style/frisky_DropDownListView</item>
     </style>
     
+    
+        <!-- Custom indeterminate progress  -->
+      <style name="IndeterminateProgress" parent="@android:style/Widget.ProgressBar.Small"> 
+        <item name="android:indeterminateDrawable">@drawable/ic_play</item> 
+    </style> 
 </resources>
