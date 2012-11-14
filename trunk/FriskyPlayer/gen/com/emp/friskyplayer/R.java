@@ -943,30 +943,32 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02007c;
         public static final int ic_pause=0x7f02007d;
         public static final int ic_play=0x7f02007e;
-        public static final int ic_refresh=0x7f02007f;
-        public static final int ic_search=0x7f020080;
-        public static final int ic_search_inverse=0x7f020081;
-        public static final int ic_stat_notification=0x7f020082;
-        public static final int list_focused_frisky=0x7f020083;
-        public static final int menu_dropdown_panel_frisky=0x7f020084;
-        public static final int menu_hardkey_panel_frisky=0x7f020085;
-        public static final int pressed_background_frisky=0x7f020086;
-        public static final int progress_bg_frisky=0x7f020087;
-        public static final int progress_horizontal_frisky=0x7f020088;
-        public static final int progress_primary_frisky=0x7f020089;
-        public static final int progress_secondary_frisky=0x7f02008a;
-        public static final int selectable_background_frisky=0x7f02008b;
-        public static final int spinner_ab_default_frisky=0x7f02008c;
-        public static final int spinner_ab_disabled_frisky=0x7f02008d;
-        public static final int spinner_ab_focused_frisky=0x7f02008e;
-        public static final int spinner_ab_pressed_frisky=0x7f02008f;
-        public static final int spinner_background_ab_frisky=0x7f020090;
-        public static final int tab_indicator_ab_frisky=0x7f020091;
-        public static final int tab_selected_focused_frisky=0x7f020092;
-        public static final int tab_selected_frisky=0x7f020093;
-        public static final int tab_selected_pressed_frisky=0x7f020094;
-        public static final int tab_unselected_focused_frisky=0x7f020095;
-        public static final int tab_unselected_pressed_frisky=0x7f020096;
+        public static final int ic_progress_spinner=0x7f02007f;
+        public static final int ic_refresh=0x7f020080;
+        public static final int ic_search=0x7f020081;
+        public static final int ic_search_inverse=0x7f020082;
+        public static final int ic_stat_notification=0x7f020083;
+        public static final int list_focused_frisky=0x7f020084;
+        public static final int menu_dropdown_panel_frisky=0x7f020085;
+        public static final int menu_hardkey_panel_frisky=0x7f020086;
+        public static final int pressed_background_frisky=0x7f020087;
+        public static final int progress_bg_frisky=0x7f020088;
+        public static final int progress_horizontal_frisky=0x7f020089;
+        public static final int progress_indeterminate_custom=0x7f02008a;
+        public static final int progress_primary_frisky=0x7f02008b;
+        public static final int progress_secondary_frisky=0x7f02008c;
+        public static final int selectable_background_frisky=0x7f02008d;
+        public static final int spinner_ab_default_frisky=0x7f02008e;
+        public static final int spinner_ab_disabled_frisky=0x7f02008f;
+        public static final int spinner_ab_focused_frisky=0x7f020090;
+        public static final int spinner_ab_pressed_frisky=0x7f020091;
+        public static final int spinner_background_ab_frisky=0x7f020092;
+        public static final int tab_indicator_ab_frisky=0x7f020093;
+        public static final int tab_selected_focused_frisky=0x7f020094;
+        public static final int tab_selected_frisky=0x7f020095;
+        public static final int tab_selected_pressed_frisky=0x7f020096;
+        public static final int tab_unselected_focused_frisky=0x7f020097;
+        public static final int tab_unselected_pressed_frisky=0x7f020098;
     }
     public static final class id {
         public static final int FriskyPlayerActivity_bottom_bar_layout=0x7f040033;
@@ -1123,7 +1125,8 @@ containing a value of this type.
     public static final class style {
         public static final int DialogWindowTitle_Sherlock=0x7f0a0036;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0a0037;
-        /**  Custom indeterminate progress  
+        /** 
+    Custom indeterminate progress  
          */
         public static final int IndeterminateProgress=0x7f0a0062;
         public static final int Sherlock___TextAppearance_Small=0x7f0a004a;
