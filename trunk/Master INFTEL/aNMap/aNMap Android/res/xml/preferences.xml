@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Timeouts (ms)" >
+        <org.inftel.anmap.preferences.SeekBarTimeoutPreference
+            android:defaultValue="200"
+            android:key="timeout_red"
+            android:title="Escaneo red" />
+        <org.inftel.anmap.preferences.SeekBarTimeoutPreference
+            android:defaultValue="200"
+            android:key="timeout_puertos"
+            android:title="Escaneo puertos" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Threads" >
+        <org.inftel.anmap.preferences.SeekBarThreadsPreference
+            android:defaultValue="10"
+            android:key="hebras"
+            android:title="Hebras escaneo" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Puertos" >
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/puertos_seleccion"
+            android:entryValues="@array/puertos_codigo"
+            android:key="puertos"
+            android:summary="Puestos a escanear"
+            android:title="Rango de puertos" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

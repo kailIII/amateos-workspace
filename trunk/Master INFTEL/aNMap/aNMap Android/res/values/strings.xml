@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ANMapActivity!</string>
+    <string name="app_name">ANMap</string>
+    <string name="scan">Iniciar scan</string>
+    <string name="no_hosts">No existen elementos de red</string>
+    <string name="fabricante_desconocido">Fabricante desconocido</string>
+    <string name="no_puertos">No hay puertos abiertos para el host</string>
+    <string name="protocolo_desconocido">No definido</string>
+    <string name="barra_red">RED</string>
+    <string name="barra_puertos">PUERTOS</string>
+    <string name="dialog_localhost_titulo">Info red</string>
+    <string name="dialog_localhost_wifi">Wifi:</string>
+    <string name="dialog_localhost_router">Router:</string>
+    <string name="dialog_localhost_localhost">Localhost:</string>
+    <string name="dialog_victima_titulo">Info víctima</string>
+    <string name="dialog_victima_hostname">Hostname:</string>
+    <string name="dialog_victima_ip">ip:</string>
+    <string name="dialog_victima_mac">mac:</string>
+    <string name="dialog_victima_router">router:</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="escaneando_red">Escaneando red...</string>
+    
+</resources>

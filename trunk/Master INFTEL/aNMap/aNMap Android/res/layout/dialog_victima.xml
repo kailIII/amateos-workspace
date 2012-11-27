@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <TextView
+            android:id="@+id/dialog_victima_hostname_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/dialog_victima_hostname"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#669900"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_victima_hostname_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@id/dialog_victima_hostname_label"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <TextView
+            android:id="@+id/dialog_victima_ip_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/dialog_victima_ip"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#669900"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_victima_ip_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@id/dialog_victima_ip_label"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <TextView
+            android:id="@+id/dialog_victima_mac_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/dialog_victima_mac"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#669900"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_victima_mac_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@id/dialog_victima_mac_label"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" >
+
+        <TextView
+            android:id="@+id/dialog_victima_router_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/dialog_victima_router"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#669900"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_victima_router_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@id/dialog_victima_router_label"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+</LinearLayout>
