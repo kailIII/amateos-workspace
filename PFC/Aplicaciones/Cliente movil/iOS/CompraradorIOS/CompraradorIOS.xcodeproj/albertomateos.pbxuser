@@ -1,0 +1,199 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* CompraradorIOS */ = {
+		activeExec = 0;
+		executables = (
+			E760C2FE15F51C8600042680 /* CompraradorIOS */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = E760C2FE15F51C8600042680 /* CompraradorIOS */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* CompraradorIOS */;
+		codeSenseManager = E760C33E15F51C9200042680 /* Code sense */;
+		executables = (
+			E760C2FE15F51C8600042680 /* CompraradorIOS */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					265,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 368645704;
+			PBXWorkspaceStateSaveDate = 368645704;
+		};
+		perUserProjectItems = {
+			E757C78515F52F1A00431ACE /* PlistBookmark */ = E757C78515F52F1A00431ACE /* PlistBookmark */;
+			E757C78615F52F1A00431ACE /* PBXTextBookmark */ = E757C78615F52F1A00431ACE /* PBXTextBookmark */;
+			E757C78915F52F1A00431ACE /* PBXTextBookmark */ = E757C78915F52F1A00431ACE /* PBXTextBookmark */;
+			E760C3AA15F5218200042680 /* PBXBookmark */ = E760C3AA15F5218200042680 /* PBXBookmark */;
+			E760C3AB15F5218200042680 /* PlistBookmark */ = E760C3AB15F5218200042680 /* PlistBookmark */;
+			E7BFE1BA15F916620071594B /* PBXTextBookmark */ = E7BFE1BA15F916620071594B /* PBXTextBookmark */;
+		};
+		sourceControlManager = E760C33D15F51C9200042680 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	307D28A1123043350040C0FA /* PhoneGapBuildSettings.xcconfig */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {850, 587}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 200}";
+			sepNavWindowFrame = "{{42, 37}, {909, 715}}";
+		};
+	};
+	30E1352610E2C1420031B30D /* PhoneGap.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{65, 16}, {909, 715}}";
+		};
+	};
+	8D1107310486CEB800E47090 /* CompraradorIOS-Info.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {632, 728}}";
+			sepNavSelRange = "{1487, 0}";
+			sepNavVisRect = "{{0, 488}, {556, 212}}";
+			sepNavWindowFrame = "{{19, 58}, {909, 715}}";
+		};
+	};
+	E757C78515F52F1A00431ACE /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* CompraradorIOS-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/albertomateos/Teleco/PFC/Desarrollo/Android/FINAL/OTROS SOs/iOS/CompraradorIOS/CompraradorIOS-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	E757C78615F52F1A00431ACE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E757C78715F52F1A00431ACE /* phonegap-1.2.0.js */;
+		name = "phonegap-1.2.0.js: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 483;
+		vrLoc = 0;
+	};
+	E757C78715F52F1A00431ACE /* phonegap-1.2.0.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = "phonegap-1.2.0.js";
+		path = "/Users/albertomateos/Teleco/PFC/Desarrollo/Android/FINAL/OTROS SOs/iOS/CompraradorIOS/www/js/phonegap-1.2.0.js";
+		sourceTree = "<absolute>";
+	};
+	E757C78915F52F1A00431ACE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E757C78A15F52F1A00431ACE /* funciones.js */;
+		name = "funciones.js: 7";
+		rLen = 0;
+		rLoc = 311;
+		rType = 0;
+		vrLen = 555;
+		vrLoc = 0;
+	};
+	E757C78A15F52F1A00431ACE /* funciones.js */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.javascript;
+		name = funciones.js;
+		path = "/Users/albertomateos/Teleco/PFC/Desarrollo/Android/FINAL/OTROS SOs/iOS/CompraradorIOS/www/js/funciones.js";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {565, 22724}}";
+			sepNavSelRange = "{311, 0}";
+			sepNavVisRange = "{0, 555}";
+		};
+	};
+	E760C2FE15F51C8600042680 /* CompraradorIOS */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = CompraradorIOS;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	E760C33D15F51C9200042680 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	E760C33E15F51C9200042680 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	E760C3AA15F5218200042680 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 308D05321370CCF300D202BF /* Default-Landscape.png */;
+	};
+	E760C3AB15F5218200042680 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 30E1352610E2C1420031B30D /* PhoneGap.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/albertomateos/Teleco/PFC/Desarrollo/Android/FINAL/OTROS SOs/iOS/CompraradorIOS/PhoneGap.plist";
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	E7BFE1BA15F916620071594B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E7BFE1BB15F916620071594B /* funciones.js */;
+		name = "funciones.js: 7";
+		rLen = 0;
+		rLoc = 311;
+		rType = 0;
+		vrLen = 555;
+		vrLoc = 0;
+	};
+	E7BFE1BB15F916620071594B /* funciones.js */ = {
+		isa = PBXFileReference;
+		name = funciones.js;
+		path = "/Users/albertomateos/Teleco/PFC/Desarrollo/Android/FINAL/OTROS SOs/iOS/CompraradorIOS/www/js/funciones.js";
+		sourceTree = "<absolute>";
+	};
+}
