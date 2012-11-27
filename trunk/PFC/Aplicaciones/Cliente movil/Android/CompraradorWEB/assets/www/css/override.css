@@ -1,0 +1,66 @@
+/******** OVERRIDE PROPIO ********/
+/* Override del CSS de jQuery Mobile para adaptar los estilos a la aplicaci�n
+*  e introducir nuevos iconos y estilos
+*/
+.tachado{ text-decoration:line-through;}
+
+/* Alineacion de los precios respecto del logo del supermercado */
+.precio {position: relative; top: -3px;}
+.precioCorte {position: relative; top: -9px;}
+
+/* Amplicaci�n de la anchura del campo de descripci�n en listviews */
+.ui-li-desc{margin:-.5em -4.5em .6em .1em;}
+
+/* Iconos personalizados */
+.ui-icon-comprobar {	
+	background-image:url(../jquery.mobile/images/icono-carrito.png);
+	background-repeat:no-repeat;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
+}
+.ui-icon-lista {
+	background-image:url(../jquery.mobile/images/icono-lista.png);
+	background-repeat:no-repeat;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
+}
+.ui-icon-compra {
+	background-image:url(../jquery.mobile/images/icono-lista.png);
+	background-repeat:no-repeat;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
+}
+.ui-icon-codigoBarras {
+	background-image:url(../jquery.mobile/images/icono-codigo-barras.png);
+	background-repeat:no-repeat;
+	-moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
+}
+
+#mensaje{
+	background-color: #1b2c6a;
+    height: 60px;
+    width: 200px;
+	zoom: 1;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    position: relative;
+    top: 150px;
+    text-align: center;
+    margin-left: auto;
+	margin-right: auto;
+    -moz-border-radius:9px;
+	-webkit-border-radius:9px;
+	border-radius:9px;
+    z-index: 10;
+}
+
+#mensaje p {
+	padding: 10px 10px 10px 10px;
+	color: white;
+	font-weight: bold;	
+}

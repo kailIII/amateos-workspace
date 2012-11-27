@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  	<!--<meta name="viewport"  content="width=320; user-scalable=no"  />-->
+    <meta name="viewport" content="width=240; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Comprarador</title>
+      <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.min.css" type="text/css" charset="utf-8" />
+	  <link rel="stylesheet" href="jquery.mobile/simpledialog/jquery.mobile.simpledialog.min.css" type="text/css" charset="utf-8" />
+	  <link rel="stylesheet" href="css/pgandjqm-style-override.css" type="text/css" charset="utf-8" />
+	  <link rel="stylesheet" href="css/override.css" type="text/css" charset="utf-8" />	  
+	  
+	  <script src="rgraph/RGraph.common.core.js"></script>
+	  <script src="rgraph/RGraph.common.effects.js"></script>
+	  <script src="rgraph/RGraph.common.tooltips.js" ></script>
+	  <script src="rgraph/RGraph.hbar.js"></script>
+	  
+	  <script type="text/javascript" src="jquery.mobile/jquery-1.7.min.js"></script>
+	  <script type="text/javascript" charset="utf-8" src="js/cordova-1.6.0.js"></script>
+	  <script src="jquery.mobile/jquery.mobile-1.0.min.js"></script>
+	  <script src="jquery.mobile/simpledialog/jquery.mobile.simpledialog.min.js"></script>
+	  	  
+	  <script type="text/javascript" charset="utf-8" src="js/funciones.js"></script>
+	
+	</head>
+  <body>
+    
+    <!-- INICIO PÁGINA PRINCIPAL -->
+
+     <div data-role="page" id="paginaPrincipal" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Comprarador</h1> 
+		</div>
+    	<div data-role="content">
+    		<a href="#" id="botonPaginaListas" data-role="button" data-theme="b" data-icon="grid" data-iconpos="top">Listas</a>
+    		<a href="#paginaOpcionesBusqueda" data-role="button" data-theme="b" data-icon="search" data-iconpos="top">Buscar productos</a>
+    		<a href="#" id="botonPaginaFavoritos" data-role="button" data-theme="b" data-icon="star" data-iconpos="top">Favoritos</a>
+    	</div>
+
+	</div>
+    	
+    </div>
+    <!-- FINAL PÁGINA PRINCIPAL -->
+    
+    <!-- INICIO PÁGINA LISTAS -->
+    <div data-role="page" id="paginaListas" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Listas</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+    		
+		</div>
+    	<div data-role="content" id="contenidoPaginaListas">
+    		<ol data-role="listview" data-inset="true">
+    			
+    		</ol>
+    	</div>
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-iconpos="top" data-theme="b">
+				<ul>
+					<li><a href="#paginaNuevaLista" data-rel='dialog' data-icon="plus" data-iconpos="notext">Crear nueva lista</a></li>
+				</ul>
+			</div><!-- /navbar -->
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTAS -->   
+    
+    <!-- INICIO PÁGINA RESULTADOS -->
+    <div data-role="page" id="paginaResultados" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Resultados</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+		</div>
+    	<div data-role="content" id="contenidoPaginaResultados">
+			<p>Pulse sobre cada una de las barras para ver el número de aciertos:</p>
+			<div style="float:left;">
+				<p style="margin-bottom:1px"><img src='imagenes/mercadona.png' alt='Mercadona' height="19", width="75" /></p>
+				<p style="margin-bottom:1px"><img src='imagenes/carrefour.png' alt='Carrefour' height="19", width="75" /></p>
+				<p style="margin-bottom:1px"><img src='imagenes/hipercor.png' alt='Hipercor' height="16", width="75" /></p>
+				<p style="margin-bottom:1px"><img src='imagenes/corteIngles.png' alt='CorteIngles' height="20", width="75" /></p>
+			</div>
+			<canvas id="grafico" width="230" height="200"  style="float:left; position:relative; margin-left:5px; top:-20px;">[No canvas support]</canvas>
+			
+
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA RESULTADOS --> 
+    
+    
+    <!-- INICIO PÁGINA LISTA -->
+    <div data-role="page" id="paginaLista" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1></h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>    		
+		
+			
+		</div>
+    	<div data-role="content" id="contenidoPaginaLista">
+    		<ul data-role="listview" data-inset="true">
+    					
+				
+    		</ul>
+    	</div>
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-iconpos="top" data-theme="b">
+				<ul>
+					<li><a href="#" id="botonFooterComprobar" data-icon="comprobar" data-iconpos="notext">Comprobar</a></li>
+					<li><a href="#" id="botonFooterModoCompra" data-icon="compra" data-iconpos="notext">Modo compra</a></li>
+					<li><a href="#" id="botonFooterEliminarLista" data-rel='dialog' data-icon="delete" data-iconpos="notext">Eliminar lista</a></li>
+				</ul>
+			</div><!-- /navbar -->
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA -->
+    
+    <!-- INICIO PÁGINA LISTA MODO COMPRA-->
+    <div data-role="page" id="paginaListaModoCompra" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1></h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+		</div>
+    	<div data-role="content" id="contenidoPaginaListaModoCompra">
+    		<ul data-role="listview" data-inset="true">
+    					
+				
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA MODO COMPRA -->
+    
+    <!-- INICIO PÁGINA PRODUCTO -->
+    <div data-role="page" id="paginaProducto" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Producto</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+     		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>	
+		</div>
+    	<div data-role="content" id="contenidoPaginaProducto">
+    		
+    	</div>
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-iconpos="top" data-theme="b">
+				<ul>
+					<li><a href="#" id="botonFooterAgregarALista" data-icon="plus">Agregar a lista</a></li>
+					<li><a href="#" id="botonFooterAgregarAFavoritos" data-icon="star">Agregar a favoritos</a></li>
+				</ul>
+			</div><!-- /navbar -->
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA PRODUCTO -->
+    
+    <!-- INICIO PÁGINA PRODUCTO LISTA-->
+    <div data-role="page" id="paginaProductoLista" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Producto</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+     		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>	
+    		
+		</div>
+    	<div data-role="content" id="contenidoPaginaProductoLista">
+    		
+    	</div>
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-iconpos="top" data-theme="b">
+				<ul>
+					<li><a href="#" id="botonFooterAgregarProductoListaAFavoritos" data-icon="star" data-iconpos="notext">Agregar a favoritos</a></li>
+				</ul>
+			</div><!-- /navbar -->
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA PRODUCTO LISTA-->
+    
+    <!-- INICIO PÁGINA PRODUCTO FAVORITO-->
+    <div data-role="page" id="paginaProductoFavorito" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Producto</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+       		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>	
+    		
+		</div>
+    	<div data-role="content" id="contenidoPaginaProductoFavorito">
+    		
+    	</div>
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-iconpos="top" data-theme="b">
+				<ul>
+					<li><a href="#" id="botonFooterAgregarFavoritoALista" data-icon="plus" data-iconpos="notext">Agregar a lista</a></li>
+					<li><a href="#" id="botonFooterEliminarFavorito" data-icon="delete" data-iconpos="notext">Eliminar favorito</a></li>
+				</ul>
+			</div><!-- /navbar -->
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA PRODUCTO FAVORITO-->
+    
+    <!-- INICIO PÁGINA OPCIONES BUSQUEDA -->
+    <div data-role="page" id="paginaOpcionesBusqueda" data-theme="c">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Búsqueda de productos</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+		</div>
+    	<div data-role="content">
+    		<ul data-role="listview" data-inset="true" data-theme="c">
+    			<li><a href="#" id="botonPaginaListaCategorias" data-role="button" data-icon="lista">Lista de categorías</a></li>
+    			<li><a href="#paginaBusquedaNombre" data-role="button" data-icon="search">Nombre</a></li>
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA OPCIONES BUSQUEDA -->
+    
+    
+    <!-- INICIO PÁGINA BUSQUEDA NOMBRE -->
+    <div data-role="page" id="paginaBusquedaNombre" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Búsqueda por nombre</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+    		 
+		</div>
+    	<div data-role="content" id="contenidoBusquedaProductos">
+    		<div data-role="fieldcontain">
+    			<label for="campoBuscarProducto">Buscar producto</label>
+    			<input type="search" name="campoBuscarProducto" id="campoBuscarProducto" />
+    			<button type="submit" id="botonBuscarProducto" data-theme="b">Buscar</button>                 
+    		</div>
+    		<ul data-role="listview" data-inset="true">
+
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA BUSQUEDA NOMBRE -->
+    
+    <!-- INICIO PÁGINA LISTA CATEGORIAS -->
+    <div data-role="page" id="paginaListaCategorias" data-theme="c">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Categorías</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>    		
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a> 
+		</div>
+    	<div data-role="content" id="contenidoListaCategorias">
+    		<ul data-role="listview" data-filter="true" data-inset="true">
+
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA CATEGORIAS -->
+    
+    <!-- INICIO PÁGINA LISTA SUBCATEGORIAS -->
+    <div data-role="page" id="paginaListaSubcategorias" data-theme="c">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1></h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>    		
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a>
+		</div>
+    	<div data-role="content" id="contenidoListaSubcategorias">
+    		<ul data-role="listview" data-filter="true" data-inset="true">
+
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA SUBCATEGORIAS -->
+    
+    <!-- INICIO PÁGINA LISTA SUBSUBCATEGORIAS -->
+    <div data-role="page" id="paginaListaSubsubcategorias" data-theme="c">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1></h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>    		
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a> 
+		</div>
+    	<div data-role="content" id="contenidoListaSubsubcategorias">
+    		<ul data-role="listview" data-filter="true" data-inset="true">
+
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA SUBSUBCATEGORIAS -->
+    
+    <!-- INICIO PÁGINA LISTA PRODUCTOS -->
+    <div data-role="page" id="paginaListaProductos" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1></h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>    		
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a> 
+		</div>
+    	<div data-role="content" id="contenidoListaProductos">
+    		<ul data-role="listview" data-filter="true" data-inset="true">
+
+    		</ul>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA LISTA PRODUCTOS -->
+    
+    
+    <!-- INICIO PÁGINA FAVORITOS -->
+    <div data-role="page" id="paginaFavoritos" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Favoritos</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>    		
+    		<a href="#paginaPrincipal" data-icon="home" data-iconpos="notext">Inicio</a> 
+		</div>
+    	<div data-role="content" id="contenidoPaginaFavoritos">
+    		<ol data-role="listview" data-filter="true" data-inset="true">
+				
+    		</ol>
+    	</div>
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA FAVORITOS -->
+    
+
+	<!-- INICIO PÁGINA SELECCIÓN DE LISTA -->
+	<div data-role="page" id="paginaSeleccionLista" data-theme="d">
+		
+		<div data-role="header" data-theme="b">
+			<h1>Agregar producto a lista</h1>
+    		<a href="#" data-rel="back" data-icon="back" data-iconpos="notext">Atras</a>
+		</div>
+		<div data-role="content" id="contenidoPaginaSeleccionLista">
+			<style>.ui-dialog .ui-header .ui-btn-icon-notext { display:none;} </style>
+    		<div data-role="fieldcontain">
+    			<label for="name" class="select">Elija la lista a la que desea agregar el producto:</label>
+    			<select id="name" name="select" data-native-menu="false" data-theme="b">
+    				<option value="-" selected></option>
+    			</select>
+    			<button type="button" id="botonSeleccionarLista" data-icon="check" data-inline="true" data-theme="b">Seleccionar</button>
+    			
+			</div>
+    		
+		</div>
+		
+	</div>
+	<!-- FINAL PÁGINA SELECCIÓN DE LISTA -->
+
+	<!-- INICIO PÁGINA NUEVA LISTA -->
+    <div data-role="page" id="paginaNuevaLista" data-theme="d">
+  		<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>Crear nueva lista</h1>
+		</div>
+    	<div data-role="content">
+    	<style>.ui-dialog .ui-header .ui-btn-icon-notext { display:none;} </style>
+    		<div data-role="fieldcontain">
+    			<label for="nombre">Nombre:</label>
+    			<input type="text" name="nombre" id="nombreCrearLista" value=""  />
+    			<button type="button" id="botonCrearLista" data-icon="check" data-inline="true" data-theme="b">Crear</button>
+    			<button type="button" id="botonCancelarCrearLista" data-icon="delete" data-inline="true" data-theme="a">Cancelar</button>
+			</div>	
+    	</div>
+    </div>
+    <!-- FINAL PÁGINA NUEVA LISTA -->
+
+
+<div id="mensaje"><p></p></div>
+
+</body>
+</html>
