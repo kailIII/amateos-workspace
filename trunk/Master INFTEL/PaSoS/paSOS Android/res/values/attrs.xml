@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <attr name="titulo" format="reference" />
-    <attr name="subtitulo" format="reference" />
-    <attr name="opcion" format="reference" />
-    <attr name="fondo" format="reference" />
-    
-</resources>
