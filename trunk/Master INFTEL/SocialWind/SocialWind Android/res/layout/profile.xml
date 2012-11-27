@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbars="vertical" >
+
+    <ProgressBar
+        android:id="@+id/imageProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:minHeight="100px"
+        android:minWidth="100px" />
+
+    <TextView
+        android:id="@+id/surferDisplayNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/profileImageView"
+        android:layout_marginTop="20dip"
+        android:text="@string/displayName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/surferDisplayNameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/surferDisplayNameTextView"
+        android:layout_alignBottom="@+id/surferDisplayNameTextView"
+        android:layout_alignLeft="@+id/surferFullNameEditText"
+        android:layout_toRightOf="@+id/surferDisplayNameTextView"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/surferFullNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/surferDisplayNameEditText"
+        android:layout_marginTop="20dip"
+        android:text="@string/fullName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/surferFullNameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/surferFullNameTextView"
+        android:layout_alignBottom="@+id/surferFullNameTextView"
+        android:layout_toRightOf="@+id/surferFullNameTextView"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/surferModifyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/surferFullNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="@string/modify"
+        android:textStyle="bold" />
+
+</RelativeLayout>

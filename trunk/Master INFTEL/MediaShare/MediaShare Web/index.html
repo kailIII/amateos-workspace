@@ -1,0 +1,84 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Media share</title>
+	  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+        
+
+		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAhAY7IuBFe78CpNAO1Dt0PRTleHRUOYLALercM7UOej94M0X7mhRPHqTlGG7JR1YW4k0vJNxnGttg7g"></script>
+
+
+		<script src="js/RGraph.common.core.js"></script>
+		<script src="js/RGraph.common.effects.js"></script>
+		<script src="js/RGraph.common.tooltips.js" ></script>
+		<script src="js/RGraph.bar.js"></script>
+                
+
+        <script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+        
+		<script type="text/javascript" src="js/jquery.gmap-1.1.0-min.js"></script>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox-0.5.min.js"></script>
+
+               
+		<link type="text/css" href="css/tipsy.css" rel="stylesheet">
+		<script src="js/jquery.tipsy.js"></script>
+		<script src="js/funciones.js"></script>
+
+		<script type="text/javascript">
+		  window.___gcfg = {lang: 'es-419'};
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script> 
+    </head>
+
+    <body id="body">
+
+        <div id="header">
+            Media&AMP;Share
+        </div>
+<ul id="menu">
+		<li><a href="#" id="menu_musica">MUSICA</a></li>
+		<li><a href="#" id="menu_videos">VIDEO</a></li>
+		<li><a href="#" id="menu_imagenes">IMAGENES</a></li>
+		<li><a href="#" id="menu_localizaciones">LOCALIZACIONES</a></li>
+		<li><a href="#" id="menu_estadisticas">ESTADISTICAS</a></li>
+</ul>
+        <div id="wrapper">
+            <div id="left"><p></p></div>
+
+            <div class="flipR"></div>
+            <div id="right">
+            </div>
+
+            <div id="main"></div>
+             <div id="people">
+            </div>
+        <div id="footer">
+			<p id="contentFoot">@web creada en master Inftel para Conceptos y recursos basicos en Internet@ </p>
+			<ul id="footerLista">
+            
+				<!--Boton compartir tuenti-->
+				<script type="text/javascript" src="http://widgets.tuenti.com/widgets.js"></script>
+				<script type="text/javascript">tuenti.widget.shareButton("tuenti_share")</script>
+				<li><a href="http://www.tuenti.com/share" id="tuenti_share"></a></li>
+				
+				<!--BOTON "ME GUSTA" FACEBOOK -->
+				<li><iframe id="FbLike" style="position:relative; top:7px;"src="http://www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($post->ID));?>&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=dark"></iframe></li>
+				
+				<li><g:plusone count="false" href="masterinftel.uma.es"></g:plusone></li>
+		</ul>
+        </div>
+    </body>
+</html>
