@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+  xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    
+  </ui:style>
+  <g:HTMLPanel>
+    <div class="content-header" style="va">
+      <h1>
+        Listadao de playas
+        <small>Con toda la información necesaria</small>
+      </h1>
+    </div>
+    <div class="clear"></div>
+    <g:FlowPanel ui:field="fpPlayas"></g:FlowPanel>
+  </g:HTMLPanel>
+</ui:UiBinder> 

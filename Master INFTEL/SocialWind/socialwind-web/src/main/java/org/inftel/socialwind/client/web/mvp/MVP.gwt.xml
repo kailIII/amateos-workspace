@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>    
+<replace-with class="org.inftel.socialwind.client.web.mvp.ClientFactoryImpl">
+    <when-type-is class="org.inftel.socialwind.client.web.mvp.ClientFactory"/>
+ </replace-with>
+</module>

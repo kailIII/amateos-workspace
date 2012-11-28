@@ -1,0 +1,59 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:DockLayoutPanel unit="PX">
+		<g:east size="250">
+			<g:ScrollPanel>
+				<g:HTMLPanel>
+					<div id="sidebar">
+
+						<h3>Menú Principal</h3>
+						<ul id="local-menu" class="pills">
+							<li id="info-partial">
+								<a>
+									<g:Label addStyleNames="cursor" ui:field="opPlayas">Listado
+										de Playas</g:Label>
+								</a>
+							</li>
+							<li id="subscription-partial">
+								<a>
+									<g:Label addStyleNames="cursor" ui:field="opHotspots">HotSpots</g:Label>
+								</a>
+							</li>
+							<li id="map-partial">
+								<a>
+									<g:Label addStyleNames="cursor" ui:field="opHistorico">Histórico
+										de sesiones</g:Label>
+								</a>
+							</li>
+							<li id="perfil-partial">
+								<a>
+									<g:Label addStyleNames="cursor" ui:field="opPerfil">Perfil
+										</g:Label>
+								</a>
+							</li>
+						</ul>
+						<hr />
+
+						<h3>Introducción</h3>
+						<ul id="sidebar-links">
+							<li>
+								<a>
+									<g:Label addStyleNames="cursor" ui:field="opIntro">Introducción</g:Label>
+								</a>
+							</li>
+						</ul>
+						<hr />
+
+					</div><!-- sidebar -->
+				</g:HTMLPanel>
+			</g:ScrollPanel>
+		</g:east>
+		<g:center>
+			<g:ScrollPanel>
+				<g:SimplePanel ui:field="exampleArea" addStyleNames="exampleArea" />
+			</g:ScrollPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+
+</ui:UiBinder>

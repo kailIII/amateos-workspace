@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.inftel.socialwind</groupId>
+  <artifactId>socialwind</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>SocialWind Application</name>
+
+  <modules>
+    <module>socialwind-web</module>
+    <module>socialwind-server</module>
+    <module>socialwind-api</module>
+    <module>socialwind-desktop</module>
+    <module>socialwind-mobile</module>
+  </modules>
+
+  <properties>
+    <!-- GWT needs at least java 1.6 -->
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+
+    <!-- Don't let your Mac use a crazy non-standard encoding -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Google GWT and App Engine -->
+    <gwt.version>2.4.0</gwt.version>
+    <gae.version>1.5.3</gae.version>
+    <gae-test.version>1.5.3</gae-test.version>
+    <gae.home>${user.home}/.m2/repository/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
+    <!-- AppEngine solo soporta datanucleus v1 -->
+    <datanucleus.version>1.1.5</datanucleus.version>
+    <slf4j.version>1.6.1</slf4j.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.inftel.socialwind</groupId>
+        <artifactId>socialwind-api</artifactId>
+        <version>${project.version}</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.inftel.socialwind</groupId>
+        <artifactId>socialwind-desktop</artifactId>
+        <version>${project.version}</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.inftel.socialwind</groupId>
+        <artifactId>socialwind-mobile</artifactId>
+        <version>${project.version}</version>
+        <type>apk</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.inftel.socialwind</groupId>
+        <artifactId>socialwind-server</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.inftel.socialwind</groupId>
+        <artifactId>socialwind-web</artifactId>
+        <version>${project.version}</version>
+        <type>jar</type>
+        <scope>compile</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>DataNucleus_Repos2</id>
+      <name>DataNucleus Repository</name>
+      <url>http://www.datanucleus.org/downloads/maven2</url>
+    </repository>
+    <repository>
+      <id>JBoss Repo</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+      <name>JBoss Repo</name>
+    </repository>
+    <repository>
+      <id>javageomodel-repo</id>
+      <name>GeocellJava Repository</name>
+      <url>http://javageomodel.googlecode.com/svn/repository</url>
+    </repository>
+    <repository>
+      <id>spring-maven-release</id>
+      <name>Spring Maven Release Repository</name>
+      <url>http://maven.springframework.org/release</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>DataNucleus_2</id>
+      <url>http://www.datanucleus.org/downloads/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <url>https://github.com/socialwind/socialwind</url>
+  <scm>
+  	<developerConnection>git@github.com:socialwind/socialwind.git</developerConnection>
+  	<url>git://github.com/socialwind/socialwind.git</url>
+  </scm>
+  <organization>
+  	<name>Master INFTEL</name>
+  	<url>http://masterinftel.uma.es/</url>
+  </organization>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.source}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+          <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
