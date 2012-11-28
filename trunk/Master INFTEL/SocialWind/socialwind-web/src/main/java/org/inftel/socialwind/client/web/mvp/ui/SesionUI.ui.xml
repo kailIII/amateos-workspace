@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:org.inftel.socialwind.client.web.mvp.ui">
+
+	<g:DecoratorPanel addStyleNames="w90">
+		<g:HTMLPanel addStyleNames="pane">
+			<h3>
+				Sesión en:
+				<g:InlineLabel ui:field="namep"></g:InlineLabel>
+			</h3>
+			<my:SpotUI ui:field="spotp"></my:SpotUI>
+			<div class="mt10">
+				<div class="floatl">
+					<g:InlineLabel>Fecha Inicio: </g:InlineLabel>
+					<g:InlineLabel ui:field="hini"></g:InlineLabel>
+				</div>
+				<div class="ffin">
+					<g:InlineLabel>Fecha Fin: </g:InlineLabel>
+					<g:InlineLabel ui:field="hfin"></g:InlineLabel>
+				</div>
+				<div class="clear">
+				</div>
+				<div class="ttotal">
+					<g:InlineLabel ui:field="tt">Tiempo total: </g:InlineLabel>
+					<g:InlineLabel ui:field="htotal"></g:InlineLabel>
+				</div>
+			</div>
+		</g:HTMLPanel>
+	</g:DecoratorPanel>
+
+</ui:UiBinder> 

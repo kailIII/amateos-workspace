@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:FocusPanel ui:field="clickable" addStyleNames="playa">
+		<g:HTMLPanel addStyleNames="pane">
+			<div class="floatl">
+				<g:Image ui:field="imagen"></g:Image>
+			</div>
+			<div class="suiname">
+				<div class="floatl">
+					<g:InlineLabel>Nombre: </g:InlineLabel>
+					<g:InlineLabel ui:field="name"></g:InlineLabel>
+				</div>
+				<div class="floatr">
+					<g:InlineLabel>Distancia: </g:InlineLabel>
+					<g:InlineLabel ui:field="dist"></g:InlineLabel>
+				</div>
+				<div class="clear"></div>
+				<div class="floatl">
+					<g:InlineLabel>Surferos: </g:InlineLabel>
+					<g:InlineLabel ui:field="surfercount"></g:InlineLabel>
+				</div>
+				<div class="floatr">
+					<g:InlineLabel ui:field="locLabel">Localización: </g:InlineLabel>
+					<g:InlineLabel ui:field="loc"></g:InlineLabel>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</g:HTMLPanel>
+	</g:FocusPanel>
+
+</ui:UiBinder> 

@@ -1,0 +1,14 @@
+target/
+bin/
+gen/
+.idea
+.classpath
+.project
+.settings
+.DS_Store
+.gwt
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo

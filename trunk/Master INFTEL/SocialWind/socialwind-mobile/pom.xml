@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>socialwind</artifactId>
+    <groupId>org.inftel.socialwind</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>org.inftel.socialwind</groupId>
+  <artifactId>socialwind-mobile</artifactId>
+  <packaging>apk</packaging>
+  <name>SocialWind :: Mobile</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.web.bindery</groupId>
+      <artifactId>requestfactory-client</artifactId>
+      <version>2.4.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.inftel.socialwind</groupId>
+      <artifactId>socialwind-api</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <type>jar</type>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.gwt</groupId>
+          <artifactId>gwt-user</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android.c2dm</groupId>
+      <artifactId>c2dm</artifactId>
+      <version>1.5.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>1.0.0.GA</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android</artifactId>
+      <version>2.2.1</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+        <configuration>
+          <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+          <assetsDirectory>${project.basedir}/assets</assetsDirectory>
+          <resourceDirectory>${project.basedir}/res</resourceDirectory>
+          <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+          <sdk>
+            <platform>8</platform>
+          </sdk>
+          <deleteConflictingFiles>true</deleteConflictingFiles>
+          <undeployBeforeDeploy>true</undeployBeforeDeploy>
+        </configuration>
+        <version>3.0.2</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.bsc.maven</groupId>
+        <artifactId>maven-processor-plugin</artifactId>
+        <version>2.0.5</version>
+        <executions>
+          <execution>
+            <id>process</id>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.google.web.bindery</groupId>
+            <artifactId>requestfactory-apt</artifactId>
+            <version>${gwt.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <!-- This is hacky but I couldn't figure out another way of doing 
+            it. See http://stackoverflow.com/questions/7718320/requestfactory-validation-on-multi-project-setup -->
+          <sourceDirectory>../socialwind-api/src/main/java</sourceDirectory>
+          <!--sourceDirectory>src/main/java</sourceDirectory -->
+        </configuration>
+      </plugin>
+
+      <!-- Google Plugin for Eclipse (GPE) won't see the source generated 
+        above by requestfactory-apt unless it is exposed as an additional source 
+        dir -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/generated-sources/apt</source>
+                <source>${project.build.directory}/generated-sources/r</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

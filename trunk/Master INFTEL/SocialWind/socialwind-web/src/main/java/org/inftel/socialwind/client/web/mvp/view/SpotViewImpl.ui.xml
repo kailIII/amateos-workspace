@@ -1,0 +1,38 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+
+	<g:DecoratorPanel addStyleNames="w90auto">
+		<g:HTMLPanel addStyleNames="mm40">
+			<div class="nplaya">
+				<g:InlineLabel addStyleNames="negrita">Nombre Playa:</g:InlineLabel>
+				<g:InlineLabel ui:field="name"></g:InlineLabel>
+			</div>
+			<div class="floatl">
+				<g:Image ui:field="avatar"></g:Image>
+			</div>
+			<div class="ndesc">
+				<h3>Descripción:</h3>
+				<g:InlineLabel ui:field="description"></g:InlineLabel>
+			</div>
+			<div class="clear"></div>
+			<div class="mt10">
+				<g:InlineLabel addStyleNames="negrita">Número de surferos: </g:InlineLabel>
+				<g:InlineLabel ui:field="surfers"></g:InlineLabel>
+			</div>
+			<div class="mt10">
+				<g:InlineLabel addStyleNames="negrita"
+					ui:field="locLabel">Localizacion: </g:InlineLabel>
+				<g:InlineLabel ui:field="loc"></g:InlineLabel>
+			</div>
+			<div class="mt10">
+				<g:InlineLabel addStyleNames="negrita">Distancia: </g:InlineLabel>
+				<g:InlineLabel ui:field="dist"></g:InlineLabel>
+			</div>
+		</g:HTMLPanel>
+	</g:DecoratorPanel>
+
+</ui:UiBinder> 

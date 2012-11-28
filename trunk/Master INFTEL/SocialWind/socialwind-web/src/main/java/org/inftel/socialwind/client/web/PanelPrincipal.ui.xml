@@ -1,0 +1,51 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:org.inftel.socialwind.client.web.mvp.ui"> <!-- El namespace my contiene widgets creados para la aplicacion -->
+
+	<g:DockLayoutPanel unit="PX"> <!-- El contenedor principal es un panel estructurado por zonas -->
+		<g:north size="40"> <!-- En la zona superior tenemos una cabecera con desplegable -->
+			<g:HTMLPanel addStyleNames="topbar">
+				<div>
+					<div class="container">
+						<a class="brand">SOCIALWIND</a>
+						<ul class="nav secondary-nav">
+							<li class="pt10">
+								<g:Image ui:field="avatar"></g:Image>
+							</li>
+							<li class="dropdown">
+								<g:Anchor ui:field="name"></g:Anchor>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</g:HTMLPanel>
+		</g:north>
+		<g:center> <!-- En el centro se encuentra el panel principal para mostrar informacion -->
+			<g:HTMLPanel>
+				<div class="container">
+					<div class="content">
+						<my:PanelCentral ui:field="pc"></my:PanelCentral>
+					</div>
+				</div>
+			</g:HTMLPanel>
+		</g:center>
+		<g:south size="100"> <!-- En la parte inferior se encuentra el pie de pagina -->
+			<g:HTMLPanel>
+				<div class="container">
+					<footer>
+						<div id="languages">
+							<p>
+								<g:InlineLabel addStyleNames="enlacep"
+									ui:field="locEn">Ingles</g:InlineLabel>
+								|
+								<g:InlineLabel addStyleNames="enlacep"
+									ui:field="locEs">Español</g:InlineLabel>
+							</p>
+						</div>
+						<p>&copy; SocialWind 2012</p>
+					</footer>
+				</div>
+			</g:HTMLPanel>
+		</g:south>
+	</g:DockLayoutPanel>
+</ui:UiBinder>
