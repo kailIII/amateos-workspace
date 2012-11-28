@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PasosActivity!</string>
+    <string name="app_name">Pasos</string>
+    <string name="contactos">Contactos</string>
+    <string name="contacto">Contacto</string>
+    <string name="notificaciones">NOTIFICACIONES</string>
+    <string name="notificaciones_desc">Sección de configuración de notificaciones</string>
+    <string name="notif_vibrador">Vibrador</string>
+    <string name="notif_vibrador_desc">Uso del vibrador para notificaciones</string>
+    <string name="notif_vibrador_check_desc">Habilita el uso del vibrador para las notificaciones</string>
+    <string name="notif_voz">Voz</string>
+    <string name="notif_voz_desc">Uso de voz para notificaciones</string>
+    <string name="notif_voz_check_desc">Habilita el uso de la voz para las notificaciones</string>
+    <string name="tema">TEMA</string>
+    <string name="tema_desc">Seleccione el tema que desee para la visualización de la aplicación</string>
+    <string name="tema1">Tema 1</string>
+    <string name="tema1_desc">Escoge el tema 1</string>
+    <string name="tema2">Tema 2</string>
+    <string name="tema2_desc">Escoge el tema 2</string>
+    <string name="tema3">Tema 3</string>
+    <string name="tema3_desc">Escoge el tema 3</string>
+    <string name="preferencias">Preferencias</string>
+    <string name="no_contactos">No existen contactos para el usuario</string>
+    <string name="no_contactos_desc">No existen contactos para el usuario</string>
+    <string name="contactos_desc">Pulse para llamar al contacto</string>
+    <string name="alarma">Alarma</string>
+    <string name="alarma_enviada_exito">La alarma ha sido enviada con éxito a la central. Por favor, espere la llamada del operador.</string>
+    <string name="alarma_enviada_fallo">No ha sido posible enviar la alarma a la central.</string>
+    <string name="alarma_enviando">Se va a enviar alarma a la central.</string>
+    <string name="no_conexion">El teléfono no está conectado a Internet. Por favor, compruebe la conexión.</string>
+    <string name="widname">Pasos</string>
+    <string name="boton_alarma">Mantenga pulsado el botón para enviar una alarma a la central.</string>
+    
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_principal_fila_contactos"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" 
+    android:contentDescription="@string/contactos_desc">
+
+    <ImageView
+        android:id="@+id/imageViewContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:src="@drawable/ic_contacto" />
+
+    <LinearLayout
+        android:id="@+id/layout_contacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/nombre"
+            style="?attr/subtitulo"
+            android:textStyle="bold"
+            android:singleLine="false" 
+            android:onClick="onContactoClick"
+            android:inputType="textPersonName"/>
+
+        <LinearLayout
+            android:id="@+id/layoutTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/imagenTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_telefono" />
+
+            <TextView
+                android:id="@+id/telefono"
+                style="?attr/opcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:paddingBottom="5dip">
+
+            <ImageView
+                android:id="@+id/imagenSobre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sobre" />
+
+            <TextView
+                android:id="@+id/email"
+                style="?attr/opcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

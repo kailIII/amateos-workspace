@@ -1,0 +1,10 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+{
+    "01":{ "nombre": "Zona 1", "lat":36.700037,"lng":-4.472703}, 
+    "02":{ "nombre": "Zona 2", "lat":36.721383,"lng":-4.476364}, 
+    "03":{ "nombre": "Zona 3", "lat":36.723160,"lng":-4.475706}
+}
