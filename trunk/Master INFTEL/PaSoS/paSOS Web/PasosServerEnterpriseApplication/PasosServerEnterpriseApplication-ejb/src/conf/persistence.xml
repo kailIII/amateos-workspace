@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="PasosServerEnterpriseApplication-ejbPU" transaction-type="JTA">
+    <jta-data-source>inftel11_7</jta-data-source>
+    <class>pasosServer.model.Alarma</class>
+    <class>pasosServer.model.CentroAyuda</class>
+    <class>pasosServer.model.Contacto</class>
+    <class>pasosServer.model.Localizacion</class>
+    <class>pasosServer.model.Operador</class>
+    <class>pasosServer.model.Protegido</class>
+    <class>pasosServer.model.Maltratador</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <validation-mode>NONE</validation-mode>
+    <properties>
+    </properties>
+  </persistence-unit>
+</persistence>

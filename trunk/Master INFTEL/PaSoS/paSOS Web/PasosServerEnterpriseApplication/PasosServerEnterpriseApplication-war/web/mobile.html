@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MobileSimulation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript"  src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>        
+        <script type="text/javascript" src="js/google.js"></script>    
+    </head>
+    <body>
+       <div id="contenido">
+           <div id="menuprincipal">
+                <label>Protegida</label>
+                <select id="latAltProtegida"> 
+                     <option>Cargando...</option>
+                </select>
+                
+                <br/>
+                <label>Maltratador</label>
+                <select id="latAltMaltratador"> 
+                     <option>Cargando...</option>
+                </select>
+                <br/>
+               
+                <input id="trama" type="hidden" name="trama" value="" />             
+                <input type="button" id="Enviar" name="Enviar" value="Enviar">
+                <input type="button" id="Alarma" name="Alarma" value="Alarma">
+               
+                
+           </div>
+                <div id="mapa" style="position: absolute; left: 21%; right: 26%; top: 11%;bottom: 11%; overflow: hidden; z-index: 0;">                   
+                </div> 
+        </div>
+    </body>
+</html>

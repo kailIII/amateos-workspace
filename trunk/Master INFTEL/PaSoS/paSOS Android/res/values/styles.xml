@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="tema1">
+        <item name="titulo">@style/TituloTema1</item>
+        <item name="subtitulo">@style/SubtituloTema1</item>
+        <item name="opcion">@style/OpcionTema1</item>
+        <item name="fondo">@style/FondoTema1</item>
+    </style>
+
+    <style name="tema2">
+        <item name="titulo">@style/TituloTema2</item>
+        <item name="subtitulo">@style/SubtituloTema2</item>
+        <item name="opcion">@style/OpcionTema2</item>
+        <item name="fondo">@style/FondoTema2</item>
+    </style>
+
+    <style name="tema3">
+        <item name="titulo">@style/TituloTema3</item>
+        <item name="subtitulo">@style/SubtituloTema3</item>
+        <item name="opcion">@style/OpcionTema3</item>
+        <item name="fondo">@style/FondoTema3</item>
+    </style>
+
+    <!-- *********** TEMA 1  ************************************ -->
+    <style name="TituloTema1">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">3dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_negro</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name="android:paddingLeft">4dip</item>
+        <item name="android:paddingRight">4dip</item>
+    </style>
+
+    <style name="SubtituloTema1">
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:layout_marginLeft">3dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="OpcionTema1">
+        <item name="android:textColor">@color/negro</item>
+    </style>
+
+    <style name="FondoTema1">
+        <item name="android:background">@color/blanco</item>
+    </style>
+
+    <!-- *********** TEMA 2  ************************************ -->
+    <style name="TituloTema2">
+        <item name="android:textColor">@color/gris_oscuro</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">3dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_amarillo</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name="android:paddingLeft">4dip</item>
+        <item name="android:paddingRight">4dip</item>
+    </style>
+
+    <style name="SubtituloTema2">
+        <item name="android:textColor">@color/amarillo</item>
+        <item name="android:layout_marginLeft">3dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="OpcionTema2">
+        <item name="android:textColor">@color/amarillo</item>
+    </style>
+
+    <style name="FondoTema2">
+        <item name="android:background">@color/gris_oscuro</item>
+    </style>
+
+    <!-- *********** TEMA 3  ************************************ -->
+    <style name="TituloTema3">
+        <item name="android:textColor">@color/gris_claro</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">3dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/fondo_morado</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name="android:paddingLeft">4dip</item>
+        <item name="android:paddingRight">4dip</item>
+    </style>
+
+    <style name="SubtituloTema3">
+        <item name="android:textColor">@color/morado</item>
+        <item name="android:layout_marginLeft">3dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="OpcionTema3">
+        <item name="android:textColor">@color/morado</item>
+    </style>
+
+    <style name="FondoTema3">
+        <item name="android:background">@color/gris_claro</item>
+    </style>
+
+</resources>

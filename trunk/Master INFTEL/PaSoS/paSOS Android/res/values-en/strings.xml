@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PasosActivity!</string>
+    <string name="app_name">Pasos</string>
+    <string name="contactos">Contacts</string>
+    <string name="notificaciones">NOTIFICATIONS</string>
+    <string name="notificaciones_desc">Notificactions configurations head</string>
+    <string name="notif_vibrador">Vibration</string>
+    <string name="notif_vibrador_desc">Using Vibrate mode for notifications</string>
+    <string name="notif_vibrador_check_desc">Enable vibrate mode for notifications</string>
+    <string name="notif_voz">Voice</string>
+    <string name="notif_voz_desc">Voice mode for notifications</string>
+    <string name="notif_voz_check_desc">Enable voice mode for notifications</string>
+    <string name="tema">THEME</string>
+    <string name="tema_desc">Choose theme for viewing application</string>
+    <string name="tema1">Theme 1</string>
+    <string name="tema1_desc">Choose theme 1</string>
+    <string name="tema2">Theme 2</string>
+    <string name="tema2_desc">Choose theme 2</string>
+    <string name="tema3">Theme 3</string>
+    <string name="tema3_desc">Choose theme 2</string>
+    <string name="preferencias">Preferences</string>
+    <string name="no_contactos">There are no contacts for user</string>
+    <string name="no_contactos_desc">There are no contacts for user</string>
+    <string name="contactos_desc">Press to call the contact</string>
+    <string name="alarma">Alarm</string>
+    <string name="alarma_enviada_exito">The alarm has been successfully sent to the central. Please, wait for the operators call.</string>
+    <string name="alarma_enviada_fallo">Unable to send the alarm to the central.</string>
+    <string name="alarma_enviando">The alarm is going to be sent to the central</string>
+    <string name="no_conexion">The phone is not connected to the Internet. Please, check the connection</string>
+    <string name="widname">Pasos</string>
+    <string name="boton_alarma">Press and hold the button to send an alarm to the central.</string>
+
+</resources>
