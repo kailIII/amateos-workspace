@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+        <ui:composition template="/template.xhtml"> 
+            <ui:define name="leftcolumn">
+                <h:form>
+                    <h3>#{msg.Menu}</h3>  
+                    <p:menu>  
+                        <p:submenu label="#{msg.Proyectos}">  
+                            <p:menuitem value="#{msg.Nuevo}" icon="ui-icon-document" actionListener="#{projectBean.redirigir(1)}" update=":outputpanelnew, :outputpaneltable,:outputpaneltarea" />  
+                            <p:menuitem value="#{msg.Ver_editar}" actionListener="#{projectBean.redirigir(2)}" icon="ui-icon-clipboard" update=":outputpanelnew, :outputpaneltable,:outputpaneltarea"/> 
+                            <p:menuitem value="#{msg.Crear_tarea}" actionListener="#{projectBean.redirigir(3)}" icon="ui-icon-clipboard" update=":outputpanelnew, :outputpaneltable,:outputpaneltarea"/>
+                        </p:submenu>                           
+                    </p:menu>  
+                </h:form>
+            </ui:define>
+
+            <ui:define name="content">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:outputPanel id="outputpanelnew">
+                    <p:panel header="#{msg.Nuevo_proyecto}" rendered="#{projectBean.renderNew}" id="panelnew">  
+                        <h:form>
+                            <h:panelGrid columns="2">  
+                                <h:outputLabel value="#{msg.Nombre}: "></h:outputLabel>  
+                                <p:inputText id="txt_nombre" value="#{projectBean.newProject.nombre}" required="true" label="Nombre"/>  
+                                <h:outputLabel value="#{msg.Descripcion}: "></h:outputLabel>  
+                                <p:inputText id="txt_desc" value="#{projectBean.newProject.descripcion}" required="true" label="Descripcion"/>  
+                                <h:outputLabel value="#{msg.Fecha_entrega}: "></h:outputLabel>  
+                                <p:calendar mindate="#{projectBean.now}" navigator="true" value="#{projectBean.newProject.entrega}"/>
+                            </h:panelGrid>  
+                            <p:commandButton value="#{msg.Crear}" actionListener="#{projectBean.createNew()}" id="btnCreate" update=":growl"/>  
+                        </h:form>
+                    </p:panel>  
+                </p:outputPanel>
+
+                <p:dialog id="dialog" header="#{msg.Editar}" widgetVar="editdialog" closable="true" resizable="false" showEffect="explode" hideEffect="explode">   
+                    <p:outputPanel id="dialogpanel">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <h:outputLabel value="#{msg.Descripcion}" />
+                                <h:inputText value="#{projectBean.editProject.descripcion}" />
+                                <h:outputLabel value="#{msg.Fecha_entrega}" />
+                                <p:calendar value="#{projectBean.editProject.entrega}" mindate="#{projectBean.now}" navigator="true"/>                      
+                            </p:panelGrid>
+                            <br/>
+                            <p:commandButton value="#{msg.Aceptar}" actionListener="#{projectBean.updateProjects()}" oncomplete="editdialog.hide()" update=":formtable,:growl"/>          
+                        </h:form>
+                    </p:outputPanel>
+                </p:dialog>
+
+                <!-- Dialog para asignar tareas a sprints -->
+                <p:dialog id="dialogTareaSprint" header="#{msg.Asignar_sprint_proyecto}" widgetVar="asignaSprint" closable="true" resizable="false" showEffect="explode" hideEffect="explode">
+                    <p:outputPanel id="panelSprint">
+                        <p:panel header="#{msg.Asignar_sprints}" rendered="true" id="idpanealSprint">
+                            <h:form>
+                                <p:pickList id="pickList" value="#{sprintBean.sprintToProyecto}" var="sprint"  
+                                            itemLabel="#{sprint.id}"  
+                                            itemValue="#{sprint.id}" />  
+                                <br></br>
+                                <p:commandButton id="sprintSubmit" actionListener="#{sprintBean.asignarSprints()}" value="#{msg.Asignar}" update=":formtable,:growl" oncomplete="asignaSprint.hide()"/>  
+                            </h:form>
+                        </p:panel>
+                    </p:outputPanel>
+                </p:dialog>
+
+                <!-- Dialog para ver el backlog de un proyeto-->
+
+                <p:dialog id="dialogverbackog" header="#{msg.Ver_backlog}" widgetVar="veBackLog" closable="true" resizable="false" showEffect="explode" hideEffect="explode">
+                    <p:outputPanel id="panelbackLog">
+                        <h:form>
+                            <p:dataTable rowKey="#{tarea.id}" selectionMode="single" selection="#{sprintBean.tareaSeleccionada}" value="#{sprintBean.tareasProyecto}" var="tarea"  paginator="true" rows="5" paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  rowsPerPageTemplate="5,10,15" >  
+                                <f:facet name="header"> #{msg.Tareas} </f:facet>  
+                                <p:column>
+                                    #{tarea.descripcion}
+                                </p:column>
+                                <f:facet name="footer">  
+                                    <p:commandButton value="#{msg.Editar}"  update=":tareaDialog" oncomplete="tareaDialog.show()">
+                                    </p:commandButton> 
+                                    <p:commandButton value="#{msg.Guardar}" action="#{sprintBean.editaTarea()}"  update=":tareaDialog" oncomplete="veBackLog.hide()">
+                                    </p:commandButton> 
+                                </f:facet>  
+                            </p:dataTable>  
+                        </h:form>
+                    </p:outputPanel>
+                </p:dialog>
+
+                <!--El otro dialog para editar -->
+                <p:dialog header="#{msg.Detalles_tarea}" widgetVar="tareaDialog" modal="true" showEffect="fade">  
+                    <p:outputPanel id="tareaDialog" style="text-align:center;" layout="block">  
+                        <h:form >
+                            <h:panelGrid  >  
+                                <p:inplace id="selectTarea" label="Tarea" effectSpeed="fast" event="dblclick">
+                                    <h:outputLabel  value="#{msg.Descripcion}:" />  
+                                    <p:inputText value="#{sprintBean.tareaSeleccionada.descripcion}" /> <br></br>
+                                    <h:outputLabel value="#{msg.Fecha_inicio}:" /> 
+                                    <p:inputText value="#{sprintBean.tareaSeleccionada.inicio}" /> <br></br>
+                                    <h:outputLabel value="#{msg.Fecha_fin}:" />  
+                                    <p:inputText value="#{sprintBean.tareaSeleccionada.fechaFin}" /> <br></br>
+                                    <h:outputLabel  value="#{msg.Nombre_usuario}:" />  
+                                    <p:inputText value="#{sprintBean.tareaSeleccionada.usuarioId}" /> <br></br>
+                                </p:inplace>
+                            </h:panelGrid>  
+                            <p:commandButton value="#{msg.Editar}" action="#{sprintBean.tareaSeleccionada}" oncomplete="tareaDialog.hide()" />
+                        </h:form>
+                    </p:outputPanel>  
+                </p:dialog>  
+
+                <!--Panel para gestionar proyectos-->
+                <p:outputPanel id="outputpaneltable">
+                    <p:panel rendered="${projectBean.renderTable}" >                         
+                        <h:form prependId="false" id="formtable">                              
+                            <p:dataTable id="projectsTable" var="project" value="#{projectBean.listProjects}" emptyMessage="No se encontraron proyectos" widgetVar="projectsTable">       
+                                <p:column headerText="#{msg.Nombre}" filterBy="#{project.nombre}" filterMatchMode="contains">  
+                                    <h:outputText value="#{project.nombre}" />  
+                                </p:column>
+                                <p:column headerText="#{msg.Descripcion}" filterBy="#{project.descripcion}" filterMatchMode="contains">  
+                                    <h:outputText value="#{project.descripcion}" />  
+                                </p:column>  
+                                <p:column headerText="#{msg.Entrega}" filterBy="#{project.entrega}" filterMatchMode="contains" >            
+                                    <h:outputText value="#{project.entrega}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                    </h:outputText> 
+                                </p:column> 
+                                <p:column headerText="#{msg.Editar}">  
+                                    <p:commandLink value="#{msg.Editar}" oncomplete="editdialog.show()" update=":dialogpanel" rendered="#{projectBean.activo(project)}" >
+                                        <f:setPropertyActionListener target="#{projectBean.editProject}" value="#{project}" />
+                                    </p:commandLink>
+                                </p:column>
+                                <p:column headerText="#{msg.Asignar_sprints}">  
+                                    <p:commandLink value="#{msg.Asignar_sprints}" oncomplete="asignaSprint.show()" update=":panelSprint" rendered="#{projectBean.activo(project)}" >
+                                        <f:setPropertyActionListener target="#{sprintBean.proyectoUnico}" value="#{project}" />
+                                    </p:commandLink>
+                                </p:column>
+                                <p:column headerText="#{msg.Ver_backlog}">  
+                                    <p:commandLink value="#{msg.Ver_backlog}" oncomplete="veBackLog.show()" update=":panelbackLog">
+                                        <f:setPropertyActionListener target="#{sprintBean.proyectoUnico}" value="#{project}" />
+                                    </p:commandLink>
+                                </p:column>
+                            </p:dataTable>   
+                        </h:form>        
+                    </p:panel>
+                </p:outputPanel>
+                <!--El otro dialog para editar-->
+                <p:outputPanel id="outputpaneltarea">
+                    <p:panel header="#{msg.Nueva_tarea}" rendered="#{projectBean.createTarea}" id="paneltarea">  
+                        <h:form>
+                            <h:panelGrid columns="2">  
+                                <h:outputLabel value="#{msg.Descripcion}: " />
+                                <p:inputText value="#{tareaBean.descripcion}" /> 
+                                <h:outputLabel value="#{msg.Duracion_estimada}: " />
+                                <p:inputText value="#{tareaBean.duracionEstimada}" /> 
+                                <h:outputLabel value="Prioridad: " />
+                                <p:selectOneMenu value="#{tareaBean.prioridad}" effect="fade">  
+                                    <f:selectItem itemLabel="Selecciona una prioridad" itemValue="0" />  
+                                    <f:selectItem itemLabel="Baja" itemValue="0" />                                      
+                                    <f:selectItem itemLabel="Alta" itemValue="1" /> 
+                                </p:selectOneMenu>
+                            </h:panelGrid>  
+                            <p:commandButton value="#{msg.Crear}" actionListener="#{tareaBean.creaTarea()}"  update=":growl"/>
+                        </h:form>
+                    </p:panel>  
+                </p:outputPanel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

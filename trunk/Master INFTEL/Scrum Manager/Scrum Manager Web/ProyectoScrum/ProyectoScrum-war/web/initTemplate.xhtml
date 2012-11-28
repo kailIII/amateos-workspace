@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ScrumWeb</title>
+        <link href="${facesContext.externalContext.requestContextPath}/styles/main.css" rel="stylesheet" type="text/css"/>    
+    </h:head>
+
+    <h:body>
+
+        <div id="wrapper">
+            <div id="header">
+                <img src="${facesContext.externalContext.requestContextPath}/images/scrum_logo.png"></img>
+                <h:form id="language" style="position:relative;top:-5px;">
+                    <h:commandLink action="#{languageBeam.changeLanguage('es')}" ><img src="${facesContext.externalContext.requestContextPath}/images/es.png" /></h:commandLink> 
+                    <h:commandLink action="#{languageBeam.changeLanguage('en')}" ><img src="${facesContext.externalContext.requestContextPath}/images/en.png" /></h:commandLink>
+                </h:form>
+                <div id="nota" style="margin-top: 80px;">
+                    <img src="${facesContext.externalContext.requestContextPath}/images/scrum_postit.png"></img>
+                </div>
+            </div>
+            <div id="initcontent">
+                <ui:insert name="content">
+                </ui:insert>
+            </div>
+            <div id="footer">
+                <p>ScrumWeb | M&aacute;ster INFTEL 2012</p>
+                <img id="masterLogo" src="${facesContext.externalContext.requestContextPath}/images/logomaster.png"></img>
+            </div>
+        </div>
+    </h:body>
+
+</html>

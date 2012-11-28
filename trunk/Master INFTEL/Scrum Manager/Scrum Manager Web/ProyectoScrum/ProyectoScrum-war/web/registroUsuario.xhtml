@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/initTemplate.xhtml">
+        <ui:define name="content">
+            <p:growl id="growl" sticky="false" life="4000" showDetail="true"/>
+            <p:outputPanel id="outputpanelnew">
+                <p:panel header="#{msg.Nuevo_usuario}" rendered="#{projectBean.renderNew}" id="panelnew">  
+                    <h:form>
+                        <h:panelGrid columns="2">  
+                            <h:outputText value="#{msg.Nombre}"/>
+                            <p:inputText value="#{usuarioController.nombre}" required="true" label="nombre" />
+                            <h:outputText value="#{msg.Apellidos}"/>
+                            <p:inputText value="#{usuarioController.apellidos}" required="true" label="apellidos"/>
+                            <h:outputText value="#{msg.Email}"/>
+                            <p:inputText value="#{usuarioController.email}" 
+                                         required="true" 
+                                         label="e-mail"
+                                         validatorMessage="E-Mail no válido">
+                                <f:validateRegex pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,3}" />
+                            </p:inputText>
+                            <h:outputText value="#{msg.Fecha_nacimiento}"/>
+                            <p:calendar maxdate="#{projectBean.now}" navigator="true" 
+                                        value="#{usuarioController.fecha}" 
+                                        required="true" 
+                                        yearRange="c-100:c"
+                                        label="fecha de nacimiento"/>
+                            <h:outputText value="#{msg.Password}"/>
+                            <p:password value="#{usuarioController.pass}" match="pass" required="true" label="password1"/>
+                            <h:outputText value="#{msg.Repite} #{msg.Password}"/>
+                            <p:password id="pass" value="#{usuarioController.repass}" required="true" label="password2"/>
+                        </h:panelGrid>  
+                        <p:captcha label="Captcha"/>
+                        <p:commandButton value="#{msg.Crear}" action="#{usuarioController.create()}" id="btnCreate" update=":growl"/>  
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
+
+</html>

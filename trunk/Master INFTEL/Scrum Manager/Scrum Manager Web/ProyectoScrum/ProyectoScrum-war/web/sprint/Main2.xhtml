@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"           
+        xmlns:f="http://java.sun.com/jsf/core"      
+        xmlns:ui="http://java.sun.com/jsf/facelets" >
+    <html>
+        <h:body>
+            <ui:composition template="/template.xhtml">
+                <ui:define name="leftcolumn">
+                    <h:form>
+                        <h3>#{msg.Menu}</h3>  
+                        <p:menu>  
+                            <p:submenu label="Sprints">  
+                                <p:menuitem value="#{msg.Tablon}" actionListener="#{sprintBean.redirigir(3)}" icon="ui-icon-note" update=":panelSprintNew,:outputpaneltable,:paneltareas,:panelReunionNew,:panelBoard"/>
+                                <p:menuitem value="#{msg.Nuevo}" rendered="#{sprintBean.nuevoMenu}" icon="ui-icon-document" actionListener="#{sprintBean.redirigir(1)}" update=":panelSprintNew,:outputpaneltable,:paneltareas,:panelReunionNew,:panelBoard"/>    
+                                <p:menuitem value="#{msg.Nueva_reunion}" rendered="#{sprintBean.reunionMenu}" icon="ui-icon-document" actionListener="#{sprintBean.redirigir(4)}" update=":panelSprintNew,:outputpaneltable,:paneltareas,:panelReunionNew,:panelBoard"/>
+                                <p:menuitem value="#{msg.Ver_editar}" rendered="#{sprintBean.editarMenu}" actionListener="#{sprintBean.redirigir(2)}" icon="ui-icon-clipboard" update=":panelSprintNew,:outputpaneltable,:paneltareas,:panelReunionNew,:panelBoard"/>
+                            </p:submenu>                           
+                        </p:menu>  
+                    </h:form>                
+                </ui:define>
+                <ui:define name="content"> 
+                    <p:growl id="messages" showDetail="true" life="2500"/>
+                    <p:outputPanel id="panelBoard">                           
+                        <p:panel id="board" rendered="#{sprintBean.tablon}" >
+                            <h:outputText id="headerTodo" value="To do"/>
+                            <h:outputText id="headerDoing" value="Doing"/>
+                            <h:outputText id="headerDone" value="Done!"/>
+
+                            <p:outputPanel id="todopanel" styleClass="todoContainer" layout="block">
+                                <p:dataGrid id="tareasTodo" var="todo" value="#{tareaBean.listaTareasTodo}" columns="2" styleClass="gridtareas" emptyMessage="">                                                    
+                                    <p:column>
+                                        <p:panel styleClass="postit" id="postitpanel">                          
+                                            <h:form>
+                                                <p:graphicImage value="../images/chincheta.png" style="clear:right;" />
+                                                <h:outputLabel value="#{todo.descripcion}"/>                                                                                          
+                                                <br/> 
+                                                <p:inplace>  
+                                                    <p:ajax event="save" update="@form" />
+                                                    <p:inputText value="#{todo.duracionEstimado}"  
+                                                                 required="true" label="duracion"
+                                                                 maxlength="3">
+                                                        <f:validateLongRange minimum="1" maximum="999"/>
+                                                    </p:inputText>
+                                                </p:inplace>                                    
+                                                <p:graphicImage value="../images/urgent_1.png" style="height:70px;width:70px;" rendered="#{tareaBean.urgent(todo)}"  />
+                                            </h:form>                                        
+                                            <p:draggable opacity="0.5" containment="board" revert="true" handle="" scope="doing"/>                            
+                                        </p:panel>   
+                                    </p:column>
+                                </p:dataGrid>                            
+                            </p:outputPanel>
+
+                            <p:outputPanel id="doingpanel" styleClass="doingContainer" layout="block" >                        
+                                <p:dataGrid id="tareasDoing" var="doing" value="#{tareaBean.listaTareasDoing}" columns="2" styleClass="gridtareas" emptyMessage="" >                        
+                                    <p:column>
+                                        <p:panel styleClass="postit" >
+                                            <h:form>
+                                                <p:graphicImage value="../images/chincheta.png" />
+                                                <h:outputLabel value="#{doing.descripcion}"/>
+                                                <br/>
+                                                <h:outputText value="#{doing.usuarioId.nombre} #{doing.usuarioId.apellidos}" />
+                                                <br/>
+                                                <p:inplace>                                                  
+                                                    <p:inputText value="#{doing.duracion}"  
+                                                                 required="true" label="duracion"
+                                                                 maxlength="3">
+                                                        <f:validateLongRange minimum="1" maximum="999"/>
+                                                    </p:inputText>
+                                                </p:inplace>
+                                            </h:form>
+                                            <p:draggable opacity="0.5" containment="board" revert="true" scope="done"/>
+                                        </p:panel>  
+                                    </p:column>
+                                </p:dataGrid> 
+                            </p:outputPanel>    
+
+                            <p:outputPanel id="donepanel" styleClass="doneContainer" layout="block">                        
+                                <p:dataGrid id="tareasDone" var="done" value="#{tareaBean.listaTareasDone}" columns="2" styleClass="gridtareas" emptyMessage="">                        
+                                    <p:column>
+                                        <p:panel styleClass="postit" >
+                                            <h:form>
+                                                <p:graphicImage value="../images/chincheta.png" />
+                                                <h:outputLabel value="#{done.descripcion}" styleClass="postitLabel"/>
+                                                <br/>
+                                                <h:outputLabel value="#{done.usuarioId.nombre} #{done.usuarioId.apellidos}"/>
+                                                <br/>
+                                                <p:graphicImage value="../images/tick.png" width="20px" height="20px"/>  
+                                            </h:form>
+                                        </p:panel>   
+                                    </p:column>
+                                </p:dataGrid>
+                            </p:outputPanel>
+
+                            <p:droppable for="doingpanel" tolerance="touch" 
+                                         activeStyleClass="ui-state-highlight" 
+                                         datasource="tareasTodo"
+                                         scope="doing">
+                                <p:ajax listener="#{tareaBean.onDropDoing}" 
+                                        update="board"/>  
+                            </p:droppable>
+
+                            <p:droppable for="donepanel" tolerance="touch" 
+                                         activeStyleClass="ui-state-highlight" 
+                                         datasource="tareasDoing"
+                                         scope="done">
+                                <p:ajax listener="#{tareaBean.onDropDone}"  
+                                        update="board"/>  
+                            </p:droppable>                                                                                            
+                        </p:panel>
+                        <h:form id="formTablon" rendered="#{sprintBean.tablon}">                    
+                            <p:commandButton value="Save" actionListener="#{tareaBean.save}" 
+                                             update=":messages"
+                                             oncomplete="setTimeout(function() {
+                                             window.location.href = window.location.pathname
+                                             },2000);" />  
+                            <p:commandButton value="Cancel" actionListener="#{tareaBean.cancel}" 
+                                             update=":messages" 
+                                             oncomplete="setTimeout(function() {
+                                             window.location.href = window.location.pathname
+                                             },2000);" />
+                        </h:form>
+                    </p:outputPanel>
+
+                    <!--Dialog para editar un sprint-->
+                    <p:dialog id="dialog" header="#{msg.Editar}" widgetVar="editdialog" closable="true" resizable="false" showEffect="explode" hideEffect="explode">   
+                        <p:outputPanel id="dialogpanel">
+                            <h:form>
+                                <p:panelGrid columns="2">
+                                    <h:outputLabel value="#{msg.Fecha_entrega}" />
+                                    <p:calendar value="#{sprintBean.editSprint.fin}" mindate="#{projectBean.now}" navigator="true"/>                      
+                                </p:panelGrid>
+                                <br/>
+                                <p:commandButton value="#{msg.Aceptar}" actionListener="#{sprintBean.update()}" oncomplete="editdialog.hide()" update=":formtable,:messages"/>          
+                            </h:form>
+                        </p:outputPanel>
+                    </p:dialog>
+                    <!-- Dialog para asignar tareas a sprints -->
+                    <p:dialog id="dialogTareaSprint" header="#{msg.Asignar_tarea_sprint}" widgetVar="asignaTarea" closable="true" resizable="false" showEffect="explode" hideEffect="explode">
+                        <p:outputPanel id="paneltareas">
+                            <p:panel header="#{msg.Asignar_tareas}" rendered="true" id="idpanealTarea">
+                                <h:form>
+                                    <p:pickList id="pickList" value="#{sprintBean.ta}"  
+                                                var="tarea"  
+                                                itemLabel="#{tarea.descripcion}"  
+                                                itemValue="#{tarea.descripcion}" />  
+                                    <br></br>
+                                    <p:commandButton id="tareaSubmit" actionListener="#{sprintBean.asignar()}" value="#{msg.Asignar}" update=":formtable,:messages" oncomplete="asignaTarea.hide()"/>  
+                                </h:form>
+                            </p:panel>
+                        </p:outputPanel>
+                    </p:dialog>
+
+                    <!--Panel para editar tareas-->
+                    <p:dialog id="dialogTarea" header="#{msg.Crear_tarea}" widgetVar="createDialog" closable="true" resizable="false" showEffect="explode" hideEffect="explode">
+                        <p:outputPanel id="dialogTareaPanel">
+                            <h:form>
+                                <p:panelGrid columns="2">
+                                    <h:outputLabel value="#{msg.Descripcion}" />
+                                    <p:inputText value="#{tareaBean.descripcion}" /> 
+                                    <h:outputLabel value="#{msg.Duracion_estimada}" />
+                                    <p:inputText value="#{tareaBean.duracionEstimada}" /> 
+                                    <h:outputLabel value="Prioridad: " />
+                                 <p:selectOneMenu value="#{tareaBean.prioridad}" effect="fade">  
+                                    <f:selectItem itemLabel="Selecciona una prioridad" itemValue="0" />  
+                                    <f:selectItem itemLabel="Baja" itemValue="0" />                                      
+                                    <f:selectItem itemLabel="Alta" itemValue="1" /> 
+                                </p:selectOneMenu>
+                                </p:panelGrid>
+                                <br></br>
+                                <p:commandButton value="#{msg.Aceptar}"  actionListener="#{tareaBean.creaTarea()}" oncomplete="createDialog.hide()" update=":messages"/>
+                            </h:form>
+                        </p:outputPanel>
+                    </p:dialog>
+
+                    <!--Panel para crear sprints -->
+                    <p:outputPanel id="panelSprintNew">
+                        <p:panel header="#{msg.Nuevo_sprint}" rendered="#{sprintBean.nuevo}" id="panelnewSprint">  
+                            <h:form>
+                                <h:panelGrid columns="2">  
+                                    <h:outputLabel value="#{msg.Fecha_inicio}: "></h:outputLabel>  
+                                    <p:calendar id="txt_desc" value="#{sprintBean.finicio}" required="true" mindate="#{projectBean.now}" maxdate="#{projectBean.newProject.entrega}"/>  
+                                    <h:outputLabel value="#{msg.Fecha_fin}: "></h:outputLabel>  
+                                    <p:calendar id="txt_asc" value="#{sprintBean.ffin}" required="true" mindate="#{projectBean.now}" maxdate="#{projectBean.newProject.entrega}"/>  
+                                    <h:outputLabel value="#{msg.Proyecto}: #{sprintBean.proyecto.nombre}"></h:outputLabel><br/>
+                                    <h:outputLabel value="#{msg.Grupo}: "></h:outputLabel>
+                                    <p:selectOneMenu value="#{sprintBean.nombreGrupo}" effect="fade">  
+                                        <f:selectItem itemLabel="#{msg.Selecciona_grupo}" itemValue="" />  
+                                        <f:selectItems value="#{sprintBean.nombreGrupos()}" itemValue="#{sprintBean.nombreGrupo}" />
+                                    </p:selectOneMenu>
+                                </h:panelGrid>  
+                                <p:commandButton value="#{msg.Crear}" action="#{sprintBean.createNew()}" id="btnCreate" update=":messages"/>  
+                            </h:form>
+                        </p:panel>  
+                    </p:outputPanel>
+
+                    <!--Panel para editar sprint-->
+                    <p:outputPanel id="outputpaneltable">
+                        <p:panel rendered="${sprintBean.editar}" >                         
+                            <h:form prependId="false" id="formtable">                              
+                                <p:dataTable id="projectsTable" 
+                                             var="sprint" 
+                                             value="#{sprintBean.listSprints()}" 
+                                             emptyMessage="No se han encontrado sprints"
+                                             widgetVar="projectsTable">      
+                                    <p:column headerText="#{msg.Inicio}" style="width:125px" filterBy="#{sprint.inicio}" filterMatchMode="contains">  
+                                        <h:outputText value="#{sprint.inicio}" >
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>  
+                                    </p:column>  
+                                    <p:column headerText="#{msg.Entrega}" style="width:125px"  filterBy="#{sprint.fin}" filterMatchMode="contains" >            
+                                        <h:outputText value="#{sprint.fin}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText> 
+                                    </p:column> 
+                                    <!-- TODO add confirm dialog-->
+                                    <p:column headerText="#{msg.Editar}" style="width:250px">  
+                                        <p:commandLink value="#{msg.Editar}" oncomplete="editdialog.show()" update=":dialogpanel" rendered="#{sprintBean.activo(sprint)}">
+                                            <f:setPropertyActionListener target="#{sprintBean.editSprint}" value="#{sprint}" />
+                                        </p:commandLink>
+                                    </p:column>
+                                    <p:column headerText="#{msg.Crear_tarea}" style="width:250px">  
+                                        <p:commandLink value="#{msg.Crear_tarea}" oncomplete="createDialog.show()" update=":dialogTareaPanel" rendered="#{sprintBean.activo(sprint)}">
+                                            <f:setPropertyActionListener target="#{sprintBean.editSprint}" value="#{sprint}" />
+                                        </p:commandLink>
+                                    </p:column>
+                                    <p:column headerText="#{msg.Asignar_tareas}" style="width:250px">  
+                                        <p:commandLink value="#{msg.Asignar_tareas}" oncomplete="asignaTarea.show()" update=":paneltareas" rendered="#{sprintBean.activo(sprint)}">
+                                            <f:setPropertyActionListener target="#{sprintBean.editSprint}" value="#{sprint}" />
+                                        </p:commandLink>
+                                    </p:column>
+                                </p:dataTable>
+                            </h:form>
+                        </p:panel>
+                    </p:outputPanel>
+                    <!--Panel para crear reunion -->
+                    <p:outputPanel id="panelReunionNew">
+                        <p:panel header="#{msg.Nueva_reunion}" rendered="#{sprintBean.reunion}" id="panelnewReunion">  
+                            <h:form>
+                                <h:panelGrid columns="2">  
+                                    <h:outputLabel value="#{msg.Fecha_reunion}: " />  
+                                    <p:calendar id="txt_asc" value="#{sprintBean.fechaReunion}" pattern="MM/dd/yyyy HH:mm" required="true" mindate="#{projectBean.now}" />  
+                                    <h:outputLabel value="#{msg.Lugar}: " />  
+                                    <p:inputText value="#{sprintBean.mensajeReunion}"/>
+                                </h:panelGrid>  
+                                <p:commandButton value="#{msg.Crear}" action="#{sprintBean.createNewReunion()}" id="btnCreate" update=":messages"/>  
+                            </h:form>
+                        </p:panel>  
+                    </p:outputPanel>
+
+                </ui:define>
+            </ui:composition>
+        </h:body>
+    </html>
+</f:view>

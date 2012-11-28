@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tarea_layout_principal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/fondo" >
+
+        <ImageView
+            android:id="@+id/tarea_prioridad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/tarea_descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Descripción"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/rojo"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/tarea_descripcion_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <TextView
+            android:id="@+id/tarea_usuario_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/usuario"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_usuario_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@+id/tarea_usuario_label"
+            android:textColor="@color/negro"
+            android:text="rolimat@gmail.com" />
+
+        <ImageView
+            android:id="@+id/tarea_usuario_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_estado"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <TextView
+            android:id="@+id/tarea_estado_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/estado"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_estado_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@+id/tarea_estado_label"
+            android:padding="3dip"
+            android:textColor="@color/negro"
+            android:text="-"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/tarea_estado_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_fechas_inicio"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <ImageView
+            android:id="@+id/tarea_fechas_inicio_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/tarea_fechas_inicio_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/inicio"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_fechas_inicio_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/negro"
+            android:layout_toRightOf="@+id/tarea_fechas_inicio_label" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_fechas_fin"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <ImageView
+            android:id="@+id/tarea_fechas_fin_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/tarea_fechas_fin_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/fin"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_fechas_fin_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/negro"
+            android:layout_toRightOf="@+id/tarea_fechas_fin_label"
+            android:text="28/03/2012" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_duracion_estimada"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <ImageView
+            android:id="@+id/tarea_duracion_estimada_modificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tarea_duracion_estimada_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/duracion_estimada"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_duracion_estimada_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/negro"
+            android:layout_toRightOf="@+id/tarea_duracion_estimada_label"
+            android:text="15" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_duracion_restante"
+        android:layout_width="wrap_content"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <ImageView
+            android:id="@+id/tarea_duracion_restante_menos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tarea_duracion_restante_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/duracion_restante"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_duracion_restante_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/negro"
+            android:layout_toRightOf="@id/tarea_duracion_restante_label" />
+
+        <ImageView
+            android:id="@+id/tarea_duracion_restante_mas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tarea_duracion_restante_menos" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarea_layout_duracion_total"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/fondo" >
+
+        <TextView
+            android:id="@+id/tarea_duracion_total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/total_horas"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tarea_duracion_total_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dip"
+            android:textColor="@color/negro"
+            android:layout_toRightOf="@id/tarea_duracion_total_label" />
+    </RelativeLayout>
+
+</LinearLayout>

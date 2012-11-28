@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_tarea_nueva_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialog_tarea_nueva_descripcion_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_tarea_nueva_descripcion"
+        android:layout_marginLeft="5dip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/dialog_tarea_nueva_descripcion_texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dip"
+        android:layout_marginRight="7dip" >
+
+        <requestFocus />
+    </EditText>
+    
+        <TextView
+            android:id="@+id/dialog_tarea_nueva_prioridad_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_tarea_nueva_prioridad"
+            android:layout_marginLeft="5dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioGroup
+            android:id="@+id/dialog_tarea_nueva_prioridad_radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="7dip"
+        	android:layout_marginRight="7dip">
+
+            <RadioButton
+                android:id="@+id/dialog_tarea_nueva_prioridad_alta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/alta" />
+
+            <RadioButton
+                android:id="@+id/dialog_tarea_nueva_prioridad_baja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/baja" />
+        </RadioGroup>
+
+    <Button
+        android:id="@+id/dialog_tarea_nueva_aceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/fondo_verde"
+        android:padding="10dip"
+        android:textColor="@color/blanco"
+        android:text="@string/aceptar" />
+
+</LinearLayout>

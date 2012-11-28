@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Inicio">
+        <pm:view id="todo">
+            <p:accordionPanel >
+                <p:tab title="Tus datos">
+                    <h:outputText value="Nombre: "/>
+                    <h:outputText value="#{gestionMovil.user.nombre}"/><br></br>
+                    <h:outputText value="Apellidos: "/>
+                    <h:outputText value="#{gestionMovil.user.apellidos}"/><br></br>
+                    <h:outputText value="Email: "/>
+                    <h:outputText value="#{gestionMovil.user.apellidos}"/><br></br>
+                    <h:outputText value="Fecha Nacimiento: "/>
+                    <h:outputText value="#{gestionMovil.user.fechanac}" ><br></br>
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                    </h:outputText>
+                </p:tab>
+                <p:tab title="Grupos">
+                    <h:outputText value="Nombre: "/>
+                    <h:outputText value="#{gestionMovil.grupo.nombre}"/><br></br>
+                    <h:outputText value="Descripcion: "/>
+                    <h:outputText value="#{gestionMovil.grupo.descripcion}"/><br></br>
+                    <h:outputText value="Proyecto: "/>
+                    <h:outputText value="#{gestionMovil.grupo.proyectoId.nombre}"/><br></br>
+                </p:tab>
+                <p:tab title="Sprints">
+                    <h:outputText value="Nombre Proyecto: "/>
+                    <h:outputText value="#{gestionMovil.sprint.proyectoId.nombre}"/><br></br>
+                    <h:outputText value="Fecha de inicio: "/>
+                    <h:outputText value="#{gestionMovil.sprint.inicio}">
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                    </h:outputText><br></br>
+                    <h:outputText value="Fecha de fin: "/>
+                    <h:outputText value="#{gestionMovil.sprint.fin}"><br></br>
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                    </h:outputText>
+                </p:tab>
+                <p:tab title="Proyectos">
+                    <h:outputText value="Nombre: "/>
+                    <h:outputText value="#{gestionMovil.proyecto.nombre}"/><br></br>
+                    <h:outputText value="Descripcion: "/>
+                    <h:outputText value="#{gestionMovil.proyecto.descripcion}"/><br></br>
+                    <h:outputText value="Fecha de entrega "/>
+                    <h:outputText value="#{gestionMovil.proyecto.entrega}"><br></br>
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                    </h:outputText>
+                </p:tab>
+            </p:accordionPanel>
+            <h:form>
+                <h:commandLink action="#{gestionMovil.logout()}" value="Salir"> </h:commandLink>
+            </h:form>
+        </pm:view>
+    </pm:page > 
+</f:view>
+
+
+

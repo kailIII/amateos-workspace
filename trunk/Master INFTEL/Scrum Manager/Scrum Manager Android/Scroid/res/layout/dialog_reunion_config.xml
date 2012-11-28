@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/dialog_reunion_usuarios_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/dialog_reunion_usuarios_tiempo_usuario_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="7dip"
+            android:text="@string/dialog_reunion_usuarios_tiempo_usuario_titulo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/dialog_reunion_usuarios_tiempo_usuario_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/dialog_reunion_usuarios_tiempo_usuario_valor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/blanco" />
+
+            <ImageView
+                android:id="@+id/dialog_reunion_usuarios_tiempo_usuario_mas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                android:layout_toRightOf="@id/dialog_reunion_usuarios_tiempo_usuario_valor"
+                android:src="@drawable/ic_arriba_blanco" />
+
+            <ImageView
+                android:id="@+id/dialog_reunion_usuarios_tiempo_usuario_menos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/dialog_reunion_usuarios_tiempo_usuario_mas"
+                android:src="@drawable/ic_abajo_blanco" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dialog_reunion_usuarios_notificaciones_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dip"
+            android:text="@string/dialog_reunion_usuarios_notificaciones_titulo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/dialog_reunion_usuarios_notificaciones_turno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dip"
+            android:checked="true"
+            android:text="@string/dialog_reunion_usuarios_notificaciones_fin" />
+
+        <CheckBox
+            android:id="@+id/dialog_reunion_usuarios_notificaciones_fin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dip"
+            android:checked="true"
+            android:text="@string/dialog_reunion_usuarios_notificaciones_turno" />
+
+        <TextView
+            android:id="@+id/dialog_reunion_usuarios_seleccion_usuarios_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dip"
+            android:text="@string/dialog_reunion_usuarios_seleccionar_titulo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blanco"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/dialog_reunion_usuarios_radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dip" >
+
+            <RadioButton
+                android:id="@+id/dialog_reunion_usuarios_todos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/dialog_reunion_usuarios_todos" />
+
+            <RadioButton
+                android:id="@+id/dialog_reunion_usuarios_seleccionar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_reunion_usuarios_seleccionar" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/dialog_reunion_usuarios_layout_seleccionar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/dialog_reunion_usuarios_boton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/fondo_verde"
+            android:padding="10dip"
+            android:text="@string/aceptar"
+            android:textColor="@color/blanco" />
+    </LinearLayout>
+
+</ScrollView>

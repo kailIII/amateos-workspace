@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <TableRow
+      android:layout_width="match_parent"
+      android:layout_weight="1" >
+
+      <LinearLayout
+          android:id="@+id/todoLayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:contentDescription="todo"
+          android:orientation="vertical" >
+
+          <TextView
+              android:id="@+id/titulo1"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:text="TODO"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/doingLayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:contentDescription="doing"
+          android:orientation="vertical" >
+
+          <TextView
+              android:id="@+id/titulo2"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:text="DOING"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/doneLayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:contentDescription="done"
+          android:orientation="vertical" >
+
+          <TextView
+              android:id="@+id/titulo3"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:text="DONE"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
+      </LinearLayout>
+  </TableRow>
+
+  <TableRow
+      android:id="@+id/tableRow1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" >
+
+      <Button
+          android:id="@+id/button1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"          
+          android:text="@string/guardar" 
+          android:onClick="guardar"/>
+
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"          
+          android:text="@string/cancelar" 
+          android:onClick="cancelar"/>
+  </TableRow>
+
+  </TableLayout>

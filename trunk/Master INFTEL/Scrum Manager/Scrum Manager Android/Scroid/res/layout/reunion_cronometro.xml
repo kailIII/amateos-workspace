@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/reunion_cronometro_texto_cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="20dip"
+        android:text="00:00"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/negro" />
+
+    <RelativeLayout
+        android:id="@+id/reunion_cronometro_usuarios_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/reunion_cronometro_usuarios_actual_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="5dip"
+            android:text="@string/turno"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/negro"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reunion_cronometro_usuarios_actual_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/reunion_cronometro_usuarios_actual_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/negro" />
+
+        <ImageView
+            android:id="@+id/reunion_cronometro_usuarios_actual_siguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dip"
+            android:src="@drawable/ic_derecha" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/reunion_cronometro_boton"
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:layout_margin="10dip"
+        android:textColor="@color/blanco"
+        android:textSize="20dip"
+        android:textStyle="bold" />
+
+</LinearLayout>

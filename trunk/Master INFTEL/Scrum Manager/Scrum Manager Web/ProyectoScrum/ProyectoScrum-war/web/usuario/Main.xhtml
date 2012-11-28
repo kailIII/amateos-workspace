@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="leftcolumn">
+            <h:form>
+                <h3>Menu</h3>  
+                <p:menu>  
+                    <p:submenu label="Usuarios">  
+                        <p:menuitem value="Editar/Ver" icon="ui-icon-document" action="#{usuarioController.editar(1)}" update=":editar,:listar"/>  
+                        <p:menuitem value="Listar" action="#{usuarioController.editar(2)}" icon="ui-icon-clipboard" update=":editar,:listar"/>  
+                    </p:submenu>                           
+                </p:menu>  
+            </h:form>
+        </ui:define>
+        <ui:define name="content">
+
+            <p:outputPanel id="editar">
+                <p:panel header="editar usuario" rendered="#{usuarioController.edita}" id="panelnewedita">  
+                    <h:form>
+                        <h:panelGrid columns="2">  
+                            <h:outputText value="Nombre"/>
+                            <p:inputText value="#{usuarioController.nombre}"/>
+                            <h:outputText value="Apellidos"/>
+                            <p:inputText value="#{usuarioController.apellidos}"/>
+                            <h:outputText value="E-mail"/>
+                            <p:inputText value="#{usuarioController.email}"/>
+                            <h:outputText value="Fecha Nacimiento"/>
+                            <p:inputText value="#{usuarioController.fecha}" >
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:inputText>
+                            <h:outputText value="Password"/>
+                            <p:password id="pass" value="#{usuarioController.pass}"/>
+                            <h:outputText value="Repite Password"/>
+                            <p:password value="#{usuarioController.repass}" match="pass"/>
+                        </h:panelGrid>  
+                        <p:commandButton value="Guardar" action="#{usuarioController.create()}" id="btnSave"/>  
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+
+
+            <p:outputPanel id="listar">
+                <p:panel header="listar usuario" rendered="#{usuarioController.lista}" id="panelLista">  
+                    <h:form prependId="false">
+                        <h:outputText escape="false" value="#{bundle.ListUsuarioEmpty}" rendered="#{usuarioController.items.rowCount == 0}"/>
+                        <h:panelGroup rendered="#{usuarioController.items.rowCount > 0}">
+                            <p:dataTable id="basic" var="item" value="#{usuarioController.items}" >  
+                                <p:column id="modelHeader" sortBy="#{item.id}">
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListUsuarioTitle_id}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListUsuarioTitle_nombre}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nombre}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListUsuarioTitle_apellidos}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.apellidos}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListUsuarioTitle_email}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.email}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListUsuarioTitle_fechanac}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fechanac}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                    </h:outputText>
+                                </p:column>
+
+                            </p:dataTable>      
+                        </h:panelGroup>
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
+</html>
+
