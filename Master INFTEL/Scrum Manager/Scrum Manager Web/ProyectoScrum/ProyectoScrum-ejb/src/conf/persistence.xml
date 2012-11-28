@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="ProyectoScrum-ejbPU" transaction-type="JTA">
+    <jta-data-source>inftel</jta-data-source>
+    <class>org.inftel.scrum.model.Grupo</class>
+    <class>org.inftel.scrum.model.Historico</class>
+    <class>org.inftel.scrum.model.Log</class>
+    <class>org.inftel.scrum.model.Mensajes</class>
+    <class>org.inftel.scrum.model.Proyecto</class>
+    <class>org.inftel.scrum.model.Sprint</class>
+    <class>org.inftel.scrum.model.Tarea</class>
+    <class>org.inftel.scrum.model.Usuario</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

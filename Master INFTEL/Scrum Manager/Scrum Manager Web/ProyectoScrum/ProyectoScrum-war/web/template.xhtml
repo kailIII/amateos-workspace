@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"           
+        xmlns:f="http://java.sun.com/jsf/core"      
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        locale="#{languageBeam.locale}">
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>ScrumWeb</title>
+            <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'/>
+            <link href="${facesContext.externalContext.requestContextPath}/styles/main.css" rel="stylesheet" type="text/css"/>    
+        </h:head>
+
+        <h:body>
+
+            <div id="wrapper">
+                <div id="header">
+                    <img src="${facesContext.externalContext.requestContextPath}/images/scrum_logo_peque.png"></img>
+                    <div id="usuario">
+                        #{msg.Bienvenido}: <span><h:form id="nombreUsuario"><h:commandLink action="/usuario/Main.xhtml" value="#{usuarioController.nombre}" />
+                                <h:commandLink action="/mensajes/Main.xhtml" id="mensajesNuevos" value=" #{msg.Tiene} #{mensajesNuevosBean.mensajesNuevos} #{msg.Mensajes_nuevos}" /><p:poll interval="5" listener="#{mensajesNuevosBean.mensajesNuevos()}" update="mensajesNuevos" />
+                                <h:commandLink action="#{usuarioController.logout()}" value=" (#{msg.Salir})"> </h:commandLink></h:form></span>
+                    </div>
+                    <div id="menu">
+                        <h:form>
+                            <p:button outcome="/main.xhtml" value="#{msg.Menu_inicio}"></p:button>
+                            <p:button outcome="/proyecto/main.xhtml" value="#{msg.Menu_proyectos}"></p:button>
+                            <p:button outcome="/grupo/Main.xhtml" value="#{msg.Menu_grupos}"></p:button>
+                            <p:button outcome="/sprint/Main2.xhtml" rendered="#{usuarioController.menuSprints}" value="#{msg.Menu_sprints}"></p:button>
+                            <p:button outcome="/log/Main.xhtml" rendered="#{usuarioController.menuLog}" value="#{msg.Menu_log}"></p:button>
+                            <p:button outcome="/chat/main.xhtml" rendered="#{usuarioController.menuChat}" value="#{msg.Menu_chat}"></p:button>
+                            <p:button outcome="/estadistica/main.xhtml" rendered="#{usuarioController.menuEstadisticas}" value="#{msg.Menu_estadisticas}"></p:button>
+                            <p:button outcome="/informes/Main.xhtml" value="#{msg.Menu_informes}" rendered="#{informesBean.rendered}"></p:button>
+                        </h:form>
+                    </div>
+                    <h:form id="language">
+                        <h:commandLink action="#{languageBeam.changeLanguage('es')}" ><img src="${facesContext.externalContext.requestContextPath}/images/es.png" /></h:commandLink> 
+                        <h:commandLink action="#{languageBeam.changeLanguage('en')}" ><img src="${facesContext.externalContext.requestContextPath}/images/en.png" /></h:commandLink>
+                    </h:form>
+                    <!-- <div id="nota">
+                        <img src="${facesContext.externalContext.requestContextPath}/images/nota.png"></img>
+                    </div> -->
+                </div>
+                <div id="leftcolumn">
+                    <ui:insert name="leftcolumn" id="leftcolumn">
+                    </ui:insert>
+                </div>
+                <div id="content">
+                    <ui:insert name="content" id="content">
+                    </ui:insert>
+                </div>
+                <div id="footer">
+                    <p>ScrumWeb | M&aacute;ster INFTEL 2012</p>
+                    <img id="masterLogo" src="${facesContext.externalContext.requestContextPath}/images/logomaster.png"></img>
+
+                </div>
+            </div>
+        </h:body>
+    </html>
+</f:view>

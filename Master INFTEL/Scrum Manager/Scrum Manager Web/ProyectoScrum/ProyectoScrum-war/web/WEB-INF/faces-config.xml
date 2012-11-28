@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <application>
+        <resource-bundle>
+            <base-name>/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+        
+        
+        <!-- INTERNACIONALIZACION -->
+        <locale-config>
+            <default-locale>es</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>org.inftel.scrum.internacionalizacion.messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>registrarse</from-outcome>
+            <to-view-id>/registroUsuario.xhtml</to-view-id>
+            <redirect>/registroUsuario.xhtml </redirect>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/registroUsuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect>/index.xhtml </redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/projects.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editar</from-outcome>
+            <to-view-id>/usuario/Edit.xhtml</to-view-id>
+            <redirect>/usuario/Edit.xhtml </redirect>
+        </navigation-case>
+    </navigation-rule>
+     
+    <navigation-rule>
+        <from-view-id>/usuario/Edit.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>project</from-outcome>
+            <to-view-id>/../main.xhtml</to-view-id>
+            <redirect>/../main.xhtml</redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <converter>
+        <converter-id>leidoConverter</converter-id>
+        <converter-class>org.inftel.scrum.converter.LeidoConverter</converter-class>
+    </converter>
+    
+    <converter>
+        <converter-id>conectadoConverter</converter-id>
+        <converter-class>org.inftel.scrum.converter.ConectadoConverter</converter-class>
+    </converter>
+    
+    <converter>
+        <converter-id>prioridadConverter</converter-id>
+        <converter-class>org.inftel.scrum.converter.PrioridadConverter</converter-class>
+    </converter>
+</faces-config>

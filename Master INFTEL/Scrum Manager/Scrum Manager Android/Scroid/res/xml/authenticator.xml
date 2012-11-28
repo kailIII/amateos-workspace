@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="org.inftel.scrum"
+    android:icon="@drawable/ic_launcher"
+    android:smallIcon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+/>
+<!-- cambiar accountType por ruta nuestro proyecto 
+	 cambiar icon por icono para la pantalla de ajuste Cuentas y Sincronizacion 	
+	 cambiar smallIcom por icono para la pestaña Contactos 
+-->

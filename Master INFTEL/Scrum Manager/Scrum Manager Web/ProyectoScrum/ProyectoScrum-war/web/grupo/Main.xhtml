@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="leftcolumn">
+            <h:form >
+                <h3>#{msg.Grupos}</h3>
+                <p:menu>
+                    <p:submenu label="#{msg.Menu_grupos}">
+                        <p:menuitem value="#{msg.Crear}" icon="ui-icon-document" actionListener="#{grupoBean.redirigir(1)}" update=":panelnew, :outputpanelnew, :outputpanelview" rendered="#{grupoBean.isMaster()}"/>
+                        <p:menuitem value="#{msg.Ver}" icon="ui-icon-clipboard" actionListener="#{grupoBean.redirigir(2)}" update=":panelnew, :outputpanelview, :outputpanelnew " />
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+
+
+        <ui:define name="content">
+
+            <p:growl id="growl" showDetail="true" life="4000"/>
+            <p:outputPanel id="outputpanelnew">
+                <p:panel header="#{msg.Nuevo_grupo}" rendered="#{grupoBean.renderNuevo}" id="panelnew">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msg.Nombre_grupo}: "/>
+                            <p:inputText id="txt_nombre" value="#{grupoBean.nuevoGrupo.nombre}" required="true" label="Nombre"/>
+
+                            <h:outputLabel value="#{msg.Descripcion_grupo}"/>
+                            <p:inputText id="txt_desc" value="#{grupoBean.nuevoGrupo.descripcion}" required="true" label="Descripcion"/>
+
+                            <h:outputLabel value="#{msg.Proyecto}"/>
+                            <p:selectOneMenu value="#{grupoBean.proyectoSeleccionado}"  effect="fade" label="Proyecto"  >
+                                <f:selectItem itemLabel="#{msg.Selecciona_proyecto}" itemValue="" />
+                                <f:selectItems  value="#{grupoBean.proyectos}" var="proyecto" itemLabel="#{proyecto}" itemValue="#{proyecto}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputLabel value="#{msg.Usuarios_grupo}"/>
+                            <p:pickList id="pickList" value="#{grupoBean.usuariosPickList}"
+                                        var="usuario"
+                                        itemLabel="#{usuario}"
+                                        itemValue="#{usuario}" >
+
+                                <f:facet name="sourceCaption">#{msg.Usuarios_disponibles_grupo}</f:facet>
+                                <f:facet name="targetCaption">#{msg.Usuarios_anyadidos}</f:facet>
+                            </p:pickList>
+                        </h:panelGrid>
+                        <p:commandButton   id="btnCrearGrupo" value="#{msg.Crear}" actionListener ="#{grupoBean.crearNuevo()}" update=":growl, :outputpanelview, :outputpanelnew"/>
+                    </h:form>
+                </p:panel>
+            </p:outputPanel>
+
+
+            <p:dialog id="dialog" header="Editar" widgetVar="editdialog" closable="true" resizable="false" showEffect="explode" hideEffect="explode">
+                <p:outputPanel id="dialogpanel">
+                    <h:form>
+                        <p:panelGrid columns="2">
+                            <h:outputLabel value="#{msg.Descripcion_grupo}" />
+                            <h:inputText value="#{grupoBean.grupoSeleccionado.descripcion}" />
+                            <h:outputLabel value="#{msg.Nombre_grupo}" />
+                            <h:inputText value="#{grupoBean.grupoSeleccionado.nombre}" />
+                            <h:outputLabel value="#{msg.Proyecto}" />
+                            <h:inputText value="#{grupoBean.grupoSeleccionado.proyectoId.nombre}" />
+                            <h:outputLabel value="#{msg.Usuarios_grupo}" />
+                            <p:pickList id="pickListEditar" value="#{grupoBean.usuariosEditadosPickList}"
+                                        var="usuarioEditable"
+                                        itemLabel="#{usuarioEditable}"
+                                        itemValue="#{usuarioEditable}" >
+                                <f:facet name="sourceCaption">#{msg.Usuarios_disponibles_grupo}</f:facet>
+                                <f:facet name="targetCaption">#{msg.Miembros_grupo}</f:facet>
+
+                            </p:pickList>
+
+                        </p:panelGrid>
+                        <br/>
+                        <p:commandButton value="#{msg.Aceptar}" actionListener="#{grupoBean.editarGrupo}" oncomplete="editdialog.hide()" update=":panelnew, :outputpanelview,:outputpanelnew, :growl"/>
+                    </h:form>
+                </p:outputPanel>
+            </p:dialog>
+
+            <p:outputPanel id="outputpanelview" >
+                <p:panel header="#{msg.Grupos}" rendered="#{grupoBean.renderVer}" id="panelview">
+                    <p:accordionPanel value="#{grupoBean.usuariosGrupo}" var="grupo" >
+
+                        <p:tab title="#{grupo.nombre}" >
+
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="#{msg.Descripcion_grupo} " />
+                                <h:outputText value="#{grupo.descripcion}" style="font-weight: bold"/>
+
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:outputText value="#{msg.Proyecto_grupo}" />
+                                    <h:outputText value="#{grupo.proyectoId.nombre}" style="font-weight: bold"/>
+
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:outputText value="#{msg.Descripcion_proyecto_grupo}" />
+                                    <h:outputText value="#{grupo.proyectoId.descripcion}" style="font-weight: bold"/>
+
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:outputText value="#{msg.Miembros_grupo}" /><br/>
+                                    <ui:repeat var="usuario" value="#{grupo.usuarioList.toArray()}">
+
+                                        <h:outputText value="#{usuario.email} "/>
+                                        <h:outputText value=" (#{usuario.rol})"/>
+                                        <br/>
+                                    </ui:repeat>
+                                </h:panelGrid>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h:panelGrid>
+                                    <h:form rendered="#{grupoBean.isMaster()}">
+
+                                        <p:commandLink id="editarLink" value="#{msg.Editar_grupo}" oncomplete="editdialog.show()" update=":dialogpanel" style="color: blue; font-style: italic; text-decoration: underline; ">
+
+                                            <f:setPropertyActionListener target="#{grupoBean.grupoSeleccionado}" value="#{grupo}" />
+                                        </p:commandLink>
+                                    </h:form>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                </p:panel>
+            </p:outputPanel>
+        </ui:define>
+    </ui:composition>
+</html>

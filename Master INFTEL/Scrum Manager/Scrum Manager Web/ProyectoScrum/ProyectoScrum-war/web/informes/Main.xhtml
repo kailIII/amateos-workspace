@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+            <f:view>
+                <h:form prependId="false"> 
+                    <p:panelGrid columns="3">
+                        <p:panel header="#{msg.Usuarios}" style="width:130px;">
+                            <h:commandLink action="#{informesBean.informeUsuarios(0)}" ><img src="${facesContext.externalContext.requestContextPath}/images/pdf.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeUsuarios(1)}" ><img src="${facesContext.externalContext.requestContextPath}/images/excell.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeUsuarios(2)}" ><img src="${facesContext.externalContext.requestContextPath}/images/powerpoint.png" /></h:commandLink> 
+                        </p:panel>
+                        <p:panel header="#{msg.Proyecto}" style="width:130px;">
+                            <h:commandLink action="#{informesBean.informeProyecto(0)}" ><img src="${facesContext.externalContext.requestContextPath}/images/pdf.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeProyecto(1)}" ><img src="${facesContext.externalContext.requestContextPath}/images/excell.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeProyecto(2)}" ><img src="${facesContext.externalContext.requestContextPath}/images/powerpoint.png" /></h:commandLink> 
+                        </p:panel>
+
+                        <p:panel header="#{msg.Backlog}" style="width:130px;">
+                            <h:commandLink action="#{informesBean.informeBacklog(0)}" ><img src="${facesContext.externalContext.requestContextPath}/images/pdf.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeBacklog(1)}" ><img src="${facesContext.externalContext.requestContextPath}/images/excell.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeBacklog(2)}" ><img src="${facesContext.externalContext.requestContextPath}/images/powerpoint.png" /></h:commandLink> 
+                        </p:panel>
+                        <p:panel header="#{msg.Sprints}" style="width:130px;">
+                            <h:commandLink action="#{informesBean.informeSprints(0)}" ><img src="${facesContext.externalContext.requestContextPath}/images/pdf.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeSprints(1)}" ><img src="${facesContext.externalContext.requestContextPath}/images/excell.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeSprints(2)}" ><img src="${facesContext.externalContext.requestContextPath}/images/powerpoint.png" /></h:commandLink> 
+                        </p:panel>
+                        <p:panel header="#{msg.Logs}" style="width:130px;">
+                            <h:commandLink action="#{informesBean.informeLogs(0)}" ><img src="${facesContext.externalContext.requestContextPath}/images/pdf.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeLogs(1)}" ><img src="${facesContext.externalContext.requestContextPath}/images/excell.png" /></h:commandLink> 
+                            <h:commandLink action="#{informesBean.informeUsuarios(2)}" ><img src="${facesContext.externalContext.requestContextPath}/images/powerpoint.png" /></h:commandLink> 
+                        </p:panel>
+
+                    </p:panelGrid>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</html>
+

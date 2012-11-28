@@ -1,0 +1,384 @@
+* { 
+    padding: 0; margin: 0; 
+    background: none;
+    border: none;
+    background-color: transparent;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-image: -moz-radial-gradient(#5C5C5C, #999999); /* Firefox */
+    background-image: -webkit-radial-gradien(#5C5C5C, #999999);  /* Webkit */
+}
+#wrapper { 
+    margin: 0 auto;
+    width: 90%;
+    background: #F2F2E6;
+}
+#header {
+    color: #333;
+    width: 94%;
+    height: 160px;
+    float: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px; 
+
+}
+#leftcolumn { 
+    color: #333;
+    border: 1px solid #ccc;
+    background: #F2F2E6;
+    margin-top: 5px;
+    padding: 10px;
+    min-height: 350px;
+    width: 20%;
+    float: left;
+    border-radius: 10px;
+    padding-right:0px;
+    
+}
+#content { 
+    float: right;
+    color: #333;
+    padding: 10px;
+    min-height: 350px;
+    width: 75%;
+    display: block;
+    margin: 5px 0px 5px 5px;
+}
+
+#initcontent { 
+    float: left;
+    color: #333;
+    padding: 10px;
+    min-height: 350px;
+    width: 75%;
+    display: block;
+    margin: 5px 0px 5px 5px;
+}
+
+#footer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px 10px 10px 10px;
+    clear: both;
+    color: #333333;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 2%;
+    padding: 10px;
+    text-align: center;
+    width: 94%;
+}
+
+#nota {
+    position: relative;
+    top: -70px;
+    right: -80%;
+}
+
+#usuario {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-weight: bold;
+    color: #555;
+    float: right;
+    margin-right: 20%;
+}
+
+#menu {
+    position: relative;
+    top: 20px;
+    left: 0px;
+    margin-top: 0.4%;
+}
+
+#masterLogo {
+    position: relative;
+    top: -25px;
+    left: 44%;
+}
+
+#nombreUsuario {
+    position: relative;
+    top: -15px;
+    left: 80px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #f00;
+}
+
+input {
+    outline:none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border:1px solid rgba(0,0,0, 0.2);
+}
+
+input:focus {
+    box-shadow: 0 0 3px rgba(0, 0, 255, 1);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 1); 
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
+    border:1px solid rgba(0,0,255, 0.6); 
+}
+
+.postit {
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 600;
+    font-size:14px;
+
+    background:#fefabc;
+    padding:5px;      
+    color: black;
+    width:120px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display:block;
+
+    -moz-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+
+    box-shadow: 0px 4px 6px #333;
+    -moz-box-shadow: 0px 4px 6px #333;
+    -webkit-box-shadow: 0px 4px 6px #333;
+}
+
+#board
+{
+    width:98%;
+    height:800px;
+
+    border: 10px solid rgb(100, 100, 100); /* default color */
+    border: 5px solid rgba(0, 0, 0, 0.3); /* rgba for transparency */
+
+    background:url(../images/board.jpg);
+    padding:10px;
+    position:relative;
+    -webkit-border-radius:  10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px
+}
+
+#headerTodo{
+    font-family: 'La Belle Aurore', bold;
+    color:whitesmoke;
+    font-weight: 800;
+    font-size:36px;
+    margin-left: 10%;    
+    float:left;
+
+    border: whitesmoke solid;    
+    -webkit-border-radius: 25px 50px;
+    -moz-border-radius: 25px 50px;
+    border-radius: 25px 50px;
+
+
+}
+
+#headerDoing{
+    font-family: 'La Belle Aurore', bold;
+    color:whitesmoke;
+    font-weight: 800;
+    font-size:36px;
+    margin-left: 23%;
+    float:left;
+    border: whitesmoke solid;    
+    -webkit-border-radius: 40px 25px;
+    -moz-border-radius: 40px 25px;
+    border-radius: 40px 25px;
+}
+
+#headerDone{
+    font-family: 'La Belle Aurore', bold;
+    color:whitesmoke;
+    font-weight: 800;
+    font-size:36px;
+    margin-left: 23%;    
+    margin-bottom: 10px;    
+    float:left;
+    clear:right;
+    border: whitesmoke solid;    
+    -webkit-border-radius: 45px 50px;
+    -moz-border-radius: 45px 50px;
+    border-radius: 45px 50px;
+}
+
+.todoContainer{    
+    margin-top: 25px;
+    margin-right: 3%;
+    width: 30%;
+    height: 98%;
+    float: left;
+}
+
+.doingContainer{   
+    margin-top: 25px;
+    margin-right: 3%;    
+    width: 30%;
+    height: 98%;
+    float: left;
+}
+
+.doneContainer{    
+    margin-top: 25px;
+    width: 30%;
+    height: 98%;
+    float: left;
+}
+.separador{
+    background:#fefabc;
+}
+
+.postitLabel{
+    word-wrap: break-word;
+    display:block;
+}
+
+.gridtareas {
+    background: none;
+    border: none;
+    color:black;
+}
+
+#tareasTodo_content{
+    background: none;
+    border: none;
+    color:black;
+}
+
+#tareasDoing_content{
+    background: none;
+    border: none;
+    color:black;
+}
+
+#tareasDone_content{
+    background: none;
+    border: none;
+    color:black;
+}
+
+.duracion{    
+    border: #4F4F4F solid;    
+    border-width:1px;
+    -webkit-border-radius: 20px 25px;
+    -moz-border-radius: 20px 25px;
+    border-radius: 20px 25px;    
+}
+
+#tareasTodo_content input{
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 600;
+    font-size:14px;
+    background:#fefabc;
+    width: 30px;
+    text-align: center;
+
+    border: #4F4F4F solid;    
+    border-width:1px;
+    -webkit-border-radius: 20px 25px;
+    -moz-border-radius: 20px 25px;
+    border-radius: 20px 25px; 
+}
+
+#tareasDoing_content input{
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 600;
+    font-size:14px;
+    background:#fefabc;
+    width: 30px;
+    text-align: center;
+
+    border: #4F4F4F solid;    
+    border-width:1px;
+    -webkit-border-radius: 20px 25px;
+    -moz-border-radius: 20px 25px;
+    border-radius: 20px 25px; 
+
+}
+
+#tareasDone_content input{
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 600;
+    font-size:14px;
+    background:#fefabc;
+    width: 30px;
+    text-align: center;
+
+    border: #4F4F4F solid;    
+    border-width:1px;
+    -webkit-border-radius: 20px 25px;
+    -moz-border-radius: 20px 25px;
+    border-radius: 20px 25px; 
+}
+
+.ui-datagrid-column {
+    padding: 0px;
+}
+
+ui-inplace {
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 600;
+    font-size:14px;
+    background:#fefabc;
+    width: 30px;
+    text-align: center;
+
+    border: #4F4F4F solid;    
+    border-width:1px;
+    -webkit-border-radius: 20px 25px;
+    -moz-border-radius: 20px 25px;
+    border-radius: 20px 25px; 
+}
+
+#language {
+    float:right;
+    position: relative;
+    top: -90%;
+    left:0%;
+}
+
+.ui-panel .ui-panel-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    height: 85%;
+    padding: 0.5em 1em;    
+}
+
+.ui-panel {
+    border-radius: 5px;    
+}
+
+.ui-button{
+    border-radius: 10px;    
+}
+
+#formTablon{
+    float:right;
+    position: relative;
+    top: -3%;
+    left:0%;
+}

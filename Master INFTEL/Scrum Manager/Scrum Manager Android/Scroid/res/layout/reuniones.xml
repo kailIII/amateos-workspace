@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reuniones_layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/reuniones_layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="3dip"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip"
+        android:background="@drawable/fondo"
+        android:orientation="vertical" >
+
+        <org.inftel.scrum.utils.CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/anteriorButton"
+                android:layout_width="5dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.02"
+                android:text="@string/anteriorButton"
+                android:background="@drawable/fondo_verde"
+                android:textColor="@color/blanco" 
+                />
+
+            <TextView
+                android:id="@+id/mesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/mesLabel"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/anyoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/anyoLabel"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/siguienteButton"
+                android:layout_width="5dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.02"
+                android:text="@string/siguienteButton" 
+                android:background="@drawable/fondo_verde"
+                android:textColor="@color/blanco"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

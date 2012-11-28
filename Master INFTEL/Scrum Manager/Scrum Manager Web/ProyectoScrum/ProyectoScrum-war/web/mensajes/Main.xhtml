@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"           
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="leftcolumn">
+            <h:form>
+                <h3>Menu</h3>  
+                <p:menu>  
+                    <p:submenu label="Usuarios">  
+                        <p:menuitem value="#{msg.Redactar}" action="#{mensajesBean.toggleVista(1)}" icon="ui-icon-document" update=":redactar,:recibidos,:enviados"/>  
+                        <p:menuitem value="#{msg.Recibidos}" action="#{mensajesBean.toggleVista(2)}" icon="ui-icon-clipboard" update=":redactar,:recibidos,:enviados"/>  
+                        <p:menuitem value="#{msg.Enviados}" action="#{mensajesBean.toggleVista(3)}" icon="ui-icon-clipboard" update=":redactar,:recibidos,:enviados"/>  
+                    </p:submenu>                           
+                </p:menu>  
+            </h:form>
+        </ui:define>
+        <ui:define name="content">
+
+            <p:outputPanel id="redactar">
+                <p:panel header="#{msg.Redactar_mensaje}" rendered="#{mensajesBean.vistaRedactar}" id="panelRedactar">  
+                    <h:form prependId="false">
+                        <h:outputText value="#{msg.Destinatario}:" /> <p:inputText id="inputDestinatario" value="#{mensajesBean.destinatarioRedactar}" onfocus="destinatarioDialog.show()"/> <br/>
+                        <h:outputText value="#{msg.Asunto}:" /> <p:inputText id="inputAsunto" value="#{mensajesBean.asuntoRedactar}" /> <br/>
+                        <h:outputText value="#{msg.Texto}:" /> <br/>
+                        <p:inputTextarea id="inputTexto" rows="5" cols="80" value="#{mensajesBean.mensajeRedactar}"/>  <br/>
+                        <p:commandButton value="#{msg.Enviar}" action="#{mensajesBean.enviarMensaje()}" update=":redactar,:growl"/>
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+
+
+            <p:outputPanel id="recibidos">
+                <p:panel header="#{msg.Recibidos}" rendered="#{mensajesBean.vistaRecibidos}" id="panelRecibidos">  
+                    <h:form prependId="false">
+                        <p:dataTable id="recibidosTable" var="recibido" value="#{mensajesBean.recibidos}" widgetVar="mensajesRecibidosTable" rowKey="#{recibido.id}" selection="#{mensajesBean.mensajeRecibidoSeleccionado}" selectionMode="single" emptyMessage="#{msg.No_resultados}" paginator="true" rows="10"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowsPerPageTemplate="10,20,50">  
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="Leido" />
+                                </f:facet>  
+                                <h:outputText value="#{recibido.leido}" >
+                                    <f:converter  converterId="leidoConverter" />
+                                </h:outputText>
+                            </p:column> 
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Origen}" />
+                                </f:facet>  
+                                <h:outputText value="#{recibido.origen.email}" />
+                            </p:column>  
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Asunto}" /> 
+                                </f:facet>  
+                                <h:outputText value="#{recibido.asunto}" />  
+                            </p:column> 
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Fecha}" />  
+                                </f:facet>  
+                                <h:outputText value="#{recibido.fecha}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss"></f:convertDateTime>
+                                </h:outputText>
+
+                            </p:column> 
+
+                            <f:facet name="footer">  
+                                <p:commandButton id="verButton" value="#{msg.Ver}" icon="ui-icon-search"  
+                                                 actionListener="#{mensajesBean.marcarLeido()}" update=":formRecibidos:displayRecibidos,:recibidos" oncomplete="recibidoDialog.show()"/>  
+                                <p:commandButton id="eliminarButton" value="#{msg.Eliminar}" icon="ui-icon-close" update=":recibidos,:growl" action="#{mensajesBean.eliminarMensajeRecibido()}"/>  
+                            </f:facet> 
+
+                        </p:dataTable>
+
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+
+            <p:outputPanel id="enviados">
+                <p:panel header="#{msg.Enviados}" rendered="#{mensajesBean.vistaEnviados}" id="panelEnviados">  
+                    <h:form prependId="false">
+                        <p:dataTable id="enviadosTable" var="enviado" value="#{mensajesBean.enviados}" widgetVar="mensajesEnviadosTable" rowKey="#{enviado.id}" selection="#{mensajesBean.mensajeEnviadoSeleccionado}" selectionMode="single" emptyMessage="#{msg.No_resultados}" paginator="true" rows="10"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowsPerPageTemplate="10,20,50">  
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Destinatario}" />
+                                </f:facet>  
+                                <h:outputText value="#{enviado.destino.email}" />
+                            </p:column>  
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Asunto}" /> 
+                                </f:facet>  
+                                <h:outputText value="#{enviado.asunto}" />  
+                            </p:column> 
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="#{msg.Fecha}" />  
+                                </f:facet>  
+                                <h:outputText value="#{enviado.fecha}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss"></f:convertDateTime>
+                                </h:outputText>
+
+                            </p:column> 
+
+                            <f:facet name="footer">  
+                                <p:commandButton id="verButton" value="#{msg.Ver}" icon="ui-icon-search"
+                                                 update=":formEnviados:displayEnviados" oncomplete="enviadoDialog.show()"/>  
+                                <p:commandButton id="eliminarButton" value="#{msg.Eliminar}" icon="ui-icon-close" update=":enviados,:growl" action="#{mensajesBean.eliminarMensajeEnviado()}"/>  
+                            </f:facet> 
+
+                        </p:dataTable>
+
+                    </h:form>
+                </p:panel>  
+            </p:outputPanel>
+
+
+            <!-- DIALOGS -->
+            <h:form id="formRecibidos">
+                <p:dialog id="dialogRecibidos" header="#{msg.Mensaje_recibido}" widgetVar="recibidoDialog" resizable="false"  
+                          width="400" showEffect="clip" hideEffect="fold">  
+
+                    <h:panelGrid id="displayRecibidos" columns="2" cellpadding="4">  
+
+                        <h:outputText value="#{msg.Origen}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeRecibidoSeleccionado.origen.email}" /> 
+
+                        <h:outputText value="#{msg.Fecha}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeRecibidoSeleccionado.fecha}">
+                            <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss"></f:convertDateTime>
+                        </h:outputText>
+
+                        <h:outputText value="#{msg.Asunto}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeRecibidoSeleccionado.asunto}" />  
+
+                        <h:outputText value="#{msg.Texto}:" /> <br/> 
+                        <h:outputText value="#{mensajesBean.mensajeRecibidoSeleccionado.mensaje}" />  
+
+                    </h:panelGrid>  
+                </p:dialog>  
+
+            </h:form>
+
+
+
+            <h:form id="formEnviados">
+                <p:dialog id="dialogEnviados" header="#{msg.Mensaje_enviado}" widgetVar="enviadoDialog" resizable="true"  
+                          width="400" showEffect="clip" hideEffect="fold">  
+
+                    <h:panelGrid id="displayEnviados" columns="2" cellpadding="4">  
+
+                        <h:outputText value="#{msg.Destinatario}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeEnviadoSeleccionado.destino.email}" /> 
+
+                        <h:outputText value="#{msg.Fecha}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeEnviadoSeleccionado.fecha}">
+                            <f:convertDateTime pattern="dd/MM/yyyy hh:mm:ss"></f:convertDateTime>
+                        </h:outputText>
+
+                        <h:outputText value="#{msg.Asunto}:" />  
+                        <h:outputText value="#{mensajesBean.mensajeEnviadoSeleccionado.asunto}" />  
+
+                        <h:outputText value="#{msg.Texto}:" />  <br/>
+                        <h:outputText value="#{mensajesBean.mensajeEnviadoSeleccionado.mensaje}" />  
+
+                    </h:panelGrid>  
+                </p:dialog>  
+            </h:form>
+
+            <h:form id="formRedactar">  
+
+                <p:dialog id="dialogDestinatario" header="#{msg.Selecciona_usuario}" widgetVar="destinatarioDialog" resizable="true"  
+                          width="600" showEffect="clip" hideEffect="fold">  
+                    <h:panelGrid id="displayDestinatario" columns="2" cellpadding="4">  
+                        <p:pickList id="pickList" value="#{mensajesBean.usuarios}"  
+                                    var="usuario"  
+                                    itemLabel="#{usuario}"  
+                                    itemValue="#{usuario}" />  <br/>
+                        <p:commandButton id="destinatarioSubmit" value="#{msg.Aceptar}" update=":redactar" action="#{mensajesBean.pickDestinatario()}" oncomplete="destinatarioDialog.hide()"/>  
+                    </h:panelGrid> 
+
+                </p:dialog> 
+
+            </h:form>
+
+            <p:growl id="growl" showDetail="true" sticky="false" life="2000" />  
+
+        </ui:define>
+    </ui:composition>
+</html>

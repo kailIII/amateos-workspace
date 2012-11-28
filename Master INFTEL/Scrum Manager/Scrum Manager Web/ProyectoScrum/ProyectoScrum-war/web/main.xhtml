@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core">
+    <html>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="leftcolumn">
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:panel header="DASHBOARD">
+                        <p:panelGrid columns="2">
+                            <p:panel header="#{msg.Proyecto}" style="height:200px;width: 350px;">
+                                <h:outputText value="#{msg.Nombre}: #{dashboardBean.proyecto.nombre}"/><br/>
+                                <h:outputText value="#{msg.Descripcion}: #{dashboardBean.proyecto.descripcion}"/><br/>
+                                <h:outputText value="#{msg.Entrega}: #{dashboardBean.proyecto.entrega}"/><br/>
+                                <h:outputText value="#{msg.Sprints}: #{dashboardBean.proyecto.sprintList.size()}"/><br/>
+                                <h:outputText value="#{msg.Progreso}: "/><br/><p:barChart value="#{dashboardBean.graficoProyecto}" style="height: 70px;" orientation="horizontal" min="0" max="100"/>
+                            </p:panel>
+                            <p:panel header="#{msg.Sprint}" style="height:200px;width: 350px;">
+                                <h:outputText value="#{msg.Id}: #{dashboardBean.sprint.id}"/><br/>
+                                <h:outputText value="#{msg.Inicio}: #{dashboardBean.sprint.inicio}"/><br/>
+                                <h:outputText value="#{msg.Fin}: #{dashboardBean.sprint.fin}"/><br/>
+                                <h:outputText value="#{msg.Tareas}: #{dashboardBean.sprint.tareaList.size()}"/><br/>
+                                <h:outputText value="#{msg.Progreso}: "/><br/><p:barChart value="#{dashboardBean.graficoSprint}" style="height: 70px;" orientation="horizontal" min="0" max="100"/>
+                            </p:panel>
+                            <p:panel header="#{msg.Tarea}" style="height:250px;width: 350px;">
+                                <h:outputText value="#{msg.Descripcion}: #{dashboardBean.tarea.descripcion}"/><br/>
+                                <h:outputText value="#{msg.Inicio}: #{dashboardBean.tarea.inicio}"/><br/>
+                                <h:outputText value="#{msg.Prioridad}: "/>
+                                <h:outputText value="#{dashboardBean.tarea.prioridad}">
+                                    <f:converter  converterId="prioridadConverter" />
+                                </h:outputText><br/>
+                                <h:outputText value="#{msg.Duracion_estimada}: #{dashboardBean.tarea.duracionEstimado}"/><br/>
+                                <h:outputText value="#{msg.Tiempo_empleado}: #{dashboardBean.tarea.totalHoras}"/>
+                            </p:panel>
+                            <p:panel header="#{msg.Grupo}" style="height:250px;width: 350px;">
+                                <h:outputText value="#{msg.Nombre}: #{dashboardBean.grupo.nombre}"/><br/>
+                                <h:outputText value="#{msg.Descripcion}: #{dashboardBean.grupo.descripcion}"/><br/>
+                                <h:outputText value="#{msg.Miembros_grupo}: "/><br/>
+                                <p:carousel value="#{dashboardBean.grupo.usuarioList}" var="usuario"   
+                                            rows="1">     
+                                    <h:panelGrid columns="1" style="width:100%" cellpadding="5" >  
+                                        <h:outputText value="#{msg.Nombre}: #{usuario.nombre}" />  
+                                        <h:outputText value="#{msg.Apellidos}: #{usuario.apellidos}" />  
+                                        <h:outputText value="#{msg.Email}: #{usuario.email}" />  
+                                        <h:outputText value="#{usuario.loggedin}">
+                                            <f:converter  converterId="conectadoConverter" />
+                                        </h:outputText>  
+                                    </h:panelGrid>  
+                                </p:carousel>                              
+                            </p:panel>
+
+                        </p:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </html>
+</f:view>
+

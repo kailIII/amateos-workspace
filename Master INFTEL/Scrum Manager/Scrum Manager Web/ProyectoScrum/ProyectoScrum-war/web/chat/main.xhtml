@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"           
+        xmlns:f="http://java.sun.com/jsf/core"      
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <html>
+        <ui:composition template="/template.xhtml">            
+            <ui:define name="content">                
+                <p:growl id="growl" showDetail="true" />  
+
+                <h:form>  
+
+                    <p:fieldset id="container" legend="Chat">  
+                        <h:panelGroup>  
+                            <div id="chatContent" style="height: 300px"/>  
+                            <p:separator />  
+                            <p:inputText value="#{chatBean.message}" styleClass="messageInput" />  
+                            <p:spacer width="5" />  
+                            <p:commandButton value="#{msg.Enviar}" actionListener="#{chatBean.send}" global="false" oncomplete="$('.messageInput').val('').focus()"/>  
+                            <p:spacer width="5" />  
+                            <p:commandButton value="#{msg.Desconectar}" actionListener="#{chatBean.disconnect}" global="false"   
+                                             oncomplete="chatAgent.close()" update="container" />  
+                        </h:panelGroup>  
+
+                        <h:panelGroup>                              
+                            <p:commandButton value="Login" actionListener="#{chatBean.login}" update="container"   
+                                             icon="ui-icon-person"/>  
+                        </h:panelGroup>  
+
+                    </p:fieldset>                     
+                </h:form>  
+
+                <p:push onmessage="handleMessage" channel="chat" widgetVar="chatAgent" />  
+                <script type="text/javascript">  
+                    function handleMessage(evt, data) {
+                        var chatContent = $("#chatContent");
+                        if($("#chatContent > br").length==14){
+                            chatContent.empty();
+                            chatContent.append(data + '<br />');
+                        }else{
+                            chatContent.append(data + '<br />'); 
+                        }
+                    }  
+                </script>
+
+            </ui:define>
+            <ui:define name="leftcolumn">
+                <p:fieldset id="onlineField" legend="Online">
+                    <p:dataList value="#{chatBean.listUsers}" var="friend" itemType="disc">  
+                        #{friend.nombre} #{friend.apellidos} (#{friend.email})
+                        <h:outputLabel value="Mobile" rendered = "#{friend.loggedin=='2'}" />
+                    </p:dataList>  
+                </p:fieldset>
+                <h:form>
+                    <p:poll interval="10" listener="#{chatBean.refreshUsers()}"
+                            update=":onlineField" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </html>
+</f:view>
