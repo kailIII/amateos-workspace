@@ -4,23 +4,22 @@
 ==Carrera==
  * *compRarador (PFC) (2010 - 2012):*
    * *Descripción*: sistema que permite al usuario realizar la comparación de precios de productos de supermercado, facilitando a éste la elección del establecimiento más económico para realizar la compra. Asimismo, permite la creación de listas de la compra.
-   * *Página*: http://code.google.com/p/amateos-workspace/wiki/Proyecto_compRarador
+   * *Página*: [http://code.google.com/p/amateos-workspace/wiki/Proyecto_compRarador Ver]
    * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=PFC_Alberto_Mateos.pdf Descargar]
    * *Presentación*: [http://amateos-workspace.googlecode.com/svn/trunk/PFC/Presentacion/index.html Ver Online]
    * *Vídeos demostrativos*: [http://www.youtube.com/playlist?list=PL4PPb0PVAuVTtswsLLWFTrKux6uzD7hSK Ver en YouTube]
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/PFC/ Ver]
-   * *Tecnologías*: JRuby, Java Web Services, PHP, MySQL, PhoneGap, javasccript, jQuery, jQueryMobile, HTML5, CSS, Android, iOS, BlackBerry
+   * *Tecnologías*: JRuby, Java Web Services, PHP, MySQL, PhoneGap, javasccript, jQuery, jQueryMobile, HTML5, CSS, Android, iOS, BlackBerry. 
 
 ----
 
 ==Máster INFTEL==
  * *MediaShare (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Documentación: 
-   * Demo: 
-   * Código: 
-   * Tecnologías:
+   * *Descripción*: web que se ejecuta localmente que permite al usuario reproducir/ver contenidos de audio, vídeo e imágenes que han sido por usuarios de Twitter utilizando el hashtag #mediashare. Los contenidos son obtenidos a través de búsquedas realizadas mediante el uso de las APIs de YouTube y Flickr. Asimismo, ofrece estadísticas y muestra información acerca de los usuarios que han compartido contenidos. Nota: para ver la localización de los usuarios representada en el mapa de Google Maps es necesario ejecutar la web en modo local.
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=presentacion.pdf Descargar] 
+   * *Demo*: [http://amateos-workspace.googlecode.com/svn/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web/index.html Ver]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web Ver]
+   * *Tecnologías*: HTML5, javascript, jQuery, CSS, Twitter, YouTube, Flickr, Google Maps, RGprah
 
  * *Gestión Supermercado (2011-2012)* 
    * Descripción:
