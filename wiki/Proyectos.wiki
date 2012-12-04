@@ -15,54 +15,56 @@
 
 ==Máster INFTEL==
  * *MediaShare (2011-2012)* 
-   * *Descripción*: web que se ejecuta localmente que permite al usuario reproducir/ver contenidos de audio, vídeo e imágenes que han sido por usuarios de Twitter utilizando el hashtag #mediashare. Los contenidos son obtenidos a través de búsquedas realizadas mediante el uso de las APIs de YouTube y Flickr. Asimismo, ofrece estadísticas y muestra información acerca de los usuarios que han compartido contenidos. Nota: para ver la localización de los usuarios representada en el mapa de Google Maps es necesario ejecutar la web en modo local.
+   * *Descripción*: web que se ejecuta localmente que permite al usuario reproducir/ver contenidos de audio, vídeo e imágenes que han sido por usuarios de Twitter utilizando el hashtag #mediashare. Los contenidos son obtenidos a través de búsquedas realizadas mediante el uso de las APIs de YouTube y Flickr. Asimismo, ofrece estadísticas y muestra información acerca de los usuarios que han compartido contenidos. _Nota: para ver la localización de los usuarios representada en el mapa de Google Maps es necesario ejecutar la web en modo local._
    * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=presentacion.pdf Descargar] 
    * *Demo*: [http://amateos-workspace.googlecode.com/svn/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web/index.html Ver]
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web Ver]
    * *Tecnologías*: HTML5, javascript, jQuery, CSS, Twitter, YouTube, Flickr, Google Maps, RGprah
 
  * *Gestión Supermercado (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Documentación: 
-   * Código: 
-   * Tecnologías:
+   * *Descripción*: diseño de base de datos Oracle para gestión de un supermercado. Adicionalmente, se piden una serie de funciones basadas en triggers, functions y procedures de Oracle que permiten realizar una estimación de ventas y reposición automática de productos antes de que se acaben las unidades. _Nota: Para más información ver la documentación adjunta._
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_Oracle_Gestion_Supermercado_Enunciado.doc Descargar]
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_Oracle_Gestion_Supermercado_Presentacion.ppt Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL%2FOracle%20-%20Gestion%20Supermercado#Oracle%20-%20Gestion%20Supermercado%2FSQL Ver]
+   * *Tecnologías*: SQL, PL/SQL, Oracle, SQL Developer
 
  * *paSoS (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Presentación:
-   * Vídeos demostrativos:
-   * Documentación: 
-   * Código:
-   * Tecnologías:
+   * *Descripción*: aplicación Android para generación de alarmas y plataforma para gestión de call center receptor de alarmas. La comunicación entre ambos sistemas se realiza mediante el uso del protocolo libre paSoS. 
+        * _Aplicación Android_: permite generar alarmas automáticas (a partir de zonas GPS configuradas en el servidor de forma que, cuando el teléfono entra en una zona prohibida se envía una alarma al servidor) o alarmas manuales a partir de la pulsación del botón de emergencia. La aplicación ha sido diseñada teniendo como objetivo principal el que sea accesible.
+        * _Aplicación Web_: recepciona las alarmas y las despacha entre los operadores que estén conectados, ofreciendo información acerca de la alarma y del usuario que la genera para que el operador pueda tratarla. Asimismo, permite la gestión de usuarios. Está desarrollada usando páginas JSP y Servlets (era una restricción impuesta) y es capaz de notificar a los navegadores web.
+   * *Presentación*: [ Descargar]
+   * *Vídeos demostrativos*: [ Ver en YouTube]
+   * *Documentación*: [ Descargar] 
+   * *Código*: [ Ver]
+   * *Tecnologías*: Java EE, Android, JSP, Comet, Glassfish, Oracle, paSoS
 
  * *SocialWind (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Presentación:
-   * Código:
-   * Tecnologías:
+   * *Descripción*: red social orientada a surfistas con geolocalización. Permite a los surfistas visualizar en su móvil Android o a través de la web información acerca de las playas y usuarios que tiene a su alrededor de forma que pueda elegir de una forma óptima la playa en la que surfear. Está compuesta por una aplicación Android que envía la posición GPS del usuario y el tiempo que éste ha estado en una playa un servidor desarrollado mediante la tecnología AppEngine de Google. Además, dispone de una web desarrallada mediante GWT de Google.
+   * *Presentación*: [ Ver Online]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/SocialWind Ver]
+   * *Tecnologías*: Java, Android, AppEngine, GWT.
 
  * *Scrum Manager (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Código:
-   * Tecnologías:
+   * *Descripción*: gestor web y móvil de proyectos mediante la metodología ágil SCRUM. Está compuesto por una aplicación web desarrollada mediante JSF y el framework Primefaces y una aplicación Android. La web permite la gestión de usuarios y una completa gestión de proyectos, incluyendo la función de arrastrar post-it del trablón de tareas para cambiar el estado de una tarea. Dispone de una web específica para móviles, asi como de una aplicación nativa para Android que hace uso de elementos avanzados como Fragments, Drag & Drop y SherlockActionBar.
+   * *Código*: [ Ver]
+   * *Tecnologías*: Java EE, JSF 2.0, Primefaces, JPA, Android, SherlockActionBar, Oracle
 
  * *aNMap (2011-2012)* 
-   * Descripción:
-   * Página:
-   * Presentación:
-   * Código:
-   * Tecnologías:
+   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
+   * *Presentación*: [ Descargar]
+   * *Código*: [ Ver]
+   * *Tecnologías*: Android, Java
 ----
 
 ==Freelance==
  * *FriskyPlayer (2012)* 
-   * Descripción:
-   * Página:
-   * Código: 
-   * Tecnologías:
+   * *Descripción*: reproductor del streaming shoutcast en formato aac de Frisky Radio (conocida radio de música electrónica). Permite reproducir el streaming y visualizar información acerca de éste. Incluye widget. Para el desarrollo se hace uso de una librería C portada para Android.
+   * *Código*: [ Ver]
+   * *Tecnologías*: Android, AAC
 
  ----
+
+==Tutoriales==
+ * *Creación de XXX*: [Ver en YouTube]
+
+---- 
