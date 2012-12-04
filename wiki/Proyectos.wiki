@@ -1,7 +1,7 @@
 #labels Featured
-= Proyectos realizados =
+= <font color="green">Proyectos realizados</font> =
 
-==Carrera==
+== <font color="#35c896">Carrera</font>==
  * *compRarador (PFC) (2010 - 2012):*
    * *Descripción*: sistema que permite al usuario realizar la comparación de precios de productos de supermercado, facilitando a éste la elección del establecimiento más económico para realizar la compra. Asimismo, permite la creación de listas de la compra.
    * *Página*: [http://code.google.com/p/amateos-workspace/wiki/Proyecto_compRarador Ver]
@@ -13,7 +13,7 @@
 
 ----
 
-==Máster INFTEL==
+==<font color="#35c896">Máster INFTEL</font>==
  * *MediaShare (2011-2012)* 
    * *Descripción*: web que se ejecuta localmente que permite al usuario reproducir/ver contenidos de audio, vídeo e imágenes que han sido por usuarios de Twitter utilizando el hashtag #mediashare. Los contenidos son obtenidos a través de búsquedas realizadas mediante el uso de las APIs de YouTube y Flickr. Asimismo, ofrece estadísticas y muestra información acerca de los usuarios que han compartido contenidos. _Nota: para ver la localización de los usuarios representada en el mapa de Google Maps es necesario ejecutar la web en modo local._
    * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=presentacion.pdf Descargar] 
@@ -56,17 +56,10 @@
    * *Tecnologías*: Android, Java
 ----
 
-==Freelance==
+==<font color="#35c896">Freelance</font>==
  * *FriskyPlayer (2012)* 
    * *Descripción*: reproductor del streaming shoutcast en formato aac de Frisky Radio (conocida radio de música electrónica). Permite reproducir el streaming y visualizar información acerca de éste. Incluye widget. Para el desarrollo se hace uso de una librería C portada para Android.
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Projects/FriskyRadio/FriskyPlayer Ver]
    * *Tecnologías*: Android, AAC
 
  ----
-
-==Tutoriales==
- * *Servicios Web con Netbeans*: 
-    * Creación de servicio Web: [http://www.youtube.com/watch?v=2Fy-GX9HGRU Ver en YouTube]
-    * Creación de servicio Web a partir de WSDL: [http://www.youtube.com/watch?v=QuDCIeAUHZ4 Ver en YouTube]
-    * Creación de cliente de servicio web: [http://www.youtube.com/watch?v=qIrMjHDzJaA Ver en YouTube] 
----- 
