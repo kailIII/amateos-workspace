@@ -16,7 +16,7 @@
 ==<font color="#35c896">Máster INFTEL</font>==
  * *MediaShare (2011-2012)* 
    * *Descripción*: web que se ejecuta localmente que permite al usuario reproducir/ver contenidos de audio, vídeo e imágenes que han sido por usuarios de Twitter utilizando el hashtag #mediashare. Los contenidos son obtenidos a través de búsquedas realizadas mediante el uso de las APIs de YouTube y Flickr. Asimismo, ofrece estadísticas y muestra información acerca de los usuarios que han compartido contenidos. _Nota: para ver la localización de los usuarios representada en el mapa de Google Maps es necesario ejecutar la web en modo local._
-   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=presentacion.pdf Descargar] 
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_MediaShare_presentacion.pdf Descargar] 
    * *Demo*: [http://amateos-workspace.googlecode.com/svn/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web/index.html Ver]
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/MediaShare/MediaShare%20Web Ver]
    * *Tecnologías*: HTML5, javascript, jQuery, CSS, Twitter, YouTube, Flickr, Google Maps, RGprah
