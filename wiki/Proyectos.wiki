@@ -32,21 +32,21 @@
    * *Descripción*: aplicación Android para generación de alarmas y plataforma para gestión de call center receptor de alarmas. La comunicación entre ambos sistemas se realiza mediante el uso del protocolo libre paSoS. 
         * _Aplicación Android_: permite generar alarmas automáticas (a partir de zonas GPS configuradas en el servidor de forma que, cuando el teléfono entra en una zona prohibida se envía una alarma al servidor) o alarmas manuales a partir de la pulsación del botón de emergencia. La aplicación ha sido diseñada teniendo como objetivo principal el que sea accesible.
         * _Aplicación Web_: recepciona las alarmas y las despacha entre los operadores que estén conectados, ofreciendo información acerca de la alarma y del usuario que la genera para que el operador pueda tratarla. Asimismo, permite la gestión de usuarios. Está desarrollada usando páginas JSP y Servlets (era una restricción impuesta) y es capaz de notificar a los navegadores web.
-   * *Presentación*: [ Descargar]
-   * *Vídeos demostrativos*: [ Ver en YouTube]
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_Pasos_presentacion.pptx Descargar]
+   * *Vídeos demostrativos*: [http://www.youtube.com/watch?v=RBCzGuSQSSo Ver en YouTube]
    * *Documentación*: [ Descargar] 
-   * *Código*: [ Ver]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/PaSoS Ver]
    * *Tecnologías*: Java EE, Android, JSP, Comet, Glassfish, Oracle, paSoS
 
  * *SocialWind (2011-2012)* 
    * *Descripción*: red social orientada a surfistas con geolocalización. Permite a los surfistas visualizar en su móvil Android o a través de la web información acerca de las playas y usuarios que tiene a su alrededor de forma que pueda elegir de una forma óptima la playa en la que surfear. Está compuesta por una aplicación Android que envía la posición GPS del usuario y el tiempo que éste ha estado en una playa un servidor desarrollado mediante la tecnología AppEngine de Google. Además, dispone de una web desarrallada mediante GWT de Google.
-   * *Presentación*: [ Ver Online]
+   * *Presentación*: [http://amateos-workspace.googlecode.com/svn/trunk/Master%20INFTEL/SocialWind/presentacion/index.html Ver Online]
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/SocialWind Ver]
    * *Tecnologías*: Java, Android, AppEngine, GWT.
 
  * *Scrum Manager (2011-2012)* 
    * *Descripción*: gestor web y móvil de proyectos mediante la metodología ágil SCRUM. Está compuesto por una aplicación web desarrollada mediante JSF y el framework Primefaces y una aplicación Android. La web permite la gestión de usuarios y una completa gestión de proyectos, incluyendo la función de arrastrar post-it del trablón de tareas para cambiar el estado de una tarea. Dispone de una web específica para móviles, asi como de una aplicación nativa para Android que hace uso de elementos avanzados como Fragments, Drag & Drop y SherlockActionBar.
-   * *Código*: [ Ver]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/Scrum%20Manager Ver]
    * *Tecnologías*: Java EE, JSF 2.0, Primefaces, JPA, Android, SherlockActionBar, Oracle
 
  * *aNMap (2011-2012)* 
