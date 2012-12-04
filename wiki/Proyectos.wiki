@@ -29,12 +29,12 @@
    * *Tecnologías*: SQL, PL/SQL, Oracle, SQL Developer
 
  * *paSoS (2011-2012)* 
-   * *Descripción*: aplicación Android para generación de alarmas y plataforma para gestión de call center receptor de alarmas. La comunicación entre ambos sistemas se realiza mediante el uso del protocolo libre paSoS. 
+   * *Descripción*: aplicación Android para generación de alarmas y plataforma para gestión de call center receptor de alarmas. La comunicación entre ambos sistemas se realiza mediante el uso del protocolo libre [http://www.pasosproject.org/ paSoS]. 
         * _Aplicación Android_: permite generar alarmas automáticas (a partir de zonas GPS configuradas en el servidor de forma que, cuando el teléfono entra en una zona prohibida se envía una alarma al servidor) o alarmas manuales a partir de la pulsación del botón de emergencia. La aplicación ha sido diseñada teniendo como objetivo principal el que sea accesible.
         * _Aplicación Web_: recepciona las alarmas y las despacha entre los operadores que estén conectados, ofreciendo información acerca de la alarma y del usuario que la genera para que el operador pueda tratarla. Asimismo, permite la gestión de usuarios. Está desarrollada usando páginas JSP y Servlets (era una restricción impuesta) y es capaz de notificar a los navegadores web.
    * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_Pasos_presentacion.pptx Descargar]
    * *Vídeos demostrativos*: [http://www.youtube.com/watch?v=RBCzGuSQSSo Ver en YouTube]
-   * *Documentación*: [ Descargar] 
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=paSOS_Protocol_IP_version_1.7.pdf Descargar] 
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/PaSoS Ver]
    * *Tecnologías*: Java EE, Android, JSP, Comet, Glassfish, Oracle, paSoS
 
@@ -51,20 +51,22 @@
 
  * *aNMap (2011-2012)* 
    * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
-   * *Presentación*: [ Descargar]
-   * *Código*: [ Ver]
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
    * *Tecnologías*: Android, Java
 ----
 
 ==Freelance==
  * *FriskyPlayer (2012)* 
    * *Descripción*: reproductor del streaming shoutcast en formato aac de Frisky Radio (conocida radio de música electrónica). Permite reproducir el streaming y visualizar información acerca de éste. Incluye widget. Para el desarrollo se hace uso de una librería C portada para Android.
-   * *Código*: [ Ver]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Projects/FriskyRadio/FriskyPlayer Ver]
    * *Tecnologías*: Android, AAC
 
  ----
 
 ==Tutoriales==
- * *Creación de XXX*: [Ver en YouTube]
-
+ * *Servicios Web con Netbeans*: 
+    * Creación de servicio Web: [http://www.youtube.com/watch?v=2Fy-GX9HGRU Ver en YouTube]
+    * Creación de servicio Web a partir de WSDL: [http://www.youtube.com/watch?v=QuDCIeAUHZ4 Ver en YouTube]
+    * Creación de cliente de servicio web: [http://www.youtube.com/watch?v=qIrMjHDzJaA Ver en YouTube] 
 ---- 
