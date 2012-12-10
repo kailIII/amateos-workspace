@@ -74,10 +74,8 @@ class Scraper
         #Se realiza el login en la página
         begin
             @browser.link(:class,"linkLoginPopUp registerPopupAccess usuario").fire_event("onclick")
-            #@browser.text_field(:id,"ulogin_email").value = "icomprascraper@gmail.com"
-            #@browser.text_field(:id,"ulogin_password").value = "scraper_pfc_2012"
-            @browser.text_field(:id,"ulogin_email").value = "rolimat@gmail.com"
-            @browser.text_field(:id,"ulogin_password").value = "15745742"
+            @browser.text_field(:id,"ulogin_email").value = "XXXX"
+            @browser.text_field(:id,"ulogin_password").value = "XXXX"
             @browser.div(:id,"loginRE31").fire_event("click")
         rescue Exception => e
             manejarExcepcion(e,"Error al abrir el dialog de login")
