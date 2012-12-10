@@ -1,13 +1,21 @@
-#summary One-sentence summary of this page.
+= <font color="green">Interview Pitch TetuanValley</font> =
 
-= Introduction =
+*Lugar*: Madrid (España).
+*Fecha*: Septiembre 2012
+*Duración*: 5 minutos.
+*Idioma*: Inglés.
 
-Add your content here.
 
+=== Descripción===
 
-= Details =
+Presentación realizada para la entrevista de selección del curso StartUp School para la ayuda a la creación y aceleración de StartUps impartido por la asociación [http://blog.tetuanvalley.com/ TetuanValley] de Madrid. Se trata de una presentación en la que exponer, en muy poco tiempo, la propuesta de proyecto para la realización del curso.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+El proyecto presentado es una aplicación Android que toma apuntes de manera automática, es decir, es graba una clase y la pasa a PDF proporcionando al usuario un fichero de texto formateado.
+
+=== Presentación ===
+
+_Nota: para ver la presentación hacer click sobre el cuadro de debajo de este texto y utilizar las teclas ← y → para pasar las diapositivas hacia atrás y delante. Se recomienda usar Google Chrome para la correcta visualización._
+
+<wiki:gadget url="http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TetuanValley/Interview%20Pitch%20(Oct%202012)/tetuanvalley_presentacion.xml" width="1024" height="768" />
+
+[http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TetuanValley/Interview%20Pitch%20(Oct%202012)/index.html Abrir la presentación en una pestaña nueva]
