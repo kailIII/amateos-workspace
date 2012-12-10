@@ -26,7 +26,7 @@ La arquitectura del sistema es compleja y consta de los siguientes elementos:
 
 === Presentación ===
 
-_Nota: para ver la presentación hacer click sobre el cuadro de debajo de este texto y utilizar las teclas ← y → para pasar las diapositivas hacia atrás y delante_
+_Nota: para ver la presentación hacer click sobre el cuadro de debajo de este texto y utilizar las teclas ← y → para pasar las diapositivas hacia atrás y delante. Se recomienda usar Google Chrome para la correcta visualización._
 
 <wiki:gadget url="http://amateos-workspace.googlecode.com/svn/trunk/PFC/Imagenes/comprarador_presentacion_gadget.xml" width="1024" height="768" />
 
