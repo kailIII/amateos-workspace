@@ -3,7 +3,7 @@
 
 == <font color="#35c896">Carrera</font>==
  * *compRarador (PFC) (2010 - 2012):*
-   * *Descripción*: sistema que permite al usuario realizar la comparación de precios de productos de supermercado, facilitando a éste la elección del establecimiento más económico para realizar la compra. Asimismo, permite la creación de listas de la compra.
+   * *Descripción*: sistema que permite al usuario realizar la comparación de precios de productos de supermercado, facilitando a éste la elección del establecimiento más económico para realizar la compra.  Asimismo, permite la creación de listas de la compra.
    * *Página*: [http://code.google.com/p/amateos-workspace/wiki/Proyecto_compRarador Ver]
    * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=PFC_Alberto_Mateos.pdf Descargar]
    * *Presentación*: [http://amateos-workspace.googlecode.com/svn/trunk/PFC/Presentacion/index.html Ver Online]
@@ -60,6 +60,6 @@
  * *FriskyPlayer (2012)* 
    * *Descripción*: reproductor del streaming shoutcast en formato aac de Frisky Radio (conocida radio de música electrónica). Permite reproducir el streaming y visualizar información acerca de éste. Incluye widget. Para el desarrollo se hace uso de una librería C portada para Android.
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Projects/FriskyRadio/FriskyPlayer Ver]
-   * *Tecnologías*: Android, AAC
+   * *Tecnologías*: Android, AAC, ShoutCast, Android Widget, Android Services, Android MVC
 
  ----
