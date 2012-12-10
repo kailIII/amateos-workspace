@@ -1,1 +1,32 @@
-Taller UI Android
+= <font color="green">Taller UI Android </font> =
+
+*Lugar*: Granada (España).
+*Duración*: 2 horas.
+*Idioma*: Castellano.
+
+
+=== Descripción===
+
+Taller impartido en colaboración con la [http://osl.ugr.es Oficina del Software Libre de la Universidad de Granada] sobre diseño de interfaces para usuario Android. 
+
+La presentación expone los conceptos básicos para conseguir un diseño correcto de las interfaces de usuario de aplicaciones Android. De esta forma, se detallan los conceptos claves para permitir una visualización correcta de las aplicaciones en dispositivos con configuraciones de pantalla y resolución diferentes. Asimismo, se hace una pequeña introducción a conceptos más avanzados como son el uso de Fragments o ActionBar.
+
+
+=== Presentación ===
+
+_Nota: para ver la presentación hacer click sobre el cuadro de debajo de este texto y utilizar las teclas ← y → para pasar las diapositivas hacia atrás y delante_
+
+<wiki:gadget url="http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TallerUIAndroid/Presentacion/files/talleruiandroid_presentacion.xml" width="1024" height="768" />
+
+[http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TallerUIAndroid/Presentacion/index.html Abrir la presentación en una pestaña nueva]
+
+=== Descargas ===
+
+Durante la realización del taller se realizaron diferentes ejemplos para ilustrar la presentación. Los ejemplos pueden ser descargados [http://code.google.com/p/amateos-workspace/downloads/detail?name=TallerUIAndroid_Ejemplos.zip AQUÍ]
+
+
+=== Reseña ===
+
+Tras la realización del taller, la oficina del software libre realizó la siguiente crónica: ([http://osl.ugr.es/2012/05/28/creacion-de-ui-con-android-cronica/ Ver Página])
+
+<wiki:gadget url="http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TallerUIAndroid/Presentacion/files/talleruiandroid_cronica.xml" width="1024" height="768" />
