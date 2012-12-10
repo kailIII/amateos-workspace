@@ -1,0 +1,14 @@
+= <font color="green">Presentaciones realizadas</font> =
+
+== <font color="#35c896">Taller Diseño UI Android (Mayo 2012)</font>==
+
+ * *Descripción*: taller impartido en colaboración con la [http://osl.ugr.es Oficina del Software Libre de la Universidad de Granada] sobre diseño de interfaces para usuario Android. 
+ * *Página (+ info)*: [http://code.google.com/p/amateos-workspace/wiki/tallerUIAndroid Ver]
+ * *Presentación*: [http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TallerUIAndroid/Presentacion/index.html Ver Online]
+
+----
+== <font color="#35c896">Interview Pitch TetuanValley (Octubre 2012)</font>==
+ * *Descripción*:  presentación realizada para la entrevista de selección del curso StartUp School para la ayuda a la creación y aceleración de StartUps impartido por la asociación TetuanValley de Madrid. Se trata de una presentación en la que exponer la propuesta de proyecto para la realización del curso.
+ * *Página (+ info)*: [http://code.google.com/p/amateos-workspace/wiki/tetuanvalley_pitch Ver]
+ * *Presentación*: [http://amateos-workspace.googlecode.com/svn/trunk/Presentations/TetuanValley/Interview%20Pitch%20(Oct%202012)/index.html#1 Ver Online] 
+----
