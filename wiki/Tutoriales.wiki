@@ -2,6 +2,12 @@
 ==<font color="#35c896">Tutoriales</font>==
  * *Servicios Web con Netbeans*: 
     * Creación de servicio Web: [http://www.youtube.com/watch?v=2Fy-GX9HGRU Ver en YouTube]
+<wiki:video url="http://www.youtube.com/watch?v=2Fy-GX9HGRU"/>
+
     * Creación de servicio Web a partir de WSDL: [http://www.youtube.com/watch?v=QuDCIeAUHZ4 Ver en YouTube]
+<wiki:video url="http://www.youtube.com/watch?v=QuDCIeAUHZ4"/>
+
     * Creación de cliente de servicio web: [http://www.youtube.com/watch?v=qIrMjHDzJaA Ver en YouTube] 
+<wiki:video url="http://www.youtube.com/watch?v=qIrMjHDzJaA"/>
+
 ---- 
