@@ -35,7 +35,7 @@ _Nota: para ver la presentación hacer click sobre el cuadro de debajo de este t
 === Vídeos ===
 
 *Vídeo demostrativo de las  funciones del cliente móvil:*
-<wiki:video url="http://www.youtube.com/playlist?list=PL4PPb0PVAuVTtswsLLWFTrKux6uzD7hSK"/>
+<wiki:gadget url="http://amateos-workspace.googlecode.com/svn/trunk/site/vimeo-gadget/gcVideo.xml" up_video="https://vimeo.com/55390903" width="640" height="384"/>
 
 *Todos los vídeos (scraper y clientes Android e iOS*: [http://www.youtube.com/playlist?list=PL4PPb0PVAuVTtswsLLWFTrKux6uzD7hSK" Ver en Youtube]
 
