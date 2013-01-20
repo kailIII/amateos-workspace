@@ -1,6 +1,6 @@
 package com.emp.friskyplayer.utils;
 
-public class PlayerUtils {
+public class PlayerConstants {
 
 	
 	// Player states
