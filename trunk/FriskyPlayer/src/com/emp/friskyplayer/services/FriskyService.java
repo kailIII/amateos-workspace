@@ -21,12 +21,18 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
+import android.media.RemoteControlClient;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
+import android.os.Binder;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -35,27 +41,28 @@ import com.emp.friskyplayer.activities.FriskyPlayerActivity;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
 import com.emp.friskyplayer.audio.AudioFocusHelper;
 import com.emp.friskyplayer.audio.MusicFocusable;
-import com.emp.friskyplayer.player.FriskyPlayerCallback;
-import com.emp.friskyplayer.utils.PlayerUtils;
+import com.emp.friskyplayer.player.PlayerCallbackImpl;
+import com.emp.friskyplayer.receivers.MediaButtonReceiver;
+import com.emp.friskyplayer.utils.MediaButtonHelper;
+import com.emp.friskyplayer.utils.PlayerConstants;
+import com.emp.friskyplayer.utils.PreferencesConstants;
+import com.emp.friskyplayer.utils.RemoteControlClientCompat;
+import com.emp.friskyplayer.utils.RemoteControlHelper;
+import com.emp.friskyplayer.utils.ServiceActionConstants;
 import com.spoledge.aacdecoder.AACPlayer;
 
 /**
  * Service that handles media playback.
  */
 
+@TargetApi(5)
 public class FriskyService extends Service implements MusicFocusable {
 
 	// The tag we put on debug messages
 	private final static String TAG = "FriskyService";
 
-	// Intent actions that service can handle
-	public static final String ACTION_TOGGLE_PLAYBACK = "com.emp.friskyplayer.services.action.TOGGLE_PLAYBACK";
-	public static final String ACTION_PLAY = "com.emp.friskyplayer.services.action.PLAY";
-	public static final String ACTION_STOP = "com.emp.friskyplayer.services.action.STOP";
-	public static final String STREAM_TITLE = "com.emp.friskyplayer.services.communication.STREAM_TITLE";
-	public static final String STATE = "com.emp.friskyplayer.services.communication.STATE";
-	public static final String BUFFER_PROGRESS = "com.emp.friskyplayer.services.communication.BUFFER_PROGRESS";
-	public static final String LOADING = "com.emp.friskyplayer.services.communication.LOADING";
+	// Binder for service communication
+	private final IBinder mBinder = new FriskyServiceBinder();
 
 	// The volume we set the media player to when we lose audio focus, but are
 	// allowed to reduce
@@ -74,9 +81,9 @@ public class FriskyService extends Service implements MusicFocusable {
 	int mState;
 
 	// why did we pause? (only relevant if mState == State.Paused)
-	int mPauseReason = PlayerUtils.USER_REQUEST;
+	int mPauseReason = PlayerConstants.USER_REQUEST;
 
-	int mAudioFocus = PlayerUtils.NO_FOCUS_NO_DUCK;
+	int mAudioFocus = PlayerConstants.NO_FOCUS_NO_DUCK;
 
 	// Wifi lock that we hold when streaming files from the internet, in order
 	// to prevent the
@@ -90,6 +97,16 @@ public class FriskyService extends Service implements MusicFocusable {
 	NotificationManager mNotificationManager;
 	Notification mNotification = null;
 
+	// our RemoteControlClient object, which will use remote control APIs
+	// available in
+	// SDK level >= 14, if they're available.
+	RemoteControlClientCompat mRemoteControlClientCompat;
+
+	// The component name of MediaButtonReceiver, for use with media button and
+	// remote control
+	// APIs
+	ComponentName mMediaButtonReceiverComponent;
+
 	/**
 	 * Makes sure the player exists and has been reset. This will create the
 	 * player if needed, or reset the existing media player if one already
@@ -98,8 +115,8 @@ public class FriskyService extends Service implements MusicFocusable {
 	// TODO: adaptar a aacplayer
 	void createPlayer() {
 		// TODO: agregar al mplayer los valores de los buffers en el constructor
-		mPlayer = new AACPlayer(new FriskyPlayerCallback(
-				getApplicationContext(), this));
+		mPlayer = new AACPlayer(new PlayerCallbackImpl(getApplicationContext(),
+				this));
 	}
 
 	@Override
@@ -123,8 +140,12 @@ public class FriskyService extends Service implements MusicFocusable {
 			mAudioFocusHelper = new AudioFocusHelper(getApplicationContext(),
 					this);
 		else
-			mAudioFocus = PlayerUtils.FOCUSED; // no focus feature, so we always
-												// "have" audio focus
+			mAudioFocus = PlayerConstants.FOCUSED; // no focus feature, so we
+													// always
+													// "have" audio focus
+
+		mMediaButtonReceiverComponent = new ComponentName(this,
+				MediaButtonReceiver.class);
 
 	}
 
@@ -138,11 +159,11 @@ public class FriskyService extends Service implements MusicFocusable {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 
 		String action = intent.getAction();
-		if (action.equals(ACTION_TOGGLE_PLAYBACK))
+		if (action.equals(ServiceActionConstants.ACTION_TOGGLE_PLAYBACK))
 			processTogglePlaybackRequest();
-		else if (action.equals(ACTION_PLAY))
+		else if (action.equals(ServiceActionConstants.ACTION_PLAY))
 			processPlayRequest();
-		else if (action.equals(ACTION_STOP))
+		else if (action.equals(ServiceActionConstants.ACTION_STOP))
 			processStopRequest();
 
 		return START_NOT_STICKY; // Means we started the service, but don't want
@@ -155,14 +176,14 @@ public class FriskyService extends Service implements MusicFocusable {
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
 
-		if (mState == PlayerUtils.STATE_STOPPED) {
+		if (mState == PlayerConstants.STATE_STOPPED) {
 			processPlayRequest();
 		} else {
 			processStopRequest();
 		}
 	}
 
-	void processPlayRequest() {
+	public void processPlayRequest() {
 
 		tryToGetAudioFocus();
 
@@ -170,13 +191,19 @@ public class FriskyService extends Service implements MusicFocusable {
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
 
-		if (mState == PlayerUtils.STATE_STOPPED) {
+		if (mState == PlayerConstants.STATE_STOPPED) {
 			// If player has stoped state, play streaming
 			playStreaming();
+			// Tell any remote controls that our playback state is 'playing'.
+			if (mRemoteControlClientCompat != null) {
+				mRemoteControlClientCompat
+						.setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
+			}
 		}
+
 	}
 
-	void processStopRequest() {
+	public void processStopRequest() {
 		processStopRequest(false);
 	}
 
@@ -185,16 +212,26 @@ public class FriskyService extends Service implements MusicFocusable {
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
 
-		if (mState == PlayerUtils.STATE_PLAYING
-				|| mState == PlayerUtils.STATE_LOADING || force) {
-
+		if (mState == PlayerConstants.STATE_PLAYING
+				|| mState == PlayerConstants.STATE_LOADING || force) {
 			// Sets state of player to STOPPED
 			((FriskyPlayerApplication) getApplication()).getInstance()
-					.setPlayerState(PlayerUtils.STATE_STOPPED);
-
+					.setPlayerState(PlayerConstants.STATE_STOPPED);
 			// let go of all resources...
 			relaxResources(true);
 			giveUpAudioFocus();
+
+			// Sends null title to activity
+			Intent i = new Intent();
+			i.setAction(ServiceActionConstants.STREAM_TITLE);
+			i.putExtra("title", "");
+			getApplicationContext().sendBroadcast(i);
+			
+			// Tell any remote controls that our playback state is 'paused'.
+			if (mRemoteControlClientCompat != null) {
+				mRemoteControlClientCompat
+						.setPlaybackState(RemoteControlClient.PLAYSTATE_STOPPED);
+			}
 
 			// service is no longer necessary. Will be started again if needed.
 			stopSelf();
@@ -210,7 +247,6 @@ public class FriskyService extends Service implements MusicFocusable {
 	 *            Indicates whether the Media Player should also be released or
 	 *            not
 	 */
-	@TargetApi(5)
 	public// TODO: adaptar a aacplayer
 	void relaxResources(boolean releasePlayer) {
 		// stop being a foreground service
@@ -228,9 +264,9 @@ public class FriskyService extends Service implements MusicFocusable {
 	}
 
 	public void giveUpAudioFocus() {
-		if (mAudioFocus == PlayerUtils.FOCUSED && mAudioFocusHelper != null
+		if (mAudioFocus == PlayerConstants.FOCUSED && mAudioFocusHelper != null
 				&& mAudioFocusHelper.abandonFocus())
-			mAudioFocus = PlayerUtils.NO_FOCUS_NO_DUCK;
+			mAudioFocus = PlayerConstants.NO_FOCUS_NO_DUCK;
 	}
 
 	/**
@@ -247,41 +283,106 @@ public class FriskyService extends Service implements MusicFocusable {
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
 
-		if (mState != PlayerUtils.STATE_PLAYING)
-			mPlayer.playAsync("http://205.188.215.229:8024");
+		if (mState == PlayerConstants.STATE_STOPPED)
+			try {
+				String url = PreferenceManager.getDefaultSharedPreferences(
+						getApplicationContext()).getString(
+						PreferencesConstants.STREAMING_URL,
+						PreferencesConstants.STREAMING_URL_DEFAULT);
+				mPlayer.playAsync(url);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 	}
 
 	void tryToGetAudioFocus() {
-		if (mAudioFocus != PlayerUtils.FOCUSED && mAudioFocusHelper != null
+		if (mAudioFocus != PlayerConstants.FOCUSED && mAudioFocusHelper != null
 				&& mAudioFocusHelper.requestFocus())
-			mAudioFocus = PlayerUtils.FOCUSED;
+			mAudioFocus = PlayerConstants.FOCUSED;
 	}
 
 	/**
 	 * Starts playing
 	 */
 	void playStreaming() {
-		// mState = PlayerUtils.STATE_STOPPED;
-		((FriskyPlayerApplication) getApplication()).getInstance()
-				.setPlayerState(PlayerUtils.STATE_STOPPED);
-
 		relaxResources(false); // release everything except Player
 
 		createPlayer();
 
 		// change state to loading
-
 		((FriskyPlayerApplication) getApplication()).getInstance()
-				.setPlayerState(PlayerUtils.STATE_STOPPED);
-
-		// mState = PlayerUtils.STATE_LOADING;
+				.setPlayerState(PlayerConstants.STATE_LOADING);
 
 		setUpAsForeground(getResources().getString(R.string.loading));
-
 		// TODO: aqu’ habr’a que llamar al configAndStart
-		mPlayer.playAsync("http://205.188.215.229:8024");
+		try {
 
+			String url = PreferenceManager.getDefaultSharedPreferences(
+					getApplicationContext()).getString(
+					PreferencesConstants.STREAMING_URL,
+					PreferencesConstants.STREAMING_URL_DEFAULT);
+			mPlayer.playAsync(url);
+
+			// Use the media button APIs (if available) to register ourselves
+			// for media button
+			// events
+
+			MediaButtonHelper.registerMediaButtonEventReceiverCompat(
+					mAudioManager, mMediaButtonReceiverComponent);
+
+			// Use the remote control APIs (if available) to set the playback
+			// state
+
+			if (mRemoteControlClientCompat == null) {
+				Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
+				intent.setComponent(mMediaButtonReceiverComponent);
+				mRemoteControlClientCompat = new RemoteControlClientCompat(
+						PendingIntent.getBroadcast(this /* context */, 0 /*
+																		 * requestCode
+																		 * ,
+																		 * ignored
+																		 */,
+								intent /* intent */, 0 /* flags */));
+				RemoteControlHelper.registerRemoteControlClient(mAudioManager,
+						mRemoteControlClientCompat);
+			}
+
+			mRemoteControlClientCompat
+					.setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
+
+			mRemoteControlClientCompat
+					.setTransportControlFlags(RemoteControlClient.FLAG_KEY_MEDIA_PLAY
+							| RemoteControlClient.FLAG_KEY_MEDIA_PAUSE
+							| RemoteControlClient.FLAG_KEY_MEDIA_NEXT
+							| RemoteControlClient.FLAG_KEY_MEDIA_STOP);
+
+			// Update the remote controls
+			mRemoteControlClientCompat
+					.editMetadata(true)
+					.putBitmap(
+							RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
+							((BitmapDrawable) getApplicationContext()
+									.getResources().getDrawable(
+											R.drawable.ic_launcher))
+									.getBitmap()).apply();
+			// mRemoteControlClientCompat.editMetadata(true)
+			// .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST,
+			// playingItem.getArtist())
+			// .putString(MediaMetadataRetriever.METADATA_KEY_ALBUM,
+			// playingItem.getAlbum())
+			// .putString(MediaMetadataRetriever.METADATA_KEY_TITLE,
+			// playingItem.getTitle())
+			// .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
+			// playingItem.getDuration())
+			// // TODO: fetch real item artwork
+			// .putBitmap(
+			// RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
+			// mDummyAlbumArt)
+			// .apply();
+		} catch (Exception e) {
+			Log.d(TAG, "Exception: " + e.getMessage());
+		}
 		// Hold a Wifi lock,
 		// which prevents
 		// the Wifi radio from going to sleep while the song is playing
@@ -327,13 +428,13 @@ public class FriskyService extends Service implements MusicFocusable {
 	public void onGainedAudioFocus() {
 
 		Log.d(TAG, "Gained audio focus");
-		mAudioFocus = PlayerUtils.FOCUSED;
+		mAudioFocus = PlayerConstants.FOCUSED;
 
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
 
 		// restart media player with new focus settings
-		if (mState == PlayerUtils.STATE_PLAYING)
+		if (mState == PlayerConstants.STATE_PLAYING)
 			configAndStartPlayer();
 	}
 
@@ -344,15 +445,15 @@ public class FriskyService extends Service implements MusicFocusable {
 		Toast.makeText(getApplicationContext(),
 				"lost audio focus." + (canDuck ? "can duck" : "no duck"),
 				Toast.LENGTH_SHORT).show();
-		mAudioFocus = canDuck ? PlayerUtils.NO_FOCUS_CAN_DUCK
-				: PlayerUtils.NO_FOCUS_NO_DUCK;
+		mAudioFocus = canDuck ? PlayerConstants.NO_FOCUS_CAN_DUCK
+				: PlayerConstants.NO_FOCUS_NO_DUCK;
 
 		// start/restart/pause media player with new focus settings
 		// if (mPlayer != null && mPlayer.isPlaying())
 
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
 				.getPlayerState();
-		if (mPlayer != null && mState == PlayerUtils.STATE_PLAYING)
+		if (mPlayer != null && mState == PlayerConstants.STATE_PLAYING)
 			processStopRequest();
 	}
 
@@ -361,7 +462,7 @@ public class FriskyService extends Service implements MusicFocusable {
 		// Service is being killed, so make sure we release our resources
 
 		((FriskyPlayerApplication) getApplication()).getInstance()
-				.setPlayerState(PlayerUtils.STATE_STOPPED);
+				.setPlayerState(PlayerConstants.STATE_STOPPED);
 
 		relaxResources(true);
 		giveUpAudioFocus();
@@ -369,11 +470,40 @@ public class FriskyService extends Service implements MusicFocusable {
 
 	@Override
 	public IBinder onBind(Intent arg0) {
-		return null;
+		return this.mBinder;
 	}
 
 	public void changeState(int newState) {
 		mState = newState;
 	}
 
+	/**
+	 * Binder class to bind activities
+	 * 
+	 * @author empollica
+	 * 
+	 */
+	public class FriskyServiceBinder extends Binder {
+		public FriskyService getService() {
+			return FriskyService.this;
+		}
+	}
+
+	/**
+	 * Updates media button title
+	 * 
+	 * @param title
+	 *            title
+	 */
+	public void updateMediaButtonTitle(String title) {
+		mRemoteControlClientCompat
+				.editMetadata(true)
+				.putString(MediaMetadataRetriever.METADATA_KEY_TITLE, title)
+				.putBitmap(
+						RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
+						((BitmapDrawable) getApplicationContext()
+								.getResources().getDrawable(
+										R.drawable.ic_launcher)).getBitmap())
+				.apply();
+	}
 }

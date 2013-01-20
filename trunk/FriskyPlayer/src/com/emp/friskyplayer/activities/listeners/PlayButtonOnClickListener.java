@@ -1,19 +1,19 @@
 package com.emp.friskyplayer.activities.listeners;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.emp.friskyplayer.R;
 import com.emp.friskyplayer.activities.FriskyPlayerActivity;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
-import com.emp.friskyplayer.services.FriskyService;
-import com.emp.friskyplayer.utils.PlayerUtils;
+import com.emp.friskyplayer.utils.ConnectionUtils;
+import com.emp.friskyplayer.utils.PlayerConstants;
+import com.emp.friskyplayer.utils.PreferencesConstants;
 
 public class PlayButtonOnClickListener extends ButtonOnClickListener{
 
@@ -31,32 +31,23 @@ public class PlayButtonOnClickListener extends ButtonOnClickListener{
 	public void onClick(View view) {
 		super.onClick(view);
 		
-		//int playerState = activity.getPlayerState();
-		
 		int playerState = ((FriskyPlayerApplication) activity.getApplication()).getInstance().getPlayerState();
 		
-		if(playerState == PlayerUtils.STATE_STOPPED){
+		if(playerState == PlayerConstants.STATE_STOPPED){
 			
-			activity.setSupportProgressBarIndeterminateVisibility(true);
+			//Check Internet connection
+			if(ConnectionUtils.haveNetworkConnection(activity.getBaseContext())){
+				activity.setSupportProgressBarIndeterminateVisibility(true);
+				activity.getFriskyService().processPlayRequest();
+				playPauseButton.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_pause));
+			}else{
+				Toast.makeText(activity.getApplicationContext(),
+	                    activity.getResources().getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show();
+			}
 			
-			activity.startService(new Intent(FriskyService.ACTION_PLAY));
-			//activity.setPlayerState(PlayerUtils.STATE_PLAYING);
-			playPauseButton.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_pause));
 			
-			//ProgressDialog progressDialog = ((FriskyPlayerApplication) activity.getApplication()).getProgressDialogInstance();
-			//ProgressDialog.show(activity.getBaseContext(), "Titulo", "Mensaje", true, true);
-			/*, new OnCancelListener() {
-				public void onCancel(DialogInterface dialogInterface) {
-					activity.startService(new Intent(FriskyService.ACTION_STOP));
-					playPauseButton.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_play));
-					((TextView) activity.findViewById(R.id.bottom_bar_stream_title_textview)).setText("");
-					((FriskyPlayerApplication) activity.getApplication()).getInstance().setStreamTitle("");
-					((ProgressBar) activity.findViewById(R.id.bottom_bar_buffer_progressbar)).setProgress(0);
-				}
-			});
-			*/
 		}else{
-			activity.startService(new Intent(FriskyService.ACTION_STOP));
+			activity.getFriskyService().processStopRequest();
 			playPauseButton.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_action_play));
 			((TextView) activity.findViewById(R.id.bottom_bar_stream_title_textview)).setText("");
 			((FriskyPlayerApplication) activity.getApplication()).getInstance().setStreamTitle("");

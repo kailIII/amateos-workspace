@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.emp.friskyplayer.R;
 import com.emp.friskyplayer.services.FriskyService;
+import com.emp.friskyplayer.utils.ServiceActionConstants;
 
 /**
  * Receives broadcasted intents. In particular, we are interested in the
@@ -40,8 +41,8 @@ public class HeadphonesReceiver extends BroadcastReceiver {
         if (intent.getAction().equals(android.media.AudioManager.ACTION_AUDIO_BECOMING_NOISY)) {
             Toast.makeText(context, context.getResources().getString(R.string.headphones_disconnected), Toast.LENGTH_SHORT).show();
 
-            // send an intent to our MusicService to telling it to pause the audio
-            context.startService(new Intent(FriskyService.ACTION_STOP));
+            // send an intent to FriskyService to telling it to stop the audio
+            context.startService(new Intent(ServiceActionConstants.ACTION_STOP));
 
         }
     }

@@ -6,5 +6,5 @@
     <dimen name="element_quad_margin">20dp</dimen>
     <dimen name="button_margin">10dp</dimen>
     <dimen name="button_size">40dp</dimen>
-	<dimen name="widget_margin">8dp</dimen>
+	<dimen name="widget_margin">0dp</dimen>
 </resources>

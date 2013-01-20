@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="@dimen/widget_margin" >
+
+    <ImageView
+        android:id="@+id/widgetLogoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/element_margin"
+        android:src="@drawable/ic_launcher" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/element_quad_margin"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/widgetTitleTextView"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/element_quad_margin"
+        android:layout_weight="2"
+        android:paddingTop="@dimen/element_double_margin" >
+
+        <ImageView
+            android:id="@+id/widgetPlayPauseImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/element_double_margin"
+            android:paddingLeft="@dimen/element_double_margin"
+            android:paddingRight="@dimen/element_quad_margin"
+            android:paddingBottom="@dimen/element_double_margin"
+            android:src="@drawable/ic_action_play" />
+    </RelativeLayout>
+
+</LinearLayout>
