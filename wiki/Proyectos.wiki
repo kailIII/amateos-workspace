@@ -59,7 +59,8 @@
 ==<font color="#35c896">Freelance</font>==
  * *FriskyPlayer (2012)* 
    * *Descripción*: reproductor del streaming shoutcast en formato aac de Frisky Radio (conocida radio de música electrónica). Permite reproducir el streaming y visualizar información acerca de éste. Incluye widget. Para el desarrollo se hace uso de una librería C portada para Android.
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Projects/FriskyRadio/FriskyPlayer Ver]
+   * *Página (+ info)*: [http://code.google.com/p/amateos-workspace/wiki/FriskyPlayerVer]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Projects/Android/FriskyPlayer Ver]
    * *Tecnologías*: Android, AAC, ShoutCast, Android Widget, Android Services, Android MVC
 
  ----
