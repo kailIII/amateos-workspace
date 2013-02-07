@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="HardcodedDebugMode" severity="ignore" />
+    <issue id="IconDipSize" severity="ignore" />
+    <issue id="IconDuplicatesConfig" severity="ignore" />
+    <issue id="IconExpectedSize" severity="ignore" />
+    <issue id="IconLocation" severity="ignore" />
+    <issue id="Overdraw" severity="ignore" />
+</lint>

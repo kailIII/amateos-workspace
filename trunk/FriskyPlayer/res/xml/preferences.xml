@@ -3,6 +3,7 @@
 
     <PreferenceCategory android:title="@string/preferences_category_streaming_title" >
         <ListPreference
+            android:defaultValue="quality_hq"
             android:dialogTitle="@string/preferences_quality_dialog_title"
             android:entries="@array/quality_options_entries"
             android:entryValues="@array/quality_options_values"
@@ -11,14 +12,18 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_category_sleepmode_title" >
         <CheckBoxPreference
+            android:defaultValue="false"
             android:key="sleep_mode"
+            android:summaryOff="@string/preferences_sleepmode_checkbox_description_off"
+            android:summaryOn="@string/preferences_sleepmode_checkbox_description_on"
             android:title="@string/preferences_sleepmode_checkbox_title" />
 
-        <EditTextPreference
-            android:dialogTitle="Introduce valor"
-            android:key="sleep_mode_timeout"
+        <com.emp.friskyplayer.preferences.TimeOutSeekBarPreference
+            android:defaultValue="30"
             android:dependency="sleep_mode"
-            android:selectable="false"
-            android:title="Timeout" />
+            android:key="sleep_mode_timeout"
+            android:summary="desc"
+            android:title="@string/preferences_sleepmode_timeout_title" />
     </PreferenceCategory>
+
 </PreferenceScreen>

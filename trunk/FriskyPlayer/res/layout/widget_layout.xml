@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/element_margin"
+        android:contentDescription="@string/widget_logo_button"
         android:src="@drawable/ic_launcher" />
 
     <RelativeLayout
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:contentDescription="@string/play_button"
             android:layout_marginTop="@dimen/element_double_margin"
             android:paddingLeft="@dimen/element_double_margin"
             android:paddingRight="@dimen/element_quad_margin"

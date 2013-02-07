@@ -1,7 +1,5 @@
 package com.emp.friskyplayer.activities.listeners;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -13,7 +11,6 @@ import com.emp.friskyplayer.activities.FriskyPlayerActivity;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
 import com.emp.friskyplayer.utils.ConnectionUtils;
 import com.emp.friskyplayer.utils.PlayerConstants;
-import com.emp.friskyplayer.utils.PreferencesConstants;
 
 public class PlayButtonOnClickListener extends ButtonOnClickListener{
 

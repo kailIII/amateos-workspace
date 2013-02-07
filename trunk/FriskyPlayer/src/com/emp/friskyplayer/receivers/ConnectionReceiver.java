@@ -42,20 +42,15 @@ public class ConnectionReceiver extends BroadcastReceiver {
 							ni.getTypeName());
 					editor.commit();
 					
-					// Change from mobile to wifi or viceversa
-					if (!oldConnectionType
-							.equalsIgnoreCase(ConnectionUtils.NETWORK_TYPE_NO_CONNECTION)) {
-						context.startService(new Intent(
-								ServiceActionConstants.ACTION_STOP));
-						context.startService(new Intent(
-								ServiceActionConstants.ACTION_PLAY));
-					}
 				}
+				
+				context.startService(new Intent(
+						ServiceActionConstants.ACTION_STOP));
 			}
 
 			// No network
 			if (intent.getExtras().getBoolean(
-					ConnectivityManager.EXTRA_NO_CONNECTIVITY, Boolean.FALSE)) {
+					ConnectivityManager.EXTRA_NO_CONNECTIVITY, Boolean.TRUE)) {
 				
 				Log.d("Connection", "There's no network connectivity");
 				SharedPreferences.Editor editor = PreferenceManager
@@ -63,6 +58,9 @@ public class ConnectionReceiver extends BroadcastReceiver {
 				editor.putString(PreferencesConstants.CONNECTION_TYPE,
 						ConnectionUtils.NETWORK_TYPE_NO_CONNECTION);
 				editor.commit();
+				
+				context.startService(new Intent(
+						ServiceActionConstants.ACTION_STOP));
 			}
 		}
 

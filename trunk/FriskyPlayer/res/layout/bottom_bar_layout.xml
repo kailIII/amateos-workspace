@@ -12,6 +12,7 @@
         android:layout_height="@dimen/button_size"
         android:layout_margin="@dimen/button_margin"
         android:background="@drawable/ic_action_button_behaviour"
+        android:contentDescription="@string/play_button"
         android:src="@drawable/ic_action_play" />
 
     <RelativeLayout
@@ -48,6 +49,7 @@
         android:layout_width="@dimen/button_size"
         android:layout_height="@dimen/button_size"
         android:layout_margin="@dimen/button_margin"
+        android:contentDescription="@string/share"
         android:background="@drawable/ic_action_button_behaviour"
         android:src="@drawable/ic_action_share" />
 

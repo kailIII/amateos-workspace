@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string-array name="quality_options_entries">
+      <item>Alta</item>
+      <item>Baja</item>
+   </string-array>
+   <string-array name="quality_options_values">
+      <item>quality_hq</item>
+      <item>quality_lq</item>
+   </string-array>
+</resources>

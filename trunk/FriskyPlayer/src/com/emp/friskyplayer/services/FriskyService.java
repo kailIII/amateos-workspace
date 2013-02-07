@@ -32,7 +32,6 @@ import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
 import android.os.Binder;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -45,7 +44,6 @@ import com.emp.friskyplayer.player.PlayerCallbackImpl;
 import com.emp.friskyplayer.receivers.MediaButtonReceiver;
 import com.emp.friskyplayer.utils.MediaButtonHelper;
 import com.emp.friskyplayer.utils.PlayerConstants;
-import com.emp.friskyplayer.utils.PreferencesConstants;
 import com.emp.friskyplayer.utils.RemoteControlClientCompat;
 import com.emp.friskyplayer.utils.RemoteControlHelper;
 import com.emp.friskyplayer.utils.ServiceActionConstants;
@@ -106,6 +104,7 @@ public class FriskyService extends Service implements MusicFocusable {
 	// remote control
 	// APIs
 	ComponentName mMediaButtonReceiverComponent;
+	
 
 	/**
 	 * Makes sure the player exists and has been reset. This will create the
@@ -146,7 +145,6 @@ public class FriskyService extends Service implements MusicFocusable {
 
 		mMediaButtonReceiverComponent = new ComponentName(this,
 				MediaButtonReceiver.class);
-
 	}
 
 	/**
@@ -165,7 +163,8 @@ public class FriskyService extends Service implements MusicFocusable {
 			processPlayRequest();
 		else if (action.equals(ServiceActionConstants.ACTION_STOP))
 			processStopRequest();
-
+		else if (action.equals(ServiceActionConstants.ACTION_CHANGE_QUALITY))
+			processChangeQualityRequest();
 		return START_NOT_STICKY; // Means we started the service, but don't want
 									// it to
 									// restart in case it's killed.
@@ -203,6 +202,29 @@ public class FriskyService extends Service implements MusicFocusable {
 
 	}
 
+	public void processChangeQualityRequest() {
+
+		tryToGetAudioFocus();
+
+		// actually play the song
+		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
+				.getPlayerState();
+
+		if (mState != PlayerConstants.STATE_STOPPED) {
+			
+			mPlayer.stop();
+
+			// If player has stoped state, play streaming
+			playStreaming();
+			// Tell any remote controls that our playback state is 'playing'.
+			if (mRemoteControlClientCompat != null) {
+				mRemoteControlClientCompat
+						.setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
+			}
+		}
+
+	}
+	
 	public void processStopRequest() {
 		processStopRequest(false);
 	}
@@ -277,7 +299,6 @@ public class FriskyService extends Service implements MusicFocusable {
 	 * depending on what is allowed by the current focus settings. This method
 	 * assumes mPlayer != null
 	 */
-	// TODO: configurar con las preferencias!
 	void configAndStartPlayer() {
 
 		mState = ((FriskyPlayerApplication) getApplication()).getInstance()
@@ -285,10 +306,8 @@ public class FriskyService extends Service implements MusicFocusable {
 
 		if (mState == PlayerConstants.STATE_STOPPED)
 			try {
-				String url = PreferenceManager.getDefaultSharedPreferences(
-						getApplicationContext()).getString(
-						PreferencesConstants.STREAMING_URL,
-						PreferencesConstants.STREAMING_URL_DEFAULT);
+				
+				String url = ((FriskyPlayerApplication) getApplication()).getInstance().getStreamingUrl();
 				mPlayer.playAsync(url);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -318,10 +337,8 @@ public class FriskyService extends Service implements MusicFocusable {
 		// TODO: aqu’ habr’a que llamar al configAndStart
 		try {
 
-			String url = PreferenceManager.getDefaultSharedPreferences(
-					getApplicationContext()).getString(
-					PreferencesConstants.STREAMING_URL,
-					PreferencesConstants.STREAMING_URL_DEFAULT);
+			String url = ((FriskyPlayerApplication) getApplication()).getInstance().getStreamingUrl();
+			Log.d(TAG,"Playing URL: "+url);
 			mPlayer.playAsync(url);
 
 			// Use the media button APIs (if available) to register ourselves
@@ -338,19 +355,14 @@ public class FriskyService extends Service implements MusicFocusable {
 				Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
 				intent.setComponent(mMediaButtonReceiverComponent);
 				mRemoteControlClientCompat = new RemoteControlClientCompat(
-						PendingIntent.getBroadcast(this /* context */, 0 /*
-																		 * requestCode
-																		 * ,
-																		 * ignored
-																		 */,
-								intent /* intent */, 0 /* flags */));
+						PendingIntent.getBroadcast(this, 0,	intent, 0 ));
 				RemoteControlHelper.registerRemoteControlClient(mAudioManager,
 						mRemoteControlClientCompat);
 			}
 
 			mRemoteControlClientCompat
 					.setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
-
+ 
 			mRemoteControlClientCompat
 					.setTransportControlFlags(RemoteControlClient.FLAG_KEY_MEDIA_PLAY
 							| RemoteControlClient.FLAG_KEY_MEDIA_PAUSE
@@ -366,20 +378,6 @@ public class FriskyService extends Service implements MusicFocusable {
 									.getResources().getDrawable(
 											R.drawable.ic_launcher))
 									.getBitmap()).apply();
-			// mRemoteControlClientCompat.editMetadata(true)
-			// .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST,
-			// playingItem.getArtist())
-			// .putString(MediaMetadataRetriever.METADATA_KEY_ALBUM,
-			// playingItem.getAlbum())
-			// .putString(MediaMetadataRetriever.METADATA_KEY_TITLE,
-			// playingItem.getTitle())
-			// .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
-			// playingItem.getDuration())
-			// // TODO: fetch real item artwork
-			// .putBitmap(
-			// RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
-			// mDummyAlbumArt)
-			// .apply();
 		} catch (Exception e) {
 			Log.d(TAG, "Exception: " + e.getMessage());
 		}
@@ -506,4 +504,5 @@ public class FriskyService extends Service implements MusicFocusable {
 										R.drawable.ic_launcher)).getBitmap())
 				.apply();
 	}
+	
 }
