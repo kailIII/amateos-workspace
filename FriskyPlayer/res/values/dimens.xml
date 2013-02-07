@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="element_margin">5dp</dimen>
+    <dimen name="element_double_margin">10dp</dimen>
+    <dimen name="element_quad_margin">20dp</dimen>
+    <dimen name="button_margin">10dp</dimen>
+    <dimen name="button_size">40dp</dimen>
+	<dimen name="widget_margin">8dp</dimen>
+</resources>
