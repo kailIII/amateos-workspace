@@ -1,5 +1,8 @@
 package com.emp.friskyplayer.activities;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +15,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,19 +26,23 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener;
 import com.actionbarsherlock.view.Window;
 import com.emp.friskyplayer.R;
+import com.emp.friskyplayer.activities.listeners.ClockOnClickListener;
 import com.emp.friskyplayer.activities.listeners.PlayButtonOnClickListener;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
 import com.emp.friskyplayer.receivers.ServiceToGuiCommunicationReceiver;
 import com.emp.friskyplayer.services.FriskyService;
 import com.emp.friskyplayer.utils.PlayerConstants;
+import com.emp.friskyplayer.utils.SleepModeManager;
 
-public class FriskyPlayerActivity extends SherlockActivity {
+public class FriskyPlayerActivity extends SherlockActivity implements Observer{
 
 	private ImageButton playPauseButton;
 	private ImageButton shareButton;
 	private TextView streamTitleTextView;
 	private ActionBar ab;
 	private ProgressBar bufferProgressBar;
+	private ImageButton clockButton;
+	private TextView clockTextView;
 
 	private ServiceToGuiCommunicationReceiver serviceToGuiReceiver;
 
@@ -65,6 +70,8 @@ public class FriskyPlayerActivity extends SherlockActivity {
 		};
 
 		doBindService();
+		
+		((FriskyPlayerApplication) getApplication()).getInstance().getSleepModeManager().addObserver(this);
 		
 		Log.d("App", "onCreate ACTIVITY");
 	}
@@ -149,6 +156,23 @@ public class FriskyPlayerActivity extends SherlockActivity {
 
 		bufferProgressBar = (ProgressBar) findViewById(R.id.bottom_bar_buffer_progressbar);
 		bufferProgressBar.setMax(100);
+		
+		clockButton = (ImageButton) findViewById(R.id.FriskyPlayerActivity_clockImageButton);
+		clockTextView = (TextView) findViewById(R.id.FriskyPlayerActivity_clockTextView);
+
+		clockButton.setOnClickListener(new ClockOnClickListener(this, clockButton));
+		
+		boolean sleepModeEnabled = ((FriskyPlayerApplication) getApplication()).getInstance().isSleepModeEnabled();
+		
+		
+		Log.d("SleepMode","Activity: sleep mode enabled -> "+sleepModeEnabled);
+		if(!sleepModeEnabled){
+			clockButton.setVisibility(View.INVISIBLE);
+			clockTextView.setVisibility(View.INVISIBLE);
+		}else{
+			clockButton.setVisibility(View.VISIBLE);
+			clockTextView.setVisibility(View.VISIBLE);
+		}
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -234,4 +258,42 @@ public class FriskyPlayerActivity extends SherlockActivity {
 		return friskyService;
 	}
 
+	public void update(Observable observable, Object data) {
+		
+		SleepModeManager manager = (SleepModeManager) observable;
+		long minsToZero = manager.getMinsToZero();
+		long secsToZero = manager.getSecsToZero();
+		
+		Log.d("SleepMode","ACTIVITY - "+minsToZero+":"+secsToZero);
+		
+		if(minsToZero == 0 && secsToZero == 0){
+			clockButton.setVisibility(View.INVISIBLE);
+			clockTextView.setVisibility(View.INVISIBLE);
+		}else{
+			clockButton.setVisibility(View.VISIBLE);
+		}
+		
+
+		if(minsToZero < 1){
+			if(secsToZero % 2 == 0){
+				clockTextView.setVisibility(View.VISIBLE);
+				String timeToZero = "";
+				if (minsToZero < 10) {
+					timeToZero += "0" + minsToZero + ":";
+				} else {
+					timeToZero += minsToZero + ":";
+				}
+				if (secsToZero < 10) {
+					timeToZero += "0" + secsToZero;
+				} else {
+					timeToZero += secsToZero;
+				}
+				clockTextView.setText(timeToZero);
+			}else{
+				clockTextView.setVisibility(View.INVISIBLE);
+			}
+		}else{
+			clockTextView.setVisibility(View.INVISIBLE);
+		}
+	}
 }

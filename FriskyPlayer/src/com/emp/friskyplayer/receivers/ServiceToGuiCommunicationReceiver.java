@@ -1,12 +1,9 @@
 package com.emp.friskyplayer.receivers;
 
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.drawable.BitmapDrawable;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,9 +12,7 @@ import android.widget.Toast;
 import com.emp.friskyplayer.R;
 import com.emp.friskyplayer.activities.FriskyPlayerActivity;
 import com.emp.friskyplayer.application.FriskyPlayerApplication;
-import com.emp.friskyplayer.services.FriskyService;
 import com.emp.friskyplayer.utils.PlayerConstants;
-import com.emp.friskyplayer.utils.RemoteControlClientCompat;
 import com.emp.friskyplayer.utils.ServiceActionConstants;
 
 /**

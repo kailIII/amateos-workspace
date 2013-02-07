@@ -42,7 +42,9 @@ public class PlayerCallbackImpl implements PlayerCallback {
 
 		if (t instanceof java.lang.NullPointerException) {
 			// Try to reconnect downloading m3u file
-			new FriskyM3UDownloaderThread(context).start();
+			String quality = ((FriskyPlayerApplication) service.getApplication()).getInstance()
+					.getQuality();
+			new FriskyM3UDownloaderThread(context,quality).start();
 		} else {
 			((FriskyPlayerApplication) service.getApplication()).getInstance()
 					.setPlayerState(PlayerConstants.STATE_STOPPED);

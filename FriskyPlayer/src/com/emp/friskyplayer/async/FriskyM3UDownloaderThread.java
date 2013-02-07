@@ -7,15 +7,15 @@ import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
-import com.emp.friskyplayer.R;
-import com.emp.friskyplayer.utils.PreferencesConstants;
-import com.emp.friskyplayer.utils.ServiceActionConstants;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.emp.friskyplayer.R;
+import com.emp.friskyplayer.utils.PreferencesConstants;
+import com.emp.friskyplayer.utils.ServiceActionConstants;
 
 /**
  * Downloads M3U file from www.friskyradio.com and tries to reconnect using new
@@ -29,15 +29,17 @@ public class FriskyM3UDownloaderThread extends Thread {
 	final static String TAG = "M3U";
 	private String friskyStreamingUrl;
 	private Context mContext;
+	private String quality;
 
 	/**
 	 * Constructor
 	 * 
 	 * @param context
 	 */
-	public FriskyM3UDownloaderThread(Context context) {
+	public FriskyM3UDownloaderThread(Context context, String quality) {
 		super();
 		this.mContext = context;
+		this.quality = quality;
 		friskyStreamingUrl = null;
 	}
 
@@ -59,25 +61,33 @@ public class FriskyM3UDownloaderThread extends Thread {
 
 		String storedUrl = PreferenceManager.getDefaultSharedPreferences(
 				mContext).getString(PreferencesConstants.STREAMING_URL,
-				PreferencesConstants.STREAMING_URL_DEFAULT);
+				PreferencesConstants.STREAMING_URL_HQ);
+
+		if (quality.equals(PreferencesConstants.QUALITY_HQ)) {
+			storedUrl = PreferenceManager.getDefaultSharedPreferences(mContext)
+					.getString(PreferencesConstants.STREAMING_URL,
+							PreferencesConstants.STREAMING_URL_HQ);
+		}else if (quality.equals(PreferencesConstants.QUALITY_LQ)) {
+			storedUrl = PreferenceManager.getDefaultSharedPreferences(mContext)
+					.getString(PreferencesConstants.STREAMING_URL,
+							PreferencesConstants.STREAMING_URL_LQ);
+		}
 		if (downloaded && friskyStreamingUrl != null
 				&& !friskyStreamingUrl.equals(storedUrl)) {
 
-				// Store new URL
-				SharedPreferences.Editor editor = PreferenceManager
-						.getDefaultSharedPreferences(mContext).edit();
-				editor.putString(PreferencesConstants.STREAMING_URL,
-						friskyStreamingUrl);
-				editor.commit();
-				Log.d(TAG, "M3U: stored new url: " + friskyStreamingUrl);
+			// Store new URL
+			SharedPreferences.Editor editor = PreferenceManager
+					.getDefaultSharedPreferences(mContext).edit();
+			editor.putString(PreferencesConstants.STREAMING_URL,
+					friskyStreamingUrl);
+			editor.commit();
+			Log.d(TAG, "M3U: stored new url: " + friskyStreamingUrl);
 
-				// Restart service
-				mContext.startService(new Intent(
-						ServiceActionConstants.ACTION_STOP));
-				mContext.startService(new Intent(
-						ServiceActionConstants.ACTION_PLAY));
-				Log.d(TAG, "M3U: trying to reconnect to new url: "
-						+ friskyStreamingUrl);
+			// Restart service
+			mContext.startService(new Intent(ServiceActionConstants.ACTION_STOP));
+			mContext.startService(new Intent(ServiceActionConstants.ACTION_PLAY));
+			Log.d(TAG, "M3U: trying to reconnect to new url: "
+					+ friskyStreamingUrl);
 
 		} else {
 			Log.d(TAG, "URL is not valid");
@@ -109,6 +119,14 @@ public class FriskyM3UDownloaderThread extends Thread {
 
 		try {
 			website = new URL("http://www.friskyradio.com/frisky_aac.m3u");
+			
+			if (quality.equals(PreferencesConstants.QUALITY_HQ)) {
+				website = new URL("http://www.friskyradio.com/frisky_aac.m3u");
+			}
+			if (quality.equals(PreferencesConstants.QUALITY_LQ)) {
+				website = new URL("http://www.friskyradio.com/frisky_low.m3u");
+			}
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -125,7 +143,7 @@ public class FriskyM3UDownloaderThread extends Thread {
 		int bytesRead = 0;
 		try {
 			bytesRead = inChannel.read(buf);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		while (bytesRead != -1) {

@@ -3,7 +3,7 @@
 
     <string name="app_name">friskyPlayer</string>
     <string name="share">Share</string>
-    <string name="loading">loading...</string>
+    <string name="loading">loading &#8230;</string>
     <string name="share_question">Share Frisky streaming</string>
     <string name="share_text_start">Listening </string>
     <string name="share_text_end"> using FriskyPlayer for Android. \n http://www.friskyradio.com</string>
@@ -11,11 +11,17 @@
     <string name="headphones_disconnected">Headphones disconnected</string>
     <string name="no_internet_connection">Please, check your Internet connection!</string>
     <string name="frisky_server_down">Can not reconnect, Frisky Server is down</string>
-    <string name="frisky_server_reconnect">An error ocurred, trying to reconnect to Frisky Server</string>
-    <string name="preferences_quality_title">Change Streaming Quality</string>
+    <string name="frisky_server_reconnect">An error occurred, trying to reconnect to Frisky Server</string>
+    <string name="preferences_quality_title">Quality</string>
     <string name="preferences_quality_dialog_title">Select quality:</string>
     <string name="preferences_category_streaming_title">Streaming</string>
     <string name="preferences_category_sleepmode_title">Sleep Mode</string>
     <string name="preferences_sleepmode_checkbox_title">Enable</string>
+    <string name="preferences_sleepmode_checkbox_description_on">Music will turn off after countdown mins.</string>
+    <string name="preferences_sleepmode_checkbox_description_off"></string>
+    <string name="preferences_sleepmode_timeout_title">Countdown</string>
+    <string name="sleep_mode_button">Turns off Sleep Mode</string>
+    <string name="widget_logo_button">Starts FriskyPlayer</string>
+    <string name="play_button">Play / Stop</string>
 
 </resources>

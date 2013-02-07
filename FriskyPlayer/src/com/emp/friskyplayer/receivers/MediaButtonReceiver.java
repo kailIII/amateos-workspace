@@ -1,12 +1,12 @@
 package com.emp.friskyplayer.receivers;
 
-import com.emp.friskyplayer.utils.ServiceActionConstants;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.KeyEvent;
+
+import com.emp.friskyplayer.utils.ServiceActionConstants;
 
 /**
  * Manages lock screen media button actions

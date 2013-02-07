@@ -19,13 +19,9 @@ package com.emp.friskyplayer.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.emp.friskyplayer.R;
-import com.emp.friskyplayer.services.FriskyService;
 import com.emp.friskyplayer.utils.ServiceActionConstants;
 
 /**

@@ -12,8 +12,11 @@ public class PreferencesConstants {
 	public static final String STREAMING_TITLE= "streaming_title";
 	
 	// PREFERENCE DEFAULT VALUES
-	public static final String STREAMING_URL_DEFAULT= "http://205.188.215.229:8024";
+	public static final String STREAMING_URL_HQ= "http://205.188.215.229:8024";
+	public static final String STREAMING_URL_LQ= "http://stream-07.shoutcast.com:8004/frisky_radio_aac+_128kbps";
+
 	public static final String QUALITY_HQ= "quality_hq";
 	public static final String QUALITY_LQ= "quality_lq";
 	public static final String QUALITY_AUTO= "quality_auto";
+
 }

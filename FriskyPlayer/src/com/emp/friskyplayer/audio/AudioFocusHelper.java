@@ -1,7 +1,9 @@
 package com.emp.friskyplayer.audio;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
+import android.os.Build;
 
 /** 
  * Convenience class to deal with audio focus. This class deals with everything related to audio
@@ -11,6 +13,7 @@ import android.media.AudioManager;
  * This class can only be used on SDK level 8 and above, since it uses API features that are not
  * available on previous SDK's.
  */
+@TargetApi(Build.VERSION_CODES.FROYO)
 public class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener {
     AudioManager mAM;
     MusicFocusable mFocusable;
@@ -21,7 +24,7 @@ public class AudioFocusHelper implements AudioManager.OnAudioFocusChangeListener
     }
 
     /** Requests audio focus. Returns whether request was successful or not. */
-    public boolean requestFocus() {
+	public boolean requestFocus() {
         return AudioManager.AUDIOFOCUS_REQUEST_GRANTED ==
             mAM.requestAudioFocus(this, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
     }
