@@ -25,7 +25,7 @@ https://amateos-workspace.googlecode.com/svn/trunk/site/images/friskyplayer3.png
 ==Comentarios de los usuarios==
 https://amateos-workspace.googlecode.com/svn/trunk/site/images/friskyplayer_comentarios.png
 
-==Recomendaciones de conocidos djs internacionales==
+==Recomendaciones de reconocidos djs internacionales==
 
 https://amateos-workspace.googlecode.com/svn/trunk/site/images/friskyplayer_recomendacion1.png
 https://amateos-workspace.googlecode.com/svn/trunk/site/images/friskyplayer_recomendacion2.png
