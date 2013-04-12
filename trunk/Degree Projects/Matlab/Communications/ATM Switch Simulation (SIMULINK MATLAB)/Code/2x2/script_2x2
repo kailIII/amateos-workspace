@@ -1,0 +1,56 @@
+%%SCRIPT DEL MODELO ATM 2X2 SIN MEMORIA A LA SALIDA
+Tsim=10000;         %tiempo de simulacion
+throughput=[];      %vector que almacena el throughput de salida del conmutador oara cada valor de utilizacion
+retardo=[];         %vector que almacena el retardo de una celula para cada valor de utilizacion
+prob_perdidas=[];   %vector que almacena la probabilidad de descarte de una celula para cada valor de utilizacion
+
+%%ahora definimos todos los valores de utilizacion que vamos a evaluar
+util1=0.001:0.02:0.80;     
+util2=0.81:0.01:0.999;     
+utilizacion=[util1, util2];
+
+for i=1:length(utilizacion)
+    
+    %asignamos las probabilidades de los destinos de cada celula. Incluimos
+    %el destino 0 para representar celulas vacias
+    p=i;
+    %simulamos con los parametros correspondientes
+    sim('conmutador',Tsim);
+    
+    %una vez finalizada la simulacion calculamos los datos de interes
+    
+  
+    
+    %almacenamos el throughput:suma de las utilizaciones de cada linea dividida entre el numero de lineas
+    throughput(i)=(utilizacion1(length(utilizacion1))+utilizacion2(length(utilizacion2)))/2;
+    
+    %almacenamos el retardo
+    retardo(i)=(retardo1(length(retardo1))+retardo2(length(retardo2)))/2;
+    
+    %calculamos la probabilidad de perdidas: celulas que se pierden entre las celulas totales
+    prob_perdidas(i)= (llegadas1(length(llegadas1))+llegadas2(length(llegadas2))-salidas1(length(salidas1))-salidas2(length(salidas2)))/(llegadas1(length(llegadas1))+llegadas2(length(llegadas2)))
+    
+end
+
+%%por ultimo representamos los resultados obtenidos
+figure;
+plot(utilizacion,throughput);
+title('Throughput vs Utilizacion');
+xlabel('Utilizacion');
+ylabel('Throughput');
+
+figure;
+plot(utilizacion,retardo);
+title('retardo vs Utilizacion');
+xlabel('Utilizacion');
+ylabel('Retardo');
+
+figure;
+plot(utilizacion,prob_perdidas);
+title('Probabilidad de perdidas vs Utilizacion');
+xlabel('Utilizacion');
+ylabel('P');
+
+
+
+

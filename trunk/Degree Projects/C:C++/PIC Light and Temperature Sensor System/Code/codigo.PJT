@@ -1,0 +1,49 @@
+[PROJECT]
+Target=\\.psf\Home\Desktop\Instrumentacion\Practica 2\codigo.hex
+Development_Mode=
+Processor=0x876F
+Processor_Text=PIC16F876
+ToolSuite=CCS
+
+[Directories]
+Include=
+Library=
+LinkerScript=
+
+[Target Data]
+FileList=\\.psf\Home\Desktop\Instrumentacion\Practica 2\codigo.c
+BuildTool=C-COMPILER
+OptionString=+FM
+AdditionalOptionString=
+BuildRequired=1
+
+[practica2IE.c]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+
+[mru-list]
+1=\\.psf\Home\Desktop\Instrumentacion\Practica 2\codigo.c
+
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+
+[Opened Files]
+1=codigo.c
+2=
+3=
+4=C:\Archivos de programa\PICC\Devices\16F876.h
+5=
+[\\.psf\Home\Desktop\Instrumentacion\Practica 2\codigo]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[Units]
+Count=1
+1=codigo.c (main)

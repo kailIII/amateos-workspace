@@ -1,0 +1,95 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_arith;
+USE ieee.std_logic_unsigned;
+
+ENTITY generadorFreqs IS
+
+	PORT(
+
+		seleccionador: IN std_logic_vector(3 DOWNTO 0); --Variable para seleccionar la frecuencia a entregar
+		VARIABLE contador_pulsos: INTEGER (15 DOWNTO 0);  -- Variable con la que contaremos los flancos de subida del reloj interno
+		VARIABLE num_pulsos_max: INTEGER (15 DOWNTO 0);  -- Variable con la que comparar el contador para que se haga el flanco de bajada
+		clk: IN BIT;	--Definimos el reloj del cual tomaremos la referencia
+		reloj_salida: OUT BIT     --Definimos lo que será la salida de nuestro reloj a la frecuencia selecionada             
+
+--Seguiremos poniendo variables conforme las necesitemos
+	);
+
+END generadorFreqs;
+
+ARCHITECTURE decodificador_frecuencias OF generadorFreqs IS
+
+	COMPONENT display
+		PORT(
+			entrada: IN std_logic_vector(3 DOWNTO 0);
+			salidaD1: OUT std_logic_vector(6 DOWNTO 0);
+			salidaD2: OUT std_logic_vector(6 DOWNTO 0)
+		);
+	END COMPONENT;
+
+	BEGIN
+
+		proceso_seleccion: PROCESS (seleccionador) IS   --Definimos un proceso que se encarga de asignar el valor al limite de pulsos para cada frecuencia
+			BEGIN
+
+			D1:display PORT MAP(entrada(3:0),salidaD1(6:0),salidaD2(6:0));
+
+			CASE (seleccionador) IS
+
+				WHEN "0000" => num_pulsos_max <= "0";
+				salidaD1<="0000001";salidaD2 <= "0000001";
+				WHEN "0001" => num_pulsos_max <= "12588";
+				salidaD1<="1001111";salidaD2 <= "0000001";
+				WHEN "0010" => num_pulsos_max <= "6294";
+				salidaD1<="0010011";salidaD2 <= "0000001";
+				WHEN "0011" => num_pulsos_max <= "4196";
+				salidaD1<="0000110";salidaD2 <= "0000001";
+				WHEN "0100" => num_pulsos_max <= "3147";
+				salidaD1<="1001101";salidaD2 <= "0000001";
+				WHEN "0101" => num_pulsos_max <= "2518";
+				salidaD1<="0100100";salidaD2 <= "0000001";
+				WHEN "0110" => num_pulsos_max <= "2098"; 
+				salidaD1<="0100000";salidaD2 <= "0000001";
+				WHEN "0111" => num_pulsos_max <= "1798";
+				salidaD1<="0001111";salidaD2 <= "0000001";
+				WHEN "1000" => num_pulsos_max <= "1574";
+				salidaD1<="0000000";salidaD2 <= "0000001";
+				WHEN "1001" => num_pulsos_max <= "1399";
+				salidaD1<="0001100";salidaD2 <= "0000001";
+				WHEN "1010" => num_pulsos_max <= "1259";
+				salidaD1<="0000001";salidaD2 <= "1001111";
+				WHEN "1011" => num_pulsos_max <= "1144";
+				salidaD1<="1001111";salidaD2 <= "1001111";
+				WHEN "1100" => num_pulsos_max <= "1049";
+				salidaD1<="0010011";salidaD2 <= "1001111";
+				WHEN "1101" => num_pulsos_max <= "968";
+				salidaD1<="0000110";salidaD2 <= "1001111";
+				WHEN "1110" => num_pulsos_max <= "899";
+				salidaD1<="1001101";salidaD2 <= "1001111";
+				WHEN "1111" => num_pulsos_max <= "839";
+				salidaD1<="0100100";salidaD2 <= "1001111";
+				WHEN OTHERS => num_pulsos_max <= "0";
+
+			END CASE;
+
+		END PROCESS proceso_seleccion;
+
+	reloj_salida <= '1';  --Inicializamos el estado del reloj de salida a uno
+
+	proceso_generador: PROCESS (clk)   --Como es un proceso sincrono la lista de sensibilidad es el reloj
+
+		BEGIN
+
+		IF clk'event AND clk='1' THEN
+			contador_pulsos <= contador_pulsos + '1';
+		END IF;
+
+		IF contador_pulsos = num_pulsos_max THEN
+			reloj_salida <= NOT(reloj_salida); --Realizamos el flanco de bajada
+			contador_pulsos <= '0';  --Ponemos el contador a cero para que vuelva a empezar a contar de nuevo
+		END IF;
+
+	END PROCESS proceso_generador;		
+
+END decodificador_frecuencias;

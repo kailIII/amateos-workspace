@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout android:layout_width="fill_parent" 
+     			  android:layout_height="fill_parent" 
+     			  android:id="@+id/layoutPrincipal" 
+     			  xmlns:android="http://schemas.android.com/apk/res/android"
+     			  android:orientation="horizontal">
+        
+		<LinearLayout android:layout_height="fill_parent" 
+        			android:id="@+id/linearLayoutContactos" 
+        			android:layout_width="130dip"
+        			android:orientation="vertical">
+        			
+        			<TextView android:id="@+id/texto_apodo"
+		      			android:layout_width="fill_parent"
+		      			android:textColor="#008855"
+		      			android:textStyle="bold"
+		      			android:gravity="center_vertical|center_horizontal"
+		      			android:textSize="9pt"
+		       			android:layout_height="wrap_content">
+		       		</TextView>
+        			
+        			<TextView android:id="@+id/texto_contactos_conectados" 
+		      			android:layout_width="fill_parent"
+		      			android:textColor="#008899"
+		      			android:textStyle="bold"
+		      			android:gravity="center_vertical|center_horizontal"
+		      			android:textSize="9pt"
+		       			android:layout_height="wrap_content">
+		      	    </TextView>
+        			
+        			<ListView android:id="@+id/view_lista" 
+		        		  android:layout_width="fill_parent" 
+		        		  android:layout_height="fill_parent"
+		        		  android:layout_gravity="left">
+		        	</ListView>
+		</LinearLayout>
+        <LinearLayout android:layout_height="fill_parent" 
+        			android:id="@+id/linearLayoutConversacion" 
+        			android:orientation="vertical" android:layout_width="fill_parent">
+        
+ 				<Spinner 
+			        android:id="@+id/spinner"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="right"
+			        android:prompt="@string/texto_conversaciones"/>
+ 
+	                <TextView android:text="" 
+			       		android:id="@+id/texto_conversacion" 
+			      		android:layout_width="fill_parent"
+			      		android:editable="false" 
+			       		android:layout_height="275dip">
+			       </TextView>
+                
+               <LinearLayout android:layout_height="50dip" 
+        			android:id="@+id/linearLayoutConversacionAbajo" 
+        			android:orientation="horizontal"
+        			android:layout_gravity="bottom" 
+        			android:layout_width="fill_parent">
+	                <Button android:text="Enviar" 
+	                	android:id="@+id/boton_enviar_conversacion" 
+	                	android:layout_width="wrap_content" 
+	                	android:layout_height="wrap_content">
+	                </Button>
+	                <EditText android:text="" 
+	                	android:id="@+id/texto_a_enviar_conversacion" 
+	                	android:layout_width="fill_parent"
+	                	android:scrollHorizontally="true" 
+	                	android:layout_height="wrap_content">
+	                </EditText>
+	                
+			       </LinearLayout>
+		       
+		       				       
+        
+        </LinearLayout>
+ 
+     			  
+    </LinearLayout>

@@ -1,0 +1,1557 @@
+Model {
+  Name			  "conmutador22"
+  Version		  7.1
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.1"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "ISO-8859-1"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Thu Mar 19 20:24:33 2009"
+  Creator		  "EmP"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "EmP"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Mar 19 20:47:45 2009"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:1>"
+  ConfigurationManager	  "None"
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.4.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.4.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Non-adaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.4.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.4.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.4.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "Warning"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.4.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.4.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferenceSigSizeVariationType "Always allowed"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.4.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  RTWCompilerOptimization "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.4.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.4.0"
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      AutosarCompliant	      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	DES.SimEventsCC {
+	  $ObjectID		  11
+	  Version		  "1.4.0"
+	  Name			  "SimEvents"
+	  SimEventsActiveTab	  "0"
+	  propIdentEvents	  "0"
+	  propIdentEventSeed	  "123456789"
+	  propUnconnectedPorts	  "0"
+	  propMaxDesBlkSimulEvents "1000"
+	  propMaxDesMdlSimulEvents "100000"
+	  propLogEventsScheduled  0
+	  propLogEventsExecuted	  0
+	  propLogDepartureEvents  0
+	  propDisplayEventCalendar 0
+	  propDiagAttribOutput	  "1"
+	  propDiagFcnCallOutput	  "1"
+	  propDiagStatOutput	  "0"
+	  propDiagChangeAttrib	  "2"
+	  propRNGIdenticalSeeds	  "1"
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Actuator
+      SubClassName	      "unknown"
+      PortType		      "blob"
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Ground
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      PMComponent
+      SubClassName	      "unknown"
+    }
+    Block {
+      BlockType		      Sensor
+      SubClassName	      "unknown"
+      PortType		      "blob"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      PulseType		      "Sample based"
+      TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Period		      "2"
+      PulseWidth	      "1"
+      PhaseDelay	      "0"
+      SampleTime	      "1"
+      VectorParams1D	      on
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "conmutador22"
+    Location		    [73, 72, 1166, 715]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      Ports		      [4, 2, 0, 0, 0, 2, 2]
+      Position		      [490, 270, 665, 390]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Subsystem"
+	Location		[63, 82, 1103, 688]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Bebedor entrada 1.1"
+	  Position		  [450, 28, 480, 42]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Bebedor entrada 1.2"
+	  Position		  [480, 158, 510, 172]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Bebedor entrada 2.1"
+	  Position		  [500, 328, 530, 342]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Bebedor entrada 2.2"
+	  Position		  [490, 508, 520, 522]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Entity Sink"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [720, 23, 805, 77]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag0"
+	  SourceBlock		  "simeventssink1/Entity Sink"
+	  SourceType		  "Entity Sink"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AvailableForArrivals	  on
+	  StatNumberArrived	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Entity Sink1"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [715, 118, 800, 172]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag1"
+	  SourceBlock		  "simeventssink1/Entity Sink"
+	  SourceType		  "Entity Sink"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AvailableForArrivals	  on
+	  StatNumberArrived	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Entity Sink2"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [730, 353, 815, 407]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag2"
+	  SourceBlock		  "simeventssink1/Entity Sink"
+	  SourceType		  "Entity Sink"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AvailableForArrivals	  on
+	  StatNumberArrived	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Entity Sink3"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [725, 523, 810, 577]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag3"
+	  SourceBlock		  "simeventssink1/Entity Sink"
+	  SourceType		  "Entity Sink"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AvailableForArrivals	  on
+	  StatNumberArrived	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "FIFO Queue"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [190, 82, 275, 138]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag4"
+	  SourceBlock		  "simeventsqueue1/FIFO Queue"
+	  SourceType		  "FIFO Queue"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  Capacity		  "25"
+	  EnableTOPort		  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberInBlock	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatAverageWait	  "Off"
+	  StatAverageQueueLength  "Off"
+	  StatNumberTimedout	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "FIFO Queue1"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [200, 412, 285, 468]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag5"
+	  SourceBlock		  "simeventsqueue1/FIFO Queue"
+	  SourceType		  "FIFO Queue"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  Capacity		  "25"
+	  EnableTOPort		  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberInBlock	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatAverageWait	  "Off"
+	  StatAverageQueueLength  "Off"
+	  StatNumberTimedout	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Get Attribute"
+	  Ports			  [0, 1, 0, 0, 0, 1, 1]
+	  Position		  [80, 67, 165, 123]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag6"
+	  DialogController	  "des_ddg_create"
+	  DialogControllerArgs	  "DataTag7"
+	  SourceBlock		  "simeventsattributes2/Get Attribute"
+	  SourceType		  "Get Attribute"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AttributeName		  "Attribute1"
+	  AttributeMissing	  "Error"
+	  AttributeDefaultValue	  "1"
+	  AttributeSendTiming	  "After entity departure"
+	  AttributeTreatAsVector  "1"
+	  StatNumberDeparted	  "Off"
+	  EvaluatedDefaultAttributeValue "{[]}"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Get Attribute1"
+	  Ports			  [0, 1, 0, 0, 0, 1, 1]
+	  Position		  [90, 397, 175, 453]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag8"
+	  DialogController	  "des_ddg_create"
+	  DialogControllerArgs	  "DataTag9"
+	  SourceBlock		  "simeventsattributes2/Get Attribute"
+	  SourceType		  "Get Attribute"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  AttributeName		  "Attribute1"
+	  AttributeMissing	  "Error"
+	  AttributeDefaultValue	  "1"
+	  AttributeSendTiming	  "After entity departure"
+	  AttributeTreatAsVector  "1"
+	  StatNumberDeparted	  "Off"
+	  EvaluatedDefaultAttributeValue "{[]}"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Output Switch"
+	  Ports			  [1, 0, 0, 0, 0, 1, 2]
+	  Position		  [565, 37, 665, 93]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag10"
+	  SourceBlock		  "simeventsrouting1/Output Switch"
+	  SourceType		  "Output Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  SwitchingCriterion	  "From signal port p"
+	  InitialSeed		  "34567"
+	  AttributeName		  "Attribute1"
+	  InitialConditionsOpt	  off
+	  InitialConditions	  "1"
+	  EntityBufferOpt	  off
+	  SpecifyEventPriority	  off
+	  PriorityOutputSwitchSelectPort "4100"
+	  TimeoutPortOpt	  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberTimedOut	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatLastDeparturePort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Output Switch1"
+	  Ports			  [1, 0, 0, 0, 0, 1, 2]
+	  Position		  [565, 112, 665, 168]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag11"
+	  SourceBlock		  "simeventsrouting1/Output Switch"
+	  SourceType		  "Output Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  SwitchingCriterion	  "From signal port p"
+	  InitialSeed		  "34567"
+	  AttributeName		  "Attribute1"
+	  InitialConditionsOpt	  off
+	  InitialConditions	  "1"
+	  EntityBufferOpt	  off
+	  SpecifyEventPriority	  off
+	  PriorityOutputSwitchSelectPort "4100"
+	  TimeoutPortOpt	  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberTimedOut	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatLastDeparturePort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Output Switch2"
+	  Ports			  [1, 0, 0, 0, 0, 1, 2]
+	  Position		  [575, 367, 675, 423]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag12"
+	  SourceBlock		  "simeventsrouting1/Output Switch"
+	  SourceType		  "Output Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  SwitchingCriterion	  "From signal port p"
+	  InitialSeed		  "34567"
+	  AttributeName		  "Attribute1"
+	  InitialConditionsOpt	  off
+	  InitialConditions	  "1"
+	  EntityBufferOpt	  off
+	  SpecifyEventPriority	  off
+	  PriorityOutputSwitchSelectPort "4100"
+	  TimeoutPortOpt	  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberTimedOut	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatLastDeparturePort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Output Switch3"
+	  Ports			  [1, 0, 0, 0, 0, 1, 2]
+	  Position		  [575, 442, 675, 498]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag13"
+	  SourceBlock		  "simeventsrouting1/Output Switch"
+	  SourceType		  "Output Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  SwitchingCriterion	  "From signal port p"
+	  InitialSeed		  "34567"
+	  AttributeName		  "Attribute1"
+	  InitialConditionsOpt	  off
+	  InitialConditions	  "1"
+	  EntityBufferOpt	  off
+	  SpecifyEventPriority	  off
+	  PriorityOutputSwitchSelectPort "4100"
+	  TimeoutPortOpt	  off
+	  StatNumberDeparted	  "Off"
+	  StatNumberTimedOut	  "Off"
+	  StatPendingEntity	  "Off"
+	  StatLastDeparturePort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Path Combiner"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [850, 90, 950, 145]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag14"
+	  SourceBlock		  "simeventsrouting1/Path Combiner"
+	  SourceType		  "Path Combiner"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberInputPorts	  "2"
+	  InputPortPrecedence	  "IN1 port"
+	  InitialSeed		  "45675"
+	  SpecifyEventPriority	  off
+	  PriorityPathCombinerPortPrecedenceSelection "4100"
+	  StatNumberDeparted	  "Off"
+	  StatLastArrivalPort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Path Combiner1"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [860, 422, 960, 478]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag15"
+	  SourceBlock		  "simeventsrouting1/Path Combiner"
+	  SourceType		  "Path Combiner"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberInputPorts	  "2"
+	  InputPortPrecedence	  "IN1 port"
+	  InitialSeed		  "45675"
+	  SpecifyEventPriority	  off
+	  PriorityPathCombinerPortPrecedenceSelection "4100"
+	  StatNumberDeparted	  "Off"
+	  StatLastArrivalPort	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  DiscretePulseGenerator
+	  Name			  "Pulse\nGenerator"
+	  Ports			  [0, 1]
+	  Position		  [185, 238, 230, 272]
+	  PulseType		  "Time based"
+	  PulseWidth		  "50"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Release Gate"
+	  Ports			  [1, 0, 0, 0, 0, 1, 1]
+	  Position		  [305, 67, 390, 123]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag16"
+	  SourceBlock		  "simeventsgates1/Release Gate"
+	  SourceType		  "Release Gate"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  OpenGateUpon		  "Change in signal from port vc"
+	  SignalEdgeOption	  "Rising"
+	  SpecifyEventPriority	  off
+	  PriorityGateRelease	  "2200"
+	  StatNumberDeparted	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Release Gate1"
+	  Ports			  [1, 0, 0, 0, 0, 1, 1]
+	  Position		  [315, 397, 400, 453]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag17"
+	  SourceBlock		  "simeventsgates1/Release Gate"
+	  SourceType		  "Release Gate"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  OpenGateUpon		  "Change in signal from port vc"
+	  SignalEdgeOption	  "Rising"
+	  SpecifyEventPriority	  off
+	  PriorityGateRelease	  "2200"
+	  StatNumberDeparted	  "Off"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Replicate"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [420, 65, 520, 120]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag18"
+	  SourceBlock		  "simeventsrouting1/Replicate"
+	  SourceType		  "Replicate"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  ReplicateEntityWhen	  "All entity output ports are not blocked"
+	  OutputPortPrecedence	  "OUT1 port"
+	  InitialSeed		  "56789"
+	  ActionUponBlocking	  "Discard entity"
+	  StatNumberArrived	  "Off"
+	  StatNumberDeparted	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Replicate1"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [430, 395, 530, 450]
+	  Priority		  "1"
+	  UserDataPersistent	  on
+	  UserData		  "DataTag19"
+	  SourceBlock		  "simeventsrouting1/Replicate"
+	  SourceType		  "Replicate"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  NumberOutputPorts	  "2"
+	  ReplicateEntityWhen	  "All entity output ports are not blocked"
+	  OutputPortPrecedence	  "OUT1 port"
+	  InitialSeed		  "56789"
+	  ActionUponBlocking	  "Discard entity"
+	  StatNumberArrived	  "Off"
+	  StatNumberDeparted	  "Off"
+	  EvaluatedNumPorts	  "2"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "Entrada 1"
+	  Position		  [25, 88, 55, 102]
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "Salida 1"
+	  Position		  [975, 113, 1005, 127]
+	  Orientation		  "left"
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "entrada 2"
+	  Position		  [35, 418, 65, 432]
+	  Port			  "3"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "Salida 2"
+	  Position		  [985, 443, 1015, 457]
+	  Orientation		  "left"
+	  Port			  "4"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Bebedor salida1"
+	  Position		  [190, 38, 220, 52]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Bebedor salida 2"
+	  Position		  [200, 358, 230, 372]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch"
+	  SrcPort		  RConn1
+	  DstBlock		  "Entity Sink"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch1"
+	  SrcPort		  RConn1
+	  Points		  [15, 0; 0, 20]
+	  DstBlock		  "Entity Sink1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch2"
+	  SrcPort		  RConn1
+	  DstBlock		  "Entity Sink2"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch3"
+	  SrcPort		  RConn1
+	  Points		  [15, 0; 0, 95]
+	  DstBlock		  "Entity Sink3"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Get Attribute"
+	  SrcPort		  RConn1
+	  DstBlock		  "FIFO Queue"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "FIFO Queue"
+	  SrcPort		  RConn1
+	  DstBlock		  "Release Gate"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Get Attribute1"
+	  SrcPort		  RConn1
+	  DstBlock		  "FIFO Queue1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "FIFO Queue1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Release Gate1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch"
+	  SrcPort		  LConn1
+	  DstBlock		  "Replicate"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch"
+	  SrcPort		  RConn2
+	  Points		  [35, 0; 0, 25]
+	  DstBlock		  "Path Combiner"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Replicate"
+	  SrcPort		  RConn2
+	  Points		  [10, 0; 0, 50]
+	  DstBlock		  "Output Switch1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch1"
+	  SrcPort		  RConn2
+	  Points		  [25, 0; 0, 150; 130, 0; 0, 130]
+	  DstBlock		  "Path Combiner1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch2"
+	  SrcPort		  LConn1
+	  DstBlock		  "Replicate1"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch2"
+	  SrcPort		  RConn2
+	  Points		  [15, 0; 0, -85; 110, 0; 0, -195]
+	  DstBlock		  "Path Combiner"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Replicate1"
+	  SrcPort		  RConn2
+	  Points		  [10, 0; 0, 50]
+	  DstBlock		  "Output Switch3"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Output Switch3"
+	  SrcPort		  RConn2
+	  Points		  [145, 0; 0, -20]
+	  DstBlock		  "Path Combiner1"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Release Gate"
+	  SrcPort		  RConn1
+	  DstBlock		  "Replicate"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Release Gate1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Replicate1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  SrcBlock		  "Bebedor entrada 1.1"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  DstBlock		  "Output Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Get Attribute"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Bebedor salida1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Pulse\nGenerator"
+	  SrcPort		  1
+	  Points		  [50, 0]
+	  Branch {
+	    Points		    [0, -175]
+	    DstBlock		    "Release Gate"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 155]
+	    DstBlock		    "Release Gate1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Entrada 1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Get Attribute"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Salida 1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Path Combiner"
+	  DstPort		  RConn1
+	}
+	Line {
+	  SrcBlock		  "Bebedor entrada 1.2"
+	  SrcPort		  1
+	  Points		  [0, -40]
+	  DstBlock		  "Output Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bebedor entrada 2.1"
+	  SrcPort		  1
+	  Points		  [0, 45]
+	  DstBlock		  "Output Switch2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Get Attribute1"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Bebedor salida 2"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "entrada 2"
+	  SrcPort		  RConn1
+	  DstBlock		  "Get Attribute1"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Salida 2"
+	  SrcPort		  RConn1
+	  DstBlock		  "Path Combiner1"
+	  DstPort		  RConn1
+	}
+	Line {
+	  SrcBlock		  "Bebedor entrada 2.2"
+	  SrcPort		  1
+	  Points		  [0, -60]
+	  DstBlock		  "Output Switch3"
+	  DstPort		  1
+	}
+      }
+    }
+  }
+}
+MatData {
+  NumRecords		  20
+  DataRecord {
+    Tag			    DataTag19
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #0    $         $     T   !?7U)E<&QI8V%T95]?    #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag18
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #0    $         $     T   !?7U)E<&QI8V%T95]?    #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag17
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    $     $         $    !    !?7U)E;&5A<V4@1V%T95]?#@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag16
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    $     $         $    !    !?7U)E;&5A<V4@1V%T95]?#@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag15
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7U!A=&@@0V]M8FEN97)?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag14
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7U!A=&@@0V]M8FEN97)?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag13
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T]U='!U=\"!3=VET8VA?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag12
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T]U='!U=\"!3=VET8VA?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag11
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T]U='!U=\"!3=VET8VA?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag10
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T]U='!U=\"!3=VET8VA?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag9
+    Data		    "  %)30     .    0     8    (    !          %    \"     $    ,     0         0    #    $=E=$%T=')I8G5T90     "
+  }
+  DataRecord {
+    Tag			    DataTag8
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T=E=\"!!='1R:6)U=&5?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag7
+    Data		    "  %)30     .    0     8    (    !          %    \"     $    ,     0         0    #    $=E=$%T=')I8G5T90     "
+  }
+  DataRecord {
+    Tag			    DataTag6
+    Data		    "  %)30     .    . $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $@    &    \"     0         !0    @    !    $0    $         $    !$   !?7T=E=\"!!='1R:6)U=&5?7P         .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    V 0   8    (     @         %    \"     $    !     0         %  0 #P    $   !+    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4 ;6%S:W9A;'5E<P      ;6%S:VYA;65S               .    0     8    (    !          %    \"     $    .     0         0    #@   %]?1DE&3R!1=65U95]?   .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X   \"X 0  !@    @    !          4    (    !@    $    !          X    P    !@    @    $          4    (     0    (    !         !   @ R-0  #@   %     &    \"     0         !0    @    !    &0    $         $    !D   !&:7)S=\"!I;B!F:7)S=\"!O=70@*$9)1D\\I          X    X    !@    @    $          4    (     0    @    !         !     (    1&ES86)L960.    .     8    (    !          %    \"     $    (     0         0    \"    $1I<V%B;&5D#@   #@    &    \"     0         !0    @    !    \"     $         $     @   !$:7-A8FQE9 X    X    !@    @    $          4    (     0    @    !         !     (    1&ES86)L960.    P $   8    (     0         %    \"     8    !     0         .    .     8    (    !          %    \"     $    (     0         0    \"    &-A<&%C:71Y#@   $     &    \"     0         !0    @    !    \"@    $         $     H   !D:7-C:7!L:6YE        #@   #     &    \"     0         !0    @    !    !     $         $  $ '=A:70.    0     8    (    !          %    \"     $    +     0         0    \"P   &-O=6YT4V5R=F5D       .    0     8    (    !          %    \"     $    ,     0         0    #    &-O=6YT26Y\";&]C:P     .    0     8    (    !          %    \"     $    -     0         0    #0   &]U='!O<G13=&%T=7,    "
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    V 0   8    (     @         %    \"     $    !     0         %  0 #P    $   !+    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4 ;6%S:W9A;'5E<P      ;6%S:VYA;65S               .    0     8    (    !          %    \"     $    .     0         0    #@   %]?1DE&3R!1=65U95]?   .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X   \"X 0  !@    @    !          4    (    !@    $    !          X    P    !@    @    $          4    (     0    (    !         !   @ R-0  #@   %     &    \"     0         !0    @    !    &0    $         $    !D   !&:7)S=\"!I;B!F:7)S=\"!O=70@*$9)1D\\I          X    X    !@    @    $          4    (     0    @    !         !     (    1&ES86)L960.    .     8    (    !          %    \"     $    (     0         0    \"    $1I<V%B;&5D#@   #@    &    \"     0         !0    @    !    \"     $         $     @   !$:7-A8FQE9 X    X    !@    @    $          4    (     0    @    !         !     (    1&ES86)L960.    P $   8    (     0         %    \"     8    !     0         .    .     8    (    !          %    \"     $    (     0         0    \"    &-A<&%C:71Y#@   $     &    \"     0         !0    @    !    \"@    $         $     H   !D:7-C:7!L:6YE        #@   #     &    \"     0         !0    @    !    !     $         $  $ '=A:70.    0     8    (    !          %    \"     $    +     0         0    \"P   &-O=6YT4V5R=F5D       .    0     8    (    !          %    \"     $    ,     0         0    #    &-O=6YT26Y\";&]C:P     .    0     8    (    !          %    \"     $    -     0         0    #0   &]U='!O<G13=&%T=7,    "
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #P    $         $     \\   !?7T5N=&ET>2!3:6YK7U\\ #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #P    $         $     \\   !?7T5N=&ET>2!3:6YK7U\\ #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #P    $         $     \\   !?7T5N=&ET>2!3:6YK7U\\ #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    , $   8    (     @         %    \"     $    !     0         %  0 #P    $    M    8VAI;&1.86UE        :6Y?:6YI=           :6Y?8FQO8VMU<&1A=&4     #@   $     &    \"     0         !0    @    !    #P    $         $     \\   !?7T5N=&ET>2!3:6YK7U\\ #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+}
