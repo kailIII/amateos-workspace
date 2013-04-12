@@ -1,0 +1,119 @@
+Analysis & Synthesis report for generadorFreqs
+Tue Jan 12 17:12:45 2010
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Tue Jan 12 17:12:45 2010            ;
+; Quartus II Version          ; 6.0 Build 202 06/20/2006 SP 1 SJ Web Edition ;
+; Revision Name               ; generadorFreqs                               ;
+; Top-level Entity Name       ; generadorFreqs                               ;
+; Family                      ; FLEX10K                                      ;
++-----------------------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                 ;
++------------------------------------------------------------+-----------------+----------------+
+; Option                                                     ; Setting         ; Default Value  ;
++------------------------------------------------------------+-----------------+----------------+
+; Device                                                     ; EPF10K70RC240-4 ;                ;
+; Top-level entity name                                      ; generadorFreqs  ; generadorFreqs ;
+; Family name                                                ; FLEX10K         ; Stratix        ;
+; Use smart compilation                                      ; Off             ; Off            ;
+; Create Debugging Nodes for IP Cores                        ; Off             ; Off            ;
+; Preserve fewer node names                                  ; On              ; On             ;
+; Disable OpenCore Plus hardware evaluation                  ; Off             ; Off            ;
+; Verilog Version                                            ; Verilog_2001    ; Verilog_2001   ;
+; VHDL Version                                               ; VHDL93          ; VHDL93         ;
+; State Machine Processing                                   ; Auto            ; Auto           ;
+; Extract Verilog State Machines                             ; On              ; On             ;
+; Extract VHDL State Machines                                ; On              ; On             ;
+; Add Pass-Through Logic to Inferred RAMs                    ; On              ; On             ;
+; NOT Gate Push-Back                                         ; On              ; On             ;
+; Power-Up Don't Care                                        ; On              ; On             ;
+; Remove Redundant Logic Cells                               ; Off             ; Off            ;
+; Remove Duplicate Registers                                 ; On              ; On             ;
+; Ignore CARRY Buffers                                       ; Off             ; Off            ;
+; Ignore CASCADE Buffers                                     ; Off             ; Off            ;
+; Ignore GLOBAL Buffers                                      ; Off             ; Off            ;
+; Ignore ROW GLOBAL Buffers                                  ; Off             ; Off            ;
+; Ignore LCELL Buffers                                       ; Off             ; Off            ;
+; Ignore SOFT Buffers                                        ; On              ; On             ;
+; Limit AHDL Integers to 32 Bits                             ; Off             ; Off            ;
+; Auto Implement in ROM                                      ; Off             ; Off            ;
+; Optimization Technique -- FLEX 10K/10KE/10KA/ACEX 1K       ; Area            ; Area           ;
+; Carry Chain Length -- FLEX 10K                             ; 32              ; 32             ;
+; Cascade Chain Length                                       ; 2               ; 2              ;
+; Auto Carry Chains                                          ; On              ; On             ;
+; Auto Open-Drain Pins                                       ; On              ; On             ;
+; Remove Duplicate Logic                                     ; On              ; On             ;
+; Auto ROM Replacement                                       ; On              ; On             ;
+; Auto RAM Replacement                                       ; On              ; On             ;
+; Auto Clock Enable Replacement                              ; On              ; On             ;
+; Auto Resource Sharing                                      ; Off             ; Off            ;
+; Allow Any RAM Size For Recognition                         ; Off             ; Off            ;
+; Allow Any ROM Size For Recognition                         ; Off             ; Off            ;
+; Ignore translate_off and translate_on Synthesis Directives ; Off             ; Off            ;
+; Show Parameter Settings Tables in Synthesis Report         ; On              ; On             ;
+; HDL message level                                          ; Level2          ; Level2         ;
++------------------------------------------------------------+-----------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                        ;
++----------------------------------+-----------------+-----------+------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type ; File Name with Absolute Path ;
++----------------------------------+-----------------+-----------+------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue Jan 12 17:12:43 2010
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off generadorFreqs -c generadorFreqs
+Info: Found 2 design units, including 1 entities, in source file display.vhd
+    Info: Found design unit 1: display-decodificador
+    Info: Found entity 1: display
+Error (10500): VHDL syntax error at generadorFreqs.vhd(83) near text "'";  expecting "(", or an identifier, or  unary operator,  File: U:/DCSE/VHDL/generador/generadorFreqs.vhd Line: 83
+Error: Top-level design entity "generadorFreqs" is undefined
+Error: Quartus II Analysis & Synthesis was unsuccessful. 2 errors, 0 warnings
+    Error: Processing ended: Tue Jan 12 17:12:45 2010
+    Error: Elapsed time: 00:00:02
+
+

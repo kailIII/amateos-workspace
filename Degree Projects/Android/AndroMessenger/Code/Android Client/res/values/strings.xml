@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroMessenger</string>
+    <string name="conectar">Conectar</string>
+    <string name="nada"></string>
+    <string name="enviar">Conectarse</string>
+    <string name="reiniciar">Reiniciar</string>
+    <string name="salir">Salir</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="login">Registro - Login</string>
+    <string name="apodo">Apodo</string>
+    <string name="contactos">Esta es la activity contactos!!</string>
+    <string name="desconectar">Desconectar</string>   
+    <string name="agregarContacto">Agregar Contacto</string>
+    <string name="eliminarContacto">Eliminar Contacto</string>
+    <string name="conversacion">Iniciar conversación</string>
+    <string name="listaContactos">Toogle contactos</string>
+    <string name="cambiarApodo">Cambiar Apodo</string>
+    <string name="cerrarConversacion">Cerrar Conversación</string>
+    
+    
+    <string name="texto_lista_contactos">Contactos</string>
+    <string name="texto_conversaciones">Conversaciones</string>
+    
+    
+    <string name="boton_actualizar">Actualizar</string>
+    
+    
+    <string name="info_agregar_contacto">Introduce el contacto que deseas agregar</string>
+    
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?> 
+
+<clasificacion> 
+	<equipo>
+		<posicion>1</posicion>
+		<nombre>Barcelona</nombre>
+		<link>http://www.fcbarcelona.com</link>
+	</equipo> 
+	<equipo>
+		<posicion>2</posicion>
+		<nombre>Real Madrid</nombre>
+		<link>http://www.realmadrid.com</link>
+	</equipo>
+	<equipo>
+		<posicion>3</posicion>
+		<nombre>Valencia</nombre>
+		<link>http://www.valenciacf.es</link>
+	</equipo>
+	<equipo>
+		<posicion>4</posicion>
+		<nombre>Villareal</nombre>
+		<link>http://www.villarrealcf.es</link>
+	</equipo>
+	<equipo>
+		<posicion>5</posicion>
+		<nombre>Sevilla</nombre>
+		<link>http://www.sevillafc.es</link>
+	</equipo>
+	<equipo>
+		<posicion>6</posicion>
+		<nombre>Athletic</nombre>
+		<link>http://www.athletic-club.net</link>
+	</equipo>
+	<equipo>
+		<posicion>7</posicion>
+		<nombre>Atlético de Madrid</nombre>
+		<link>http://www.clubatleticodemadrid.com</link>
+	</equipo>
+	<equipo>
+		<posicion>8</posicion>
+		<nombre>Espanyol</nombre>
+		<link>http://www.rcdespanyol.com</link>
+	</equipo>
+	<equipo>
+		<posicion>9</posicion>
+		<nombre>Mallorca</nombre>
+		<link>http://www.rcdmallorca.es</link>
+	</equipo>
+	<equipo>
+		<posicion>10</posicion>
+		<nombre>Levante</nombre>
+		<link>http://www.levanteud.com</link>
+	</equipo> 
+</clasificacion>

@@ -1,0 +1,70 @@
+#title {
+	color: #fff;
+	font: bold 38pt "Lucida Grande", Lucida, Verdana, sans-serif;
+	text-align: center;
+	background-color: #e3e8f3;
+	width: 600px;
+	height: 55px;
+	-webkit-border-radius: 13px;    
+ 	-moz-border-radius: 13px;
+}
+#droid{
+	color: #7be74d;
+	font-size: 42pt;
+	font-weight: bold;
+}
+#response{
+	color: #849ebf;
+	font-weight: bold;
+	font-size: 12pt;
+}
+#droidLogo{
+	display: inline;
+	float: left;
+	position: absolute;
+	left: 130px;
+}
+#form {
+    width:400px;
+    margin:auto;
+    background-color:#849ebf;
+    border:none;
+ 	-webkit-border-radius: 13px;    
+ 	-moz-border-radius: 13px;
+}
+#form legend{
+	
+    font-weight:bold;
+    font-size:12px;
+    color:#FFFFFF;
+    background-color:#27384e;
+    padding:3px 8px 3px 8px;
+	clear: none;
+}
+#form ol{
+    list-style:none;
+}
+#form ol li{
+    padding-bottom:5px;
+}
+#form ol li label{
+    width:80px;
+    float:left;
+    text-align:left;
+    color:#FFFFFF;
+}
+#form input[type=text],input[type=password] {
+    border:none;
+    background-image:url(box.png);
+    background-repeat:no-repeat;   
+    background-color:#849ebf;
+    height:30px;
+    width:254px;
+}
+
+#form input.btn {
+    padding:3px;
+    color:#FFFFFF;
+    background-color:#2b507d;
+    border:1px solid #000000;
+}

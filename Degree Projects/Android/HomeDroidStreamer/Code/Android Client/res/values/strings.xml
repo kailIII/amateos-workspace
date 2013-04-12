@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hodroist!</string>
+    <string name="app_name">Home Droid Streamer</string>
+    <string name="statusInsert">Enter your username and password</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="connect">Connect</string>
+    <string name="tracklist">Tracklist</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    
+</resources>

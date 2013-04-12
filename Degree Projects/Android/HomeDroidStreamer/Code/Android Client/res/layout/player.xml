@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:gravity="top">
+        <TextView android:text="" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:id="@+id/playingText" android:layout_centerHorizontal="true"></TextView>
+        <ImageView android:id="@+id/artworkImageView" android:layout_width="wrap_content" android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_below="@id/playingText" android:layout_above="@+id/loadedText" android:layout_centerHorizontal="true"></ImageView>
+        <Button android:id="@+id/prevButton" android:layout_toLeftOf="@+id/playButton" android:layout_alignTop="@+id/playButton" android:layout_alignBottom="@+id/playButton" android:background="@drawable/blueprev" android:layout_marginRight="3dip" android:layout_width="60dip" android:layout_height="60dip"></Button>
+        <Button android:layout_toLeftOf="@+id/prevButton" android:layout_alignTop="@+id/prevButton" android:layout_alignBottom="@+id/prevButton" android:id="@+id/tracklistButton" android:background="@drawable/blueplaylist" android:layout_marginRight="3dip" android:layout_width="60dip" android:layout_height="60dip"></Button>
+        <Button android:id="@+id/stopButton" android:layout_toRightOf="@+id/playButton" android:layout_alignTop="@+id/playButton" android:layout_alignBottom="@+id/playButton" android:background="@drawable/bluestop" android:layout_marginRight="3dip" android:layout_width="60dip" android:layout_height="60dip"></Button>
+        <Button android:id="@+id/nextButton" android:layout_toRightOf="@+id/stopButton" android:layout_alignTop="@+id/stopButton" android:layout_alignBottom="@+id/stopButton" android:background="@drawable/bluenext" android:layout_width="60dip" android:layout_height="60dip"></Button>
+        <Button android:id="@+id/playButton" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:background="@drawable/blueplay" android:layout_marginRight="3dip" android:layout_width="60dip" android:layout_height="60dip"></Button>
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_above="@+id/playButton" android:id="@+id/seekBar" android:layout_centerHorizontal="true" android:layout_height="wrap_content" android:layout_marginBottom="3dip" android:layout_width="match_parent" android:layout_marginLeft="10dip"></ProgressBar>
+        <TextView android:text="Track - of -" android:layout_above="@+id/seekBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@+id/seekBar" android:id="@+id/trackOrderText"></TextView>
+        <TextView android:text="Loaded: %" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/loadedText" android:layout_above="@+id/seekBar" android:layout_alignRight="@+id/seekBar"></TextView>
+    </RelativeLayout>
+
+
