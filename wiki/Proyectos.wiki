@@ -73,6 +73,8 @@
    * *Código*: [https://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Android/AndroMessenger Ver]
    * *Tecnologías*: Android, Java, Sockets, Cliente-Servidor
 
+https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/AndroMessenger_1.png
+
  * *HomeDroidStreamer (2010)* 
    * *Descripción*: sistema de streaming de canciones MP3 para escuchar la música de tu ordenador en tu teléfono Android. Diseño del protocolo de comunicación. Sistemas desarrollados:
       * *Desktop*: envía los ficheros MP3 a reproducir al teléfono Android a través de Internet. Permite seleccionar una lista de canciones que podrán ser escuchadas desde el teléfono.
