@@ -80,7 +80,7 @@
       * *Android*: reproduce el streaming de audio MP3 enviado desde la aplicación Desktop. Muestra información ID3 de las canciones así como la carátula de la canción. Realiza la comunicación con el servidor de forma encriptada mediante SSL.
    * *Documento*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=HomeDroidStreamer.pdf Descargar]
    * *Código*: [https://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Android/HomeDroidStreamer Ver]
-   * *Tecnologías*: Android, Java, Sockets, SSL, Apache, PHP, MySQL, Cliente-Servidor, MP3, ID3, Java Swing
+   * *Tecnologías*: Android, Java, Sockets, SSL, Apache, HTML, CSS, PHP, MySQL, Cliente-Servidor, MP3, ID3, Java Swing
 
 ===<font color="#045FB4">Java</font>===
  * *RMI Numbers Game (2009)* 
@@ -107,16 +107,33 @@
 
  * *XML-SAX-DOM Study (2009)* 
    * *Descripción*: comparación e implementación de tecnologías XML, SAX y DOM en Java
-   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=XML-SAX-DOM Study.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/XML-SAX-DOM Study Ver]
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=XML-SAX-DOM%20Study.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/XML-SAX-DOM%20Study Ver]
    * *Tecnologías*: Java, XML, SAX, DOM
 
 ===<font color="#045FB4">Web</font>===
- * *aNMap (2011-2012)* 
-   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
-   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
-   * *Tecnologías*: Android, Java
+ * *JavaSccript Exercises(2008)* 
+   * *Descripción*: conjunto de ejercicios realizados mediante JavaScript.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Web%20Techs/JavaScript%20Exercises%20(JAVASCRIPT) Ver]
+   * *Tecnologías*: JavaScript, JSON, DOM, GreaseMonkey
+
+ * *MarketScraper (2008)* 
+   * *Descripción*: sistema web scraper programado en Ruby. Obtiene información de bebidas de una página web ajena y la almacena en formato XML en la base de datos no relacional eXist. Los datos posteriormente se muestran en una página web propia, pudiéndose realizar búsquedas.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Web%20Techs/JavaScript%20Exercises%20(JAVASCRIPT) Ver]
+   * *Información detallada*: [https://code.google.com/p/aap-etsiit-ugr/wiki/MarketScraperFinal Ver]
+   * *Demostración Vídeo de la web que muestra los datos obtenidos*:
+<wiki:video url="http://www.youtube.com/watch?v=UxXDQZ1GozY&hd=1"/>
+   * *Tecnologías*: Ruby,JavaScript, HTML, CSS, XML, AJAX, REST, CGI, Apache, eXist, NoSql DDBB, jQuery
+
+ * *XML Exercises (JAVASCRIPT RUBY) (2008)* 
+   * *Descripción*: conjunto de ejercicios realizados mediante JavaScript y Ruby utilizando ficheros XML. Peticiones AJAX, XPath, generación y lectura de RSS/Atom feeds...
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Web%20Techs/XML%20Exercises%20(JAVASCRIPT RUBY) Ver]
+   * *Tecnologías*: JavaScript, XML, AJAX, XPath, RSS Feeds, Atom Feeds
+
+ * *Web Services (RUBY) (2008)* 
+   * *Descripción*: conjunto de ejercicios de web services realizados mediante Ruby.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Web%20Techs/WEB%20SERVICES%20(RUBY) Ver]
+   * *Tecnologías*: Ruby, Soap, Rest, XML-RPC
 
 ===<font color="#045FB4">C/C++</font>===
  * *aNMap (2011-2012)* 
