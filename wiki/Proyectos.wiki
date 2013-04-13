@@ -167,8 +167,8 @@
 
  * *Digital Signal Processing (2005)* 
    * *Descripción*: estudios sobre procesamiento de señales analógicas realizado en Matlab/Simulink. Contiene estudios sobre modulaciones linear y angular así como transmisiones a través de canales paso banda.
-   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=Linear%20Modulation%20(MATLAB).pdf Linear Modulation Study] [http://code.google.com/p/amateos-workspace/downloads/detail?name=Angle%20Modulation%20Study%20(MATLAB).pdf Angle Modulation Study] [http://code.google.com/p/amateos-workspace/downloads/detail?name=guion.pdf Band Pass Transmissions Study]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Digital%20Signals/A:D conversion%20(MATLAB)/Code A/D Conversion] - 
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=AD%20conversion%20%28MATLAB%29.pdf.pdf AD Conversion] -  [http://code.google.com/p/amateos-workspace/downloads/detail?name=Angle%20Modulation%20Study%20(MATLAB).pdf Angle Modulation Study] 
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Digital%20Signals/#Digital%20Signals%2FA%3AD%20conversion%20(MATLAB)/Code A/D Conversion] - 
    * *Tecnologías*: Matlab, Simulink
 
 ===<font color="#045FB4">VHDL</font>===
