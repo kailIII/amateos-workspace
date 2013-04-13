@@ -1,0 +1,95 @@
+<html><head>
+
+<title> :: Marketscraper - AAP:: </title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="estilo.css" type="text/css" />
+
+<script type='application/javascript' src='scripts.js' ></script>
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// Muestra y oculta los menús
+	$('ul li:has(ul)').hover(
+		function(e)
+		{
+			$(this).find('ul').slideDown();
+		},
+		function(e)
+		{
+			$(this).find('ul').slideUp();
+		}
+	);
+});
+</script>
+
+</head>
+
+<body>
+
+<div class='slogan'>Marketscraper <br>
+
+<span class='lema'>Marketscraper es un proyecto desarrollado por Alberto Mateos para la asignatura AAP de la ETSIIT de la UGR.</span></div>
+
+<h1>Objetivo</h1>
+<p><div class='seccion'>El objetivo del proyecto marketscraper es extraer datos acerca de algunos de los productos que se venden en algunos de los supermercados m&aacute;s importantes del pa&iacute;s. En concreto, la extracci&oacute;n de datos se va a realizar a partir de la web <a href='http://www.carritus.com' target="blank">carritus.com</a> 
+De esta forma, una vez extra&iacute;dos dichos datos, &eacute;stos son almacenados en una base de datos que, por exigencias de la asignatura, estar&aacute; basada en XML (eXist DB). Posteriormente, el usuario podrá recuperar los datos almacenados en dicha base de datos a través de esta página web, <b>seleccionando los tipos de productos a mostrar a partir del menú o bien utilizando el buscador</b>.  
+</div></p>
+<h1>B&uacute;squeda de productos</h1>
+<span class='seccion'>Introduce el producto a buscar: </span>
+<form><input type='text' name='entrada' id='entrada' size='30'><select name="opcion">
+	<option value='Marca'>Marca</option>
+	<option value='Descripcion'>Descripción</option>
+</select><input type='button' name='boton' id='boton' value='Buscar'onClick=busqueda(this.form)></form>
+<div class='menu'>	
+<ul> 
+   <li>· Aguas
+      <ul> 
+         <li><a href="javascript:void(0)" onClick=peticion("11")>Con gas</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("12")>Con sabores</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("13")>Sin gas</a></li> 
+      </ul> 
+   </li> 
+   <li>· Cervezas
+      <ul> 
+         <li><a href="javascript:void(0)" onClick=peticion("21")>Especialidades</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("22")>Importación</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("23")>Light y sin alcohol</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("24")>Nacional</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("25")>Negra</a></li> 
+
+      </ul> 
+   </li> 
+   <li>· Licores
+      <ul> 
+         <li><a href="javascript:void(0)" onClick=peticion("31")>Ginebra</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("32")>Ron</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("33")>Tequila</a></li> 
+         <li><a href="javascript:void(0)" onClick=peticion("34")>Vodka</a></li> 
+      </ul> 
+   </li>
+</ul>
+</div>
+<div class='seleccionSupermercado'>
+<ul> 
+   <li>· Supermercado
+      <ul> 
+         <li><a href="javascript:void(0)" onClick=seleccionSuper("1")>Mercadona</a></li> 
+         <li><a href="javascript:void(0)" onClick=seleccionSuper("2")>Carrefour</a></li> 
+         <li><a href="javascript:void(0)" onClick=seleccionSuper("3")>Hipercor</a></li> 
+         <li><a href="javascript:void(0)" onClick=seleccionSuper("4")>El corte inglés</a></li> 
+      </ul> 
+   </li> 
+</ul>
+</div>
+<br>
+<br>
+<div class='supermercado' id='supermercado'></div>
+<br><br>
+<div id='cargando'></div>
+<div class='resultados' id='resultados'></div>
+
+</body>
+
+</html>

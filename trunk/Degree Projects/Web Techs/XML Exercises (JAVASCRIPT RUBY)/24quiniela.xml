@@ -1,0 +1,94 @@
+<?xml version="1.0" ?> 
+
+<quiniela> 
+	<partido id="1">
+		<local>Mallorca</local>
+		<visitante>Sevilla</visitante> 
+		<resultado>X</resultado>
+	</partido> 
+
+	<partido id="2">
+		<local>Zaragoza</local>
+		<visitante>Getafe</visitante> 
+		<resultado>2</resultado>
+	</partido> 
+
+	<partido id="3">
+		<local>Barcelona</local>
+		<visitante>Almería</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+	<partido id="4">
+		<local>Athletic</local>
+		<visitante>Real Madrid</visitante> 
+		<resultado>2</resultado>
+	</partido> 
+
+	<partido id="5">
+		<local>Sporting</local>
+		<visitante>Osasuna</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+	<partido id="6">
+		<local>Atlético Madrid</local>
+		<visitante>Real Sociedad</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+	<partido id="7">
+		<local>Hércules</local>
+		<visitante>Español</visitante> 
+		<resultado>X</resultado>
+	</partido> 
+
+	<partido id="8">
+		<local>Rácing</local>
+		<visitante>Levante</visitante> 
+		<resultado>X</resultado>
+	</partido> 
+
+	<partido id="9">
+		<local>Málaga</local>
+		<visitante>Deportivo</visitante> 
+		<resultado>X</resultado>
+	</partido> 
+
+	<partido id="10">
+		<local>Elche</local>
+		<visitante>Gimnastic</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+	<partido id="11">
+		<local>Cartagena</local>
+		<visitante>Recreativo</visitante> 
+		<resultado>2</resultado>
+	</partido> 
+
+	<partido id="12">
+		<local>Xerez</local>
+		<visitante>Beis</visitante> 
+		<resultado>2</resultado>
+	</partido> 
+
+	<partido id="13">
+		<local>Celta</local>
+		<visitante>Valladolid</visitante> 
+		<resultado>2</resultado>
+	</partido> 
+
+	<partido id="14">
+		<local>Girona</local>
+		<visitante>Las Palmas</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+	<partido id="15">
+		<local>Valencia</local>
+		<visitante>Villareal</visitante> 
+		<resultado>1</resultado>
+	</partido> 
+
+</quiniela>

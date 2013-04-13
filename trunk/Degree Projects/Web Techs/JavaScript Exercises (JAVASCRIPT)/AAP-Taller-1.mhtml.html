@@ -1,0 +1,1311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Language" content="es">
+    <meta name="generator" content="XEmacs + HTML::Mason + mod_perl">
+    <title>Arquitecturas de Altas Prestaciones:Taller 1. Introducción al lenguaje de programación Javascript</title>
+    <meta name="AUTHOR" content="Juan Julián Merelo Guervós">
+    <meta name="keywords" content="Computación distribuida, computación paralela, p2p, overlay, grid, evaluación de prestaciones, javascript">
+    <meta name="description" content="Introducción rápida al lenguaje Javascript">
+
+    <link rel="stylesheet" type="text/css" href="AAP-Taller-1.mhtml_files/AAP.css" title="normal">
+    <link rel="stylesheet" type="text/css" href="AAP-Taller-1.mhtml_files/highlight.css" title="normal">
+    <link rel="shortcut icon" href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/AAP.png" type="image/x-icon">
+  </head><body>
+<h1><a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/">Arquitecturas de Altas Prestaciones</a>: T1
+      Taller 1. Introducción al lenguaje de programación Javascript</h1>
+
+
+
+
+<div class="objetivos"> <ul>
+	  
+	  <li>Necesidad de este lenguaje de programación en la asignatura</li>
+	  
+	  <li>Aprender qué es Javascript</li> 
+
+	  <li>Aprender la sintaxis de Javascript</li> 
+
+	  <li>Usar objetos y clases en Javascript</li>
+	  
+	  <li>Realizar un pequeño ejemplo en Javascript</li>
+
+      </ul>
+</div>  
+
+<div class="nav"><ul>
+	<li> <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/"><em>Página de la
+	      asignatura</em></a></li>
+	<li> <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/AAP-Tema-1.mhtml"><em>Tema primero: Introducción</em></a></li>
+	<li> <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/AAP-Taller-2.mhtml"><em>Tema siguiente</em></a></li>
+	<li> <a href="http://geneura.ugr.es/%7Ejmerelo/">Página del profesor</a></li>
+	<li><a href="http://del.icio.us/jmerelo/aap">Enlaces en del.icio.us
+	    relacionados con la asignatura.</a></li>
+      </ul>
+    </div>
+
+<h2><a name="T1:t1:intro">T1.1 ¿Javascript? Pero si es muy fácil </a> <a href="#T1:t1:intro" style="font-size: small;">#</a></h2>
+
+
+
+<p>Nadie en su sano juicio usaría el Javascript en un curso de
+      arquitecturas de altas prestaciones. Javascript es un lenguaje
+      interpretado, que se ejecuta principalmente en el navegador, y
+      fuera de él casi no se usa. No está diseñado para realizar
+      cálculo intensivo, como el <a href="http://es.wikipedia.org/wiki/Fortran">Fortran</a> (nadie en su sano
+      juicio enseñaría hoy Fortran, de todas maneras), ni hay ningún
+      tipo de sistema operativo o procesador o lo que sea optimizado
+      para trabajar con Javascript. Pero la cuestión es que los
+      navegadores, que son los nuevos sistemas operativos, sí que lo
+  están. Y por eso es importante aprender a trabajar con él.</p>
+
+<p>Por eso, frente a otros lenguajes, Javascript tiene una ventaja. Está <em>en todas
+      partes</em>. No hay ordenador sin navegador, ni hay navegador sin
+      Javascript (salvo en móviles y algunos PDAs). Se puede ejecutar
+      hasta en el navegador Opera que viene con la Wii. Y no cabe duda
+      que una de las ventajas que ofrece la computación de altas
+      prestaciones en su vertiente distribuida es el poder abarcar
+      cuantos más dispositivos mejor. Por eso Javascript es la
+      elección adecuada.</p>
+
+<p>El que esté en tantos dispositivos se debe en parte a que ha sido definido como un estándar
+      ECMA. Esto da lugar a muchas implementaciones diferentes, que
+      son, además, independientes del fabricante. Y, por otro lado,
+      todas las implementaciones suelen usar un conjunto de objetos
+      estándar (que no son estrictamente parte de un lenguaje) que se pueden
+      usar para añadir funcionalidad a una aplicación. Muchas
+      aplicaciones complejas, como <a href="http://gmail.com/">GMail</a> o <a href="http://docs.google.com/">Google docs</a> dependen de
+      estos objetos para crear aplicaciones en la web que se comporten
+      como si se ejecutaran en un sistema operativo nativo.</p>
+
+<p>Además, a diferencia de otros lenguajes, es muy fácil crear una
+      aplicación distribuida con Javascript (ojo, no digo <em>en</em>
+      Javascript, porque hará falta algún otro lenguaje de
+      programación en la parte del servidor). Tanto por su integración
+      con el navegador (parte inseparable de la web, una arquitectura
+      cliente-servidor) como por los objetos que suele tener el mismo,
+      crear una aplicación cliente-servidor es casi trivial y ha dado
+      lugar a un estilo de programación denominado <a href="http://es.wikipedia.org/wiki/AJAX">AJAX</a>.</p> 
+
+<div class="aclara">Por lo que he probado, SpiderMonkey, Rhino y
+      KJSCMD se instalan fácilmente en Ubuntu; no hay más que hacer
+      <code>aptitude search javascript</code> y salen esos y alguno más. Fedora
+      Core es un poco más rácano en cuanto a entornos: aunque los
+      puedes instalar bajándote los fuentes y compilando, el que está
+      disponible en los repositorios es uno llamado sólo <code>js</code>,
+      aparentemente el SpiderMonkey. Para instalarlo, 
+escribir <code>yum install js</code>. Para los ejemplos que vienen en este tema, 
+      sustituir <code>#!/usr/bin/smjs</code> por <code>#!/usr/bin/js</code> . En cuanto a
+      Windows, las últimas versiones permiten ejecutar un dialecto de
+      JS simplemente ejecutando, desde la línea de órdenes, <code>cscript
+    loquesea.js</code>. Puede, sin embargo, que todas las funciones no
+      estén disponibles, por lo que aconsejamos que se use Linux (en
+      general, pero también para esta asignatura). </div>
+
+<p>Para ejecutar Javascript no hace falta más que un navegador, pero
+      también hay entornos para trabajar con él de forma autónoma, tal
+      como el <a href="http://www.mozilla.org/js/spidermonkey/">Mozilla
+      SpiderMonkey</a>, que últimamente ha sido sustituida por <a href="http://www.mozilla.org/projects/tamarin/">Tamarin</a> y
+      el <a href="http://www.mozilla.org/rhino/">Rhino</a>, éste último
+      basado en 
+      Java. Conviene instalar alguno de ellos para poder ejecutar los
+      programas de ejemplo; por ejemplo, para instalar el primero
+      habrá que ejecutar (desde la consola de administrador o
+      superusuario):</p>
+<div class="ejemplo">bash% apt-get install smjs</div>
+<p>En cuanto a los navegadores, puede que
+      haga falta activar Javascript para que lo entiendan. Por
+      ejemplo, en Firefox hay que activarlo usando Edit -&gt;
+      Preferencias -&gt; Contenido -&gt; Activar Javascript.</p>
+
+<div class="aclara">Si usas Eclipse, puede que te venga bien el <a href="http://www.interaktonline.com/Products/Eclipse/JSEclipse/Documentation/">plugin para Eclipse</a>, pero, la verdad, yo no he conseguido que haga gran cosa. Igual al atento lector le funciona correctamente. Por otro lado, el <code>xemacs</code> va de lujo. </div>
+
+
+<p>En realidad, esa integración con el navegador puede que haya
+  estorbado a la aceptación de JS como un lenguaje <em>decente</em>;
+  tampoco ha ayudado que la mayoría de las librerías que se hayan
+  desarrollado estén relacionadas precisamente con la Web, y no
+  tenga una librería madura para, pongamos por caso, acceder a
+  bases de datos (aunque, poco a poco, <a href="http://taffydb.com/">también las va habiendo</a>). Pero también ha permitido que el lenguaje siga
+  siendo <em>pequeño</em>, y se haya desarrollado principalmente a base
+  de añadir objetos y clases externas al mismo. En resumen, que en
+  el marco de eso que se ha venido en llamar <a href="http://es.wikipedia.org/wiki/Web_2.0">web 2.0</a> JS se
+  ha convertido en adulto (y mucho más desde que ha sido usado
+  para <a href="http://www.kingsquare.nl/jsc64">crear un emulador
+    del ordenador clásico Commodore 64</a>), y merece la pena estudiarlo como
+  cualquier otro lenguaje, o incluso más, ya que la mayoría de las
+  aplicaciones basadas en web (o todas) lo usan.</p>
+
+<div class="aclara">ActionScript, el lenguaje con el que se programan
+  las aplicaciones
+  Flash, <a href="http://www.mozilla.org/projects/tamarin/faq.html#JSvsAS">es
+  una implementación del mismo estándar</a>. Si tienes un entorno de
+  desarrollo de Flash, posiblemente también podrás usar ECMAScript en
+  esta versión</div>
+
+<p>Javascript se puede desarrollar en cualquiera de los entornos
+	habituales, tales como Eclipse y NetBeans, pero también hay
+	<abbr title="Integrated development environment, entornos de
+	desarrollo integrados">IDE
+	específicos</abbr>, <a herf="http://www.aptana.com/">Aptana
+	Studio</a> y  <a href="http://www.yaldex.com/JSFactory_Pro.htm">1st Javascript
+	Editor</a>, que es de pago, pero pueden conseguirse versiones
+      de evaluación gratuitas. </p> 
+
+    <div class="ejercicios" id="ej.T1.1">
+<h3>Bloque T1.1</h3>
+<ol>
+<li>Instalar un intérprete de Javascript y familiarizarse con el
+      uso del mismo en el navegador. 
+	</li>
+<li>Comentar en el wiki diferentes lenguajes que se puedan
+	  usar en el navegador, y qué ventajas e inconvenientes tiene
+	  cada uno.
+</li>
+</ol>
+</div>
+
+
+
+
+
+<p>Algunas respuestas de alumnos de años anteriores:
+  de <a href="http://victorgvg.blogspot.com/2008/03/ejercicios-bloque-t11.html">Víctor</a>
+  y <a href="http://jose-aap.blogspot.com/2008/03/ejercicios-bloque-t11.html">Jose</a>.</p> 
+
+<h2><a name="T1:t2:1p">T1.2 Primer programa en
+    Javascript </a> <a href="#T1:t2:1p" style="font-size: small;">#</a></h2>
+
+
+
+
+<code class="ejemplo">#!/usr/bin/smjs
+print( 'Hola, Mundo' );</code>
+
+<p>En realidad, el JS es bastante parecido al C, y, para el caso,
+      también al Java. Este programa producirá:
+<code class="ejemplo">jmerelo@vega:~/txt/docencia/AAP/Temario$ code/js/hola.js
+Hola, Mundo</code>
+Todas las opciones del shell javascript están
+en <a href="https://developer.mozilla.org/en/Introduction_to_the_JavaScript_shell">este
+  manual en Mozilla</a>.</p>
+
+<div class="aclara">En Windows y usando la línea de órdenes se debe
+  sustituir <code>print</code> por <code>WScript.echo</code>. También
+  puedes
+  bajarte <a href="http://www.stanford.edu/class/cs242/spidermonkey/">un
+  binario de SpiderMonkey</a>, o compilarlo por tu cuenta.</div>
+
+<p>Para ejecutarlo desde el navegador habrá que hacer una poca más de
+      historia, pero tampoco tanto. Para empezar, si el código no es
+      muy extenso se puede hacer directamente desde la consola de
+      Javascript, que se obtiene de diferentes formas: en Chrome, por
+      ejemplo, se pulsa sobre el icono de la página, y "Opciones para
+      desarrolladores" seguido de "consola Javascript". Lo vemos en <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/hola-js.html">este ejemplo (darle a ver fuente
+	para ver el código)</a> donde se incluye el programa en JS de
+      esta forma:</p>
+<code class="ejemplo">&lt;script type='text/javascript' src='hola.js'&gt;&lt;/script&gt;</code>
+
+<p>El problema es que, en este caso, la orden <code>print</code> se
+      interpreta como impresión por impresora, y habrá que cambiarla
+      por otra que signifique lo mismo, escribir en el dispositivo de
+      salida que se esté <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/hola-js-2.html">usando</a>:</p>
+<code class="ejemplo">document.writeln('Hola, Mundo')</code>
+
+<p>Lo que también se puede escribir directamente <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/hola-js-3.html">así</a>:</p>
+<code class="ejemplo">&lt;script
+      type='text/javascript'&gt;document.writeln('Hola, Mundo')&lt;/script&gt;</code>
+
+<!-- <p>Puedes probarlo también, si te has dado de alta, en <a -->
+<!-- 	href='http://codeide.com'>CodeIDE</a>, donde te daría un -->
+<!--       resultado similar al que observamos abajo: -->
+<!-- <img src='imagenes/codeide.png' alt='captura pantalla codeide' /> -->
+
+<p>Vistas ya las mil y una formas de escribir cosas en la pantalla,
+      procedamos a temas más escabrosos, como lo que viene siendo
+      hacer algo <em>realmente</em>. Por ejemplo, un bucle que cree una tabla HTML, como se hace en el siguiente <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/tabla.js">programilla</a>:</p>
+<code class="ejemplo">var tabla="table";
+var celda="td";
+var fila="tr";
+var matriz = [1,2,3];
+print( "&lt;"+tabla+"&gt;");
+for (i in matriz ) {
+  print( "&lt;"+fila+"&gt;");
+  for ( j in matriz ) {
+    print ("&lt;"+celda+"&gt;"+matriz[i]*matriz[j]+"&lt;/"+celda+"&gt;");
+  }
+  print ("&lt;/"+fila+"&gt;\n");
+ }
+print ("&lt;/"+tabla+"&gt;");
+    </code>
+
+<p>Este programa tiene dos bucles anidados, que imprimen un producto
+      dentro de una tabla. La salida será tal que así (ver el fuente
+      para la estructura):</p>
+<table>
+<tbody><tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+
+</tbody></table>
+
+<p>El programa es más complicado de lo que parece. Para declarar
+      variables en JS se usa el genérico <code>var</code>, aunque
+      también se pueden declarar tipos específicos. Para no pillarnos
+      los dedos, usamos var. En realidad, tampoco hace falta:
+      simplemente usando una variable aparece mágicamente. Con las
+      matrices ocurre igual (es decir, se declaran y se les asigna
+      valor directamente)  : <code>matriz</code> lo es, y simplemente
+      se declaran sus valores entre corchetes. </p>
+
+<p>Los bucles tienen la apariencia habitual, y se pueden usar igual
+      que en C (es decir, con el clásico for i=0, i &lt;...), pero
+      haremos un bucle que recorra la matriz, usando un 
+      <em>iterador</em> <code>i</code>, que en este caso se comporta como una variable
+      de bucle de las de toda la vida. Usamos el <code>+</code> para
+      concatenación de cadenas, y poco más. El resto es como el C, o
+      el Java. De hecho, se pueden usar los bucles clásicos con
+      comparación e incremento, como se muestra en <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/tabla1.js"><code>tabla1.js</code></a>:</p>
+<code class="ejemplo">for (i=1; i&lt;=3; i++ ) {
+  print( "&lt;"+fila+"&gt;");
+  for ( j=1; j&lt;=3; j++  ) {
+    print ("&lt;"+celda+"&gt;"+i*j+"&lt;/"+celda+"&gt;");
+  }
+  print ("&lt;/"+fila+"&gt;\n");
+ }
+    </code>
+
+<p>Aunque queda un poco torpe tanto &lt;&gt;... vamos a reducir un
+      poco el programa, haciéndolo <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/tabla2.js">más
+	elegante </a> (aunque más largo: no se puede tener todo):</p>
+
+<code class="ejemplo">
+var matriz = [1,2,3];
+print( marca('table'));
+for (i in matriz ) {
+  print( marca( 'tr' ));
+  for ( j in matriz ) {
+    print ( celda(matriz[i]*matriz[j]));
+  }
+  print ( finmarca('tr'));
+}
+print (finmarca('table'));
+
+function marca( m ) {
+  return "&lt;"+m+"&gt;";
+}
+
+function finmarca( m ) {
+  return "&lt;/"+m+"&gt;";
+}
+
+function celda( contenido ) {
+  return marca("td")+contenido+finmarca("td");
+}</code>
+
+<p>La principal diferencia con respecto al anterior es el <strong>uso de
+      funciones</strong>. Las funciones en JS tienen una estructura bastante
+      clásica: <code>function</code> nombre-de-función (param1, param2...). Una
+      vez más, se nota que JS no es un lenguaje con tipos fuertes,
+      pudiendo pasar los parámetros sin tipo, y adaptándose dentro de
+      la función al tipo necesario. Y estos parámetros se pasan por valor, es decir,
+      que las modificaciones al parámetro formal no se trasladan a la
+      variable que se use. Además, se pueden declarar donde a
+    uno le dé la gana. Para llamarlas tampoco hay que hacer nada
+      especial, se usa el clásico paréntesis. La salida es exactamente
+    la misma que antes. El también clásico <code>return</code> devuelve un valor.
+    </p>
+
+<p>El ámbito de las variables es el bloque donde aparecen o se
+      declaran, pero hay que tener en cuenta que, a efectos de JS, una
+      página web es un <em>programa</em>. Se pueden declarar variables en la
+      cabecera del documento HTML, y estarán accesibles en cualquier
+      otro sitio, siempre que esté mas adelante en el
+      documento (porque los programas javascript se ejecutan en el
+      mismo orden en el que se carga el documento). También habrá que tener en cuenta, en caso de que
+      esté incluido en una página web, que aunque la declaración de
+      una subrutina afecte a todo el programa, puede que esa parte de
+      la página no se haya cargado todavía, con lo que no estará
+      disponible. Una vez más, la programación distribuida no es totalmente
+      igual a la programación en otros lenguajes. </p>
+
+    <div class="ejercicios" id="ej.T1.2">
+<h3>Bloque T1.2</h3>
+<ol>
+<li>Hacer una función que devuelva una tabla en HTML con el
+	  número de filas y columnas que se le pasen como
+	  parámetro.
+</li>
+</ol>
+</div>
+
+
+
+
+
+<h2><a name="T1:t2:clases">T1.3 Clases y objetos en Javascript </a> <a href="#T1:t2:clases" style="font-size: small;">#</a></h2>
+
+
+
+<p>Javascript es un lenguaje basado en objetos, aunque un tanto
+      peculiar; en realidad, de casi todas las características de un
+      lenguaje orientado a objetos, solo tiene los objetos, e incluso
+      estos son de aquella manera. Por eso no es exactamente <em>dirigido a objetos</em> u <em>orientado a objetos</em>. Las características las veremos en el siguiente <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/quiniela.js">programa</a>, que podría servir
+      para hacer quinielas.</p>
+<code class="ejemplo">
+var equipos= new Array('Madrid', 'Barça', 'Atleti', 'Geta', 'Betis', 'Depor', 'Sevilla', 'Graná');
+
+   // Definición de la clase Partido
+function Partido(local,visitante) {
+  this.local = local;
+  this.visitante=visitante;
+  this.resultado=null;
+}
+
+var midsize = equipos.length/2;
+var quiniela = new Array( midsize );
+for ( i=0; i &lt; midsize ; i++ ) {
+  var equipo1 = equipos.splice(Math.floor( equipos.length*Math.random()) , 1);
+  var equipo2 = equipos.splice(Math.floor( equipos.length*Math.random()), 1);
+  quiniela[i] = new Partido( equipo1, equipo2 );
+ }
+
+for ( i in quiniela ) {
+        print( "Partido " + (parseInt(i)+1)+": " + quiniela[i].local + " - " + quiniela[i].visitante);
+ }
+    </code>
+
+<p>Con lo primero que nos enfrentamos es con una nueva forma de
+      definir una matriz o <code>Array</code>: ya que sabemos que JS es OO, pues
+      usamos una forma OO de definirlo, mediante la orden <code>new</code>, que,
+      como en Java y en C++, crea un nuevo objeto llamando al
+      <em>constructor</em> del mismo. En este caso le pasamos directamente
+      los elementos que constituyen el vector o <em>array</em>, pero
+      podríamos haberle pasado el tamaño de esta forma:
+<code class="ejemplo">var myArray = new Array(33);</code>
+Los objetos así creados son objetos de pleno derecho, y se puede
+      acceder a sus propiedades y métodos usando también una
+      sintaxis clásica: el puntito <code>.</code> tras el nombre de la
+      variable. Por ejemplo, <code>myArray.length</code> devolvería el tamaño de
+      la matriz</p>
+
+<p>Pero como lo que se trata en este programa es de definir nosotros
+      una clase, lo hacemos en las líneas siguientes, en la función
+      <code>Partido</code>, que convencionalmente ponemos en mayúscula, para
+      indicar que es un nombre de clase. En realidad, una clase en
+      JS es una función dentro de la cual se le asigna un valor a la
+      variable <code>this</code>, como en esta: cada uno de los elementos de la
+      variable <code>this</code> será una variable de instancia. Como se ve, aquí
+      no hay encapsulación ni perrito que le ladre. </p>
+
+<p>Lo que vamos a crear es un vector de estos partidos, e irle
+      asignando valores extraidos aleatoriamente. Mientras tanto,
+      usamos los métodos que llevan objetos de clases estándar JS;
+      igual que otros lenguajes tienen librería estándar, JS tiene
+      clases estándar: <code>Array</code>, que ya hemos visto, y <code>Math</code>. Lo que
+      usamos de <code>Math</code> son métodos de clase, no de instancia, tales
+      como <code>Math.random</code>, que genera un número aleatorio entre 0 y
+      1. También se usa un método de instancia, <code>splice</code>, que extrae
+      una parte del vector de equipos; extraemos el seleccionado, para
+      que no dé por saco mientras generamos el resto de la guiniela. 
+    </p>
+
+<p>Y el objeto lo creamos mediante una clásica llamada: </p>
+<code class="ejemplo"> quiniela[i] = new Partido( equipo1, equipo2 );</code>
+
+<p>Más adelante usamos un bucle <code>in</code> para escribir los valores de cada
+      uno de los partidos; las variables no están encapsuladas, así
+      que se puede acceder a ellas directamente: <code>partido.local</code>, por
+      ejemplo. Hay también un pequeño truco: el uso de <code>parseInt</code>
+      dentro de <code>print</code> para que se interprete <code>i</code> como un número
+      entero, no como una cadena, y, por tanto, el <code>+</code> que lo sigue
+      como una suma normal y no una concatenación de cadenas. <code>i+1</code>
+      daría <code>11</code>, mientras que <code>parseInt(i)+1</code> dará 2.</p>
+
+<p>Y el resultado, aleatorio por supuesto, será algo así
+      como esto :
+<code class="ejemplo">Partido 0: Graná - Atleti
+Partido 1: Madrid - Depor
+Partido 2: Betis - Barça
+Partido 3: Sevilla - Geta</code>
+
+</p><p>La declaración de métodos de clase se hace más o menos de la misma forma, que
+      no es muy ortodoxa, pero es la que hay. Lo veremos en <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/quiniela2.js">el siguiente programa</a>, del que
+    sacamos el fragmento más interesante:</p>
+<code class="ejemplo">// Definición de la clase Partido
+function Partido(local,visitante) {
+  this.local = local;
+  this.visitante=visitante;
+  this.resultado=null; //Estas son variables
+  this.setResultado = setResultado;
+  this.toString = toString; // y estos son métodos de clase
+}
+
+function setResultado( esteResultado ) {
+  if ( esteResultado == '1' || esteResultado=='x' || esteResultado=='2' ) // sólo valores válidos
+    this.resultado = esteResultado;
+}
+
+function toString() {
+    return "Partido " + i + ": " + quiniela[i].local + " - " + quiniela[i].visitante + " = "+ this.resultado;
+}</code>
+
+<p>Añadimos un par de funciones, y para que <em>pertenezcan</em> a la clase,
+      hala, con un <code>this</code> por aquí y un <code>this</code> por allá,
+      solucionado. Es de buen gusto llamar al método con el mismo
+      nombre que la función, para no despistarse; también seguir una
+      cierta convención para ponerles nombres: <code>get</code>, o <code>to</code>, o cosas
+      por el estilo. Lo que no es de recibo es llamar a una función
+      que cambia el valor de la variable igual que la variable, porque
+      entonces nos liamos. Y como ya hemos visto antes como se llama a
+    los métodos de instancia, pues listos. No se hable más.</p>
+
+<div class="ejercicios" id="ej.T1.3">
+<h3>Bloque T1.3</h3>
+<ol>
+<li> Hacer una clase que corresponda a una fila de una tabla, con número
+    de columnas variable, y un programa que permita crear e imprimir una tabla
+    usándolo.
+</li>
+</ol>
+</div>
+
+
+
+
+
+<h2><a name="T1:t1:hash">T1.4 Matrices asociativas </a> <a href="#T1:t1:hash" style="font-size: small;">#</a></h2>
+
+
+
+<p>Pero hay más matrices, aparte de las lineales: JS, como muchos
+      otros lenguajes, permite trabajar con <em>matrices asociativas</em>
+      (también llamadas <em>diccionarios</em> o <em>hashes</em>). En una matriz
+      asociativa, la clave es una cadena, en vez de un número, lo que
+      le da mucha más flexibilidad a la hora de almacenar
+      información. En un vector, se accede a cada uno de los elementos
+      del vector a través de un índice numérico, y eso implica también
+      un orden en su estructura (y, a veces, una continuidad en su
+      almacenamiento, aunque no necesariamente tiene que ser así). Es
+      decir, un vector lineal es un grupo de parejas (0, valor[0], 1,
+      valor[1],...., n, valor[n]). De hecho, como los números suelen
+      ser sucesivos, muchas veces se dan por sobreentendidos, de forma
+    que para trabajar con un vector (asignarle valores, por ejemplo)
+      sólo se usan sus valores: valor[0], valor[1],..., valor[n].</p>
+
+<p>Sin embargo, una matriz asociativa, diccionario o <a href="http://es.wikipedia.org/wiki/Tabla_hash">Tabla_hash</a>
+      (o simplemente <em>hash</em>) está compuesta por una serie de pares
+      (cadena alfanumérica, valor): (cadena<sub>1</sub>, valor<sub>1</sub>,
+      cadena<sub>2</sub>,valor<sub>2</sub>... cadena<sub>n</sub>,
+      valor<sub>n</sub>). Los valores están asociados a su cadena
+      correspondiente; de forma que la forma de acceder a los valores
+      es a través de la cadena alfanumérica usada para indexarlos, que
+      se suele denominar <em>clave</em> (<em>key</em>). Casi todos los lenguajes
+      de programación tienen alguna forma de usar estas matrices
+      asociativas. Por ejemplo, en Perl:
+<code class="ejemplo">my %matrizAsociativa; # % para matrices asociativas
+$matrizAsociativa{'variable'}='Valor'; # { para las claves
+print $matrizAsociativa{'variable'};</code>
+devolvería <code>Valor</code>. </p>
+
+  <p>En <a href="http://www.zenspider.com/Languages/Ruby/QuickRef.html#13">Ruby</a> funciona de forma similar: usando corchetes para acceder al valor, y usando <code>=&gt;</code> para asignarlo:
+<code class="ejemplo">matriz_asociativa = { 'esta_clave' =&gt; 'este_valor'}
+  puts matriz_asociativa['esta_clave']</code>
+  </p>
+
+
+<p>Las usaremos en el <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/liga.js">siguiente programa</a>, que genera
+      aleatoriamente 10 jornadas de una liga, y asigna puntuación
+      según los resultados:</p>
+<code class="ejemplo">load('Partido.js');
+
+var equipos= new Array('Madrid', 'Barça', 'Atleti', 'Geta', 'Betis', 'Depor', 'Sevilla', 'Graná');
+
+function jornada( estosEquipos ) {
+
+  var equiposAqui = new Array;
+  equiposAqui = equiposAqui.concat(estosEquipos);
+  var midsize = equiposAqui.length/2;
+  var quiniela = new Array( midsize );
+  var unox2 = new Array( '1','x','2');
+  for ( var i=0; i &lt; midsize ; i++ ) {
+    var equipo1 = equiposAqui.splice(Math.floor( equiposAqui.length*Math.random()) , 1);
+    var equipo2 = equiposAqui.splice(Math.floor( equiposAqui.length*Math.random()), 1);
+    quiniela[i] = new Partido( equipo1, equipo2 );
+    quiniela[i].setResultado( unox2[Math.floor( 3*Math.random()) ]);
+  }
+  return quiniela;
+}
+
+var quinielas = new Array;
+for ( var i = 0; i &lt; 10; i ++ ) {
+  quinielas[i] = jornada( equipos ); 
+}
+
+var resultados= new Array;
+for ( var i in equipos ) {
+  resultados[equipos[i]]=0;
+ }
+for ( var i = 0; i &lt; quinielas.length; i ++ ) {
+  for ( var j = 0;j &lt; quinielas[i].length; j ++ ) {
+    var local = quinielas[i][j].local;
+    var visitante = quinielas[i][j].visitante;
+    var resultado = quinielas[i][j].resultado;
+    if ( resultado == 1 ) {
+      resultados[local]+=3;
+    } else if ( resultado == 'x' ) {
+      resultados[local]+=1;
+      resultados[visitante]+=1;
+    } else { // resultado == 2
+      resultados[visitante]+=3
+    }
+  }
+ }
+
+for ( var i in resultados ) {
+  print( i + ": " + resultados[i])
+ }
+    </code>
+
+<p>En parte, este programa es similar a los anteriores: la parte que
+      generaba cada jornada está ahora en una función, que devuelve un
+      <code>array</code> de resultados, que se guardan en el array
+      <code>quinielas</code>. Hemos sacado, además, la definición de la clase
+      <code>Partido</code> a un fichero externo, que cargamos con <code>load</code>. Por
+      otro lado, como a la función <code>jornada</code> se le pasa una referencia
+      al vector con los equipos, tenemos que copiarlo a una variable
+      local, definiéndola (<code>equiposAqui</code>), y concatenándole (<code>concat</code>)
+      el vector que se le pasa por valor, que es igual que copiarlo,
+      pero se hace en una sola orden.</p>
+
+<p>El truco está a partir de la definición de la
+      variable <code>resultados</code>. Esta variable es una matriz asociativa
+      que contendrá la puntuación de los equipos, y estará indexada
+      por el nombre del equipo. Se declara igual que los demás arrays,
+      y, para inicializarlo, vamos extrayendo los valores del vector
+      de equipos, y usándolos como clave:
+<code class="ejemplo">resultados[equipos[i]]=0;</code>
+<code>equipos[i]</code> valdrá sucesivamente Barça, Graná... y así se irán
+      inicializando a 0 los valores correspondientes. Si no se
+      inicializan, la primera vez que se usa una variable tiene el
+      valor <code>NaN</code>, con el que no se puede hacer nada. Es así de
+      arisco. </p>
+
+<p>Más adelante se va recorriendo en un bucle doble los partidos de
+      cada una de las jornadas, y asignando puntuación dependiendo del
+      resultado de la quiniela. Se usa la construcción <code>if... else if
+      ... else</code>, que funciona de la forma habitual, aunque también
+      podríamos haber usado <code>switch</code>, como en <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/liga2.js">el siguiente programa</a>, que en lo
+      único que cambia es en estas líneas:</p>
+<code class="ejemplo">    switch (resultado) {
+    case '1':
+      resultados[local]+=3;
+      break;
+    case 'x':
+      resultados[local]+=1;
+      resultados[visitante]+=1;
+      break;
+    default:
+      resultados[visitante]+=3;
+    }
+  }
+    </code>
+<p>y que viene a ser como el anterior, pero con <code>case</code>s en vez de
+      <code>if</code>s. Vamos, tres cuartos de lo mismo. Nótese el uso de
+      <code>default</code> para todos los valores no incluidos en los
+      anteriores; en este caso sería simplemente el '2'. </p>
+
+<div class="ejercicios" id="ej.T1.4">
+<h3>Bloque T1.4</h3>
+<ol>
+<li>Modificar el programa anterior (cualquiera de ellos) para que
+    contabilice el número de partidos ganados, empatados y perdidos.
+</li>
+</ol>
+</div>
+
+
+
+
+
+<h2><a name="T1:t1:manejando_objetos">T1.5 Manejando Objetos y
+    Clases Estándar </a> <a href="#T1:t1:manejando_objetos" style="font-size: small;">#</a></h2>
+
+
+
+<p>En realidad, todo en Javascript es un objeto, y especialmente los
+      vectores: tanto los vectores tradicionales como las matrices
+      asociativas como los objetos se representan internamente de la
+      misma forma, y te puedes referir a ellos de diferentes
+      maneras. Vamos a usar el depurador interactivo para verlo,
+      ejecutando simplemente <code>rhino</code>, <code>smjs</code>, <code>js</code>, <code>d8</code> o <code>kjs</code> en la línea de
+      comandos (imagino que en Windows se ejecutará <code>cscript</code>, quizás
+      con alguna opción)
+      simplemente, o . Una vez hecho, tecleamos las siguientes órdenes:
+<code class="ejemplo"><strong>js&gt; foo = new Array</strong>
+
+<strong>js&gt; foo.cero='Cero'</strong>
+Cero
+<strong>js&gt; foo[1] = 'Uno'</strong>
+Uno
+<strong>js&gt; foo['dos'] = 'Dos'</strong>
+Dos
+<strong>js&gt; foo.dos</strong>
+Dos
+<strong>js&gt; foo['cero']</strong>
+Cero
+<strong>js&gt; for ( i in foo) { print(foo[i]);}</strong>
+Cero
+Uno
+Dos</code>
+Hay que teclear lo que se encuentra detrás de <code>js&gt;</code>; cada segunda
+      línea es la respuesta del intérprete a nuestras órdenes. En la
+      primera, creamos un vector, y le asignamos valor a tres
+      elementos de formas diferentes: usando la notación de objeto
+      (con el .) para el 0, la notación de vector para el 1, y la
+      notación de matriz asociativa para el 2. Luego se ve que,
+      independientemente de cómo se haya asignado el valor, se puede
+      usar cualquier otra notación para acceder al elemento; y,
+      finalmente, vemos como se puede recorrer de forma uniforme el
+      array usando sus componentes mediante la orden <code>in</code>. </p>
+
+<p>Por eso precisamente, hay que tener un poco de cuidado con estos
+      arrays asociativos que se comportan un poco como les da la
+      gana. Es conveniente usar para ellos <code>Object</code>, que es lo que
+      son, en vez de <code>Array</code>. De hecho, si en lo anterior sustituimos
+      <code>Array</code> por <code>Object</code> dará exactamente el mismo resultado. Por
+      eso <a href="http://www.andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/">se consideran perniciosas los arrays asociativos en JS</a>, pero es simplemente una cuestión de convención. </p>
+
+<p>No todo va a ser público en un objeto; también pueden tener su
+      intimidad guardada en variables privadas:</p>
+<code class="ejemplo"><strong>js&gt; function Foo( bar ) { this.bar = bar; var privada = 7;}</strong>
+<strong>js&gt; var este_foo = new Foo( 'correquetepillo' );</strong>
+
+<strong>js&gt; print(este_foo.bar)</strong>
+correquetepillo
+<strong>js&gt; print(este_foo.privada)</strong>
+undefined</code>
+<p>Es tan secreta, de hecho, que ni siquiera te dice que no existe:
+      simplemente que su valor está indefinido. </p>
+
+<p>El propio estándard Javascript (ECMAScript) define una serie de
+      clases que se pueden instanciar, que corresponderían a la
+      librería estándar (o librería estándar de clases) en otros
+      lenguajes. Una de ellas ya la hemos visto: la clase
+      <code>Array</code>. Otra es la clase <code>String</code>, que se usa para manejar
+      cadenas alfanuméricas, chorros de 0s y 1s. 
+<code class="ejemplo"><strong>js&gt; var cadena = new String("1");</strong>
+<strong>js&gt; print(cadena + 1)</strong>
+11
+      </code>
+La clase <code>String</code> tiene una serie de métodos que permiten hacer lo
+      habitual con las cadenas: encadenarlas, dividirlas, y buscar
+      cosas. 
+<code class="ejemplo"><strong>js&gt; var nombres = "Pedro, Lucas, Juan".split(", ");</strong>
+<strong>js&gt; print(nombres[0])</strong>
+Pedro</code>
+En este caso, <code>split</code> es un método de la clase String, y lo estamos
+      aplicando directamente sobre la cadena <code>"Pedro, Lucas, Juan"</code>,
+      que, de por si, es un objeto de esa clase. <code>split</code> divide la
+      cadena usando los caracteres que le pasamos, y da lugar a un
+      <code>Array</code> con tantos componentes como resulte.</p>
+
+<p>De camino, podría haber una clase para escribir y leer ficheros,
+      porque con el rato que llevamos, todavía no hemos visto ninguna,
+      y, además, cualquier lenguaje decente escribe y lee ficheros. Es
+      más, es que muchos no hacen otra cosa, ¿no? Pues no. El estándar
+      JS no define ningún tipo de rutina de E/S. Pero si usamos el
+      intérprete Rhino (en vez de SpiderMonkey, que es el que hemos
+      venido usando), podemos usar clases de Java directamente, lo que
+      complica terriblemente el programa, pero <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/lee_quiniela.js">ahí está, de todas
+	formas</a>:</p>
+<code class="ejemplo"><span class="slc">// ejecutar con rhino lee_quiniela.js &lt;argumento&gt;</span>
+<span class="kwd">load</span><span class="sym">(</span><span class="str">'Partido.js'</span><span class="sym">);</span>
+<span class="kwa">var</span> FileReader <span class="sym">=</span> java<span class="sym">.</span>io<span class="sym">.</span>FileReader<span class="sym">;</span>
+<span class="kwa">var</span> BufferedReader <span class="sym">=</span>java<span class="sym">.</span>io<span class="sym">.</span>BufferedReader<span class="sym">;</span>
+
+<span class="kwa">var</span> file_name <span class="sym">=</span> arguments<span class="sym">[</span><span class="num">0</span><span class="sym">];</span>
+
+<span class="kwa">var</span> f <span class="sym">=</span> <span class="kwa">new</span> <span class="kwd">FileReader</span><span class="sym">(</span>file_name<span class="sym">);</span>
+<span class="kwa">var</span> br <span class="sym">=</span> <span class="kwa">new</span> <span class="kwd">BufferedReader</span><span class="sym">(</span> f <span class="sym">);</span>
+<span class="kwa">var</span> resultados<span class="sym">=</span> <span class="kwa">new</span> <span class="kwc">Array</span><span class="sym">;</span>
+<span class="kwa">var</span> line <span class="sym">=</span> <span class="kwa">new</span> <span class="kwc">String</span><span class="sym">;</span>
+<span class="kwa">while</span> <span class="sym">((</span>line <span class="sym">=</span> br<span class="sym">.</span><span class="kwd">readLine</span><span class="sym">()) !=</span> <span class="kwa">null</span><span class="sym">) {</span>
+  <span class="kwa">var</span> estaLinea <span class="sym">=</span> <span class="kwa">new</span> <span class="kwc">String</span><span class="sym">(</span> line <span class="sym">);</span>
+  <span class="kwa">var</span> resultado  <span class="sym">=</span> estaLinea<span class="sym">.</span><span class="kwc">split</span><span class="sym">(</span><span class="str">" "</span><span class="sym">);</span>
+  <span class="kwa">switch</span> <span class="sym">(</span>resultado<span class="sym">[</span><span class="num">2</span><span class="sym">]) {</span>
+    <span class="kwa">case</span> <span class="str">'1'</span><span class="sym">:</span>
+      <span class="kwa">if</span> <span class="sym">(</span> resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]] ) {</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]]+=</span><span class="num">3</span><span class="sym">;</span>
+      <span class="sym">}</span> <span class="kwa">else</span> <span class="sym">{</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]]=</span><span class="num">3</span><span class="sym">;</span>
+      <span class="sym">}</span>
+      <span class="kwa">break</span><span class="sym">;</span>
+    <span class="kwa">case</span> <span class="str">'x'</span><span class="sym">:</span>
+      <span class="kwa">if</span> <span class="sym">(</span> resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]] ) {</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]]+=</span><span class="num">1</span><span class="sym">;</span>
+      <span class="sym">}</span> <span class="kwa">else</span> <span class="sym">{</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">0</span><span class="sym">]]=</span><span class="num">1</span><span class="sym">;</span>
+      <span class="sym">}</span>
+      <span class="kwa">if</span> <span class="sym">(</span> resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]] ) {</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]]+=</span><span class="num">1</span><span class="sym">;</span>
+      <span class="sym">}</span> <span class="kwa">else</span> <span class="sym">{</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]]=</span><span class="num">1</span><span class="sym">;</span>
+      <span class="sym">}</span>
+      <span class="kwa">break</span><span class="sym">;</span>
+    <span class="kwa">default</span><span class="sym">:</span>
+       <span class="kwa">if</span> <span class="sym">(</span> resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]] ) {</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]]+=</span><span class="num">3</span><span class="sym">;</span>
+      <span class="sym">}</span> <span class="kwa">else</span> <span class="sym">{</span>
+	resultados<span class="sym">[</span>resultado<span class="sym">[</span><span class="num">1</span><span class="sym">]]=</span><span class="num">3</span><span class="sym">;</span>
+      <span class="sym">}</span>
+      <span class="kwa">break</span>
+  <span class="sym">}</span>
+ <span class="sym">}</span>
+
+<span class="kwa">for</span> <span class="sym">(</span> <span class="kwa">var</span> i <span class="kwa">in</span> resultados <span class="sym">) {</span>
+  <span class="kwc">print</span><span class="sym">(</span> i <span class="sym">+</span> <span class="str">": "</span> <span class="sym">+</span> resultados<span class="sym">[</span>i<span class="sym">])</span>
+    <span class="sym">}</span><!--HTML generated by highlight 2.4.8, http://www.andre-simon.de/-->
+  </code>
+<p>El programa es bastante similar al anterior, pero lee de fichero en
+      vez de generar los resultados aleatoriamente. Y lo lee
+      aproximadamente de la misma forma a como se haría en Java. Por
+      eso hay que usar Rhino, que permite usar las clases de la
+      librería estándar de Java de forma <em>nativa</em>. En este caso
+      usamos dos clases: <code>FileReader</code> y <code>BufferedReader</code>, para poder
+      leer de línea en línea. La única diferencia a como se haría en
+      Java es que hay que pasar la línea leida de un objeto <code>String</code>
+      de Java a un objeto <code>String</code> de JS, que es lo que se hace en
+      <code>var estaLinea = new String( line );</code>. También sale un poco más
+      largo porque, como indicamos en el programa de más arriba, los
+      elementos de un <code>Array</code> hay que inicializarlos; en cada caso del
+      <code>switch</code> comprobamos si están inicializados o no antes de
+      sumarles; si no lo está, le asignamos el valor
+      directamente. </p>
+
+<p>En realidad, las primeras líneas lo único que hacen es declarar un
+      <em>alias</em> para las clases de Java. En JS una variable puede
+      contener cualquier cosa, incluso una clase. Así acortamos el
+      nombre, y parecen más de javascrí. </p>
+
+<p>La otra diferencia es también cómo se ejecuta el fichero: 
+<code class="ejemplo">rhino lee_quiniela.js quiniela.datos</code>
+para ejecutarlo sobre el <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/quiniela.datos">fichero
+	<code>quiniela.datos</code></a>, que dará el resultado siguiente:
+<code class="ejemplo">Elche: 1
+Atleti: 3
+Cai: 1
+Athleti: 6
+Bar~a: 1
+Madrid: 2
+H~rcules: 1</code>
+Queda con esto más o menos claro que para ir donde nadie ha ido antes
+      con JS, hay que meterse un poco en Java. Pero no siempre.</p>
+
+<p>Aunque no lo parezca, JS es todavía un lenguaje joven, al que le
+      faltan gran cantidad de librerías básicas, y, especialmente, una
+      forma centralizada de empaquetar, probar y distribuir esas
+      librerías, como <a href="http://cpan.org/">CPAN</a> para Perl o
+      GEMs para Ruby. Hay algo por el estilo, <a href="http://openjsan.org/">llamado OpenJSAN</a>, de JS Archive
+      Network. Para instalarlo hace falta Perl, y sólo hay unas pocas
+      librerías todavía. Algunas muy  útiles, pero siguen siendo unas
+      pocas. Otras, como la amplia <a href="http://code.google.com/p/jslibs/">JSlib</a>, sólo va en
+      Windows. </p>
+
+<p>La que si es popular es <a href="http://www.baluart.net/articulo/javascript-sin-dolor-usando-prototype">Prototype</a>, una librería
+      que se usa principalmente en conjunción con RoR y AJAX, pero
+      resulta que necesita ejecutarse dentro del navegador, porque usa
+    objetos del mismo (como <code>document</code>, por ejemplo). Así que lo dejaremos para más adelante (si acaso).</p>
+
+<div class="ejercicios" id="ej.T1.5">
+<h3>Bloque T1.5</h3>
+<ol>
+<li> Hacer algún programa en JS que use cualquier clase de Java conocida.
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+<h2><a name="T1:t1:json">T1.6 Objetos para el
+    camino: el formato JSON </a> <a href="#T1:t1:json" style="font-size: small;">#</a></h2>
+
+
+
+<p>Lo interesante de los objetos en JS es que hay una forma muy fácil
+      de <em>serializarlos</em> (es decir, convertirlos en texto u otro
+      formato de forma que se puedan intercambiar fácilmente con otros
+      programas a través de la red); a este formato se le denomina
+      <a href="http://es.wikipedia.org/wiki/JSON">JSON</a> (JavaScript Object Notation, pronúnciese Jota-son o Yeison). Y como en realidad,
+      tal como se ha visto en el apartado anterior, todo es un objeto
+      en JS, se puede usar esta notación para asignar valores
+      prácticamente a cualquier cosa. Vamos a usar una vez más el
+      intérprete en modo interactivo para ver un ejemplo:
+<code class="ejemplo"><strong>js&gt; var objeto = { Madrid : 25, Atleti: 33, Ponferradina: 44 };</strong>
+<strong>js&gt; for (i in objeto) { print( i + " : "+ objeto[i] )};</strong>
+Madrid : 25
+Atleti : 33
+Ponferradina : 44
+      </code>
+
+Más fácil no puede ser. Se le asigna valor a un objeto con el formato
+      clave : valor (con coma al final), de la misma forma que se
+      haría a un array asociativo. Además, se pueden crear objetos
+      sobre la marcha y asignárselos a una variable cuyo valor se cree
+      también sobre la marcha:
+<code class="ejemplo"><strong>js&gt; eval("var objeto2 = { Madrid : 25, Atleti: 33, Ponferradina: 44 }");</strong>
+<strong>js&gt; for (i in objeto2) { print( i + " : "+ objeto[i] )};</strong>
+Madrid : 25
+Atleti : 33
+Ponferradina : 44</code>
+donde usamos <code>eval</code>, que interpreta una expresión en Javascript como
+      si del propio intérprete se tratara. Las expresiones de
+asignación de valores a objetos se pueden
+      anidar, para dar lugar a objetos más complejos
+<code class="ejemplo"><strong>js&gt; eval("var objeto2 = { Madrid : 25, Atleti: 33, Ponferradina: { casa: 33, fuera: 44} }");</strong>
+<strong>js&gt; for (i in objeto2) { print( i + " : "+ objeto2[i] )};</strong>
+Madrid : 25
+Atleti : 33
+Ponferradina : [object Object]</code>
+Que parece más raro de la cuenta, pero que, con un poco de código, se
+      podría también imprimir.
+</p>
+
+<p>Y JSON, precisamente, es uno de los formatos de intercambio, el más
+      simple, el que se usa en AJAX, y un modo de acceder también a
+      servicios web como <em>geonames</em>, del que hablamos en el primer
+      tema. Lo hacemos en <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/json-geonames.html">el
+	siguiente ejemplo: <code>json-geonames.html</code></a>, del que extraemos
+    el <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/geonames_call.js">código en JS (fichero <code>geonames_call.js</code>)</a></p>
+<code class="ejemplo"><span class="slc">// this function will be called by our JSON callback</span>
+<span class="slc">// the parameter jData will contain an array with geonames objects</span>
+<span class="kwa">function</span> <span class="kwd">getLocation</span><span class="sym">(</span>jData<span class="sym">) {</span>
+  <span class="kwa">if</span> <span class="sym">(</span>jData <span class="sym">==</span> <span class="kwa">null</span><span class="sym">) {</span>
+    <span class="slc">// There was a problem parsing search results</span>
+    <span class="kwa">return</span><span class="sym">;</span>
+  <span class="sym">}</span>
+
+  <span class="kwa">var</span> html <span class="sym">=</span> <span class="str">''</span><span class="sym">;</span>
+  <span class="kwa">var</span> geonames <span class="sym">=</span> jData<span class="sym">.</span>geonames<span class="sym">;</span>
+  <span class="kwa">for</span> <span class="sym">(</span>i<span class="sym">=</span><span class="num">0</span><span class="sym">;</span>i<span class="sym">&lt;</span> geonames<span class="sym">.</span><span class="kwc">length</span><span class="sym">;</span>i<span class="sym">++) {</span>
+     <span class="kwa">var</span> <span class="kwc">name</span> <span class="sym">=</span> geonames<span class="sym">[</span>i<span class="sym">];</span>
+     <span class="slc">// we create a simple html list with the geonames objects</span>
+     <span class="slc">// the link will call the center() javascript method with lat/lng as parameter</span>
+     html <span class="sym">=</span> <span class="kwc">name</span><span class="sym">.</span><span class="kwc">name</span><span class="sym">+</span> <span class="str">" Latitud: "</span> <span class="sym">+</span> <span class="kwc">name</span><span class="sym">.</span>lat <span class="sym">+</span><span class="str">', longitud: '</span> <span class="sym">+</span> <span class="kwc">name</span><span class="sym">.</span>lng<span class="sym">;</span>
+  <span class="sym">}</span>
+  <span class="kwc">document</span><span class="sym">.</span><span class="kwc">getElementById</span><span class="sym">(</span><span class="str">'resultDiv'</span><span class="sym">).</span><span class="kwc">innerHTML</span> <span class="sym">=</span> html<span class="sym">;</span>
+<span class="sym">}</span>
+
+<span class="slc">// calls the geonames JSON webservice with the search term</span>
+<span class="kwa">function</span> <span class="kwc">search</span><span class="sym">() {</span>
+  request <span class="sym">=</span> <span class="str">'http://ws.geonames.org/searchJSON?country=ES&amp;q='</span> <span class="sym">+</span>  <span class="kwd">encodeURIComponent</span><span class="sym">(</span><span class="kwc">document</span><span class="sym">.</span><span class="kwc">getElementById</span><span class="sym">(</span><span class="str">'q'</span><span class="sym">).</span><span class="kwc">value</span><span class="sym">)  +</span> <span class="str">'&amp;maxRows=10&amp;callback=getLocation'</span><span class="sym">;</span>
+
+  <span class="slc">// Create a new script object</span>
+  <span class="slc">// Implementación en jsr_class.js</span>
+  aObj <span class="sym">=</span> <span class="kwa">new</span> <span class="kwd">JSONscriptRequest</span><span class="sym">(</span>request<span class="sym">);</span>
+  <span class="slc">// Build the script tag</span>
+  aObj<span class="sym">.</span><span class="kwd">buildScriptTag</span><span class="sym">();</span>
+  <span class="slc">// Execute (add) the script tag</span>
+  aObj<span class="sym">.</span><span class="kwd">addScriptTag</span><span class="sym">();</span>
+<span class="sym">}</span></code>
+
+<p>Este ejemplo es un poco complicado, sobre todo, por el mecanismo
+      que usa para hacer la llamada, y que está contenido en el
+      fichero <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/jsr_class.js"><code>jsr_class.js</code>, que
+	contiene la clase <code>JSONscriptRequest</code></a>, que será la que
+      usemos para construirla llamada. La mecánica es la siguiente:
+      cada vez que se introduce un nombre de un pueblo o ciudad de
+      España, se genera un evento, y se llama a la función
+      <code>search</code>. Esta función hace construye una petición, dentro de la
+      cual está incluido <code>callback=getLocation</code>. El truco
+      es que esa petición genera un <em>callback</em> tal que cuando se
+      recibe la respuesta se llama a la función <code>getLocation</code>
+      (definida más arriba).</p>
+
+<p>Esa función recibe como variable en <code>jData</code> el resultado que, al
+      estar en formato JSON, ya está, de hecho, en formato de un
+  objeto en JS. Por eso, en el bucle <code>for</code> recorremos
+  directamente el array <code>geonames</code>, que contiene objetos
+  cuyas variables de instancia son <code>name</code>, <code>lat</code>
+  y <code>lng</code>, que usamos para construir el código HTML que se
+  incluye en la página.</p>
+
+<p>En particular, el ejemplo anterior es un ejemplo
+  de <a href="http://web.ontuts.com/tutoriales/jsonp-llamadas-ajax-entre-dominios/">JSONP</a>,
+  <em>JSON with padding</em>, que usa la capacidad que tienen los navegadores
+  de crear elementos sobre la marcha para crear un
+  elemento <code>script</code> y usarlo. Ese elemento script crea una
+  función, que nosotros llamamos desde fuera. 
+
+</p><div class="ejercicios" id="ej.T1.6">
+<h3>Bloque T1.6</h3>
+<ol>
+<li> Usar JSON para asignar valores a los partidos de una quiniela, con
+    local, visitante y resultado, en vez de hacerlo leyendo de un
+  fichero o aleatoriamente, como hacíamos hasta ahora. 
+
+</li>
+<li> Probar el API JSON de algún servicio en la web; hacer un programa simple que <em>consuma</em> el servicio 
+
+</li>
+</ol>
+</div>
+
+
+
+
+
+<h2><a name="T1:t1:DOM">T1.7 El modelo de objetos </a> <a href="#T1:t1:DOM" style="font-size: small;">#</a></h2>
+
+
+
+<p>Continúa siendo difícil encontrar en libros y tutoriales un enfoque
+      como el de este tema, 
+      centrado en JS como lenguaje y no como un chisme que se utiliza
+      exclusivamente desde dentro del
+      navegador. Eventualmente, habrá que tratar con esto, así que
+      este momento es tan bueno como cualquier otro. En realidad, la
+      mayor diferencia entre JS-sin-navegador y JS-con-navegador es el
+      bagaje de objetos con el que tiene que trabajar y también el
+      modelo que se va a usar para entrada y salida: la propia
+      <em>página</em> en la que está inserto el programa.</p>
+
+<p>En general, lo que hace un navegador es analizar el HTML que le
+      envía el servidor y convertirlo en un árbol, el <a href="http://es.wikipedia.org/wiki/DOM">DOM</a> o <em>document
+      object model</em>. Todo lo que hay en el documento es una hoja o un
+      nudo dentro de ese árbol (o parte de él, claro). Lo importante es que los programas JS,
+      aparte de ser hojas dentro de ese árbol, también actúan sobre
+      el mismo, añadiendo o quitando hojas o ramas enteras o simplemente alterando
+      sus propiedades. El DOM está definido como un <a href="http://www.w3.org/DOM/">estándar del W3</a>, pero eso no
+      quita que haya problemas de compatibilidad entre los diferentes
+      navegadores. Por ejemplo, <a href="http://developer.mozilla.org/en/docs/Gecko_DOM_Reference">Mozilla</a>
+      tiene su modelo de objetos, que usa en sus navegadores, los más
+      bonitos del mundo mundial, pero en otros navegadores puede haber
+      ligeras diferencias. </p>  
+
+<div class="aclara">Si a estas alturas no te has instalado Firefox u
+  otro navegador libre, ya tardas. Firefox es más respetuoso de los
+  estándares, y también más rápido, sobre todo las últimas versiones. </div>
+<p>Para empezar, vamos a ver qué pinta tiene el DOM de un documento
+      cualquiera. Por ejemplo, usemos <a href="http://aap.geneura.org/">la página de la
+	asignatura</a>. En Firefox, hay que instalar
+      el <a href="https://addons.mozilla.org/es-ES/firefox/addon/6622">DOM
+      Inspector, un plugin</a>, tras lo cual se ve el DOM completo con la
+      combinación de teclas Ctrl+Shift+I; para la versión 3 de
+      Firefox, es mejor que te instales <a href="https://addons.mozilla.org/firefox/addon/1843">Firebug</a>. Para ésta página, saldría
+      algo así:
+<img src="AAP-Taller-1.mhtml_files/AAP-DOM.png" alt="DOM de una página" style="float: right;">
+La estructura es la que cabe esperar: hay un nodo raíz, etiquetado
+      como <code>document</code>, del que descienden las dos partes del documento
+      HTML: <code>HEAD</code> y <code>BODY</code>. Y de ahí, el resto.</p>
+
+<p>Todos las herramientas relacionadas con la página web, como las <a href="http://es.wikipedia.org/wiki/CSS">CSS</a>,
+      trabajan y tienen en cuenta esta estructura DOM del documento. Y
+      cuando un programa JS se ejecuta dentro de un documento, puede
+      alterar su estructura. Veámoslo, por ejemplo, en el <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/docwrite.html"><code>docwrite.html</code></a>:</p>
+<code class="ejemplo"><span class="kwa">&lt;!DOCTYPE HTML PUBLIC</span> <span class="str">"-//W3C//DTD HTML 4.01 Transitional//EN"</span><span class="kwa">&gt;</span>
+<span class="kwa">&lt;html&gt;</span>
+  <span class="kwa">&lt;head&gt;</span>
+    <span class="kwa">&lt;title&gt;</span>Prueba document.write<span class="kwa">&lt;/title&gt;</span>
+  <span class="kwa">&lt;/head&gt;</span>
+
+  <span class="kwa">&lt;body&gt;</span>
+    <span class="kwa">&lt;h1&gt;</span>Prueba document.write<span class="kwa">&lt;/h1&gt;</span>
+
+<span class="kwa">&lt;script type='application/javascript'&gt;</span>document.write('<span class="kwa">&lt;p&gt;</span>Esto es un nuevo nodo<span class="kwa">&lt;/p&gt;</span>')<span class="kwa">&lt;/script&gt;</span>
+
+    <span class="kwa">&lt;hr&gt;</span>
+    <span class="kwa">&lt;address&gt;</span><span class="kwa">&lt;a href=</span><span class="str">"mailto:jmerelo@localhost.localdomain"</span><span class="kwa">&gt;</span>Juan J. Merelo<span class="kwa">&lt;/a&gt;</span><span class="kwa">&lt;/address&gt;</span>
+<span class="com">&lt;!-- Created: Wed Feb 21 18:45:35 CET 2007 --&gt;</span>
+<span class="com">&lt;!-- hhmts start --&gt;</span>
+Last modified: Wed Feb <span class="num">21 18</span>:<span class="num">46</span>:<span class="num">41</span> CET <span class="num">2007</span>
+<span class="com">&lt;!-- hhmts end --&gt;</span>
+  <span class="kwa">&lt;/body&gt;</span>
+<span class="kwa">&lt;/html&gt;</span>
+<!--HTML generated by highlight 2.4.8, http://www.andre-simon.de/-->
+</code>
+
+<p>que crearía un DOM con el aspecto que se ve en la imagen más cercana.
+<img src="AAP-Taller-1.mhtml_files/nuevonodo.png" alt="Creación de un nodo en el DOM
+	con JS" style="float: right; margin: 5px;">
+Como se ve, el nodo <code>P</code> sigue al nodo <code>script</code>, es decir, que el nodo
+      se crea en el DOM justamente siguiendo al nodo que incluye el
+      script. Un programa en javascript puede crear tantos nodos como a uno le
+      interese, pero de esta forma sólo se pueden colocar en el sitio
+      donde está el script. Así que habrá que imaginar otra forma de
+      hacerlo si queremos crear o alterar los nodos en cualquier otro
+sitio (y se verá más adelante).</p>
+
+<p>por otro lado, navegar por el modelo de objetos no es excesivamente complicado,
+      gracias a las funciones <code>getElement(s)By*</code>, que escogen elementos
+      del DOM de acuerdo con alguna
+      característica. <code>getElementsByTagName</code> escoge elementos por el
+      nombre de la etiqueta, mientras que <code>getElementById</code> usa el
+      atributo <code>id</code>; nótese la diferencia entre <code>Elements</code> y
+      <code>Element</code>; en el primer caso se devuelve un <code>Array</code> y en el
+      segundo uno solo, porque la <code>Id</code> es única. Cuando se trabaja con
+      un documento, habrá que 
+      usar de forma sabia los atributos y clases de forma que sea
+      fácil escoger y trabajar con los elementos de un tipo
+      determinado, o con un elemento en concreto. Por ejemplo,
+      <code>getElementByTagName('h2')</code> devolverá un array con
+      todos los elementos que tengan esa etiqueta, y
+      <code>getElementById('ej.t1.3')</code> devolverá el tercer
+      bloque de ejercicios de este tema, como veremos en el ejemplo
+      siguiente (que está incluido en la misma página):</p>
+<code class="ejemplo"><input name="bloque" value="Listar" onclick="putBloque()" type="submit">
+</code>
+
+<div id="resultado1" style="border: medium dashed; background: none repeat scroll 0% 0% lightgreen; padding: 5px;">&nbsp;</div>
+
+<script type="application/javascript">function putBloque() {
+        
+        var h2 = document.body.getElementsByTagName('h2');
+                
+        for (i=0;i<h2.length;i++){
+        	var titulo=h2[i];
+        	document.getElementById('resultado1').innerHTML+="<p>"+titulo.textContent+"<\p>";
+        }
+}
+</script>
+
+<code class="ejemplo"><span class="kwa">function</span> <span class="kwd">putBloque</span><span class="sym">(</span><span class="kwc">value</span><span class="sym">) {</span>
+	  <span class="kwa">var</span> ejs <span class="sym">=</span> <span class="kwc">document</span><span class="sym">.</span><span class="kwc">getElementById</span><span class="sym">(</span><span class="str">'ej.T1.'</span><span class="sym">+</span><span class="kwc">value</span><span class="sym">);</span>
+	  <span class="kwc">document</span><span class="sym">.</span><span class="kwc">getElementById</span><span class="sym">(</span><span class="str">'resultado1'</span><span class="sym">).</span><span class="kwc">innerHTML</span><span class="sym">=</span>ejs<span class="sym">.</span>textContent<span class="sym">;</span>
+	  <span class="sym">}</span>
+</code>
+
+<p>Un par de líneas sólo de JS: una para buscar el elemento (la
+      primera) y la segunda para extraer su contenido (<code>textContent</code>)
+      e introducirlo en otro, el elemento <code>resultado1</code> que teníamos
+      preparado al efecto. <code>innerHTML</code> es el HTML interno de un
+      elemento: al asignarle un valor, efectivamente, sustituimos
+      parte del contenido de la página dinámicamente. ¿No es una
+      maravilla? Nótese, en todo caso, que para hacer este tipo de
+      navegación hay previamente que etiquetar los elementos con los
+      que se va a trabajar, y hacerlo de forma que cada id sea
+      único. En este caso se usa una convención: <code>ej</code> para
+      ejercicios, y <code>T1</code> por el nombre del documento. </p>
+
+
+<div class="ejercicios" id="ej.T1.7">
+<h3>Bloque T1.7</h3>
+<ol>
+<li> Salvar esta página, y sobre ella hacer un programa JS que imprima
+    todos los títulos de secciones.
+</li>
+</ol>
+</div>
+
+
+
+
+
+<h2><a name="T1:t1:greasemonkey">T1.8 Usando GreaseMonkey </a> <a href="#T1:t1:greasemonkey" style="font-size: small;">#</a></h2>
+
+
+
+<p>No se sabe porqué los temas de JS tienen tanta relación con los
+      primates, pero el hecho es que <a href="http://greasespot.com/">GreaseMonkey</a> es un <em>plugin</em>
+      para los navegadores <a href="http://mozilla.org/">Mozilla</a>
+      que permite instalar en el navegador programillas JS específicos
+      de una página o grupo de páginas. Para trabajar con él, lo
+      primero que hay que hacer es instalarlo y reiniciar el
+      navegador.</p>
+
+<p>Una vez hecho eso, GreaseMonkey reconoce los scripts con la
+      extensión <code>.user.js</code> como propios, los instala, y
+      permite gestionarlos, activarlos, y desactivarlos, desde un
+      icono con un monito en la barra inferior del navegador. O sea,
+      que una vez que se vea el monito, podemos cargar <a href="http://geneura.ugr.es/%7Ejmerelo/asignaturas/AAP/code/js/aap-nav.user.js">este programa
+	(<code>aap-nav.user.js</code>)</a> que lo usa:</p>
+<code class="ejemplo">// ==UserScript==
+// @name                AAP-Nav
+// @namespace           http://geneura.org/projects/greasemonkey
+// @description         Navegación por las secciones de AAP
+// @include             http://geneura.ugr.es/~jmerelo/asignaturas/*
+// ==/UserScript==
+
+GM_log('Entrando AAP-Nav');
+var h2 = document.getElementsByTagName('h2');
+var a_nodes = new Array;
+var anchors = new Array;
+for ( var secs = 0; secs &lt; h2.length; secs ++ ) {
+  var thisA = h2[secs].getElementsByTagName('a');
+  a_nodes[secs] = thisA[0];
+  anchors[secs] = thisA[0].getAttribute('name');
+  GM_log('Anchor ' + secs + " " + anchors[secs]);
+}
+
+
+
+for ( var secs = 0; secs &lt; h2.length; secs ++ ) {
+  var span = document.createElement('span');
+  span.setAttribute('style','background:lightblue');
+  if ( secs &gt; 0 ) {
+    var ahref = document.createElement('a');
+    ahref.setAttribute('href','#'+anchors[secs-1]);
+    var txt=document.createTextNode('^');
+    ahref.appendChild(txt);
+    span.appendChild(ahref);
+  }
+  if ( secs &lt; h2.length -1  ) {
+    span.appendChild(document.createTextNode(' | '));
+    var ahref = document.createElement('a');
+    ahref.setAttribute('href','#'+anchors[secs+1]);
+    var txt=document.createTextNode('v');
+    ahref.appendChild(txt);
+    span.appendChild(ahref);
+  }
+  a_nodes[secs].parentNode.insertBefore(span,a_nodes[secs]);
+}
+    </code>
+
+<p>Lo primero que hay que hacer notar es que los scripts de
+  GreaseMonkey se ejecutan en un contexto diferente a los que están
+  alojados dentro de un documento web; el contexto se denomina
+  <code>chrome</code>, que es una referencia genérica a los interfaces de
+  usuario, pero en nuestro caso indica un contexto en el cual se
+  pueden ejecutar scripts con privilegios de los que carecen los que
+  se ejecutan dentro del documento.</p>
+
+<p>En este caso no se usan tales privilegios: este programa añade unas flechitas de navegación a los apuntes de
+      esta asignatura, de forma que se pueda pasar de cada sección a
+      la anterior a la siguiente (de ahí lo de aap-nav). Tiene dos
+      partes: la primera parte halla las etiquetas de navegación, y la
+      segunda las inserta. Tres partes, de hecho, si incluimos las
+      declaraciones del principio, que son para uso y disfrute del
+      propio GreaseMonkey. Las dos primeras son terminológicas: cómo
+      se llama, y qué espacio de nombres usa. Ésto es para distinguir
+      scripts con el mismo nombre de diferentes fuentes. La tercera,
+      una descripción, aparece en los directorios correspondientes y
+      cuando gestionamos los scripts.</p>
+
+<p>El cuarto apartado es el más importante. Es un patrón de las
+      páginas en las que va a funcionar el script. Éste no tendría
+      sentido fuera de las páginas de las asignaturas que imparto, así
+      que incluimos en el mismo simplementa a las que hay en ese
+      directorio. Cuando el navegador cargue alguna página con ese
+      patrón, GM lo detectará y cargará el script.</p>
+
+<p>El programa en sí hace uso de los elementos explicados en la
+      sección anterior: extrae del documento los títulos de capítulo
+      (h2) y de ahí los <em>anchor</em> (<code>a name</code>) y sus
+      atributos, metiendo todo lo metible en un bucle. Hace falta
+      tenerlos todos en un array, por eso se usa un segundo bucle para
+      insertar en la página los elementos de navegación.</p>
+
+<p>Este segundo bucle crea elementos a tutiplén, usando
+      <code>createElement</code> (para crear un elemento), <code>setAttribute</code> (para
+      poner su atributo) y <code>createTextNode</code> (para meter texto dentro
+      de los elementos). Luego, a modo de injerto, se van metiendo los
+      elementos unos dentro de otros usando <code>appendChild</code>. Y,
+      finalmente, se insertan los elementos creados en el documento en
+      la penúltima línea:</p>
+<div class="ejemplo">a_nodes[secs].parentNode.insertBefore(span,a_nodes[secs]);</div>
+<p>que navega desde el <em>ancla</em> hasta su padre (<code>parentNode</code>) e
+      inserta antes del mismo (<code>insertBefore</code>) el <code>span</code> que hemos
+      creado previamente. El resultado, si todo ha ido bien, deberías
+      verlo en este mismo tutorial.</p>
+
+<p>Además, hace uso de algunas funciones propias de GM:
+      <code>GM_log</code>, que escribe en la consola de
+      Javascript. Muy útil para depurarlo, inútil en producción; pero
+      si abres la consola de JS verás los mensajes que ha usado.</p>
+
+
+<div class="ejercicios" id="ej.T1.8">
+<h3>Bloque T1.8</h3>
+<ol>
+<li> Hacer un script JS que navegue desde cada bloque de ejercicios al
+    siguiente. 
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+<h2><a name="T1:t1:odds">T1.9 Para finalizar </a> <a href="#T1:t1:odds" style="font-size: small;">#</a></h2>
+
+
+
+<p>Cualquiera de los recursos que listo ahí abajo pueden resultar
+      útiles para ampliar información sobre JavaScript. Quizás también
+      pueda ser interesante usar alguna librería que facilite su uso
+      como <a href="http://mochi.github.com/mochikit/">Mochikit</a> o <a href="http://www.prototypejs.org/">Prototype</a>. También el
+      <a href="http://code.google.com/webtoolkit/">Google Web
+	Toolkit</a> permite desarrollar en AJAX programando sólo en
+      Java, aunque pueda que el JS generado necesite algún retoque
+      adicional. </p>
+
+<p>En <a href="http://www.delicious.com/popular/javascript">el tag
+    Javascript de del.icio.us</a> puedes encontrar muchos más enlaces
+    sobre el mismo; también
+    en <a href="http://www.delicious.com/jmerelo/javascript">el mío
+    propio</a>. Entre ellos
+    está <a href="http://stackoverflow.com/questions/61088/hidden-features-of-javascript">esta
+    colección de <em>características ocultas</em> de Javascript</a>, que
+    nos ha sorprendido a más de uno</p>.
+
+<h2><a name="T1:t1:agra">T1.10 Agradecimientos </a> <a href="#T1:t1:agra" style="font-size: small;">#</a></h2>
+
+
+
+<p>Agradezco a los <a href="http://barrapunto.com/comments.pl?sid=69179">comentaristas</a> de <a href="http://barrapunto.com/comments.pl?sid=68032">los diferentes anuncios</a> que <a href="http://barrapunto.com/comments.pl?sid=67899">publiqué en Barrapunto</a> sus comentarios y sugerencias. También a <a href="http://espiblog.blogspot.com/">Javier Espigares</a> por la lectura y comentarios sobre las versiones previas de este tema y el anterior.</p> 
+
+<h2><a name="T1:t1:biblio">T1.11 Bibliografía </a> <a href="#T1:t1:biblio" style="font-size: small;">#</a></h2>
+
+
+
+<iframe src="AAP-Taller-1.mhtml_files/cm.html" style="float: left; margin: 5px; width: 120px; height: 240px;" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe><iframe src="AAP-Taller-1.mhtml_files/cm_002.html" style="float: right; height: 240px;" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+<p>Hay dos libros fundamentales para aprender JS, aunque están muy
+      enfocados a JS en el navegador: <em>Javascript: The Definitive
+	Guide</em>, el libro del rinoceronte, editado por O'Reilly, que <a href="http://adrastea.ugr.es/search*spi/tjavascript/tjavascript/13%2C15%2C19%2CB/frameset&amp;FF=tjavascript+the+definitive+guide&amp;3%2C%2C4">está disponible como recurso eletrónico en la UGR</a> y
+	<em>JavaScript Bible, de Danny Goodman</em>, un tocho considerable,
+	en el que hay de todo, y que viene con un útil CD con
+	ejemplos. También está en la <a href="http://adrastea.ugr.es/search*spi/tjavascript/tjavascript/1%2C15%2C19%2CB/frameset&amp;FF=tjavascript+bible+gold+edition&amp;1%2C1%2C">Biblioteca de la UGR</a>. Y, por si fuera poco, <a href="http://adrastea.ugr.es/search*spi/tjavascript/tjavascript/1%2C15%2C19%2CB/frameset&amp;FF=tjavascript+pocket+reference&amp;1%2C1%2C" z="">una referencia de bolsillo de JS</a> y <a href="http://adrastea.ugr.es/search*spi/tjavascript/tjavascript/13,15,19,B/l856%7Eb1638938&amp;FF=tjavascript+professional+projects&amp;1,1,,1,0">un libro llamado JS profesional projects</a>. Es que en la <a href="http://adrastea.ugr.es/">biblioteca de la UGR hay de todo.</a></p>
+
+<p><a href="http://adrastea.ugr.es/">Como recursos adicionales, </a><a href="http://developer.mozilla.org/en/docs/About_JavaScript">las páginas de Javascript en Mozilla.org</a>, el <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">estándar completo</a>, y el <a href="http://geneura.ugr.es/%7Evictor/cursillos/javascript/js_intro.html">curso de Javascript de Víctor Rivas Santos</a>. </p> 
+
+<p><iframe src="AAP-Taller-1.mhtml_files/cm_003.html" style="float: right; margin: 5px; width: 120px; height: 240px;" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>Por
+  último, <a href="https://www.amazon.co.uk/dp/0596517742?tag=severawebsite-21&amp;camp=2902&amp;creative=19466&amp;linkCode=as4&amp;creativeASIN=0596517742&amp;adid=0MJ7MPPRP9H7PJ2B5MPB&amp;">Javascript:
+    The good parts</a> es un manual bastante completo que menciona
+  muchos trucos para trabajar con este lenguaje.</p>
+
+<br clear="all">
+
+<div class="licencia">Este material está <a href="http://curso-sobre.berlios.de/gfdles/">disponible bajo los términos de la licencia GNU FDL</a>. </div>
+
+<div style="float: right;">
+      <a href="http://validator.w3.org/check?uri=referer"><img src="AAP-Taller-1.mhtml_files/valid-html401.png" alt="Valid HTML 4.01 Transitional" width="88" height="31"></a>
+    </div>
+    
+    <address><a href="mailto:jj%20%28at%29%20merelo.net">Juan
+	J. Merelo</a></address>
+<!-- Created: Mon Dec  4 17:59:34 CET 2006 -->
+<!-- hhmts start -->
+Last modified: Mon Jun  4 19:12:41 CEST 2007
+<!-- hhmts end -->
+  </body></html>

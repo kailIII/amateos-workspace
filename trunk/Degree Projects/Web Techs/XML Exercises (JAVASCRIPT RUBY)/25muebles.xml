@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<micasa>
+  <habitacion id="comedor">
+    <mueble>Silla</mueble>
+    <mueble>Mesa</mueble>
+    <puerta a="salon"/>
+  </habitacion>
+  <habitacion id="dormitorio">
+    <mueble>Cama</mueble>
+    <mueble>Armario</mueble>
+    <puerta a="cuarto"/>
+  </habitacion>
+</micasa>

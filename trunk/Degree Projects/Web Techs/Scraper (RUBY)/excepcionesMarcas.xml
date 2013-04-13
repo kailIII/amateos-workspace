@@ -1,0 +1,62 @@
+<?xml version="1.0"?> 
+<excepciones>
+	<categoria name="Aguas">
+		<excepcion marca="Vichy">1</excepcion>
+		<excepcion marca="Agua">1</excepcion>
+		<excepcion marca="Font">1</excepcion>
+		<excepcion marca="Fuente">1</excepcion>
+		<excepcion marca="Solan">2</excepcion>
+		<excepcion marca="El">2</excepcion>
+	</categoria>
+
+	<categoria name="Cervezas">
+		<excepcion marca="San">1</excepcion>
+		<excepcion marca="Voll">1</excepcion>
+		<excepcion marca="Free">1</excepcion>
+		<excepcion marca="Estrella">1</excepcion>
+		<excepcion marca="Bischofshof">1</excepcion>
+		<excepcion marca="Premium">1</excepcion>
+		<excepcion marca="Schlappe">2</excepcion>
+		<excepcion marca="Bach">2</excepcion>
+		<excepcion marca="Hofbräu">1</excepcion>
+		<excepcion marca="Staropramen">1</excepcion>
+		<excepcion marca="Löwen">1</excepcion>
+		<excepcion marca="Dag">1</excepcion>
+		<excepcion marca="Rubia">1</excepcion>
+		<excepcion marca="Weltenburger">3</excepcion>
+		<excepcion marca="Pilsner">1</excepcion>
+		<excepcion marca="Ambar">1</excepcion>
+		<excepcion marca="Palma">1</excepcion>
+		<excepcion marca="Cobra">1</excepcion>
+		<excepcion marca="The">2</excepcion>
+		<excepcion marca="Schwaben">3</excepcion>
+		<excepcion marca="La">1</excepcion>
+		<excepcion marca="Schwaben">3</excepcion>
+		<excepcion marca="Rubia">1</excepcion>
+		<excepcion marca="Stella">1</excepcion>
+		<excepcion marca="Mort">1</excepcion>
+		<excepcion marca="Laiker">2</excepcion>	
+	
+	</categoria>
+
+	<categoria name="Licores">
+		<excepcion marca="Masters">1</excepcion>
+		<excepcion marca="Premium">4</excepcion>
+		<excepcion marca="Fifty">1</excepcion>
+		<excepcion marca="Mombasa">4</excepcion>
+		<excepcion marca="La">1</excepcion>
+		<excepcion marca="Havana">1</excepcion>
+		<excepcion marca="Boca">1</excepcion>
+		<excepcion marca="Sun">1</excepcion>
+		<excepcion marca="Bardinet">1</excepcion>
+		<excepcion marca="El">1</excepcion>
+		<excepcion marca="Coca">2</excepcion>
+		<excepcion marca="Carta">1</excepcion>
+		<excepcion marca="Capitan">1</excepcion>
+		<excepcion marca="Santa">1</excepcion>
+		<excepcion marca="Flor">2</excepcion>
+		<excepcion marca="Cristal">1</excepcion>
+		<excepcion marca="Sun">1</excepcion>
+		<excepcion marca="Carta">1</excepcion>
+	</categoria>
+</excepciones>

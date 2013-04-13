@@ -1,0 +1,146 @@
+ .slogan {
+ color: white;
+ font-size: 30pt;
+ font-weight: bold;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ text-align: center;
+ background-color: #34c46a;
+ border-style:inset;
+ width:90%;
+ height:70px;
+ margin-left:20px; 
+ margin-right:20px;
+ margin-top:20px;
+ margin-bottom:20px;
+ -webkit-border-radius: 13px;    
+ -moz-border-radius: 13px;       /* Para IE */
+ }
+ 
+ .lema {
+ color: green;
+ font-size: 9pt;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ text-align: center;
+	
+ }
+ 
+ .seccion {
+ width:90%;
+ margin-top:20px;
+ margin-left:20px; 
+ margin-bottom:20px;
+ 
+ }
+
+ h1 {
+
+ color: green;
+ font-size: 16pt;
+ font-family: Arial, sans-serif;
+ text-align: left;
+ text-indent:20px;
+ }
+ 
+ body {
+ text-indent: 20px;
+ }
+
+
+.menu {
+	margin-left: 20px;
+	float:  left;
+	margin-top: 50px;
+	text-align: center;
+}
+.seleccionSupermercado{
+	margin-left: 2px;
+	float: left;
+	margin-top: 50px;
+	text-align: center;
+}
+.resultado{
+	position: relative;
+	padding-top: 10px;
+	left: 20px;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+}
+
+/* Estilo Menú PRODUCTOS */
+ul {
+	list-style: url(none) none;
+}
+.menu ul li {
+	display: inline;
+	float: left;
+	position: relative;
+	background-color:#239960;
+	width: 160px;
+	color: #fff;
+	font-size: 20px;
+}
+.menu ul li a {
+	color: #239960;
+	text-decoration: none;
+	background-color: #a6e0c0;
+	font-size: 15px;
+	display: block;
+	width: 140px;
+	padding: 3px 5px;
+}
+.menu ul li a:hover, ul li a:active {
+	background-color: #f93;
+	color: #fff;
+}
+.menu ul li ul {
+	position: absolute;
+	display: none;
+}
+.menu ul li ul li {
+	display: list-item;
+	float: none;
+	margin: 0;
+}
+.menu ul li ul li a {
+	font-size: 15px;
+}
+
+
+/* Estilo Menú SUPERMERCADOS */
+.seleccionSupermercado ul li {
+	display: inline;
+	float: left;
+	position: relative;
+	background-color: #3b6da1;
+	width: 160px;
+	color: #fff;
+	font-size: 20px;
+}
+.seleccionSupermercado ul li a {
+	color: #3b6da1;
+	text-decoration: none;
+	background-color: #589de4;
+	font-size: 15px;
+	display: block;
+	width: 140px;
+	padding: 3px 5px;
+}
+.seleccionSupermercado ul li a:hover, ul li a:active {
+	background-color: #f93;
+	color: #fff;
+}
+.seleccionSupermercado ul li ul {
+	position: absolute;
+	display: none;
+}
+.seleccionSupermercado ul li ul li {
+	display: list-item;
+	float: none;
+	margin: 0;
+}
+.seleccionSupermercado ul li ul li a {
+	font-size: 15px;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0"?> 
+<biblioteca>
+	<libro> 
+		<propiedad class='id'>1</propiedad>
+		<propiedad class='titulo'>Don Quijote de la Mancha</propiedad>
+		<propiedad class='autor'>Miguel de Cervantes Saavedra</propiedad>
+		<propiedad class='resumen'>resumenresumenresumenresumenresumenresumenresumenresumen</propiedad>
+		<propiedad class='editorial'>editorial 1</propiedad>
+		<propiedad class='edicion'>1</propiedad>
+	</libro>
+
+	<libro> 
+		<propiedad class='id'>2</propiedad>
+		<propiedad class='titulo'>Drácula</propiedad>
+		<propiedad class='autor'>Bram Stoker</propiedad>
+		<propiedad class='resumen'>resumenresumenresumenresumenresumenresumenresumenresumen</propiedad>
+		<propiedad class='editorial'>editorial 2</propiedad>
+		<propiedad class='edicion'>5</propiedad>
+	</libro>
+
+	<libro> 
+		<propiedad class='id'>3</propiedad>
+		<propiedad class='titulo'>Romeo y Julieta</propiedad>
+		<propiedad class='autor'>William Shakespeare</propiedad>
+		<propiedad class='resumen'>resumenresumenresumenresumenresumenresumenresumenresumen</propiedad>
+		<propiedad class='editorial'>editorial 3</propiedad>
+		<propiedad class='edicion'>3</propiedad>
+	</libro>
+
+</biblioteca>
