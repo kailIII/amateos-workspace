@@ -154,6 +154,7 @@ https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/HomeDroid_
    * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=PIC%20Light%20and%20Temperature%20Sensor%20System.pdf Descargar]
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FPIC%20Light%20and%20Temperature%20Sensor%20System/Code Ver]
    * *Tecnologías*: C, PIC
+https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/PIC.png
 
 ===<font color="#045FB4">Matlab</font>===
  * *Audio Processing (2006)* 
