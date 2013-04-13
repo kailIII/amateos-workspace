@@ -64,3 +64,78 @@
    * *Tecnologías*: Android, AAC, ShoutCast, Android Widget, Android Services, Android MVC
 
  ----
+
+==<font color="#35c896">Universidad</font>==
+===<font color="#045FB4">Android</font>===
+ * *AndroMessenger (2010)* 
+   * *Descripción*: sistema de mensajería instantánea para teléfonos Android. Incluye servidor para gestión de usuarios y conversaciones basado en Java.
+   * *Documento*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=AndroMessenger.pdf Descargar]
+   * *Código*: [https://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Android/AndroMessenger Ver]
+   * *Tecnologías*: Android, Java, Sockets, Cliente-Servidor
+
+ * *HomeDroidStreamer (2010)* 
+   * *Descripción*: sistema de streaming de canciones MP3 para escuchar la música de tu ordenador en tu teléfono Android. Sistemas desarrollados:
+      * *Desktop*: envía los ficheros MP3 a reproducir al teléfono Android a través de Internet. Permite seleccionar una lista de canciones que podrán ser escuchadas desde el teléfono.
+      * *Servidor*: permite la interconexión del programa Desktop y de la aplicación Android, gestionando los usuarios y las direcciones IP de los sistemas. Utiliza cifrado SSL para las conexiones.
+      * *Android*: reproduce el streaming de audio MP3 enviado desde la aplicación Desktop. Muestra información ID3 de las canciones así como la carátula de la canción. Realiza la comunicación con el servidor de forma encriptada mediante SSL.
+   * *Documento*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=HomeDroidStreamer.pdf Descargar]
+   * *Código*: [https://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Android/HomeDroidStreamer Ver]
+   * *Tecnologías*: Android, Java, Sockets, SSL, Apache, PHP, MySQL, Cliente-Servidor, MP3, ID3, Java Swing
+
+===<font color="#045FB4">Java</font>===
+ * *RMI Numbers Game (2009)* 
+   * *Descripción*: juego cliente-servidor de consola que consiste en adivinar el número generado en el servidor. La comunicación se realiza mediante Java RMI.
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=RMI%20Numbers%20Game.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/RMI%20Numbers%20Game Ver]
+   * *Tecnologías*: Java, RMI, Cliente-Servidor
+
+ * *Bluetooth Multiplayer J2ME Game (2008)* 
+   * *Descripción*: juego del tesoro multijugador basado en bluetooth para teléfonos J2ME.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/Bluetooth%20Multiplayer%20J2ME%20Game Ver]
+   * *Tecnologías*: Java, J2ME
+
+ * *Multicast Messaging (2009)* 
+   * *Descripción*: servidor multicast que envía mensajes de texto a clientes Java.
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=Multicast%20Messaging.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/Multicast%20Messaging Ver]
+   * *Tecnologías*: Java, Multicast sockets, Cliente-Servidor
+
+ * *Printer Spooler (2008)* 
+   * *Descripción*: simulación de spooler de impresión en Java.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/Printer%20Spooler Ver]
+   * *Tecnologías*: Java
+
+ * *XML-SAX-DOM Study (2009)* 
+   * *Descripción*: comparación e implementación de tecnologías XML, SAX y DOM en Java
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=XML-SAX-DOM Study.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Java/XML-SAX-DOM Study Ver]
+   * *Tecnologías*: Java, XML, SAX, DOM
+
+===<font color="#045FB4">Web</font>===
+ * *aNMap (2011-2012)* 
+   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
+   * *Tecnologías*: Android, Java
+
+===<font color="#045FB4">C/C++</font>===
+ * *aNMap (2011-2012)* 
+   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
+   * *Tecnologías*: Android, Java
+
+===<font color="#045FB4">Matlab</font>===
+ * *aNMap (2011-2012)* 
+   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
+   * *Tecnologías*: Android, Java
+
+
+===<font color="#045FB4">VHDL</font>===
+ * *aNMap (2011-2012)* 
+   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
+   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
+   * *Tecnologías*: Android, Java
