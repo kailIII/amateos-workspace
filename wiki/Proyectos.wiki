@@ -162,8 +162,7 @@
  * *Analog Signal Processing (2005)* 
    * *Descripción*: estudios sobre procesamiento de señales analógicas realizado en Matlab/Simulink. Contiene estudios sobre modulaciones linear y angular así como transmisiones a través de canales paso banda.
    * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=Linear%20Modulation%20(MATLAB).pdf Descargar Linear Modulation Study] [http://code.google.com/p/amateos-workspace/downloads/detail?name=Angle%20Modulation%20Study%20(MATLAB).pdf Descargar Angle Modulation Study] [http://code.google.com/p/amateos-workspace/downloads/detail?name=guion.pdf Descargar Band Pass Transmissions Study]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Linear%20Modulation%20(MATLAB)/Code Linear Modulation] [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Angle%20Modulation%20Study%20(MATLAB)/Code Angle Modulation]
-[http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Pass%20Band%20Transmissions%20Study%20(MATLAB) Pass Band Transmissions]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Linear%20Modulation%20(MATLAB)/Code Linear Modulation] [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Angle%20Modulation%20Study%20(MATLAB)/Code Angle Modulation] [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Signal%20Processing/Analog%20Signals/Pass%20Band%20Transmissions%20Study%20(MATLAB)/Code Pass Band Transmissions]
    * *Tecnologías*: Matlab, Simulink
 
 ===<font color="#045FB4">VHDL</font>===
