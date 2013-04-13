@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<micasa>
+  <habitacion id="comedor">
+    <mueble>Silla</mueble>
+    <mueble>Mesa</mueble>
+    <puerta a="balcon"/>
+  </habitacion>
+  
+    <habitacion id="cocina">
+    <mueble>Encimera</mueble>
+    <mueble>Mesa</mueble>
+    <puerta a="balcon"/>
+  </habitacion>
+  
+  <habitacion id="dormitorio1">
+    <mueble>Cama</mueble>
+    <mueble>Armario</mueble>
+    <puerta a="pasillo"/>
+  </habitacion>
+  
+  <habitacion id="dormitorio2">
+    <mueble>Cama</mueble>
+    <mueble>Armario</mueble>
+    <puerta a="pasillo"/>
+  </habitacion>
+  
+  <habitacion id="dormitorio3">
+    <mueble>Cama</mueble>
+    <mueble>Armario</mueble>
+    <puerta a="balcon"/>
+  </habitacion>
+</micasa>

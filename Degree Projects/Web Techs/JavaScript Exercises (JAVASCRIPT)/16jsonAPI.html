@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Prueba Json API</title>
+
+<script type='text/javascript'> 
+	var lenguaje;
+	function obtenerTraduccion(json) {
+		traduccion = json.responseData.translatedText;
+		document.getElementById('traduccion').innerHTML="<font size='5'><b>La traducci&oacute;n al chino de <font color='red'>" + document.getElementById('texto').value + "</font> es: <font color='red'>" + traduccion + "</font></font></b>";
+	}
+</script>
+
+<script type='text/javascript'> 
+	function comprobar(texto){
+		var head = document.getElementsByTagName('head')[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=' + texto.value + '&langpair=es%7Czh&callback=obtenerTraduccion';
+		head.appendChild(script);
+	}
+</script>
+
+
+
+</head>
+<body>
+
+<h1>Traductor Espa&ntilde;ol-Chino usando API google Translate</h1>
+
+Introduce la frase a traducir: <input type='text' name='texto' id='texto' size='20'>
+<input type='button' name='boton' id='boton' value='Traducir' onClick=comprobar(document.getElementById('texto'))>
+
+<br><br><br>
+<div id="traduccion"></div>
+
+
+</body>
+</html>

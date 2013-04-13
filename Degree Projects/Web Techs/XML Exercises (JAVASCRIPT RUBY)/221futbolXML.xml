@@ -1,0 +1,21 @@
+<?xml version="1.0"?> 
+
+<Equipo> 
+	<personas>
+	
+		<entrenador>Fabriciano González 'Fabri'</entrenador>
+		<presidente>Enrique Pina</presidente> 
+		<jugador class='portero'>Roberto Fernández Alvarellos</jugador>
+		<jugador class='defensa'>Allan Romeo Nyom</jugador>
+		<jugador class='defensa'>Jonathan Mensah</jugador> 
+		<jugador class='defensa'>Diego Mainz García</jugador> 
+		<jugador class='defensa'>Guilherme Siqueira</jugador> 
+		<jugador class='centrocampista'>Daniel Benítez González</jugador> 
+		<jugador class='centrocampista'>Abel Gómez Moreno</jugador> 
+		<jugador class='centrocampista'>Juan José Collantes Guerrero</jugador> 
+		<jugador class='centrocampista'>Carlos Calvo Sobrado</jugador>
+		<jugador class='delantero'>Alexandre Geijo Pazos</jugador>
+		<jugador class='delantero'>Fabián Ariel Orellana Valenzuela</jugador> 
+
+	</personas> 
+</Equipo>

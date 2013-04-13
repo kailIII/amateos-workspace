@@ -1,0 +1,25 @@
+<?xml version="1.0"?> 
+
+<eq:Equipo  xmlns:eq='http://www.granada.cf/equipo'
+			xmlns:ins='http://www.granada.cf/instalaciones'> 
+	
+	<ins:estadio>Los cármenes</ins:estadio>
+	
+	<eq:personas>
+	
+		<eq:entrenador>Fabriciano González 'Fabri'</eq:entrenador>
+		<eq:presidente>Enrique Pina</eq:presidente> 
+		<eq:jugador class='portero'>Roberto Fernández Alvarellos</eq:jugador>
+		<eq:jugador class='defensa'>Allan Romeo Nyom</eq:jugador>
+		<eq:jugador class='defensa'>Jonathan Mensah</eq:jugador> 
+		<eq:jugador class='defensa'>Diego Mainz García</eq:jugador> 
+		<eq:jugador class='defensa'>Guilherme Siqueira</eq:jugador> 
+		<eq:jugador class='centrocampista'>Daniel Benítez González</eq:jugador> 
+		<eq:jugador class='centrocampista'>Abel Gómez Moreno</eq:jugador> 
+		<eq:jugador class='centrocampista'>Juan José Collantes Guerrero</eq:jugador> 
+		<eq:jugador class='centrocampista'>Carlos Calvo Sobrado</eq:jugador>
+		<eq:jugador class='delantero'>Alexandre Geijo Pazos</eq:jugador>
+		<eq:jugador class='delantero'>Fabián Ariel Orellana Valenzuela</eq:jugador> 
+
+	</eq:personas> 
+</eq:Equipo>

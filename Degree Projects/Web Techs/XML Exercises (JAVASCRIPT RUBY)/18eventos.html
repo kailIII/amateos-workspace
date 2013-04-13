@@ -1,0 +1,36 @@
+<html>
+<head><title>Prueba eventos</title>
+
+<script type='text/javascript'> 
+	function confirmar() {
+		
+		if(confirm('Estás seguro?')){
+			document.getElementById('resultado').innerHTML = "Confirmado!!";}	
+		else{
+			document.getElementById('resultado').innerHTML = "NO confirmado!!";	
+		}
+				
+	}
+
+	function addOnClick()
+	{
+		var x = document.getElementById("boton");
+		if (x.addEventListener)
+		{  
+			x.addEventListener("click", confirmar, false);
+		}
+	}
+	
+	window.onload=addOnClick;
+
+</script>
+
+
+</head>
+<body>
+<input type="button" id="boton" value="Pinchar">
+
+<h1><div id="resultado"></div></h1>
+
+</body>
+</html>

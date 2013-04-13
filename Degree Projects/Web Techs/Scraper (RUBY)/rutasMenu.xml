@@ -1,0 +1,31 @@
+<?xml version="1.0"?> 
+<menuPrincipal>
+	
+	<itemMenuPrincipal name='Bebidas'> 	
+
+		<itemSecundario name='Aguas'>		
+			<itemTerciario id='1'>Agua con gas</itemTerciario>
+			<itemTerciario id='2'>Agua con sabores</itemTerciario>
+			<itemTerciario id='3'>Agua sin gas</itemTerciario>
+		</itemSecundario>
+		
+		
+		
+		<itemSecundario name='Cervezas'>			
+			<itemTerciario id='1'>Especialidades</itemTerciario>
+			<itemTerciario id='2'>Importac</itemTerciario>
+			<itemTerciario id='3'>Light y sin alcohol</itemTerciario>
+			<itemTerciario id='4'>Negra</itemTerciario>
+			<itemTerciario id='5'>Nacional</itemTerciario>
+		</itemSecundario>
+		
+			
+		<itemSecundario name='Licores'>
+			<itemTerciario id='1'>Ginebra</itemTerciario>
+			<itemTerciario id='2'>Ron</itemTerciario>
+			<itemTerciario id='3'>Tequila</itemTerciario>
+			<itemTerciario id='4'>Vodka</itemTerciario>
+		</itemSecundario>
+	</itemMenuPrincipal>
+
+</menuPrincipal>

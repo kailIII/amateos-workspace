@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="quiniela" type="quinielaType" />
+  <xsd:complexType name="quinielaType">
+    <xsd:sequence>
+      <xsd:element name="partido" type="partidoType" minOccurs='15' maxOccurs='15'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="partidoType">
+    <xsd:sequence>
+      <xsd:element name="local" type="xsd:string" />
+      <xsd:element name="visitante" type="xsd:string" />
+      <xsd:element name="resultado" type="xsd:string" />
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:int" />
+  </xsd:complexType>
+</xsd:schema>
