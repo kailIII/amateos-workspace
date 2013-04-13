@@ -138,7 +138,7 @@
 ===<font color="#045FB4">C/C++</font>===
  * *Threads (C++) (2007)* 
    * *Descripción*: conjunto de ejercicios sobre hebras (threads) realizados mediante C++.
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FClient%20%3A%20Server Client-Server]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FMutual%20Exclusion Mutual-Exclusion]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FClient%20%3A%20Server/Code Client-Server]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FMutual%20Exclusion/Code Mutual-Exclusion]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FThreads/Code Threads]
    * *Tecnologías*: C++, Threads
 
 ===<font color="#045FB4">Matlab</font>===
