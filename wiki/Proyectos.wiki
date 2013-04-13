@@ -172,8 +172,7 @@
    * *Tecnologías*: Matlab, Simulink
 
 ===<font color="#045FB4">VHDL</font>===
- * *aNMap (2011-2012)* 
-   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
-   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
-   * *Tecnologías*: Android, Java
+ * *Signal Generator FPGA (2007)* 
+   * *Descripción*: generador de señales para FPGA desarrollado mediante VHDL
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/VHDL/Signal%20generator Ver]
+   * *Tecnologías*: VHDL
