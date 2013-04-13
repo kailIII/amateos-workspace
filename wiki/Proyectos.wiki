@@ -141,12 +141,17 @@
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FClient%20%3A%20Server/Code Client-Server]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FMutual%20Exclusion/Code Mutual-Exclusion]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FThreads/Code Threads]
    * *Tecnologías*: C++, Threads
 
+ * *PIC Light and Temperature Sensor System (2006)* 
+   * *Descripción*: diseño, construcción y programación de un sensor de luz y temperatura basado en microprocesador PIC. Programado mediante C para PIC y diseñado mediante el software Proteus.
+   * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=PIC%20Light%20and%20Temperature%20Sensor%20System.pdf Descargar]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FPIC%20Light%20and%20Temperature%20Sensor%20System Ver]
+   * *Tecnologías*: C, PIC
+
 ===<font color="#045FB4">Matlab</font>===
- * *aNMap (2011-2012)* 
-   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
-   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
-   * *Tecnologías*: Android, Java
+ * *Audio Processing (2007)* 
+   * *Descripción*: conjunto de ejercicios de procesamiento de audio realizados mediante Matlab: quantization, sampling, oversampling, sound synthesis, modulation
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Audio%20Processing Ver]
+   * *Tecnologías*: Matlab
 
 
 ===<font color="#045FB4">VHDL</font>===
