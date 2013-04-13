@@ -136,11 +136,10 @@
    * *Tecnologías*: Ruby, Soap, Rest, XML-RPC
 
 ===<font color="#045FB4">C/C++</font>===
- * *aNMap (2011-2012)* 
-   * *Descripción*: escáner de redes para Android. Busca los dispositivos de red que se encuentran conectados a la misma red local que el teléfono y muestra información (incluyendo el fabricante de la tarjeta de red) acerca de éstos y de la red.
-   * *Presentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=INFTEL_aNMap_presentacion.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Master%20INFTEL/aNMap Ver]
-   * *Tecnologías*: Android, Java
+ * *Threads (C++) (2007)* 
+   * *Descripción*: conjunto de ejercicios sobre hebras (threads) realizados mediante C++.
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FClient%20%3A%20Server Client-Server]  [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FMutual%20Exclusion Mutual-Exclusion]
+   * *Tecnologías*: C++, Threads
 
 ===<font color="#045FB4">Matlab</font>===
  * *aNMap (2011-2012)* 
