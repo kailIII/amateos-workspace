@@ -144,7 +144,7 @@
  * *PIC Light and Temperature Sensor System (2006)* 
    * *Descripción*: diseño, construcción y programación de un sensor de luz y temperatura basado en microprocesador PIC. Programado mediante C para PIC y diseñado mediante el software Proteus.
    * *Documentación*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=PIC%20Light%20and%20Temperature%20Sensor%20System.pdf Descargar]
-   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FPIC%20Light%20and%20Temperature%20Sensor%20System Ver]
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects%2FC%3AC%2B%2B%2FPIC%20Light%20and%20Temperature%20Sensor%20System/Code Ver]
    * *Tecnologías*: C, PIC
 
 ===<font color="#045FB4">Matlab</font>===
@@ -152,6 +152,12 @@
    * *Descripción*: conjunto de ejercicios de procesamiento de audio realizados mediante Matlab: quantization, sampling, oversampling, sound synthesis, modulation
    * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Audio%20Processing Ver]
    * *Tecnologías*: Matlab
+
+ * *Communications (2008)* 
+   * *Descripción*: simulaciones mediante Simulink/Matlab de sistemas de colas ATM (ATM Queue System) y conmutadores ATM (ATM Switches).
+   * *Código*: [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Communications/ATM%20Switch%20Simulation%20(SIMULINK%20MATLAB) ATM Switch Simulation] [http://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Matlab/Communications/Queue%20System%20(SIMULINK%20MATLAB) ATM Queue Simulation]
+   * *Tecnologías*: Matlab, Simulink
+
 
 
 ===<font color="#045FB4">VHDL</font>===
