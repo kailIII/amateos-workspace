@@ -78,8 +78,14 @@ https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/AndroMesse
  * *HomeDroidStreamer (2010)* 
    * *Descripción*: sistema de streaming de canciones MP3 para escuchar la música de tu ordenador en tu teléfono Android. Diseño del protocolo de comunicación. Sistemas desarrollados:
       * *Desktop*: envía los ficheros MP3 a reproducir al teléfono Android a través de Internet. Permite seleccionar una lista de canciones que podrán ser escuchadas desde el teléfono.
-      * *Servidor*: permite la interconexión del programa Desktop y de la aplicación Android, gestionando los usuarios y las direcciones IP de los sistemas. Utiliza cifrado SSL para las conexiones.
+https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/HomeDroid_desktop.png
+
+      * *Server*: permite la interconexión del programa Desktop y de la aplicación Android, gestionando los usuarios y las direcciones IP de los sistemas. Utiliza cifrado SSL para las conexiones.
+https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/HomeDroid_server.png
+
       * *Android*: reproduce el streaming de audio MP3 enviado desde la aplicación Desktop. Muestra información ID3 de las canciones así como la carátula de la canción. Realiza la comunicación con el servidor de forma encriptada mediante SSL.
+https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/HomeDroid_android_2.png https://amateos-workspace.googlecode.com/svn/trunk/site/images/degree/HomeDroid_android_1.png
+
    * *Documento*: [http://code.google.com/p/amateos-workspace/downloads/detail?name=HomeDroidStreamer.pdf Descargar]
    * *Código*: [https://code.google.com/p/amateos-workspace/source/browse/trunk/Degree%20Projects/Android/HomeDroidStreamer Ver]
    * *Tecnologías*: Android, Java, Sockets, SSL, Apache, HTML, CSS, PHP, MySQL, Cliente-Servidor, MP3, ID3, Java Swing
